@@ -1,0 +1,41 @@
+var Utils = {};
+
+
+/*
+Remove an element and provide a function that inserts it into its original position
+https://developers.google.com/speed/articles/javascript-dom
+@param element {Element} The element to be temporarily removed
+@return {Function} A function that inserts the element into its original position
+ */
+
+Utils.removeToInsertLater = function(element) {
+  var nextSibling, parentNode;
+  parentNode = element.parentNode;
+  nextSibling = element.nextSibling;
+  parentNode.removeChild(element);
+  return function() {
+    if (nextSibling) {
+      parentNode.insertBefore(element, nextSibling);
+    } else {
+      parentNode.appendChild(element);
+    }
+  };
+};
+
+
+/*
+fastest possible way to destroy all sub nodes (aka childs)
+http://jsperf.com/innerhtml-vs-removechild/15
+@param element {Element} The element for which all childs should be removed
+ */
+
+Utils.removeAllChilds = function(element) {
+  var count;
+  count = 0;
+  while (element.firstChild) {
+    count++;
+    element.removeChild(element.firstChild);
+  }
+};
+
+module.exports = Utils;

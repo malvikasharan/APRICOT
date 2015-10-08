@@ -1,0 +1,13 @@
+[
+   {
+      "attributes" : {
+         "Name" : "EDEN",
+         "ID" : "gene00001"
+      },
+      "strand" : "+",
+      "seqname" : "ctg123",
+      "end" : 9000,
+      "start" : 1000,
+      "feature" : "gene"
+   }
+]

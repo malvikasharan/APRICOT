@@ -1,0 +1,54 @@
+.logo {
+  position:relative;
+  margin:auto;
+  width:100%;
+}
+
+.logo form {
+  margin: 0.3em 55px;
+}
+
+.logo_container {
+  position:relative;
+  height: 300px;
+  overflow:hidden;
+  margin-left:55px;
+/*  border:1px solid #999; */
+}
+
+.logo_graphic {
+
+  position:absolute;
+  height:300px;
+  background-color: #E4F0C4;
+  cursor: pointer;
+}
+
+.logo_yaxis {
+  position:absolute;
+}
+
+.canvas_logo {
+  position:absolute;
+  top:0;
+}
+
+.logo_divider {
+  background: rgba(256,0,0,0.1);
+  position:absolute;
+  top:0;
+  height:300px;
+  width:1px;
+  left:50%;
+  z-index: 5;
+}
+
+.logo_col_info div {
+  height: 1em;
+  width:0.5em;
+  float:left;
+}
+
+.logo_settings {
+  display:none;
+}

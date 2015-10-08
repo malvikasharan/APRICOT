@@ -1,0 +1,12 @@
+[
+   {
+      "feature" : "atg",
+      "attributes" : {},
+      "end" : 105,
+      "start" : 103,
+      "source" : "EMBL",
+      "frame" : 0,
+      "strand" : "+",
+      "seqname" : "SEQ1"
+   }
+]

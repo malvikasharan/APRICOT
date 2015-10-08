@@ -1,0 +1,5 @@
+{
+	"onSelectionChange" : "onSelectionChange",
+	"onSelectionChanged": "onSelectionChanged",
+	"onAnnotationClicked": "onAnnotationClicked"
+}

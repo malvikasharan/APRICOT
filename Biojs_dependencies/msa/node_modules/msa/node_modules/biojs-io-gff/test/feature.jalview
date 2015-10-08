@@ -1,0 +1,22 @@
+domain	red
+metal ion-binding site	00ff00
+transit peptide	0,105,215
+chain	225,105,0
+modified residue	105,225,35
+signal peptide	0,155,165
+helix	ff0000
+strand	00ff00
+coil	cccccc
+Your Own description here	FER_CAPAA	-1	3	93	domain
+Your Own description here	FER_CAPAN	-1	48	144	chain
+Your Own description here	FER_CAPAN	-1	50	140	domain
+Your Own description here	FER_CAPAN	-1	136	136	modified residue
+Your Own description here	FER1_LYCES	-1	1	47	transit peptide
+Your Own description here	Q93XJ9_SOLTU	-1	1	48	signal peptide
+Your Own description here	Q93XJ9_SOLTU	-1	49	144	chain
+startgroup	secondarystucture
+PDB secondary structure annotation	FER1_SPIOL	-1	52	59	strand
+PDB secondary structure annotation	FER1_SPIOL	-1	74	80	helix
+endgroup	secondarystructure
+GFF
+FER_CAPAA	GffGroup	domain	3	93	.	.

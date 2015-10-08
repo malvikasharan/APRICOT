@@ -1,0 +1,10 @@
+<meta charset="utf8">
+
+Press "CTRL-C" to copy your fancy text to the clipboard".
+
+<script src="./dist/browser.js"></script>
+<script>
+var ClipBoard = require("copy2clipboard");
+var clip = new ClipBoard();
+clip.set("fancy clipboard"); // set any content
+</script>
