@@ -1,7 +1,7 @@
 ##APRICOT
 A tool to explore functional classes of proteins.
 
-APRICOT is a computational pipeline for the identification of specific functional class of interest in large protein sets. For the characterization of user-provided query proteins with specific functional features, APRICOT uses efficient sequence-based algorithms and predictive models like signature motifs of protein families. Due to the flexible choice of reference predictive models, APRICOT has the potential to identify the unexplored functional classes of proteins in the entire proteome.
+APRICOT is a computational pipeline for the identification of specific functional classes of interest in large protein sets. For the characterization of user-provided query proteins with specific functional features, APRICOT uses efficient sequence-based algorithms and predictive models like signature motifs of protein families. Due to the flexible choice of reference predictive models, APRICOT has the potential to identify the unexplored functional classes of proteins in the entire proteome.
 
 ###Introduction
 
