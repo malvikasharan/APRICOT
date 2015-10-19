@@ -1,11 +1,13 @@
 ##APRICOT
 A tool to explore functional classes of proteins.
 
-**APRICOT** is a computational pipeline for the identification of specific functional classes of interest in large protein sets. The pipeline uses efficient sequence-based algorithms and predictive models like signature motifs of protein families for the characterization of user-provided query proteins with specific functional features. Due to the flexible choice of reference predictive models, APRICOT has the potential to identify unexplored functional classes of interest in the entire proteome.
+**APRICOT** is a computational pipeline for the identification of specific functional classes of interest in large protein sets. The pipeline uses efficient sequence-based algorithms and predictive models like signature motifs of protein families for the characterization of user-provided query proteins with specific functional features. The dynamic framework of APRICOT allows the identification of unexplored functional classes of interest in the large protein sets or the entire proteome.
 
 ###Introduction
 
 The initial focus of this project was to identify functional domains in bacterial proteins that have the potential to interact with RNA and understand their regulatory roles and mechanisms, therefore it was named as **APRICOT** (stands for **A**nalysing **P**rotein **R**NA **I**nteractions by **Co**mputational **T**echniques). Using this pipeline, a proteome-wide screening of RBPs was carried out in Salmonella Typhimurium. Candidate RNA-interacting proteins were selected and subjected to co-immunoprecipitation and high throughput RNA sequencing based assays (RIP-seq) by experimentalists in our lab to validate their RNA-binding potential and identify bound RNAs. The statistical analysis of the sequencing data indicated a significant number of them as putative RBPs and revealed the distinct expression patterns for the proteins that bind to several RNAs compared to the proteins that have fewer RNA partners.
+
+Due to the flexible choice of reference predictive models, several proteins of known classes are being tested with this pipeline. The result obtained from the experimental validation of RBPs were taken into account to improve the functional characterization of the query proteins by APRICOT.  
 
 ###Authors and Contributors
 
