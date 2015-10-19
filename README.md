@@ -1,5 +1,3 @@
-#About
-
 ##APRICOT
 A tool to explore functional classes of proteins.
 
