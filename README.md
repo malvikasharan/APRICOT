@@ -120,7 +120,7 @@ optional arguments:
   --version, -v         show version
  ````
  
- ##create
+##create
     `python3 APRICOT/bin/apricot create -h`
     
 ````
@@ -131,7 +131,7 @@ positional arguments:
                  name/path is provided
 ````
 
- ##taxid
+##taxid
     `python3 APRICOT/bin/apricot taxid -h`
         
 ````
@@ -147,7 +147,7 @@ optional arguments:
                         taxonomy id retreival
 ````
  
- ##query
+##query
     `python3 APRICOT/bin/apricot query -h`
         
 ````
@@ -181,7 +181,7 @@ optional arguments:
                         Get proteome table from UniProt
 ````
     
- ##keywords
+##keywords
     `python3 APRICOT/bin/apricot keywords -h`
         
 ````
@@ -200,7 +200,7 @@ optional arguments:
                         Path for keyword files
 ````
     
- ##select
+##select
     `python3 APRICOT/bin/apricot select -h`
         
 ````
@@ -228,7 +228,7 @@ optional arguments:
                         The domain summary from PfamA
 ````
     
- ##predict
+##predict
     `python3 APRICOT/bin/apricot predict -h`
         
 ````
@@ -258,7 +258,7 @@ optional arguments:
                         proteins
 ````
     
- ##filter
+##filter
     `python3 APRICOT/bin/apricot filter -h`
         
 ````
@@ -302,7 +302,7 @@ optional arguments:
                         output path for the selected data with annotations
 ````
     
- ##classify
+##classify
     `python3 APRICOT/bin/apricot classify -h`
         
 ````
@@ -323,7 +323,7 @@ optional arguments:
                         keywords
 ````
     
- ##annoscore
+##annoscore
     `python3 APRICOT/bin/apricot annoscore -h`
         
 ````
@@ -343,7 +343,7 @@ optional arguments:
                         Output path for annotation scoring files
 ````
     
- ##summary
+##summary
     `python3 APRICOT/bin/apricot summary -h`
         
 ````
@@ -368,7 +368,7 @@ optional arguments:
                         Provide output path
 ````
  
- ##addanno
+##addanno
     `python3 APRICOT/bin/apricot addanno -h`
         
 ````
@@ -409,7 +409,7 @@ optional arguments:
                         till the perl script run_raptorx-ss8.pl
 ````
  
- ##vis
+##vis
     `python3 APRICOT/bin/apricot vis -h`
         
 ````
@@ -439,7 +439,7 @@ optional arguments:
                         Output path for visualization files
 ````
  
- ##format
+##format
     `python3 APRICOT/bin/apricot format -h`
         
 ````
