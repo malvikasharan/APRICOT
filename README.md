@@ -29,17 +29,13 @@ APRICOT is implemented in Python 3 and therefore users are advised to have Pytho
 
 ##Instructions for the installation
 
-Please clone or download this repository in your system https://github.com/malvikasharan/APRICOT.git, which will create a directory tree of following structure.
-|/
-|apricotlib
-|bin
-|
+Please clone or download this repository in your system `git clone https://github.com/malvikasharan/APRICOT.git`, which will create a directory tree of the following structure.
 ```
 APRICOT
 │   README.md
 │   LICENCE
 │
-└───apricotlib
+└───├apricotlib
     ├bin
     ├run_scripts
 ```
