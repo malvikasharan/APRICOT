@@ -119,6 +119,344 @@ optional arguments:
   -h, --help            show this help message and exit
   --version, -v         show version
  ````
+ 
+ ##create
+    `python3 APRICOT/bin/apricot create -h`
+    
+````
+usage: apricot create [-h] analysis_path
+
+positional arguments:
+  analysis_path  Creates APRICOT_analysis folder for anlysis unless other
+                 name/path is provided
+````
+
+ ##taxid
+    `python3 APRICOT/bin/apricot taxid -h`
+        
+````
+usage: apricot taxid [-h] [--species SPECIES] db_path
+
+positional arguments:
+  db_path
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --species SPECIES, -s SPECIES
+                        Species name (comma separated if more than one) for
+                        taxonomy id retreival
+````
+ 
+ ##query
+    `python3 APRICOT/bin/apricot query -h`
+        
+````
+usage: apricot query [-h] [--analysis_path ANALYSIS_PATH] [--uids UIDS]
+                     [--taxid TAXID] [--geneids GENEIDS] [--proteome]
+                     [--fasta] [--query_path QUERY_PATH]
+                     [--proteome_path PROTEOME_PATH] [--xml_path XML_PATH]
+                     [--fasta_path FASTA_PATH] [--feature_table FEATURE_TABLE]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --analysis_path ANALYSIS_PATH, -ap ANALYSIS_PATH
+                        Main analysis path
+  --uids UIDS, -ui UIDS
+                        Comma separated UniProt IDs
+  --taxid TAXID, -tx TAXID
+                        Select taxonomy id for query species
+  --geneids GENEIDS, -gi GENEIDS
+                        Comma separated query genes
+  --proteome, -P        Analyze entire proteome
+  --fasta, -fa          Analyze fasta sequences
+  --query_path QUERY_PATH, -qp QUERY_PATH
+                        Get proteome table from UniProt
+  --proteome_path PROTEOME_PATH, -pp PROTEOME_PATH
+                        Get proteome table from UniProt
+  --xml_path XML_PATH, -o XML_PATH
+                        Get proteome table from UniProt
+  --fasta_path FASTA_PATH, -fp FASTA_PATH
+                        Get proteome table from UniProt
+  --feature_table FEATURE_TABLE, -ft FEATURE_TABLE
+                        Get proteome table from UniProt
+````
+    
+ ##keywords
+    `python3 APRICOT/bin/apricot keywords -h`
+        
+````
+usage: apricot keywords [-h] [--classify CLASSIFY] [--kw_path KW_PATH]
+                        kw_domain
+
+positional arguments:
+  kw_domain             Comma separated keywords for domain selection
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --classify CLASSIFY, -cl CLASSIFY
+                        Optional comma separated keyword for result
+                        classification
+  --kw_path KW_PATH, -kp KW_PATH
+                        Path for keyword files
+````
+    
+ ##select
+    `python3 APRICOT/bin/apricot select -h`
+        
+````
+usage: apricot select [-h] [--cdd_dom] [--ipr_dom] [--dom_kw DOM_KW]
+                      [--cdd_table CDD_TABLE] [--ipr_table IPR_TABLE]
+                      [--interpro_mapped_cdd INTERPRO_MAPPED_CDD]
+                      [--domain_path DOMAIN_PATH]
+                      [--pfam_domain_file PFAM_DOMAIN_FILE]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --cdd_dom, -C         Selects functional domains of interest from CDD
+  --ipr_dom, -I         Selects functional domains of interest from CDD
+  --dom_kw DOM_KW, -dk DOM_KW
+                        Absolute path of keyword files
+  --cdd_table CDD_TABLE, -cdd CDD_TABLE
+                        Absolute path of CDD domain table
+  --ipr_table IPR_TABLE, -ipr IPR_TABLE
+                        Absolute path of InterPro domain table
+  --interpro_mapped_cdd INTERPRO_MAPPED_CDD, -map INTERPRO_MAPPED_CDD
+                        InterPro domains mapped to CDD domains.
+  --domain_path DOMAIN_PATH, -dp DOMAIN_PATH
+                        Absolute path for keyword selected domains
+  --pfam_domain_file PFAM_DOMAIN_FILE, -pf PFAM_DOMAIN_FILE
+                        The domain summary from PfamA
+````
+    
+ ##predict
+    `python3 APRICOT/bin/apricot predict -h`
+        
+````
+usage: apricot predict [-h] [--analysis_path ANALYSIS_PATH] [--cdd] [--ipr]
+                       [--force] [--cdd_db CDD_DB] [--ipr_db IPR_DB]
+                       [--outpath OUTPATH] [--fasta FASTA]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --analysis_path ANALYSIS_PATH, -ap ANALYSIS_PATH
+                        Provide output path for the analysis result of the
+                        chosen method
+  --cdd, -C             domain prediction based on CDD only
+  --ipr, -I             domain prediction based on InterProScan only
+  --force, -F           force flag for the current analysis, removes already
+                        existing predictions
+  --cdd_db CDD_DB, -cdb CDD_DB
+                        Provide absolute path of CDD databases based on the
+                        chosen method
+  --ipr_db IPR_DB, -idb IPR_DB
+                        Provide absolute path of InterPro databases based on
+                        the chosen method
+  --outpath OUTPATH, -o OUTPATH
+                        Provide output path for domain prediction files
+  --fasta FASTA, -f FASTA
+                        Provide absolute path of fasta files for query
+                        proteins
+````
+    
+ ##filter
+    `python3 APRICOT/bin/apricot filter -h`
+        
+````
+usage: apricot filter [-h] [--analysis_path ANALYSIS_PATH] [--cdd] [--ipr]
+                      [--domain_description_file DOMAIN_DESCRIPTION_FILE]
+                      [--similarity SIMILARITY] [--coverage COVERAGE]
+                      [--identity IDENTITY] [--evalue EVALUE] [--gap GAP]
+                      [--bit BIT] [--go_path GO_PATH] [--pred_path PRED_PATH]
+                      [--up_table UP_TABLE] [--xml_info XML_INFO]
+                      [--compile_out COMPILE_OUT] [--selected SELECTED]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --analysis_path ANALYSIS_PATH, -ap ANALYSIS_PATH
+                        Provide analysis path
+  --cdd, -C             Filter of domain prediction based on CDD only
+  --ipr, -I             Filter of domain prediction based on InterProScan only
+  --domain_description_file DOMAIN_DESCRIPTION_FILE, -d DOMAIN_DESCRIPTION_FILE
+                        Description table of the selected domains
+  --similarity SIMILARITY, -sim SIMILARITY
+                        Percent similarity of prediction with reference
+  --coverage COVERAGE, -cov COVERAGE
+                        Percent coverage of reference domain in prediction
+  --identity IDENTITY, -iden IDENTITY
+                        Percent identity of prediction with reference
+  --evalue EVALUE, -eval EVALUE
+                        Evalue of the domain prediction
+  --gap GAP, -gap GAP   Percent gap in predicted domain
+  --bit BIT, -bit BIT   Bit score in predicted domain
+  --go_path GO_PATH, -gp GO_PATH
+                        Go mapping data from fixed database reference files
+  --pred_path PRED_PATH, -pp PRED_PATH
+                        Raw files of domain prediction
+  --up_table UP_TABLE, -ref UP_TABLE
+                        Uniprot proteome table from UniProt
+  --xml_info XML_INFO, -feat XML_INFO
+                        Uniprot proteome table from UniProt
+  --compile_out COMPILE_OUT, -co COMPILE_OUT
+                        Data with annotation after filtering
+  --selected SELECTED, -sel SELECTED
+                        output path for the selected data with annotations
+````
+    
+ ##classify
+    `python3 APRICOT/bin/apricot classify -h`
+        
+````
+usage: apricot classify [-h] [--analysis_path ANALYSIS_PATH]
+                        [--selected SELECTED] [--class_kw CLASS_KW]
+                        [--outpath OUTPATH]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --analysis_path ANALYSIS_PATH, -ap ANALYSIS_PATH
+                        Provide analysis path
+  --selected SELECTED, -sel SELECTED
+                        Selected data file (from select) with annotations
+  --class_kw CLASS_KW, -ck CLASS_KW
+                        Path for keyword files
+  --outpath OUTPATH, -o OUTPATH
+                        Classification of selected data based on provided
+                        keywords
+````
+    
+ ##annoscore
+    `python3 APRICOT/bin/apricot annoscore -h`
+        
+````
+usage: apricot annoscore [-h] [--analysis_path ANALYSIS_PATH]
+                         [--selected SELECTED] [--cdd_pred CDD_PRED]
+                         [--outpath OUTPATH]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --analysis_path ANALYSIS_PATH, -ap ANALYSIS_PATH
+                        Provide analysis path
+  --selected SELECTED, -sel SELECTED
+                        Provided selected protein table
+  --cdd_pred CDD_PRED, -cp CDD_PRED
+                        Raw files obtained from CDD based domain prediction
+  --outpath OUTPATH, -o OUTPATH
+                        Output path for annotation scoring files
+````
+    
+ ##summary
+    `python3 APRICOT/bin/apricot summary -h`
+        
+````
+usage: apricot summary [-h] [--analysis_path ANALYSIS_PATH]
+                       [--query_map QUERY_MAP] [--domains DOMAINS]
+                       [--unfilter_path UNFILTER_PATH] [--outpath OUTPATH]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --analysis_path ANALYSIS_PATH, -ap ANALYSIS_PATH
+                        Provide analysis path
+  --query_map QUERY_MAP, -q QUERY_MAP
+                        query_to_uids.txt file created by APRICOT to save
+                        query mapping information
+  --domains DOMAINS, -d DOMAINS
+                        File containing all the keyword selected_domains of
+                        interest
+  --unfilter_path UNFILTER_PATH, -uf UNFILTER_PATH
+                        Directory with the unfiltered domain data from
+                        output-1 (unfiltered_data)
+  --outpath OUTPATH, -o OUTPATH
+                        Provide output path
+````
+ 
+ ##addanno
+    `python3 APRICOT/bin/apricot addanno -h`
+        
+````
+usage: apricot addanno [-h] [--force] [--pdb] [--psortb] [--raptorx] [--refss]
+                       [--analysis_path ANALYSIS_PATH] [--fasta FASTA]
+                       [--selected SELECTED] [--outpath OUTPATH]
+                       [--pdb_path PDB_PATH] [--psortb_path PSORTB_PATH]
+                       [--raptorx_path RAPTORX_PATH]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --force, -F           force flag for the current analysis, removes already
+                        existing predictions
+  --pdb, -PDB           Optional annotation of the selected protein by PDB
+                        structure homolog
+  --psortb, -PSORTB     Optional annotation of the selected protein by
+                        localization using PsortB
+  --raptorx, -RAPTORX   Optional annotation of the selected protein by
+                        secondary structure using RaptorX
+  --refss, -REFSS       Optional annotation of the selected protein by
+                        secondary structure using literature reference
+  --analysis_path ANALYSIS_PATH, -ap ANALYSIS_PATH
+                        Provide analysis path
+  --fasta FASTA, -fa FASTA
+                        Provide absolute path of fasta files for query
+                        proteins
+  --selected SELECTED, -sel SELECTED
+                        Provided selected protein table
+  --outpath OUTPATH, -o OUTPATH
+                        Output path for additional annotation data
+  --pdb_path PDB_PATH, -pdb_path PDB_PATH
+                        Provide absolute path of APRICOT formatted pdb
+                        database ~pdb/pdb_sequence/pdb_sequence.txt
+  --psortb_path PSORTB_PATH, -psortb_path PSORTB_PATH
+                        Provide absolute path of APRICOT installed psortb
+  --raptorx_path RAPTORX_PATH, -raptorx_path RAPTORX_PATH
+                        Provide absolute path of APRICOT installed raptorx
+                        till the perl script run_raptorx-ss8.pl
+````
+ 
+ ##vis
+    `python3 APRICOT/bin/apricot vis -h`
+        
+````
+usage: apricot vis [-h] [--analysis_path ANALYSIS_PATH]
+                   [--ann_score ANN_SCORE] [--add_anno ADD_ANNO] [--domain]
+                   [--annoscore] [--secstr] [--localiz] [--msa] [--complete]
+                   [--outpath OUTPATH]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --analysis_path ANALYSIS_PATH, -ap ANALYSIS_PATH
+                        Provide analysis path
+  --ann_score ANN_SCORE, -an ANN_SCORE
+                        Provide annotation score file
+  --add_anno ADD_ANNO, -ad ADD_ANNO
+                        Provide path to additional annotation
+  --domain, -D          Visualizes predicted domains on the query by
+                        highlighting
+  --annoscore, -A       Visualizes overview of prediction statistics
+  --secstr, -S          Visualizes secondary structures predicted by RaptorX
+  --localiz, -L         Visualizes subcellular localization predcited by
+                        PsortB
+  --msa, -M             Visualizes Multiple Sequence Alignments of homologous
+                        sequences from PDB
+  --complete, -C        Visualizes all the possible features
+  --outpath OUTPATH, -o OUTPATH
+                        Output path for visualization files
+````
+ 
+ ##format
+    `python3 APRICOT/bin/apricot format -h`
+        
+````
+usage: apricot format [-h] [--analysis_path ANALYSIS_PATH] [--inpath INPATH]
+                      [--html] [--xlsx] [--outpath OUTPATH]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --analysis_path ANALYSIS_PATH, -ap ANALYSIS_PATH
+                        Provide analysis path
+  --inpath INPATH, -i INPATH
+                        Choose folder from analysis to be converted
+  --html, -HT
+  --xlsx, -XL
+  --outpath OUTPATH, -o OUTPATH
+                        Output path for files with different file formats
+````
 
 ###Performing an example analysis
 
