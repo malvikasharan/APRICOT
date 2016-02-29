@@ -20,9 +20,7 @@ The source codes of APRICOT are available at https://github.com/malvikasharan/AP
 ###Contact
 For question, troubleshooting and pull-requests, please feel free to contact Malvika Sharan <malvika.sharan@uni-wuerzburg.de> or <malvikasharan@gmail.com>
 
-###Installation and updating
-
-##Requirements
+###Tool Requirements
 APRICOT is implemented in Python 3 and therefore users are advised to have Python 3 installed in their system. APRICOT requires the third party packages [Biopython](http://biopython.org/wiki/Main_Page), [BLAST executables](https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE_TYPE=BlastDocs&DOC_TYPE=Download), [interproscan](https://www.ebi.ac.uk/interpro/interproscan.html), python libraries like [Matplotlib](http://matplotlib.org/), [requests](https://pypi.python.org/pypi/requests) and few other optional tools that are mentioned below.
 
 Please update the package list: `sudo apt-get update` and install the required packages:
