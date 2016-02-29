@@ -29,11 +29,20 @@ APRICOT is implemented in Python 3 and therefore users are advised to have Pytho
 
 ##Instructions for the installation
 
-Please clone or download this repository in your system https://github.com/malvikasharan/APRICOT.git, which will create a directory of following structure.
-    |APRICOT/
-        |apricotlib
-        |bin
-        |runscripts
+Please clone or download this repository in your system https://github.com/malvikasharan/APRICOT.git, which will create a directory tree of following structure.
+|/
+|apricotlib
+|bin
+|
+```
+APRICOT
+│   README.md
+│   LICENCE
+│
+└───apricotlib
+    ├bin
+    ├run_scripts
+```
 
 The run script for the installation of all the required files (apricot_db_tool.sh) can be found in the github folder https://github.com/malvikasharan/APRICOT/run_scripts. Users need to provide the path of the APRICOT repository in the system (APRICOT_PATH) and the path where the users wish to install APRICOT related tools and files (DB_PATH).
 
