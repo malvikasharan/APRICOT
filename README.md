@@ -29,7 +29,7 @@ Please update the package list: `sudo apt-get update` and install the required p
 
 ##Instructions for the installation
 
-Please clone `git clone https://github.com/malvikasharan/APRICOT.git` or download(https://github.com/malvikasharan/APRICOT/archive/master.zip) this repository in your system, which will create a directory tree of the following structure.
+Please clone `git clone https://github.com/malvikasharan/APRICOT.git` or [download](https://github.com/malvikasharan/APRICOT/archive/master.zip) this repository in your system, which will create a directory tree of the following structure.
 ```
 APRICOT
 │   README.md
