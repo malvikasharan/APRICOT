@@ -117,7 +117,7 @@ optional arguments:
  ````
  
 ##create
-    `python3 APRICOT/bin/apricot create -h`
+`python3 APRICOT/bin/apricot create -h`
     
 ````
 usage: apricot create [-h] analysis_path
@@ -128,7 +128,7 @@ positional arguments:
 ````
 
 ##taxid
-    `python3 APRICOT/bin/apricot taxid -h`
+`python3 APRICOT/bin/apricot taxid -h`
         
 ````
 usage: apricot taxid [-h] [--species SPECIES] db_path
@@ -144,7 +144,7 @@ optional arguments:
 ````
  
 ##query
-    `python3 APRICOT/bin/apricot query -h`
+`python3 APRICOT/bin/apricot query -h`
         
 ````
 usage: apricot query [-h] [--analysis_path ANALYSIS_PATH] [--uids UIDS]
@@ -178,7 +178,7 @@ optional arguments:
 ````
     
 ##keywords
-    `python3 APRICOT/bin/apricot keywords -h`
+`python3 APRICOT/bin/apricot keywords -h`
         
 ````
 usage: apricot keywords [-h] [--classify CLASSIFY] [--kw_path KW_PATH]
@@ -197,7 +197,7 @@ optional arguments:
 ````
     
 ##select
-    `python3 APRICOT/bin/apricot select -h`
+`python3 APRICOT/bin/apricot select -h`
         
 ````
 usage: apricot select [-h] [--cdd_dom] [--ipr_dom] [--dom_kw DOM_KW]
@@ -225,7 +225,7 @@ optional arguments:
 ````
     
 ##predict
-    `python3 APRICOT/bin/apricot predict -h`
+`python3 APRICOT/bin/apricot predict -h`
         
 ````
 usage: apricot predict [-h] [--analysis_path ANALYSIS_PATH] [--cdd] [--ipr]
@@ -255,7 +255,7 @@ optional arguments:
 ````
     
 ##filter
-    `python3 APRICOT/bin/apricot filter -h`
+`python3 APRICOT/bin/apricot filter -h`
         
 ````
 usage: apricot filter [-h] [--analysis_path ANALYSIS_PATH] [--cdd] [--ipr]
@@ -299,7 +299,7 @@ optional arguments:
 ````
     
 ##classify
-    `python3 APRICOT/bin/apricot classify -h`
+`python3 APRICOT/bin/apricot classify -h`
         
 ````
 usage: apricot classify [-h] [--analysis_path ANALYSIS_PATH]
@@ -320,7 +320,7 @@ optional arguments:
 ````
     
 ##annoscore
-    `python3 APRICOT/bin/apricot annoscore -h`
+`python3 APRICOT/bin/apricot annoscore -h`
         
 ````
 usage: apricot annoscore [-h] [--analysis_path ANALYSIS_PATH]
@@ -340,7 +340,7 @@ optional arguments:
 ````
     
 ##summary
-    `python3 APRICOT/bin/apricot summary -h`
+`python3 APRICOT/bin/apricot summary -h`
         
 ````
 usage: apricot summary [-h] [--analysis_path ANALYSIS_PATH]
@@ -365,7 +365,7 @@ optional arguments:
 ````
  
 ##addanno
-    `python3 APRICOT/bin/apricot addanno -h`
+`python3 APRICOT/bin/apricot addanno -h`
         
 ````
 usage: apricot addanno [-h] [--force] [--pdb] [--psortb] [--raptorx] [--refss]
@@ -406,7 +406,7 @@ optional arguments:
 ````
  
 ##vis
-    `python3 APRICOT/bin/apricot vis -h`
+`python3 APRICOT/bin/apricot vis -h`
         
 ````
 usage: apricot vis [-h] [--analysis_path ANALYSIS_PATH]
@@ -436,7 +436,7 @@ optional arguments:
 ````
  
 ##format
-    `python3 APRICOT/bin/apricot format -h`
+`python3 APRICOT/bin/apricot format -h`
         
 ````
 usage: apricot format [-h] [--analysis_path ANALYSIS_PATH] [--inpath INPATH]
