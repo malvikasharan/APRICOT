@@ -44,7 +44,20 @@ The run script for the installation of all the required files (apricot_db_tool.s
 
     sh $APRICOT_PATH/apricotlib/apricot_db_tool.sh $APRICOT_PATH $DB_PATH
 
-The APRICOT will install [CDD](ftp://ftp.ncbi.nih.gov/pub/mmdb/cdd/cdd.info) and [InterPro](ftp://ftp.ebi.ac.uk/pub/software/unix/iprscan/5/) databases.
+The APRICOT will mainly install [CDD](ftp://ftp.ncbi.nih.gov/pub/mmdb/cdd/cdd.info) and [InterPro](ftp://ftp.ebi.ac.uk/pub/software/unix/iprscan/5/) and [BLAST executables](ftp://ftp.ncbi.nih.gov/blast/executables/blast+). APRICOT also reuires various flatfiles, namely [CDD tables](ftp://ftp.ncbi.nih.gov/pub/mmdb/cdd/cdd.info), [InterPro tables](ftp://ftp.ebi.ac.uk/pub/software/unix/iprscan/5), [PDB secondary structures](http://www.rcsb.org/pdb/files/ss.txt), [taxonomy information] (http://www.uniprot.org/docs/speclist.txt), [Gene Ontology data](http://www.geneontology.org/ontology/go.obo) and [pfam table](ftp://ftp.ebi.ac.uk/pub/databases/Pfam/releases/Pfam29.0/database_files/), which are downloaded and saved locally in the pre-defined location in your bin folder.
+```
+bin
+│   ...
+└───├reference_db_files
+    └───├all_taxids  
+    └───├blast  
+    └───├cdd  
+    └───├go_mapping
+    └───├interpro
+    └───├pdb
+    └───├pfam
+```
+APRICOT allows additional annotations of the proteins by using various third party tools. For the secondary structure predictions APRICOT requires [RaptorX](https://github.com/Indicator/RaptorX-SS8.git)  which requires [RefSeq/nr database](ftp://ftp.ncbi.nih.gov/blast/db/FASTA) and for the subcellular localization APRICOT uses [PSORTb v2](https://github.com/lairdm/psortb-docker.git). These tools should be installed locally (please refer the run script) in order to allow APRICOT to carry out the optional annotations of proteins of interest.
 
 ###APRICOT’s subcommands
 
