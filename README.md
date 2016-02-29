@@ -25,7 +25,21 @@ For question, troubleshooting and pull-requests, please feel free to contact Mal
 ###Installation and updating
 
 ##Requirements
-APRICOT is implemented in Python 3 and therefore users are advised to have Python 3 installed in their system. APRICOT requires the third party packages [Biopython](http://biopython.org/wiki/Main_Page), [BLAST executables](https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE_TYPE=BlastDocs&DOC_TYPE=Download), [interproscan](https://www.ebi.ac.uk/interpro/interproscan.html) and few other optional tools that are mentioned below. The run script for the installation can be found in the github folder https://github.com/malvikasharan/APRICOT/run_scripts.
+APRICOT is implemented in Python 3 and therefore users are advised to have Python 3 installed in their system. APRICOT requires the third party packages [Biopython](http://biopython.org/wiki/Main_Page), [BLAST executables](https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE_TYPE=BlastDocs&DOC_TYPE=Download), [interproscan](https://www.ebi.ac.uk/interpro/interproscan.html) and few other optional tools that are mentioned below.
+
+##Instructions for the installation
+
+Please clone or download this repository in your system https://github.com/malvikasharan/APRICOT.git, which will create a directory of following structure.
+    |APRICOT/
+        |apricotlib
+        |bin
+        |runscripts
+
+The run script for the installation of all the required files (apricot_db_tool.sh) can be found in the github folder https://github.com/malvikasharan/APRICOT/run_scripts. Users need to provide the path of the APRICOT repository in the system (APRICOT_PATH) and the path where the users wish to install APRICOT related tools and files (DB_PATH).
+
+    sh $APRICOT_PATH/apricotlib/apricot_db_tool.sh $APRICOT_PATH $DB_PATH
+
+The APRICOT will install [CDD](ftp://ftp.ncbi.nih.gov/pub/mmdb/cdd/cdd.info) and [InterPro](ftp://ftp.ebi.ac.uk/pub/software/unix/iprscan/5/) databases.
 
 ###APRICOT’s subcommands
 
