@@ -21,7 +21,7 @@ The source codes of APRICOT are available at https://github.com/malvikasharan/AP
 For question, troubleshooting and pull-requests, please feel free to contact Malvika Sharan <malvika.sharan@uni-wuerzburg.de> or <malvikasharan@gmail.com>
 
 ###Tool Requirements
-APRICOT is implemented in Python 3 and therefore users are advised to have Python 3 installed in their system. APRICOT requires the third party packages [Biopython](http://biopython.org/wiki/Main_Page), [BLAST executables](https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE_TYPE=BlastDocs&DOC_TYPE=Download), [interproscan](https://www.ebi.ac.uk/interpro/interproscan.html), python libraries like [Matplotlib](http://matplotlib.org/), [requests](https://pypi.python.org/pypi/requests) and few other optional tools that are mentioned below.
+APRICOT is implemented in Python 3 and therefore users are advised to have Python 3 installed locally. APRICOT requires few third party packages, namely [Biopython](http://biopython.org/wiki/Main_Page), [BLAST executables](https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE_TYPE=BlastDocs&DOC_TYPE=Download), [interproscan](https://www.ebi.ac.uk/interpro/interproscan.html), python libraries like [Matplotlib](http://matplotlib.org/), [requests](https://pypi.python.org/pypi/requests) and few other optional tools that are mentioned below.
 
 Please update the package list: `sudo apt-get update` and install the required packages:
     `sudo apt-get install python3 python3-setuptools python3-pip python3-matplotlib`
@@ -29,15 +29,15 @@ Please update the package list: `sudo apt-get update` and install the required p
 
 ##Instructions for the installation
 
-Please clone `git clone https://github.com/malvikasharan/APRICOT.git` or [download](https://github.com/malvikasharan/APRICOT/archive/master.zip) this repository in your system, which will create a directory tree of the following structure.
+Please clone `git clone https://github.com/malvikasharan/APRICOT.git` or [download](https://github.com/malvikasharan/APRICOT/archive/master.zip) this repository in your system locally, which will create a directory tree of the following structure.
 ```
 APRICOT
 │   README.md
 │   LICENCE
 │
 └───├apricotlib
-    ├bin
-    ├run_scripts
+└───├bin
+└───├run_scripts
 ```
 
 The run script for the installation of all the required files (apricot_db_tool.sh) can be found in the github folder https://github.com/malvikasharan/APRICOT/run_scripts. Users need to provide the path of the APRICOT repository in the system (APRICOT_PATH) and the path where the users wish to install APRICOT related tools and files (DB_PATH). The APRICOT will mainly install [CDD](ftp://ftp.ncbi.nih.gov/pub/mmdb/cdd/cdd.info), [InterPro](ftp://ftp.ebi.ac.uk/pub/software/unix/iprscan/5/) and [BLAST executables](ftp://ftp.ncbi.nih.gov/blast/executables/blast+).
