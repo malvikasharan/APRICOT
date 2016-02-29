@@ -20,18 +20,21 @@ The tool is designed and developed by Malvika Sharan @malvikasharan in the lab o
 The source code of READemption can be found at https://github.com/malvikasharan/APRICOT.
 
 ###Contact
-For question and requests feel free to contact Malvika Sharan <malvika.sharan@uni-wuerzburg.de> or <malvikasharan@gmail.com>
+For question, troubleshooting and pull-requests, please feel free to contact Malvika Sharan <malvika.sharan@uni-wuerzburg.de> or <malvikasharan@gmail.com>
 
-###Documentation
+###Installation and updating
 
-The documentation is described in following sections covering different aspects of the APRICOT.
+###APRICOT’s subcommands
 
-Installation and updating
-Docker image
-APRICOT’s subcommands
-Performing an example analysis
-Troubleshooting
-License
-Versions/Change log
+###Performing an example analysis
+
+###Troubleshooting
+
+###License
+
+###Versions/Change log
+
+###Docker image
+Will be availed shortly.
 
 
