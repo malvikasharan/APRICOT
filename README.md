@@ -24,6 +24,9 @@ For question, troubleshooting and pull-requests, please feel free to contact Mal
 
 ###Installation and updating
 
+##Requirements
+APRICOT is implemented in Python 3 and therefore users are advised to have Python 3 installed in their system. APRICOT requires the third party packages [Biopython](http://biopython.org/wiki/Main_Page), [BLAST executables](https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE_TYPE=BlastDocs&DOC_TYPE=Download), [interproscan](https://www.ebi.ac.uk/interpro/interproscan.html) and few other optional tools that are mentioned below. The run script for the installation can be found in the github folder https://github.com/malvikasharan/APRICOT/run_scripts.
+
 ###APRICOT’s subcommands
 
 ###Performing an example analysis
