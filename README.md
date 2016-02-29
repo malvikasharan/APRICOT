@@ -15,7 +15,7 @@ Since the reference domains or predictive models can be defined for each analysi
 The tool is designed and developed by Malvika Sharan @malvikasharan in the lab of Prof. Dr. Jörg Vogel in the Institute for Molecular Infection Biology at the University of Würzburg. Dr. Konrad Förstner @konrad contributed to the project by providing important technical supervision and discussions. The authors are grateful to Prof. Thomas dandekar, Dr. Ana Eulalio, Dr. Charlotte Michaux and Caroline Taouk for critical discussions and feedback.
 
 ###Source code
-The source code of READemption can be found at https://github.com/malvikasharan/APRICOT.
+The source codes of APRICOT are available at https://github.com/malvikasharan/APRICOT.
 
 ###Contact
 For question, troubleshooting and pull-requests, please feel free to contact Malvika Sharan <malvika.sharan@uni-wuerzburg.de> or <malvikasharan@gmail.com>
@@ -465,6 +465,6 @@ optional arguments:
 ###Versions/Change log
 
 ###Docker image
-Will be availed shortly.
+Will be available soon.
 
 
