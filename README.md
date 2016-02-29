@@ -11,7 +11,7 @@ Due to the flexible choice of reference predictive models, several proteins of k
 
 ###Authors and Contributors
 
-The tool is designed and developed by Malvika Sharan @malvikasharan in the lab of Prof. Dr. Jörg Vogel in the Institute for Molecular Infection Biology at the University of Würzburg. Dr. Konrad Förstner @konrad contributed to the project by providing important technical supervision and discussions. The author thanks the members of Vogel lab, especially Dr. Charlotte Michaux and Caroline Tawk for their biological point of views and important contributions in the related projects.
+The tool is designed and developed by Malvika Sharan @malvikasharan in the lab of Prof. Dr. Jörg Vogel in the Institute for Molecular Infection Biology at the University of Würzburg. Dr. Konrad Förstner @konrad contributed to the project by providing important technical supervision and discussions. The authors are grateful to Prof. Thomas dandekar, Dr. Ana Eulalio, Dr. Charlotte Michaux and Caroline Taouk for critical discussions and feedback.
 
 ###Documentation
 
