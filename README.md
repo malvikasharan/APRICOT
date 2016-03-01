@@ -38,7 +38,7 @@ APRICOT
 └───├run_scripts
 ```
 
-The run script for the installation of all the required files (apricot_db_tool.sh) can be found in the github folder https://github.com/malvikasharan/APRICOT/run_scripts. Users need to provide the path of the APRICOT repository in the system (APRICOT_PATH) and the path where the users wish to install APRICOT related tools and files (DB_PATH). The APRICOT will mainly install [CDD](ftp://ftp.ncbi.nih.gov/pub/mmdb/cdd/cdd.info), [InterPro](ftp://ftp.ebi.ac.uk/pub/software/unix/iprscan/5/) and [BLAST executables](ftp://ftp.ncbi.nih.gov/blast/executables/blast+).
+The run script for the installation of all the required files (apricot_db_tool.sh) can be found in the github folder https://github.com/malvikasharan/APRICOT/run_scripts. Users need to provide the path of the APRICOT repository in the system (APRICOT_PATH) and the path where the users wish to install APRICOT related tools and files (DB_PATH). APRICOT will mainly install [CDD](ftp://ftp.ncbi.nih.gov/pub/mmdb/cdd/cdd.info), [InterPro](ftp://ftp.ebi.ac.uk/pub/software/unix/iprscan/5/) and [BLAST executables](ftp://ftp.ncbi.nih.gov/blast/executables/blast+).
 
     sh $APRICOT_PATH/apricotlib/apricot_db_tool.sh $APRICOT_PATH $DB_PATH
     
