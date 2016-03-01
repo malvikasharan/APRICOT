@@ -38,25 +38,26 @@ APRICOT
 └───├run_scripts
 ```
 
-The run script for the installation of all the required files (apricot_db_tool.sh) can be found in the github folder https://github.com/malvikasharan/APRICOT/run_scripts. Users need to provide the path of the APRICOT repository in the system (APRICOT_PATH) and the path where the users wish to install APRICOT related tools and files (DB_PATH). APRICOT will mainly install  InterProScan (ftp://ftp.ebi.ac.uk/pub/software/unix/iprscan/5/) and BLAST executables (ftp://ftp.ncbi.nih.gov/blast/executables/blast+).
+The run script for the installation of all the required files (apricot_db_tool.sh) can be found in the github folder https://github.com/malvikasharan/APRICOT/run_scripts. Users need to provide the path of the APRICOT repository in the system (APRICOT_PATH) and the path where the users wish to install APRICOT related tools and files (DB_PATH). APRICOT will mainly install  InterProScan (ftp://ftp.ebi.ac.uk/pub/software/unix/iprscan/5/) and BLAST executables (ftp://ftp.ncbi.nih.gov/blast/executables/blast+) and create CDD and InterPro databases locally.
 
     sh $APRICOT_PATH/apricotlib/apricot_db_tool.sh $APRICOT_PATH $DB_PATH
+
+Alternatively,InterProSan can be downloaded and installed locally with the required database:
+
+    wget -c -P $apricot_db/interpro/InterProScanData ftp://ftp.ebi.ac.uk:21/pub/software/unix/iprscan/55.17-56.0/*-64-bit.tar*
+    for files in $(ls $apricot_db/interpro/InterProScanData/*.tar.gz)
+    do
+        tar xvf $files -C $apricot_db/interpro/InterProScanData
+    done
     
-Alternatively, CDD can downloaded and installed locally by:
+    
+and, CDD can be established locally:
 
     wget -c -P $apricot_db/conserved_domain_database/version_info ftp://ftp.ncbi.nih.gov/pub/mmdb/cdd/cdd.info
     wget -c -P $apricot_db/conserved_domain_database/Cdd ftp://ftp.ncbi.nih.gov/pub/mmdb/cdd/little_endian/*
     for binary_files in $(ls $apricot_db/conserved_domain_database/Cdd)
     do
         tar xvf $apricot_db/conserved_domain_database/Cdd/$binary_files -C $apricot_db/conserved_domain_database/Cdd
-    done
-
-and InterPro can be downloaded and installed locally by:
-
-    wget -c -P $apricot_db/interpro/InterProScanData ftp://ftp.ebi.ac.uk:21/pub/software/unix/iprscan/55.17-56.0/*-64-bit.tar*
-    for files in $(ls $apricot_db/interpro/InterProScanData/*.tar.gz)
-    do
-        tar xvf $files -C $apricot_db/interpro/InterProScanData
     done
 
 APRICOT also reuires various flatfiles, namely [CDD tables](ftp://ftp.ncbi.nih.gov/pub/mmdb/cdd/cdd.info), [InterPro tables](ftp://ftp.ebi.ac.uk/pub/software/unix/iprscan/5), [PDB secondary structures](http://www.rcsb.org/pdb/files/ss.txt), [taxonomy information] (http://www.uniprot.org/docs/speclist.txt), [Gene Ontology data](http://www.geneontology.org/ontology/go.obo) and [pfam table](ftp://ftp.ebi.ac.uk/pub/databases/Pfam/releases/Pfam29.0/database_files/), which are downloaded and saved locally in the pre-defined location (for e.g. reference_db_files in our bin folder).
