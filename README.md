@@ -16,7 +16,7 @@ The tool is designed and developed by Malvika Sharan @malvikasharan in the lab o
 The source codes of APRICOT are available at https://github.com/malvikasharan/APRICOT.
 
 ###Contact
-For question, troubleshooting and requests, please feel free to contact Malvika Sharan <malvika.sharan@uni-wuerzburg.de> and <malvikasharan@gmail.com>
+For question, troubleshooting and requests, please feel free to contact Malvika Sharan at <malvika.sharan@uni-wuerzburg.de> / <malvikasharan@gmail.com>
 
 ###Tool Requirements
 APRICOT is implemented in Python 3 and therefore users are advised to have Python 3 installed locally. APRICOT requires few third party packages, namely [Biopython](http://biopython.org/wiki/Main_Page), [BLAST executables](https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE_TYPE=BlastDocs&DOC_TYPE=Download), [interproscan](https://www.ebi.ac.uk/interpro/interproscan.html), python libraries like [Matplotlib](http://matplotlib.org/), [requests](https://pypi.python.org/pypi/requests) and few other optional tools that are mentioned below.
