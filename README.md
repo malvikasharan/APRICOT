@@ -31,10 +31,11 @@ Please update the package list: `sudo apt-get update` and install the required p
 Please clone `git clone https://github.com/malvikasharan/APRICOT.git` or [download](https://github.com/malvikasharan/APRICOT/archive/master.zip) this repository in your system locally, which will create a directory tree of the following structure.
 ```
 APRICOT
-│   README.md
-│   LICENCE.md
+│   APRICOT_EXAMPLE.md
+│   CHANGELOG.md
 │   Dockerfile
-│
+│   LICENCE.md
+│   README.md
 └───├apricotlib
 └───├bin
 └───├run_scripts
