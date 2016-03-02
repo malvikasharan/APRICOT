@@ -454,10 +454,6 @@ optional arguments:
                         Output path for files with different file formats
 ````
 
-###Performing an example analysis
-
-###Troubleshooting
-
 ###License
 
 APRICOT is open source software and available under the ISC license.
@@ -470,6 +466,6 @@ Please read the license content [here](https://github.com/malvikasharan/APRICOT/
 Please check the current version [here](https://github.com/malvikasharan/APRICOT/blob/master/CHNAGELOG.md).
 
 ###Docker image
-Will be available soon.
+The [Docker image for APRICOT](https://github.com/malvikasharan/APRICOT/edit/master/Dockerfile) Will be available soon.
 
 
