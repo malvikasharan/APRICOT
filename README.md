@@ -462,7 +462,7 @@ optional arguments:
 
 APRICOT is open source software and available under the ISC license.
 
-(Copyright (c) 2011-2015, Malvika Sharan)[https://github.com/malvikasharan/APRICOT/edit/master/LICENSE.md] <malvika.sharan@uni-wuerzburg.de>
+[Copyright (c) 2011-2015, Malvika Sharan](https://github.com/malvikasharan/APRICOT/edit/master/LICENSE.md) <malvika.sharan@uni-wuerzburg.de>
 
 ###Versions/Change log
 
