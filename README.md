@@ -32,7 +32,8 @@ Please clone `git clone https://github.com/malvikasharan/APRICOT.git` or [downlo
 ```
 APRICOT
 │   README.md
-│   LICENCE
+│   LICENCE.md
+│   Dockerfile
 │
 └───├apricotlib
 └───├bin
