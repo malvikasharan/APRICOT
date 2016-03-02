@@ -464,7 +464,7 @@ APRICOT is open source software and available under the ISC license.
 
 Copyright (c) 2011-2015, Malvika Sharan, <malvika.sharan@uni-wuerzburg.de>
 
-Please read the license content [here](https://github.com/malvikasharan/APRICOT/blob/master/LICENSE.md) for detail.
+Please read the license content [here](https://github.com/malvikasharan/APRICOT/blob/master/LICENSE.md).
 
 ###Versions/Change log
 Please check the current version [here](https://github.com/malvikasharan/APRICOT/blob/master/CHNAGELOG.md).
