@@ -83,7 +83,7 @@ APRICOT allows additional annotations of the proteins by using various third par
 
 ##APRICOT’s subcommands
 
-In general the subcommands require the analysis folder, which is 'APRICOT_analysis' by deafult. Different subcommands can be quickly viewed by running `python3 APRICOT/bin/apricot`.
+Each subcommand requires the path to the analysis folder ('APRICOT_analysis' by deafult). Different subcommands can be quickly viewed by running `python3 APRICOT/bin/apricot`.
 
 ````
 usage: apricot [-h] [--version]
