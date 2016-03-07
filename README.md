@@ -6,7 +6,17 @@
 
 ###Summary of the pipeline
 
-The functionality of APRICOT can be explained in 3 parts: program input, analysis modules and program output. There are two program inputs: query proteins that are subjected to characterization by domains and associated functional properties, and set of terms indicating protein domains of functional relevance. Based on these inputs, APRICOT carries out an analysis using different components of the pipeline. The analysis modules of APRICOT can be explained as primary analysis and secondary analysis. The functionalities involved in primary analysis are retrieval of sequences and known annotations of query proteins, collection of domain of interest from domain databases, and prediction of all the functional domains in a given query using tools for domain prediction. The data obtained from the primary analysis is used as a resource for the secondary analysis, which mainly involves the selection of proteins based on the predicted domains, the calculation of the statistical and biological significance of the selected proteins to possess the function of interest, and biological characterization of these proteins by additional annotations like subcellular localization and secondary structures. For each analysis, APRICOT generates consistent overview and several tables and graphics associated with the resulting information.
+The functionality of APRICOT can be explained in 3 parts: program input, analysis modules and program output. 
+
+####Program inputs
+1) Query proteins that are subjected to characterization by domains and associated functional properties
+2) Set of terms indicating protein domains of functional relevance. Based on these inputs
+
+####Analysis modules of APRICOT
+1) Primary analysis: The functionalities involved in primary analysis are retrieval of sequences and known annotations of query proteins, collection of domain of interest from domain databases, and prediction of all the functional domains in a given query using tools for domain prediction. 
+2) Secondary analysis: The data obtained from the primary analysis is used as a resource for the secondary analysis, which mainly involves the selection of proteins based on the predicted domains, the calculation of the statistical and biological significance of the selected proteins to possess the function of interest, and biological characterization of these proteins by additional annotations like subcellular localization and secondary structures. 
+
+####Program output: For each analysis step, APRICOT generates results in tablular manner, an overview of the analysis and graphics associated with the resulting information.
 
 The initial focus of this project was to identify functional domains in bacterial proteins that have the potential to interact with RNA and understand their regulatory roles and mechanisms, hence named **APRICOT** (stands for **A**nalysing **P**rotein **R**NA **I**nteractions by **Co**mbined-scoring **T**echnique), but since the reference domains or predictive models can be defined for each analysis, other known classes have also been tested successfully by this pipeline. We are also carrying out experimental validations of few RBPs identified by APRICOT in collaboration with the biologists in our lab, which can contribute significantly to the imrovement of our computational method.  
 
