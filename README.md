@@ -32,6 +32,17 @@ The tool is designed and developed by Malvika Sharan @malvikasharan in the lab o
 
 The source codes of APRICOT are available at https://github.com/malvikasharan/APRICOT.
 
+##License
+
+APRICOT is open source software and available under the ISC license.
+
+Copyright (c) 2011-2015, Malvika Sharan, <malvika.sharan@uni-wuerzburg.de>
+
+Please read the license content [here](https://github.com/malvikasharan/APRICOT/blob/master/LICENSE.md).
+
+##Docker image
+The [Docker image for APRICOT](https://github.com/malvikasharan/APRICOT/edit/master/Dockerfile) Will be available soon.
+
 ###Contact
 
 For question, troubleshooting and requests, please feel free to contact Malvika Sharan at <malvika.sharan@uni-wuerzburg.de> / <malvikasharan@gmail.com>
@@ -466,18 +477,8 @@ optional arguments:
                         Output path for files with different file formats
 ````
 
-##License
-
-APRICOT is open source software and available under the ISC license.
-
-Copyright (c) 2011-2015, Malvika Sharan, <malvika.sharan@uni-wuerzburg.de>
-
-Please read the license content [here](https://github.com/malvikasharan/APRICOT/blob/master/LICENSE.md).
-
 ##Versions/Change log
 Please check the current version [here](https://github.com/malvikasharan/APRICOT/blob/master/CHNAGELOG.md).
 
-##Docker image
-The [Docker image for APRICOT](https://github.com/malvikasharan/APRICOT/edit/master/Dockerfile) Will be available soon.
 
 
