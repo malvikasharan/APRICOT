@@ -63,22 +63,15 @@ The run script for the installation of all the required files (apricot_db_tool.s
 
     sh $APRICOT_PATH/apricotlib/apricot_db_tool.sh $APRICOT_PATH $DB_PATH
 
-Alternatively, the BLAST executables (rpsblast, blastp, psiblast, makeblastdb) can be installed locally as directed [here](http://bioinformatics.ai.sri.com/ptools/installation-guide/released/blast.html) and CDD can be established locally as shown below:
+Alternatively, the BLAST executables (rpsblast, blastp, psiblast, makeblastdb) can be installed locally as directed [here](http://bioinformatics.ai.sri.com/ptools/installation-guide/released/blast.html) and CDD can be established locally (DB_path//conserved_domain_database/Cdd) as shown below:
 
-    wget -c -P $DB_PATH/conserved_domain_database/version_info ftp://ftp.ncbi.nih.gov/pub/mmdb/cdd/cdd.info
-    wget -c -P $DB_PATH/conserved_domain_database/Cdd ftp://ftp.ncbi.nih.gov/pub/mmdb/cdd/little_endian/*
-    for binary_files in $(ls $DB_PATH/conserved_domain_database/Cdd)
-    do
-        tar xvf $DB_PATH/conserved_domain_database/Cdd/$binary_files -C $DB_PATH/conserved_domain_database/Cdd
-    done
+    wget ftp://ftp.ncbi.nih.gov/pub/mmdb/cdd/little_endian/*
+    tar xvf file_name
 
-InterProSan can be downloaded and installed locally with the required database as shown below:
+InterProSan can be downloaded and installed locally (DB_PATH/interpro/InterProScanData) with the required database as shown below:
 
-    wget -c -P $DB_PATH/interpro/InterProScanData ftp://ftp.ebi.ac.uk:21/pub/software/unix/iprscan/55.17-56.0/*-64-bit.tar*
-    for files in $(ls $DB_PATH/interpro/InterProScanData/*.tar.gz)
-    do
-        tar xvf $files -C $DB_PATH/interpro/InterProScanData
-    done
+    wget ftp://ftp.ebi.ac.uk/pub/software/unix/iprscan/5/5.17-56.0/interproscan-5.17-56.0-64-bit.tar.gz
+    tar xvf interproscan-5.17-56.0-64-bit.tar.gz
 
 APRICOT also reuires various flatfiles, namely [CDD tables](ftp://ftp.ncbi.nih.gov/pub/mmdb/cdd/cdd.info), [InterPro tables](ftp://ftp.ebi.ac.uk/pub/software/unix/iprscan/5), [PDB secondary structures](http://www.rcsb.org/pdb/files/ss.txt), [taxonomy information] (http://www.uniprot.org/docs/speclist.txt), [Gene Ontology data](http://www.geneontology.org/ontology/go.obo) and [pfam table](ftp://ftp.ebi.ac.uk/pub/databases/Pfam/releases/Pfam29.0/database_files/), which are downloaded and saved locally in the pre-defined location (for e.g. reference_db_files in our bin folder).
 ```
