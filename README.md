@@ -14,9 +14,9 @@ The functionality of APRICOT can be explained in 3 parts: program input, analysi
 2) Set of terms indicating protein domains of functional relevance. Based on these inputs
 
 #####Analysis modules of APRICOT
-The functionalities involved in primary analysis are retrieval of sequences and known annotations of query proteins, collection of domain of interest from domain databases, and prediction of all the functional domains in a given query using tools for domain prediction. 
+The functionalities involved in the primary analysis are retrieval of sequences and known annotations of query proteins, collection of domains of interest from domain databases, and identification of all the functional domains in a given query.
 
-The data obtained from the primary analysis is used as a resource for the secondary analysis, which mainly involves the selection of proteins based on the predicted domains, the calculation of the statistical and biological significance of the selected proteins to possess the function of interest, and biological characterization of these proteins by additional annotations like subcellular localization and secondary structures. 
+The data obtained from the primary analysis is used as a resource for the secondary analysis, which mainly involves the selection of proteins based on the predicted domains, the calculation of the statistical and biological significance of the selected proteins to possess the function of interest by means of sequence-based features, and biological characterization of these proteins by additional annotations like subcellular localization and secondary structures. 
 
 #####Program output
 For each analysis step, APRICOT generates results in tablular manner, in addition with an overview of the analysis and graphics associated with the resulting information.
