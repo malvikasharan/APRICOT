@@ -63,12 +63,12 @@ The run script for the installation of all the required files (apricot_db_tool.s
 
     sh apricotlib/apricot_db_tool.sh APRICOT apricot_db_and_tools
 
-Alternatively, the BLAST executables (rpsblast, blastp, psiblast, makeblastdb) can be installed locally as directed [here](http://bioinformatics.ai.sri.com/ptools/installation-guide/released/blast.html) and CDD can be established locally (DB_path//conserved_domain_database/Cdd) as shown below:
+Alternatively, the BLAST executables (rpsblast, blastp, psiblast, makeblastdb) can be installed locally as directed [here](http://bioinformatics.ai.sri.com/ptools/installation-guide/released/blast.html) and CDD can be established locally (in the path apricot_db_and_tools/conserved_domain_database/Cdd) as shown below:
 
     wget ftp://ftp.ncbi.nih.gov/pub/mmdb/cdd/little_endian/*
     tar xvf file_name
 
-InterProSan can be downloaded and installed locally (DB_PATH/interpro/InterProScanData) with the required database as shown below:
+InterProSan can be downloaded and installed locally (in the path apricot_db_and_tools/interpro/InterProScanData) with the required database as shown below:
 
     wget ftp://ftp.ebi.ac.uk/pub/software/unix/iprscan/5/5.17-56.0/interproscan-5.17-56.0-64-bit.tar.gz
     tar xvf interproscan-5.17-56.0-64-bit.tar.gz
