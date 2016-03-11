@@ -43,7 +43,7 @@ Please read the license content [here](https://github.com/malvikasharan/APRICOT/
 ##Docker image
 The [Docker image for APRICOT](https://github.com/malvikasharan/APRICOT/edit/master/Dockerfile) Will be available soon.
 
-###Contact
+##Contact
 
 For question, troubleshooting and requests, please feel free to contact Malvika Sharan at <malvika.sharan@uni-wuerzburg.de> / <malvikasharan@gmail.com>
 
