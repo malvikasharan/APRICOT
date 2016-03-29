@@ -66,6 +66,7 @@ APRICOT
 │   Dockerfile
 │   LICENCE.md
 │   README.md
+|
 └───├apricotlib
 └───├bin
 └───├run_scripts
@@ -260,11 +261,13 @@ APRICOT_analysis
                     |   | query_id-2.fasta
                     |   | ...
                     |   | query_id-n.fasta
+                    |
                     └───├xml_path_mapped_query3  # Location for protein FASTA sequences of each query
                     |   | query_id-1.xml
                     |   | query_id-2.xml
                     |   | ...
                     |   | query_id-n.xml
+                    |
                     └───├mapped_protein_xml_info_tables  
                         | query_feature_table.csv  # File containing all the features of the queries 
                                                    # obtained by parsing xml files
@@ -473,8 +476,8 @@ APRICOT_analysis
     └───├output    
             └───├2_selected_domain_information            
                     └───├combined_data         # All the selected domain data extended 
-                    |   |                       # with the UniProt annotation
-                    |   | annotation_extended_for_selected.csv
+                        |                       # with the UniProt annotation
+                        | annotation_extended_for_selected.csv
 ````
 
 #Optional sub-commands
