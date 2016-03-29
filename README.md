@@ -87,10 +87,10 @@ InterProSan can be downloaded and installed locally (in the path apricot_db_and_
 
 APRICOT also reuires various flatfiles, namely [CDD tables](ftp://ftp.ncbi.nih.gov/pub/mmdb/cdd/cdd.info), [InterPro tables](ftp://ftp.ebi.ac.uk/pub/software/unix/iprscan/5), [PDB secondary structures](http://www.rcsb.org/pdb/files/ss.txt), [taxonomy information] (http://www.uniprot.org/docs/speclist.txt), [Gene Ontology data](http://www.geneontology.org/ontology/go.obo) and [pfam table](ftp://ftp.ebi.ac.uk/pub/databases/Pfam/releases/Pfam29.0/database_files/), which are downloaded and saved locally in the pre-defined location (for e.g. 'reference_db_files' in 'APRICOT' folder).
 ```
-APRICOT
+bin
 │   ...
 └───├reference_db_files
-    └───├all_taxids  
+    └───├all_taxids
     └───├blast  
     └───├cdd  
     └───├go_mapping
