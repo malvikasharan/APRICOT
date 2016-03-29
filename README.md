@@ -1,4 +1,4 @@
-#APRICOT
+#[APRICOT](http://malvikasharan.github.io/APRICOT/)
 
 ###A tool for sequence-based identification and characterization of protein classes
 
