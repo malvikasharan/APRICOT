@@ -191,21 +191,22 @@ The structure of directories and the enclosing files in the 'output' folder in t
 ```
 APRICOT_analysis
     └───├output
-            └───├0_predicted_domains            # Location for the output data obtained from the subcommand 'predict'
+            └───├0_predicted_domains  # Location for the output data obtained from the subcommand 'predict'
             |        
             └───├1_compiled_domain_information  # Location for the output data obtained from the subcommand 'filter'          
             |        
             └───├2_selected_domain_information            
             |    
-            └───├3_annotation_scoring          # Location for the output data obtained from the subcommand 'annoscore'
+            └───├3_annotation_scoring  # Location for the output data obtained from the subcommand 'annoscore'
             |   
-            └───├4_additional_annotations      # Location for additional annotations for the selected queries using subcommand 'addanno'
+            └───├4_additional_annotations  # Location for additional annotations for the selected 
+            |                              # queries using subcommand 'addanno'
             |
-            └───├5_analysis_summary             # Location for the output data obtained from the subcommand 'summary'
+            └───├5_analysis_summary  # Location for the output data obtained from the subcommand 'summary'
             |
-            └───├format_output_data             # Location for the output data obtained from the subcommand 'format'
+            └───├format_output_data  # Location for the output data obtained from the subcommand 'format'
             |        
-            └───├visualization_files            # Location for the output data obtained from the subcommand 'vis'
+            └───├visualization_files  # Location for the output data obtained from the subcommand 'vis'
 ```
 
 ##taxid
@@ -338,14 +339,14 @@ optional arguments:
 ````
 APRICOT_analysis
     └───├output
-            └───├0_predicted_domains            # Location for the output data obtained from the subcommand 'predict'
-                    └───├cdd_analysis          # Details of domain predicted from CDD for each query
+            └───├0_predicted_domains # Location for the output data obtained from the subcommand 'predict'
+                    └───├cdd_analysis  # Details of domain predicted from CDD for each query
                     |    query_id-1.txt
                     |    query_id-2.txt
                     |    ...
                     |    query_id-n.txt
                     |
-                    └───├ipr_analysis          # Details of domain predicted from InterPro for each query
+                    └───├ipr_analysis  # Details of domain predicted from InterPro for each query
                     |    query_id-1.tsv
                     |    query_id-2.tsv
                     |    ...
@@ -402,11 +403,11 @@ optional arguments:
 APRICOT_analysis
     └───├output
         └───├1_compiled_domain_information  # Location for the output data obtained from the subcommand 'filter'          
-                    └───├unfiltered_data                    # Information of all the domains in the query proteins predicted.
+                    └───├unfiltered_data  # Information of all the domains in the query proteins predicted.
                     |    cdd_unfiltered_all_prediction.csv  # CDD 
                     |    ipr_unfiltered_all_prediction.csv  # InterPro
                     |
-                    └───├selected_data                      # Information of the selected reference domains in the query proteins
+                    └───├selected_data      # Information of the selected reference domains in the query proteins
                     |    cdd_filtered.csv                   # CDD 
                     |    ipr_filtered.csv                   # InterPro 
 ````
@@ -435,10 +436,12 @@ optional arguments:
 APRICOT_analysis
     └───├output    
             └───├2_selected_domain_information            
-                    └───├combined_data         # All the selected domain data extended with the UniProt annotation
+                    └───├combined_data         # All the selected domain data extended 
+                    |                          # with the UniProt annotation
                     |    annotation_extended_for_selected.csv
                     |
-                    └───├classified_data       # Location for the output data obtained from the subcommand 'classify'
+                    └───├classified_data       # Location for the output data obtained 
+                    |                          # from the subcommand 'classify'
                     |    classification_key-1_selected_data.csv  # Files containing subsets of predicted data...
                     |    classification_key-2_selected_data.csv  # ... based on user provided classification keys.
 ````
@@ -466,7 +469,8 @@ optional arguments:
 ````
 APRICOT_analysis
     └───├output
-            └───├3_annotation_scoring          # Location for the output data obtained from the subcommand 'annoscore'
+            └───├3_annotation_scoring          # Location for the output data obtained 
+                |                              # from the subcommand 'annoscore'
                 |    annotation_extended_for_selected.csv
 ````
 
@@ -514,10 +518,14 @@ optional arguments:
 ````
 APRICOT_analysis
     └───├output
-            └───├4_additional_annotations      # Location for additional annotations for the selected queries using subcommand 'addanno'
-            |        └───├pdb_sequence_prediction       # PDB structure homologs of the selected queries (flag --pdb, -PDB)
-            |        └───├protein_localization          # PSORTb based localization of the selected queries (flag --psortb, -PSORTB)
-            |        └───├protein_secondary_structure   # RaptorX based structure of the selected queries (flag --raptorx, -RAPTORX)
+            └───├4_additional_annotations      # Location for additional annotations for the 
+            |                                  # selected queries using subcommand 'addanno'
+            |        └───├pdb_sequence_prediction       # PDB structure homologs of the selected 
+            |                                           # queries (flag --pdb, -PDB)
+            |        └───├protein_localization          # PSORTb based localization of the selected 
+            |                                           # queries (flag --psortb, -PSORTB)
+            |        └───├protein_secondary_structure   # RaptorX based structure of the selected 
+                                                        # queries (flag --raptorx, -RAPTORX)
 ````
 
 ##summary
@@ -547,7 +555,7 @@ optional arguments:
 ````
 APRICOT_analysis
     └───├output
-            └───├5_analysis_summary             # Location for the output data obtained from the subcommand 'summary'
+            └───├5_analysis_summary # Location for the output data obtained from the subcommand 'summary'
             |    APRICOT_analysis_summary.csv
 ````
 
@@ -573,7 +581,7 @@ optional arguments:
 ````
 APRICOT_analysis
     └───├output
-            └───├format_output_data             # Location for the output data obtained from the subcommand 'format'
+            └───├format_output_data # Location for the output data obtained from the subcommand 'format'
             |        └───├excel_files               # excel files (flag -XL)
             |        └───├html_files                # HTML files (flag -HT)
 ````
@@ -611,8 +619,8 @@ optional arguments:
 ````
 APRICOT_analysis
     └───├output
-            └───├visualization_files            # Location for the output data obtained from the subcommand 'vis'
-            |        └───├domain_highlighting  
+            └───├visualization_files # Location for the output data obtained from the subcommand 'vis'
+            |        └───├domain_highlighting  # Highlighting the domain                                                                           
             |        └───├homologous_pdb_msa  
             |        └───├overview_and_statistics  
             |        └───├secondary_structure  
