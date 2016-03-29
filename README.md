@@ -40,8 +40,9 @@ Copyright (c) 2011-2015, Malvika Sharan, <malvika.sharan@uni-wuerzburg.de>
 
 Please read the license content [here](https://github.com/malvikasharan/APRICOT/blob/master/LICENSE.md).
 
-##Docker image
-The [Docker image for APRICOT](https://github.com/malvikasharan/APRICOT/edit/master/Dockerfile) Will be available soon.
+##Installation
+The scripts for the installaton of the different componenents of APRICOT (databases, tools and flatfiles) are available on the GitHub repository.
+The [Docker image for APRICOT](https://github.com/malvikasharan/APRICOT/edit/master/Dockerfile) will be available soon.
 
 ##Contact
 
@@ -84,9 +85,9 @@ InterProSan can be downloaded and installed locally (in the path apricot_db_and_
     wget ftp://ftp.ebi.ac.uk/pub/software/unix/iprscan/5/5.17-56.0/interproscan-5.17-56.0-64-bit.tar.gz
     tar xvf interproscan-5.17-56.0-64-bit.tar.gz
 
-APRICOT also reuires various flatfiles, namely [CDD tables](ftp://ftp.ncbi.nih.gov/pub/mmdb/cdd/cdd.info), [InterPro tables](ftp://ftp.ebi.ac.uk/pub/software/unix/iprscan/5), [PDB secondary structures](http://www.rcsb.org/pdb/files/ss.txt), [taxonomy information] (http://www.uniprot.org/docs/speclist.txt), [Gene Ontology data](http://www.geneontology.org/ontology/go.obo) and [pfam table](ftp://ftp.ebi.ac.uk/pub/databases/Pfam/releases/Pfam29.0/database_files/), which are downloaded and saved locally in the pre-defined location (for e.g. reference_db_files in our bin folder).
+APRICOT also reuires various flatfiles, namely [CDD tables](ftp://ftp.ncbi.nih.gov/pub/mmdb/cdd/cdd.info), [InterPro tables](ftp://ftp.ebi.ac.uk/pub/software/unix/iprscan/5), [PDB secondary structures](http://www.rcsb.org/pdb/files/ss.txt), [taxonomy information] (http://www.uniprot.org/docs/speclist.txt), [Gene Ontology data](http://www.geneontology.org/ontology/go.obo) and [pfam table](ftp://ftp.ebi.ac.uk/pub/databases/Pfam/releases/Pfam29.0/database_files/), which are downloaded and saved locally in the pre-defined location (for e.g. 'reference_db_files' in 'APRICOT' folder).
 ```
-bin
+APRICOT
 │   ...
 └───├reference_db_files
     └───├all_taxids  
@@ -101,7 +102,7 @@ APRICOT allows additional annotations of the proteins by using various third par
 
 ##APRICOT’s subcommands
 
-Each subcommand requires the path to the analysis folder ('APRICOT_analysis' by deafult). Different subcommands can be quickly viewed by running `python3 APRICOT/bin/apricot`.
+Each subcommand requires the path to the analysis folder ('APRICOT_analysis' by deafult). Different subcommands can be quickly viewed by running `python3 APRICOT/bin/apricot -h`.
 
 ````
 usage: apricot [-h] [--version]
@@ -117,16 +118,21 @@ positional arguments:
     query               Map user provided comma separated queries to UniProt
                         ids
     keywords            Save user provided keywords for domain selection
-                        (required) and analysis classification (-cl)
+                        (required). An optional list of term can be provided 
+                        by using the flag -cl to classify results based on the 
+                        functions associated with the identified domains
     select              Select functional domains of interest (specified by
-                        keywords) from CDD (-C) and InterPro (-I) by default
-    predict             Predict functional domains in the queries based on CDD
-                        (-C) and InterPro (-I) databases by default
-    filter              Filter queries predicted with domains of interest (and
-                        optional parameter thresholds) and extend their
-                        annotations
-    classify            Optional classification of selected prediction in
-                        smaller groups by class keywords
+                        keywords) from CDD and InterPro. please use
+                        -C for CDD or -I for InterPro to use specific consortium
+    predict             Predict functional domains in the queries based on CDD 
+                        and InterPro. please use -C for CDD or -I for InterPro 
+                        to use specific consortium
+    filter              Filter queries predicted with domains of interest and 
+                        extend their annotations with UniProt reference. Cut-offs 
+                        for the parameters can also be provided (please see -h).
+    classify            Optional classification of selected prediction in smaller 
+                        groups by class keywords provided by -cl flag of the 
+                        subcommand keywords
     annoscore           Score and rank predicted data by 'annotation scoring'
     summary             Summary analysis output
     addanno             Optional annotation of the selected protein by -PDB,
@@ -140,8 +146,9 @@ optional arguments:
  ````
  
 ##create
-`python3 APRICOT/bin/apricot create -h`
-    
+Quick help: `python3 APRICOT/bin/apricot create -h`
+
+This subcommand creates all the required directories to store input and output data acquired from APRICOT analysis. The main analysis directory can be named by the users (default name: APRICOT_analysis).
 ````
 usage: apricot create [-h] analysis_path
 
@@ -150,8 +157,56 @@ positional arguments:
                  name/path is provided
 ````
 
+The structure and annotation of directories and the enclosing files in the 'input' folder in the analysis directory:
+```
+APRICOT_analysis
+    └───├input
+            └───├query_proteins
+            |   query_to_uids.txt  # User provided queries (gene ids/protein names/whole proteome set) mapped to the UniProt Ids
+            |
+            └───├uniprot_reference_table
+            |   query_uids_reference.tab   # Basic annotations of the queries obtained from uniProt knowledgebase
+            |
+            └───├mapped_query_annotation  
+                    └───├fasta_path_mapped_query  # Location for protein FASTA sequences of each query
+                    |   query_id-1.fasta 
+                    |   query_id-2.fasta
+                    |   ...
+                    |   query_id-n.fasta
+                    |        
+                    └───├xml_path_mapped_query3  # Location for protein FASTA sequences of each query
+                    |    query_id-1.xml
+                    |    query_id-2.xml
+                    |    ...
+                    |    query_id-n.xml
+                    |
+                    └───├mapped_protein_xml_info_tables  
+                         query_feature_table.csv  # File containing all the features of the queries obtained by parsing xml files
+```
+
+The structure of directories and the enclosing files in the 'output' folder in the analysis directory:
+```
+APRICOT_analysis
+    └───├output
+            └───├0_predicted_domains            # Location for the output data obtained from the subcommand 'predict'
+            |        
+            └───├1_compiled_domain_information  # Location for the output data obtained from the subcommand 'filter'          
+            |        
+            └───├2_selected_domain_information            
+            |    
+            └───├3_annotation_scoring          # Location for the output data obtained from the subcommand 'annoscore'
+            |   
+            └───├4_additional_annotations      # Location for additional annotations for the selected queries using subcommand 'addanno'
+            |
+            └───├5_analysis_summary             # Location for the output data obtained from the subcommand 'summary'
+            |
+            └───├format_output_data             # Location for the output data obtained from the subcommand 'format'
+            |        
+            └───├visualization_files            # Location for the output data obtained from the subcommand 'vis'
+```
+
 ##taxid
-`python3 APRICOT/bin/apricot taxid -h`
+Quick help: `python3 APRICOT/bin/apricot taxid -h`
         
 ````
 usage: apricot taxid [-h] [--species SPECIES] db_path
@@ -167,7 +222,7 @@ optional arguments:
 ````
  
 ##query
-`python3 APRICOT/bin/apricot query -h`
+Quick help: `python3 APRICOT/bin/apricot query -h`
         
 ````
 usage: apricot query [-h] [--analysis_path ANALYSIS_PATH] [--uids UIDS]
@@ -201,7 +256,7 @@ optional arguments:
 ````
     
 ##keywords
-`python3 APRICOT/bin/apricot keywords -h`
+Quick help: `python3 APRICOT/bin/apricot keywords -h`
         
 ````
 usage: apricot keywords [-h] [--classify CLASSIFY] [--kw_path KW_PATH]
@@ -220,7 +275,7 @@ optional arguments:
 ````
     
 ##select
-`python3 APRICOT/bin/apricot select -h`
+Quick help: `python3 APRICOT/bin/apricot select -h`
         
 ````
 usage: apricot select [-h] [--cdd_dom] [--ipr_dom] [--dom_kw DOM_KW]
@@ -248,7 +303,7 @@ optional arguments:
 ````
     
 ##predict
-`python3 APRICOT/bin/apricot predict -h`
+Quick help: `python3 APRICOT/bin/apricot predict -h`
         
 ````
 usage: apricot predict [-h] [--analysis_path ANALYSIS_PATH] [--cdd] [--ipr]
@@ -276,9 +331,28 @@ optional arguments:
                         Provide absolute path of fasta files for query
                         proteins
 ````
+
+````
+APRICOT_analysis
+    └───├output
+            └───├0_predicted_domains            # Location for the output data obtained from the subcommand 'predict'
+                    └───├cdd_analysis          # Details of domain predicted from CDD for each query
+                    |    query_id-1.txt
+                    |    query_id-2.txt
+                    |    ...
+                    |    query_id-n.txt
+                    |
+                    └───├ipr_analysis          # Details of domain predicted from InterPro for each query
+                    |    query_id-1.tsv
+                    |    query_id-2.tsv
+                    |    ...
+                    |    query_id-n.tsv
+````
+
+
     
 ##filter
-`python3 APRICOT/bin/apricot filter -h`
+Quick help: `python3 APRICOT/bin/apricot filter -h`
         
 ````
 usage: apricot filter [-h] [--analysis_path ANALYSIS_PATH] [--cdd] [--ipr]
@@ -321,8 +395,21 @@ optional arguments:
                         output path for the selected data with annotations
 ````
     
+````
+APRICOT_analysis
+    └───├output
+        └───├1_compiled_domain_information  # Location for the output data obtained from the subcommand 'filter'          
+                    └───├unfiltered_data                    # Information of all the domains in the query proteins predicted.
+                    |    cdd_unfiltered_all_prediction.csv  # CDD 
+                    |    ipr_unfiltered_all_prediction.csv  # InterPro
+                    |
+                    └───├selected_data                      # Information of the selected reference domains in the query proteins
+                    |    cdd_filtered.csv                   # CDD 
+                    |    ipr_filtered.csv                   # InterPro 
+````
+
 ##classify
-`python3 APRICOT/bin/apricot classify -h`
+Quick help: `python3 APRICOT/bin/apricot classify -h`
         
 ````
 usage: apricot classify [-h] [--analysis_path ANALYSIS_PATH]
@@ -341,9 +428,20 @@ optional arguments:
                         Classification of selected data based on provided
                         keywords
 ````
-    
+````
+APRICOT_analysis
+    └───├output    
+            └───├2_selected_domain_information            
+                    └───├combined_data         # All the selected domain data extended with the UniProt annotation
+                    |    annotation_extended_for_selected.csv
+                    |
+                    └───├classified_data       # Location for the output data obtained from the subcommand 'classify'
+                    |    classification_key-1_selected_data.csv  # Files containing subsets of predicted data...
+                    |    classification_key-2_selected_data.csv  # ... based on user provided classification keys.
+````
+            
 ##annoscore
-`python3 APRICOT/bin/apricot annoscore -h`
+Quick help: `python3 APRICOT/bin/apricot annoscore -h`
         
 ````
 usage: apricot annoscore [-h] [--analysis_path ANALYSIS_PATH]
@@ -361,34 +459,16 @@ optional arguments:
   --outpath OUTPATH, -o OUTPATH
                         Output path for annotation scoring files
 ````
-    
-##summary
-`python3 APRICOT/bin/apricot summary -h`
-        
-````
-usage: apricot summary [-h] [--analysis_path ANALYSIS_PATH]
-                       [--query_map QUERY_MAP] [--domains DOMAINS]
-                       [--unfilter_path UNFILTER_PATH] [--outpath OUTPATH]
 
-optional arguments:
-  -h, --help            show this help message and exit
-  --analysis_path ANALYSIS_PATH, -ap ANALYSIS_PATH
-                        Provide analysis path
-  --query_map QUERY_MAP, -q QUERY_MAP
-                        query_to_uids.txt file created by APRICOT to save
-                        query mapping information
-  --domains DOMAINS, -d DOMAINS
-                        File containing all the keyword selected_domains of
-                        interest
-  --unfilter_path UNFILTER_PATH, -uf UNFILTER_PATH
-                        Directory with the unfiltered domain data from
-                        output-1 (unfiltered_data)
-  --outpath OUTPATH, -o OUTPATH
-                        Provide output path
 ````
- 
+APRICOT_analysis
+    └───├output
+            └───├3_annotation_scoring          # Location for the output data obtained from the subcommand 'annoscore'
+                |    annotation_extended_for_selected.csv
+````
+
 ##addanno
-`python3 APRICOT/bin/apricot addanno -h`
+Quick help: `python3 APRICOT/bin/apricot addanno -h`
         
 ````
 usage: apricot addanno [-h] [--force] [--pdb] [--psortb] [--raptorx] [--refss]
@@ -427,9 +507,76 @@ optional arguments:
                         Provide absolute path of APRICOT installed raptorx
                         till the perl script run_raptorx-ss8.pl
 ````
- 
+
+````
+APRICOT_analysis
+    └───├output
+            └───├4_additional_annotations      # Location for additional annotations for the selected queries using subcommand 'addanno'
+            |        └───├pdb_sequence_prediction       # PDB structure homologs of the selected queries (flag --pdb, -PDB)
+            |        └───├protein_localization          # PSORTb based localization of the selected queries (flag --psortb, -PSORTB)
+            |        └───├protein_secondary_structure   # RaptorX based structure of the selected queries (flag --raptorx, -RAPTORX)
+````
+
+##summary
+Quick help: `python3 APRICOT/bin/apricot summary -h`
+        
+````
+usage: apricot summary [-h] [--analysis_path ANALYSIS_PATH]
+                       [--query_map QUERY_MAP] [--domains DOMAINS]
+                       [--unfilter_path UNFILTER_PATH] [--outpath OUTPATH]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --analysis_path ANALYSIS_PATH, -ap ANALYSIS_PATH
+                        Provide analysis path
+  --query_map QUERY_MAP, -q QUERY_MAP
+                        query_to_uids.txt file created by APRICOT to save
+                        query mapping information
+  --domains DOMAINS, -d DOMAINS
+                        File containing all the keyword selected_domains of
+                        interest
+  --unfilter_path UNFILTER_PATH, -uf UNFILTER_PATH
+                        Directory with the unfiltered domain data from
+                        output-1 (unfiltered_data)
+  --outpath OUTPATH, -o OUTPATH
+                        Provide output path
+````
+````
+APRICOT_analysis
+    └───├output
+            └───├5_analysis_summary             # Location for the output data obtained from the subcommand 'summary'
+            |    APRICOT_analysis_summary.csv
+````
+
+##format
+Quick help: `python3 APRICOT/bin/apricot format -h`
+        
+````
+usage: apricot format [-h] [--analysis_path ANALYSIS_PATH] [--inpath INPATH]
+                      [--html] [--xlsx] [--outpath OUTPATH]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --analysis_path ANALYSIS_PATH, -ap ANALYSIS_PATH
+                        Provide analysis path
+  --inpath INPATH, -i INPATH
+                        Choose folder from analysis to be converted
+  --html, -HT
+  --xlsx, -XL
+  --outpath OUTPATH, -o OUTPATH
+                        Output path for files with different file formats
+````
+
+````
+APRICOT_analysis
+    └───├output
+            └───├format_output_data             # Location for the output data obtained from the subcommand 'format'
+            |        └───├excel_files               # excel files (flag -XL)
+            |        └───├html_files                # HTML files (flag -HT)
+````
+
 ##vis
-`python3 APRICOT/bin/apricot vis -h`
+Quick help: `python3 APRICOT/bin/apricot vis -h`
         
 ````
 usage: apricot vis [-h] [--analysis_path ANALYSIS_PATH]
@@ -457,24 +604,16 @@ optional arguments:
   --outpath OUTPATH, -o OUTPATH
                         Output path for visualization files
 ````
- 
-##format
-`python3 APRICOT/bin/apricot format -h`
-        
-````
-usage: apricot format [-h] [--analysis_path ANALYSIS_PATH] [--inpath INPATH]
-                      [--html] [--xlsx] [--outpath OUTPATH]
 
-optional arguments:
-  -h, --help            show this help message and exit
-  --analysis_path ANALYSIS_PATH, -ap ANALYSIS_PATH
-                        Provide analysis path
-  --inpath INPATH, -i INPATH
-                        Choose folder from analysis to be converted
-  --html, -HT
-  --xlsx, -XL
-  --outpath OUTPATH, -o OUTPATH
-                        Output path for files with different file formats
+````
+APRICOT_analysis
+    └───├output
+            └───├visualization_files            # Location for the output data obtained from the subcommand 'vis'
+            |        └───├domain_highlighting  
+            |        └───├homologous_pdb_msa  
+            |        └───├overview_and_statistics  
+            |        └───├secondary_structure  
+            |        └───├subcellular_localization
 ````
 
 ##Versions/Change log
