@@ -480,9 +480,9 @@ APRICOT_analysis
                         | annotation_extended_for_selected.csv
 ````
 
-#Optional sub-commands
+##Sub-commands for downstream analysis
 
-##classify
+###classify
 Quick help: `python3 APRICOT/bin/apricot classify -h`
 
 This subcommand classifies the resulting domain information of the selected queries by using the user-provided keys for classification using --Cl flag in the subcommand 'keywords'.
@@ -516,12 +516,16 @@ APRICOT_analysis
                         | classification_key-2_selected_data.csv    # ... based on user provided classification keys.
 ````
             
-##annoscore
+###annoscore
 
-A. Methods involved in feature-based scoring of the predicted domains
+Methods involved in feature-based scoring of the predicted domains
+
 1. Chemical properties: The value for each feature in the predicted domain is divided by the value of corresponding feature in the reference domain and a score suggesting the extent of functional similarity in the predicted domain is determined. This analysis is based on the assumption that the high conservation in the predicted domain compared to its reference will result in comparable chemical properties (a value closer to 1).
+
 2. Needleman-Wunsch global alignment scores: The similarity scores are calculated for the global alignments of two sequence features: primary amino acid sequence and secondary structure. The similarity scores between the query and reference sequences are obtained that range from 0 to 1, where 1 is a complete match.
+
 3. Euclidean distances of protein compositions: The similarity in compositions between the predicted domains and their corresponding references can reflect the functional significance of the predictions and therefore inform the user of the putative biological function conferred by the identified domain. These similarities are calculated by Euclidean distance, and the similarity score (1-Euclidean distance) is represented in a range of 0 to 1, where 1 stands for an absolute match.
+
 4. Measure of similarity between predicted sites and reference domains: The last set of properties considered for feature-based scoring are the measures of coverage, similarity, identity and gaps obtained for the predicted domain sites in the query with respect to the sites in their reference domains. The domain coverage is calculated by dividing the residue counts of the predicted domain site in the query protein by the original length of the reference domain. The similarity, identity and gap are calculated by dividing the corresponding residue counts in the predicted domain by the calculated domain coverage (rather than the full length of the domain). Each of these parameters is reported in a value range of 0 to 1. The coverage value of 1 indicates that a complete domain is identified in the query. The similarity and identity value of 1 indicates an absolute match in the fraction of domain identified in the query. The gap value of 0 means no gap in the sequence, which is represented as the measure of 1-gap so that like other parameters, a score closer to 1 represents a favourable scenario.
 
 Quick help: `python3 APRICOT/bin/apricot annoscore -h`
@@ -553,13 +557,17 @@ APRICOT_analysis
                 | annotation_extended_for_selected.csv
 ````
 
-##addanno
+###addanno
 Quick help: `python3 APRICOT/bin/apricot addanno -h`
 
 Different modules for additional annotations of the selected proteins
+
 1. Identification sub-cellular localization of the proteins (flag -psortb): Information about the sub-cellular localization can assist in deriving the potential functional role associated with a protein. A standalone version of PSORTb v.3.3 (Yu et al., 2010) is used for computational prediction of the subcellular localization of selected proteins. PSORTb provides a list of five localization sites (cytoplasmic, cytoplasmic membrane, cell wall, extracellular and secondary localization) and the associated probability score (0-10 indicating low to high probability).
+
 2. Secondary structure calculation by RaptorX (flag -raptorx): In principle an amino-acid sequence that aligns well with annotated proteins could be considered as functional homologs. However, amino acid conservation at the sequence level is not always obvious when dealing with the sequences where only functional domains are conserved whereas rest of the sequence share structure homology. In such cases, the selection of true homologs based on primary sequences is difficult. To address this problem, the candidate proteins can be compared to the known proteins at the structural level. The structure prediction tool RaptorX (Ma et al., 2013) has been integrated in the pipeline for the prediction of protein secondary structures. For example, two-dimensional structure information complemented with the domain prediction can be used for characterizing the affinity of a protein for RNA. It is also possible to derive tertiary structure without close homologs in the Protein Data Bank (PDB) using RaptorX, allowing further functional characterization. 
+
 3. Tertiary structure homologs from Protein Data Bank ((flag -pdb): The tertiary structures are critical to identify the ligand partners of proteins in order to achieve a high-resolution annotation. Out of several millions of proteins available in non-redundant (nr) database in NCBI, only 105,417 proteins and 5,198 protein/nucleic-acid complexes (November 2015) have been crystalized. There are numerous computational tools available for the estimation of tertiary structures of proteins, e.g. PHYRE2 (Kelley et al., 2015), CPHModels (Nielsen et al., 2010) and I-TASSER online (Zhang et al., 2008). Most of these methods are computationally demanding and are available only as web-servers making their integration difficult into automated workflows. As such, in order to provide a quick insight into the potential binding mechanisms of selected proteins based on the available annotation of the PDB (Kouranov, 2006) structure homologs, APRICOT lists known tertiary structure homologs for the query proteins from PDB.
+
 4. Gene Ontology (flag -go): The Gene Ontology or GO consortium (Gaudet et al., 2009) is a bioinformatics initiative for unifying annotation by means of controlled vocabulary. GO terms are widely used for standard annotation of a gene with various information, including cellular localization, biological processes, and molecular function. GO is determined by extracting all GO terms available for a protein in UniProt database and for the domains in InterPro and CDD databases. In order to achieve a broader GO catalogue for each candidate protein, Blast2GO (Conesa et al., 2005) can be executed from APRICOT subcommand blast2go when already installed by the users. 
 
 ````
@@ -614,7 +622,7 @@ APRICOT_analysis
                                                         # queries (flag --raptorx, -RAPTORX)
 ````
 
-##summary
+###summary
 Quick help: `python3 APRICOT/bin/apricot summary -h`
 
 To get an overview of the analysis carried out on a set of query proteins, this sub command can be used. It create a basic overview like, how many queries could be mapped to the UniProt IDs, how many contain the reference domains etc.
@@ -648,7 +656,7 @@ APRICOT_analysis
                 | APRICOT_analysis_summary.csv
 ````
 
-##format
+###format
 Quick help: `python3 APRICOT/bin/apricot format -h`
 
 Formats and stores various tables in the HTML tabels (--html), excel files (--xlsx) or both.
@@ -677,7 +685,7 @@ APRICOT_analysis
                     └───├html_files                # HTML files (flag -HT)
 ````
 
-##vis
+###vis
 Quick help: `python3 APRICOT/bin/apricot vis -h`
 
 Visualize different resulting data like predicted domains sites, tertiary structure of selected proteins etc.
