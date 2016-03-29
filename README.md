@@ -161,6 +161,7 @@ The structure and annotation of directories and the enclosing files in the 'inpu
 ```
 APRICOT_analysis
     └───├input
+            └───├helper_files
             └───├query_proteins
             └───├uniprot_reference_table
             └───├mapped_query_annotation  
@@ -171,26 +172,21 @@ The structure of directories and the enclosing files in the 'output' folder in t
 APRICOT_analysis
     └───├output
             └───├0_predicted_domains  # Location for the output data obtained from the subcommand 'predict'
-            |        
             └───├1_compiled_domain_information  # Location for the output data obtained from the subcommand 'filter'          
-            |        
             └───├2_selected_domain_information            
-            |    
             └───├3_annotation_scoring  # Location for the output data obtained from the subcommand 'annoscore'
-            |   
             └───├4_additional_annotations  # Location for additional annotations for the selected 
             |                              # queries using subcommand 'addanno'
-            |
             └───├5_analysis_summary  # Location for the output data obtained from the subcommand 'summary'
-            |
             └───├format_output_data  # Location for the output data obtained from the subcommand 'format'
-            |        
             └───├visualization_files  # Location for the output data obtained from the subcommand 'vis'
 ```
 
 ##taxid
 Quick help: `python3 APRICOT/bin/apricot taxid -h`
-        
+    
+Ther same genes or protein names exist across several species, therefore when a user provides gene id of protein name as query, one can limit the search of the query to a certain organism by providing one or multiple taxonomy ids. When the taxonomy id is not known by the users, this subcommand --taxid  can be used to extract the id by providing species name.
+
 ````
 usage: apricot taxid [-h] [--species SPECIES] db_path
 
@@ -203,7 +199,14 @@ optional arguments:
                         Species name (comma separated if more than one) for
                         taxonomy id retreival
 ````
- 
+The taxonomy ids are saved in the text file taxonomy_ids.txt in the directory named helper_files in the input folder of the main analysis directory (APRICOT_analysis).
+````
+APRICOT_analysis
+    └───├input
+            └───├helper_files
+            |    taxonomy_ids.txt
+````
+
 ##query
 Quick help: `python3 APRICOT/bin/apricot query -h`
         
@@ -265,7 +268,7 @@ APRICOT_analysis
                     |
                     └───├mapped_protein_xml_info_tables  
                          query_feature_table.csv  # File containing all the features of the queries 
-                                                  #obtained by parsing xml files
+                                                  # obtained by parsing xml files
 ````
 
     
@@ -287,7 +290,14 @@ optional arguments:
   --kw_path KW_PATH, -kp KW_PATH
                         Path for keyword files
 ````
-    
+````
+APRICOT_analysis
+    └───├input
+            └───├helper_files
+            |    keywords_for_domain_selection.txt  
+            |    keywords_for_result_classification.txt
+````
+
 ##select
 Quick help: `python3 APRICOT/bin/apricot select -h`
         
@@ -314,6 +324,15 @@ optional arguments:
                         Absolute path for keyword selected domains
   --pfam_domain_file PFAM_DOMAIN_FILE, -pf PFAM_DOMAIN_FILE
                         The domain summary from PfamA
+````
+
+````
+bin
+│   ...
+└───├domain_data
+    └───├cdd
+    └───├interpro
+     all_keyword_selected_domain_data.tab
 ````
     
 ##predict
