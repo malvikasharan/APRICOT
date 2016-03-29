@@ -162,10 +162,12 @@ The structure and annotation of directories and the enclosing files in the 'inpu
 APRICOT_analysis
     └───├input
             └───├query_proteins
-            |   query_to_uids.txt  # User provided queries (gene ids/protein names/whole proteome set) mapped to the UniProt Ids
+            |   query_to_uids.txt  # User provided queries (gene ids/protein names/whole proteome set) 
+            |                      # mapped to the UniProt Ids
             |
             └───├uniprot_reference_table
-            |   query_uids_reference.tab   # Basic annotations of the queries obtained from uniProt knowledgebase
+            |   query_uids_reference.tab   # Basic annotations of the queries obtained from 
+            |                              # uniProt knowledgebase
             |
             └───├mapped_query_annotation  
                     └───├fasta_path_mapped_query  # Location for protein FASTA sequences of each query
@@ -181,7 +183,8 @@ APRICOT_analysis
                     |    query_id-n.xml
                     |
                     └───├mapped_protein_xml_info_tables  
-                         query_feature_table.csv  # File containing all the features of the queries obtained by parsing xml files
+                         query_feature_table.csv  # File containing all the features of the queries 
+                                                  #obtained by parsing xml files
 ```
 
 The structure of directories and the enclosing files in the 'output' folder in the analysis directory:
