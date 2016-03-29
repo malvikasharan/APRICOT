@@ -620,11 +620,11 @@ optional arguments:
 APRICOT_analysis
     └───├output
             └───├visualization_files # Location for the output data obtained from the subcommand 'vis'
-            |        └───├domain_highlighting  # Highlighting the domain                                                                           
-            |        └───├homologous_pdb_msa  
-            |        └───├overview_and_statistics  
-            |        └───├secondary_structure  
-            |        └───├subcellular_localization
+            |        └───├domain_highlighting      # Visualizing the domain sites on the protein sequences
+            |        └───├homologous_pdb_msa       # Multiple sequence alignment of the structure homologs
+            |        └───├overview_and_statistics  # Visualizing the overview of the selected query proteins
+            |        └───├secondary_structure      # Visualizing 3-state secondary struvture of the query sequence
+            |        └───├subcellular_localization # Heatmap showing the probability of different localization sites 
 ````
 
 ##Versions/Change log
