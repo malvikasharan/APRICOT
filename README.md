@@ -162,29 +162,8 @@ The structure and annotation of directories and the enclosing files in the 'inpu
 APRICOT_analysis
     └───├input
             └───├query_proteins
-            |   query_to_uids.txt  # User provided queries (gene ids/protein names/whole proteome set) 
-            |                      # mapped to the UniProt Ids
-            |
             └───├uniprot_reference_table
-            |   query_uids_reference.tab   # Basic annotations of the queries obtained from 
-            |                              # uniProt knowledgebase
-            |
             └───├mapped_query_annotation  
-                    └───├fasta_path_mapped_query  # Location for protein FASTA sequences of each query
-                    |   query_id-1.fasta 
-                    |   query_id-2.fasta
-                    |   ...
-                    |   query_id-n.fasta
-                    |        
-                    └───├xml_path_mapped_query3  # Location for protein FASTA sequences of each query
-                    |    query_id-1.xml
-                    |    query_id-2.xml
-                    |    ...
-                    |    query_id-n.xml
-                    |
-                    └───├mapped_protein_xml_info_tables  
-                         query_feature_table.csv  # File containing all the features of the queries 
-                                                  #obtained by parsing xml files
 ```
 
 The structure of directories and the enclosing files in the 'output' folder in the analysis directory:
@@ -258,6 +237,37 @@ optional arguments:
   --feature_table FEATURE_TABLE, -ft FEATURE_TABLE
                         Get proteome table from UniProt
 ````
+
+````
+APRICOT_analysis
+    └───├input
+            └───├query_proteins
+            |   query_to_uids.txt  # User provided queries (gene ids/protein names/whole proteome set) 
+            |                      # mapped to the UniProt Ids (flag --uids, --geneids)
+            |
+            └───├uniprot_reference_table
+            |   query_uids_reference.tab   # Basic annotations of the query protein IDs (flag --uids, --geneids)  set
+            |                              # or the whole proteome (flag -P) from a certain taxonomy (flag --taxid)
+            |
+            └───├mapped_query_annotation  
+                    └───├fasta_path_mapped_query  # Location for protein FASTA sequences of each query
+                    |                             # qery fasta sequences are also saved here (flag --fasta)
+                    |   query_id-1.fasta 
+                    |   query_id-2.fasta
+                    |   ...
+                    |   query_id-n.fasta
+                    |        
+                    └───├xml_path_mapped_query3  # Location for protein FASTA sequences of each query
+                    |    query_id-1.xml
+                    |    query_id-2.xml
+                    |    ...
+                    |    query_id-n.xml
+                    |
+                    └───├mapped_protein_xml_info_tables  
+                         query_feature_table.csv  # File containing all the features of the queries 
+                                                  #obtained by parsing xml files
+````
+
     
 ##keywords
 Quick help: `python3 APRICOT/bin/apricot keywords -h`
