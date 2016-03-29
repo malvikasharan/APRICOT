@@ -42,7 +42,7 @@ Please read the license content [here](https://github.com/malvikasharan/APRICOT/
 
 ##Installation
 The scripts for the installaton of the different componenents of APRICOT (databases, tools and flatfiles) are available on the GitHub repository.
-The [Docker image for APRICOT](https://github.com/malvikasharan/APRICOT/edit/master/Dockerfile) will be available soon.
+The [Docker image for APRICOT](https://github.com/malvikasharan/APRICOT/blob/master/Dockerfile) will be available soon.
 
 ##Contact
 
@@ -247,28 +247,24 @@ APRICOT_analysis
             └───├query_proteins
             |   query_to_uids.txt  # User provided queries (gene ids/protein names/whole proteome set) 
             |                      # mapped to the UniProt Ids (flag --uids, --geneids)
-            |
             └───├uniprot_reference_table
             |   query_uids_reference.tab   # Basic annotations of the query protein IDs (flag --uids, --geneids)  set
             |                              # or the whole proteome (flag -P) from a certain taxonomy (flag --taxid)
-            |
             └───├mapped_query_annotation  
                     └───├fasta_path_mapped_query  # Location for protein FASTA sequences of each query
-                    |                             # qery fasta sequences are also saved here (flag --fasta)
-                    |   query_id-1.fasta 
-                    |   query_id-2.fasta
-                    |   ...
-                    |   query_id-n.fasta
-                    |        
+                    |   |                         # qery fasta sequences are also saved here (flag --fasta)
+                    |   | query_id-1.fasta 
+                    |   | query_id-2.fasta
+                    |   | ...
+                    |   | query_id-n.fasta
                     └───├xml_path_mapped_query3  # Location for protein FASTA sequences of each query
-                    |    query_id-1.xml
-                    |    query_id-2.xml
-                    |    ...
-                    |    query_id-n.xml
-                    |
+                    |   | query_id-1.xml
+                    |   | query_id-2.xml
+                    |   | ...
+                    |   | query_id-n.xml
                     └───├mapped_protein_xml_info_tables  
-                         query_feature_table.csv  # File containing all the features of the queries 
-                                                  # obtained by parsing xml files
+                        | query_feature_table.csv  # File containing all the features of the queries 
+                                                   # obtained by parsing xml files
 ````
 
     
@@ -294,8 +290,8 @@ optional arguments:
 APRICOT_analysis
     └───├input
             └───├helper_files
-            |    keywords_for_domain_selection.txt  
-            |    keywords_for_result_classification.txt
+                | keywords_for_domain_selection.txt  
+                | keywords_for_result_classification.txt
 ````
 
 ##select
@@ -332,7 +328,7 @@ bin
 └───├domain_data
     └───├cdd
     └───├interpro
-     all_keyword_selected_domain_data.tab
+    | all_keyword_selected_domain_data.tab
 ````
     
 ##predict
@@ -370,16 +366,16 @@ APRICOT_analysis
     └───├output
             └───├0_predicted_domains # Location for the output data obtained from the subcommand 'predict'
                     └───├cdd_analysis  # Details of domain predicted from CDD for each query
-                    |    query_id-1.txt
-                    |    query_id-2.txt
-                    |    ...
-                    |    query_id-n.txt
+                    |   | query_id-1.txt
+                    |   | query_id-2.txt
+                    |   | ...
+                    |   | query_id-n.txt
                     |
                     └───├ipr_analysis  # Details of domain predicted from InterPro for each query
-                    |    query_id-1.tsv
-                    |    query_id-2.tsv
-                    |    ...
-                    |    query_id-n.tsv
+                        | query_id-1.tsv
+                        | query_id-2.tsv
+                        | ...
+                        | query_id-n.tsv
 ````
 
 
@@ -433,12 +429,12 @@ APRICOT_analysis
     └───├output
         └───├1_compiled_domain_information  # Location for the output data obtained from the subcommand 'filter'          
                     └───├unfiltered_data  # Information of all the domains in the query proteins predicted.
-                    |    cdd_unfiltered_all_prediction.csv  # CDD 
-                    |    ipr_unfiltered_all_prediction.csv  # InterPro
+                    |   | cdd_unfiltered_all_prediction.csv  # CDD 
+                    |   | ipr_unfiltered_all_prediction.csv  # InterPro
                     |
                     └───├selected_data      # Information of the selected reference domains in the query proteins
-                    |    cdd_filtered.csv                   # CDD 
-                    |    ipr_filtered.csv                   # InterPro 
+                        | cdd_filtered.csv                   # CDD 
+                        | ipr_filtered.csv                   # InterPro 
 ````
 
 ##classify
@@ -466,13 +462,13 @@ APRICOT_analysis
     └───├output    
             └───├2_selected_domain_information            
                     └───├combined_data         # All the selected domain data extended 
-                    |                          # with the UniProt annotation
-                    |    annotation_extended_for_selected.csv
+                    |   |                       # with the UniProt annotation
+                    |   | annotation_extended_for_selected.csv
                     |
-                    └───├classified_data       # Location for the output data obtained 
-                    |                          # from the subcommand 'classify'
-                    |    classification_key-1_selected_data.csv  # Files containing subsets of predicted data...
-                    |    classification_key-2_selected_data.csv  # ... based on user provided classification keys.
+                    └───├classified_data                            # Location for the output data obtained 
+                        |                                           # from the subcommand 'classify'
+                        | classification_key-1_selected_data.csv    # Files containing subsets of predicted data...
+                        | classification_key-2_selected_data.csv    # ... based on user provided classification keys.
 ````
             
 ##annoscore
@@ -500,7 +496,7 @@ APRICOT_analysis
     └───├output
             └───├3_annotation_scoring          # Location for the output data obtained 
                 |                              # from the subcommand 'annoscore'
-                |    annotation_extended_for_selected.csv
+                | annotation_extended_for_selected.csv
 ````
 
 ##addanno
@@ -547,13 +543,13 @@ optional arguments:
 ````
 APRICOT_analysis
     └───├output
-            └───├4_additional_annotations      # Location for additional annotations for the 
-            |                                  # selected queries using subcommand 'addanno'
-            |        └───├pdb_sequence_prediction       # PDB structure homologs of the selected 
-            |                                           # queries (flag --pdb, -PDB)
-            |        └───├protein_localization          # PSORTb based localization of the selected 
-            |                                           # queries (flag --psortb, -PSORTB)
-            |        └───├protein_secondary_structure   # RaptorX based structure of the selected 
+            └───├4_additional_annotations               # Location for additional annotations for the 
+                                                        # selected queries using subcommand 'addanno'
+                    └───├pdb_sequence_prediction        # PDB structure homologs of the selected 
+                    |                                   # queries (flag --pdb, -PDB)
+                    └───├protein_localization           # PSORTb based localization of the selected 
+                    |                                   # queries (flag --psortb, -PSORTB)
+                    └───├protein_secondary_structure    # RaptorX based structure of the selected 
                                                         # queries (flag --raptorx, -RAPTORX)
 ````
 
@@ -585,7 +581,7 @@ optional arguments:
 APRICOT_analysis
     └───├output
             └───├5_analysis_summary # Location for the output data obtained from the subcommand 'summary'
-            |    APRICOT_analysis_summary.csv
+                | APRICOT_analysis_summary.csv
 ````
 
 ##format
@@ -611,8 +607,8 @@ optional arguments:
 APRICOT_analysis
     └───├output
             └───├format_output_data # Location for the output data obtained from the subcommand 'format'
-            |        └───├excel_files               # excel files (flag -XL)
-            |        └───├html_files                # HTML files (flag -HT)
+                    └───├excel_files               # excel files (flag -XL)
+                    └───├html_files                # HTML files (flag -HT)
 ````
 
 ##vis
@@ -649,11 +645,11 @@ optional arguments:
 APRICOT_analysis
     └───├output
             └───├visualization_files # Location for the output data obtained from the subcommand 'vis'
-            |        └───├domain_highlighting      # Visualizing the domain sites on the protein sequences
-            |        └───├homologous_pdb_msa       # Multiple sequence alignment of the structure homologs
-            |        └───├overview_and_statistics  # Visualizing the overview of the selected query proteins
-            |        └───├secondary_structure      # Visualizing 3-state secondary struvture of the query sequence
-            |        └───├subcellular_localization # Heatmap showing the probability of different localization sites 
+                    └───├domain_highlighting      # Visualizing the domain sites on the protein sequences
+                    └───├homologous_pdb_msa       # Multiple sequence alignment of the structure homologs
+                    └───├overview_and_statistics  # Visualizing the overview of the selected query proteins
+                    └───├secondary_structure      # Visualizing 3-state secondary struvture of the query sequence
+                    └───├subcellular_localization # Heatmap showing the probability of different localization sites 
 ````
 
 ##Versions/Change log
