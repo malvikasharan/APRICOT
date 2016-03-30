@@ -186,7 +186,9 @@ APRICOT_analysis
 ##taxid
 Quick help: `python3 APRICOT/bin/apricot taxid -h`
     
-Ther same genes or protein names exist across several species, therefore when a user provides gene id of protein name as query, one can limit the search of the query to a certain organism by providing one or multiple taxonomy ids. When the taxonomy id is not known by the users, this subcommand --taxid  can be used to extract the id by providing species name.
+The users can provide gene ids or protein names as queries to APRICOT, which is mapped against UniProt Knowledgebase in order to extract relevant information. Since, same gene/protein ids exist across various genomes/proteomes, one can limit the search of the query to a certain organism (rather than all the organisms in the database) by providing one or multiple taxonomy ids. 
+
+When the taxonomy id is not known by the users, this subcommand --taxid  can be used to extract the id by providing species name.
 
 ````
 usage: apricot taxid [-h] [--species SPECIES] db_path
@@ -200,7 +202,7 @@ optional arguments:
                         Species name (comma separated if more than one) for
                         taxonomy id retreival
 ````
-The taxonomy ids are saved in the text file taxonomy_ids.txt in the directory named helper_files in the input folder of the main analysis directory (APRICOT_analysis).
+The taxonomy ids are saved in the text file taxonomy_ids.txt in the directory helper_files in the input folder of the main analysis directory (APRICOT_analysis).
 ````
 APRICOT_analysis
     └───├input
@@ -211,7 +213,9 @@ APRICOT_analysis
 ##query
 Quick help: `python3 APRICOT/bin/apricot query -h`
 
-APRICOT gives multiple options to the users to supply queries. For example, the queries can be provided as UniProt ids (--uids), gene ids or protein names (--geneids), fasta sequences (--fasta) or only the taxonomy id (--taxid) for a complete proteome analysis (-P). Paths for the saving the query data and their corresponding fasta files, xml files, annotation tables etc. can be optinally provided by the users.
+As mentioned already, APRICOT gives multiple options to the users to supply queries. For example, the queries can be provided as UniProt ids (--uids), gene ids or protein names (--geneids), fasta sequences (--fasta) or only the taxonomy id (--taxid) for a complete proteome analysis (using flag -P). 
+
+Paths for the saving the query data and their corresponding fasta files, xml files, annotation tables etc. can be optinally provided by the users.
 
 ````
 usage: apricot query [-h] [--analysis_path ANALYSIS_PATH] [--uids UIDS]
@@ -244,7 +248,7 @@ optional arguments:
                         Get proteome table from UniProt
 ````
 
-APRICOT saves the user provided queries and related information that is extracted from UniProt knowledgebase (fasta files, xml files, reference files etc.) in the directories as described below.
+APRICOT saves the user provided queries and related information extracted from UniProt knowledgebase (fasta files, xml files, reference files etc.) in the directories as described below.
 ````
 APRICOT_analysis
     └───├input
@@ -277,11 +281,11 @@ APRICOT_analysis
 ##keywords
 Quick help: `python3 APRICOT/bin/apricot keywords -h`
 
-Since APRICOT allows identification of certain protein classes like RNA-binding proteins by means of domains, one of the most essential input data, beside the query protein itself, is the terms or keywords that potentially indicates to a protein functional classes. Such terminology can be pfam ids, Gene Ontology terms, mesh terms or simple biological terms like 'rna-binding', 'ribosome' or 'RNA-polymerases'. As shown in the examples, multi-word terms can be provided by using ‘-’ as a connector. 
+Since APRICOT allows identification of certain protein classes like RNA-binding proteins by means of domains, one of the most essential input data, beside the query protein itself, is the terms or keywords that potentially indicates to a protein functional classes (*domain selection terms*). Such terminologies could be pfam ids, Gene Ontology terms, mesh terms or simple biological terms like 'RRM', 'ribosome' or 'polymerases'. Multi-word terms can be provided by using ‘-’ as a connector, for example, 'rna-binding' and 'rna-polymerases'. 
 
-In order to maintain stringent selection of truly functional domains, APRICOT by-default does not allow the selection of a domain entry if the search-term occurs in its annotation with any prefix or suffix. This indicates the possibilities of omitting few relevant entries from the domain selection keywords, but it also ensures exclusion of several non-relevant domains that might get included by chance. However, users can allow prefix by using the hash symbol (#) in the beginning and suffix when # is used at the end of the term. For example, by using '#RNA-binding' one can allow the inclusion of 'tRNA-binding', 'mtRNA-binding'etc. and by allowing 'RNA-bind#' one can allow varying verb forms for bind like binder, binding etc. Of course, one can allow both prefixes and suffixes (#RNA-bind#).
+In order to maintain stringent selection of truly functional domains, APRICOT by-default does not allow the selection of a domain entry if the *domain selection term* occurs in its annotation with any prefix or suffix. This indicates the possibilities of omitting few relevant entries from the domain selection keywords, but it also ensures exclusion of several non-relevant domains that might get included by chance. However, users can allow prefix by using the hash symbol (#) in the beginning of a term and suffix when # is used at the end of the term. For example, by using '#RNA-binding' one can allow the inclusion of 'tRNA-binding', 'mtRNA-binding'etc, and by allowing 'RNA-bind#' one can allow varying verb forms for bind like binder, binding etc. Of course, one can allow both prefixes and suffixes (#RNA-bind#).
 
-Optionally a second set of keywords called result classification keywords can be provided (flag -cl) for the classification of predicted results. This list can comprise of terms associated to biological functions, enzymatic activities or specific features. For example, the predicted RNA related domain data could be divided into the classification tags of RRM, ribosome, synthetase, helicases etc. Such classification can help users tremendously in navigating through the large datasets or for the selection of representative protein for certain function conferred by the domains.
+Optionally a second set of keywords for the classification of predicted domains can be provided by using flag -cl (*result classification terms*). This list can comprise of terms associated to biological functions, enzymatic activities or specific features. For example, the predicted RNA related domain data could be divided into the classification tags of RRM, ribosome, synthetase, helicases etc. Such classification can help users tremendously in navigating through the large datasets or for the selection of representative protein for certain function conferred by the domains. When users do not provide *result classification terms*, APRICOT uses the *domain selection terms* for this purpose as well.
         
 ````
 usage: apricot keywords [-h] [--classify CLASSIFY] [--kw_path KW_PATH]
@@ -311,11 +315,11 @@ APRICOT_analysis
 ##select
 Quick help: `python3 APRICOT/bin/apricot select -h`
 
-This subcommand 'select' allows the selction of reference domains based on the user provided keywords for domain selection (in subcommand keywords). For this purpose, by-default APRICOT scans each entries of the domains in both CDD and InterPro domain consortiums and looks for the presence of the user provided keywords. 
+This subcommand allows the selection of reference domains based on the *domain selection terms* (in subcommand keywords). For this purpose, by-default APRICOT scans each entries of the domains in both CDD and InterPro domain consortiums for the occurance of any *domain selection term*. 
 
-It is possible to limit the selection process in only one of the consortiums by providing flags -C for CDD only or -I for InterPro only. To map the domains in both the consortiums, APRICOT uses domain ids from common databases (Pfam, SMART and TIGRFAM).
+It is possible to limit the selection process in only one of the consortiums by providing flags -C for CDD or -I for InterPro. For cross mapping the domains in both the consortiums, APRICOT uses domain ids from the databases (Pfam, SMART and TIGRFAM) that are shared by both the consortiums.
 
-In case of multi word terms (which are provided by using '-' as a connector), the co-occurance of the terms are considered by looking for the co-occurance of the words in the same sentence or same context. To ensure a more complete selection of the domains, the gene-ontology associated to the domains are also checked and selected accordingly.
+In case of multi word terms (which are provided by using '-' as a connector), the co-occurance of the terms are considered when the words in the same sentence or same context. To ensure a more complete selection of the domains, the gene-ontology associated to the domains are also checked and selected accordingly.
 
 ````
 usage: apricot select [-h] [--cdd_dom] [--ipr_dom] [--dom_kw DOM_KW]
@@ -342,7 +346,7 @@ optional arguments:
                         The domain summary from PfamA
 ````
 
-The domains that are selected from CDD and InterPro are stored in the directory domains_data in the 'bin' folder. The selected domains are compiled and saved into the file 'all_keyword_selected_domain_data.tab' in the domain_data.
+The domains that are selected from CDD and InterPro are stored in the directory domains_data in the bin folder. The selected domains are compiled and saved into the file all_keyword_selected_domain_data.tab in the domain_data.
 
 ````
 bin
@@ -356,11 +360,11 @@ bin
 ##predict
 Quick help: `python3 APRICOT/bin/apricot predict -h`
 
-This subcommand is used to begin the process of domain predictions in the query proteins by all the possible functional domains using RPSBLAST against CDD and InterProScan against InetrPro. APRICOT carries out the domain prediction from both CDD and InterPro consortiums by default but users can choose to predict domains from only one of the databases by using the flag -C for CDD and -I for InterPro. To overwrite an old prediction, the flag -F (for force run) can be used.
+This subcommand is used to begin the process of domain predictions in the query proteins by all the possible functional domains using RPSBLAST against CDD and InterProScan against InetrPro. APRICOT carries out the domain prediction from both CDD and InterPro consortiums by default but users can choose to predict domains from only one of the databases by using the flag -C for CDD and -I for InterPro. To overwrite old predictions, the flag -F (for force) can be used.
 
-The run time of RPSBLAST is considerably less, therefore -C flag can be used to obtain a quick information of the functional domains. However, we recommend the default setting because the different databases involved in both the consortiums provide a lerger scope for completeness of domain predictions.
+The run time of RPSBLAST is considerably less, therefore -C flag can be used to obtain a quick information of the functional domains. However, we recommend the default setting because the different databases involved in both the consortiums provide a larger scope for completeness of domain predictions.
 
-The execution of this subcommand is the basic requirement of the APRICOT analysis. The main input of this step is fasta sequences of query proteins, hence, it can be executed simultabeously or even before the subcommand 'select'.
+The execution of this subcommand is the basic requirement for the APRICOT analysis. The main input of this step is fasta sequences of query proteins. This subcommand can be executed simultabeously or even before running the subcommand 'select'.
 
 ````
 usage: apricot predict [-h] [--analysis_path ANALYSIS_PATH] [--cdd] [--ipr]
@@ -389,7 +393,7 @@ optional arguments:
                         proteins
 ````
 
-The resulting files of this analysis is stored in the first analysis directory '0_predicted_domains' in the output folder of the main analysis directory. As shown below, the information of the domain predictions are stired as the text files in the sub-folders corresponding to the domain consortiums. These files can be recycled or re-visited for the selection of different functional classes, therefore this analysis is independent of the reference domains.
+The resulting files of this analysis is stored in the first analysis directory '0_predicted_domains' in the output folder of the main analysis directory. As shown below, the information of the domain predictions are stored as text files in the sub-folders corresponding to the domain consortiums. Since this subcommand is independent of the reference domains, these files containing information on domain predictions can be recycled or re-visited for the selection of different functional classes.
 
 ````
 APRICOT_analysis
@@ -411,9 +415,11 @@ APRICOT_analysis
 ##filter
 Quick help: `python3 APRICOT/bin/apricot filter -h`
 
-The filtering of the predicted domains by this subcommand take place by using the reference domains selected using one of the earlier described subcommand select. Those query proteins that consist of at least one of the selected domains are retained for the downstream analysis whereas the rest of the proteins are discarded (data for thedomain predictions is not deleted from 0_predicted_domains).
+The filtering of the predicted domains by this subcommand take place by using the *domain selection terms*, hence this subcommand should be executed after 'select' and 'predict' subcommands. 
 
-Like aforementioned subcommands, flag -C for CDD based information and -I for InterPro based information can be used for this process as well. The default parameters for the selection of predicted domains are 'coverage > 39' and 'similarity > 24' which have been derived from a large RNA-binding positive and negative training sets collected from SwissProt database. However, users can choose their cut-offs for the parameters by using the flags --similarity, --coverage, --identity, --evalue, --bit (bit score) and --gap.
+Query proteins that consist of at least one of the selected domains are retained whereas the rest of the proteins are discarded from the downstream analysis. To limit the analysis to one of the consortiums only, flag -C for CDD based information and -I for InterPro based information can be used. 
+
+The users can choose their cut-offs for the parameters by using the flags --similarity, --coverage, --identity, --evalue, --bit (bit score) and --gap. However, the default parameters for the selection of predicted domains are defined as 'coverage > 39' and 'similarity > 24', which have been derived from a large RNA-binding positive and negative training sets collected from SwissProt database. 
         
 ````
 usage: apricot filter [-h] [--analysis_path ANALYSIS_PATH] [--cdd] [--ipr]
@@ -456,7 +462,9 @@ optional arguments:
                         output path for the selected data with annotations
 ````
 
-APRICOT saves all the domain data in the directory '1_compiled_domain_information' of the output folder. All the predicted domains (independent of reference domains and parameter cut-offs) as saved in the sub-folder 'unfiltered_data' and the selected data is saved in the sub-folder 'selected_data' in separate files for different domain rsources. The files in the sub-folder 'selected_data' contain predicted domain entry based on the reference domain sets and are marked with the tags 'ParameterSelected' when the prediction satisfy the parameter cut-off or 'Parameter Discarded' when it does not pass the parameter filter. In the cases, when certain parameter is not defned for the predicted domain, a tag 'ParameterNotApplicable' is used.
+APRICOT saves all the domain data in the directory '1_compiled_domain_information' of the output folder. All the predicted domains (independent of reference domains and parameter cut-offs) are saved in the sub-folder 'unfiltered_data' and the selected data is saved in the sub-folder 'selected_data' in separate files for different domain resources as shown below. 
+
+Files in the sub-folder 'selected_data' contain predicted domain entry based on the reference domain sets and are marked with the tags *ParameterSelected* when the domain predictions satisfy the defined parameter cut-offs (or default cut-offs) or *Parameter Discarded* when it does not pass the parameter filters. In those cases, when certain parameter is not available for the predicted domain, a tag *ParameterNotApplicable* is used.
 
 ````
 APRICOT_analysis
@@ -470,7 +478,8 @@ APRICOT_analysis
                         | cdd_filtered.csv                   # CDD 
                         | ipr_filtered.csv                   # InterPro 
 ````
-Furthermore, queries that are selected on the basis of reference domains and parameter cut-offs are compiled and stored with additional annotations extracted from various resources like UniProt and Gene Ontology in the directory '2_selected_domain_information' in the sub-folder 'combined_data'.
+Queries, that are selected on the basis of reference domains and parameter cut-offs, are compiled and stored in the directory '2_selected_domain_information' in the sub-folder 'combined_data'. These files contain the information of selected domains along with the additional annotations of the query proteins extracted from various resources like UniProt and Gene Ontology
+.
 ````
 APRICOT_analysis
     └───├output    
@@ -485,7 +494,7 @@ APRICOT_analysis
 ###classify
 Quick help: `python3 APRICOT/bin/apricot classify -h`
 
-This subcommand classifies the resulting domain information of the selected queries by using the user-provided keys for classification using --Cl flag in the subcommand 'keywords'.
+This subcommand classifies the resulting domain information of the selected queries by using the *result classification terms* (provided in the subcommand 'keywords').
 
 ````
 usage: apricot classify [-h] [--analysis_path ANALYSIS_PATH]
@@ -518,15 +527,19 @@ APRICOT_analysis
             
 ###annoscore
 
-Methods involved in feature-based scoring of the predicted domains
+This subcommand is executed for the annotation based scoring of the selcted domains in the query proteins. 
 
-1. Chemical properties: The value for each feature in the predicted domain is divided by the value of corresponding feature in the reference domain and a score suggesting the extent of functional similarity in the predicted domain is determined. This analysis is based on the assumption that the high conservation in the predicted domain compared to its reference will result in comparable chemical properties (a value closer to 1).
+Before we go into the technical part of the APRICOT pipeline, it is important to discuss the meaning and importance of annotation based scoring for the APRICOT analysis. 
 
-2. Needleman-Wunsch global alignment scores: The similarity scores are calculated for the global alignments of two sequence features: primary amino acid sequence and secondary structure. The similarity scores between the query and reference sequences are obtained that range from 0 to 1, where 1 is a complete match.
+In order to differentiate domain predictions of low confidence from that of high confidence, the predicted domain sites are compared with their corresponding references and scored by means of methods that measure their similarities by means of various sequence-based features. There are four groups of features that are involved in the annotation based scoring.
 
-3. Euclidean distances of protein compositions: The similarity in compositions between the predicted domains and their corresponding references can reflect the functional significance of the predictions and therefore inform the user of the putative biological function conferred by the identified domain. These similarities are calculated by Euclidean distance, and the similarity score (1-Euclidean distance) is represented in a range of 0 to 1, where 1 stands for an absolute match.
+1. **Chemical properties**: The value for each feature in the predicted domain is divided by the value of corresponding feature in the reference domain and a score suggesting the extent of functional similarity in the predicted domain is determined. This analysis is based on the assumption that the high conservation in the predicted domain compared to its reference will result in comparable chemical properties (a value closer to 1).
 
-4. Measure of similarity between predicted sites and reference domains: The last set of properties considered for feature-based scoring are the measures of coverage, similarity, identity and gaps obtained for the predicted domain sites in the query with respect to the sites in their reference domains. The domain coverage is calculated by dividing the residue counts of the predicted domain site in the query protein by the original length of the reference domain. The similarity, identity and gap are calculated by dividing the corresponding residue counts in the predicted domain by the calculated domain coverage (rather than the full length of the domain). Each of these parameters is reported in a value range of 0 to 1. The coverage value of 1 indicates that a complete domain is identified in the query. The similarity and identity value of 1 indicates an absolute match in the fraction of domain identified in the query. The gap value of 0 means no gap in the sequence, which is represented as the measure of 1-gap so that like other parameters, a score closer to 1 represents a favourable scenario.
+2. **Needleman-Wunsch global alignment scores**: The similarity scores are calculated for the global alignments of two sequence features: primary amino acid sequence and secondary structure. The similarity scores between the query and reference sequences are obtained that range from 0 to 1, where 1 is a complete match.
+
+3. **Euclidean distances of protein compositions**: The similarity in compositions between the predicted domains and their corresponding references can reflect the functional significance of the predictions and therefore inform the user of the putative biological function conferred by the identified domain. These similarities are calculated by Euclidean distance, and the similarity score (1-Euclidean distance) is represented in a range of 0 to 1, where 1 stands for an absolute match.
+
+4. **Prediction parameters of the predicted sites**: The last set of properties considered for feature-based scoring are the measures of coverage, similarity, identity and gaps obtained for the predicted domain sites in the query with respect to the sites in their reference domains. The domain coverage is calculated by dividing the residue counts of the predicted domain site in the query protein by the original length of the reference domain. The similarity, identity and gap are calculated by dividing the corresponding residue counts in the predicted domain by the calculated domain coverage (rather than the full length of the domain). Each of these parameters is reported in a value range of 0 to 1. The coverage value of 1 indicates that a complete domain is identified in the query. The similarity and identity value of 1 indicates an absolute match in the fraction of domain identified in the query. The gap value of 0 means no gap in the sequence, which is represented as the measure of 1-gap so that like other parameters, a score closer to 1 represents a favourable scenario.
 
 Quick help: `python3 APRICOT/bin/apricot annoscore -h`
 
@@ -560,15 +573,17 @@ APRICOT_analysis
 ###addanno
 Quick help: `python3 APRICOT/bin/apricot addanno -h`
 
-Different modules for additional annotations of the selected proteins
+This subcommand allows users to further annotate the query sequences that are selected based on the defined functional domains. 
 
-1. Identification sub-cellular localization of the proteins (flag -psortb): Information about the sub-cellular localization can assist in deriving the potential functional role associated with a protein. A standalone version of PSORTb v.3.3 (Yu et al., 2010) is used for computational prediction of the subcellular localization of selected proteins. PSORTb provides a list of five localization sites (cytoplasmic, cytoplasmic membrane, cell wall, extracellular and secondary localization) and the associated probability score (0-10 indicating low to high probability).
+Following modules can be used with their respective flags for additional annotations of the selected proteins:
 
-2. Secondary structure calculation by RaptorX (flag -raptorx): In principle an amino-acid sequence that aligns well with annotated proteins could be considered as functional homologs. However, amino acid conservation at the sequence level is not always obvious when dealing with the sequences where only functional domains are conserved whereas rest of the sequence share structure homology. In such cases, the selection of true homologs based on primary sequences is difficult. To address this problem, the candidate proteins can be compared to the known proteins at the structural level. The structure prediction tool RaptorX (Ma et al., 2013) has been integrated in the pipeline for the prediction of protein secondary structures. For example, two-dimensional structure information complemented with the domain prediction can be used for characterizing the affinity of a protein for RNA. It is also possible to derive tertiary structure without close homologs in the Protein Data Bank (PDB) using RaptorX, allowing further functional characterization. 
+1. **Identification sub-cellular localization of the proteins** (flag -psortb): Information about the sub-cellular localization can assist in deriving the potential functional role associated with a protein. A standalone version of PSORTb v.3.3 (Yu et al., 2010) is used for computational prediction of the subcellular localization of selected proteins. PSORTb provides a list of five localization sites (cytoplasmic, cytoplasmic membrane, cell wall, extracellular and secondary localization) and the associated probability score (0-10 indicating low to high probability).
 
-3. Tertiary structure homologs from Protein Data Bank ((flag -pdb): The tertiary structures are critical to identify the ligand partners of proteins in order to achieve a high-resolution annotation. Out of several millions of proteins available in non-redundant (nr) database in NCBI, only 105,417 proteins and 5,198 protein/nucleic-acid complexes (November 2015) have been crystalized. There are numerous computational tools available for the estimation of tertiary structures of proteins, e.g. PHYRE2 (Kelley et al., 2015), CPHModels (Nielsen et al., 2010) and I-TASSER online (Zhang et al., 2008). Most of these methods are computationally demanding and are available only as web-servers making their integration difficult into automated workflows. As such, in order to provide a quick insight into the potential binding mechanisms of selected proteins based on the available annotation of the PDB (Kouranov, 2006) structure homologs, APRICOT lists known tertiary structure homologs for the query proteins from PDB.
+2. **Secondary structure calculation by RaptorX** (flag -raptorx): In principle an amino-acid sequence that aligns well with annotated proteins could be considered as functional homologs. However, amino acid conservation at the sequence level is not always obvious when dealing with the sequences where only functional domains are conserved whereas rest of the sequence share structure homology. In such cases, the selection of true homologs based on primary sequences is difficult. To address this problem, the candidate proteins can be compared to the known proteins at the structural level. The structure prediction tool RaptorX (Ma et al., 2013) has been integrated in the pipeline for the prediction of protein secondary structures. For example, two-dimensional structure information complemented with the domain prediction can be used for characterizing the affinity of a protein for RNA. It is also possible to derive tertiary structure without close homologs in the Protein Data Bank (PDB) using RaptorX, allowing further functional characterization. 
 
-4. Gene Ontology (flag -go): The Gene Ontology or GO consortium (Gaudet et al., 2009) is a bioinformatics initiative for unifying annotation by means of controlled vocabulary. GO terms are widely used for standard annotation of a gene with various information, including cellular localization, biological processes, and molecular function. GO is determined by extracting all GO terms available for a protein in UniProt database and for the domains in InterPro and CDD databases. In order to achieve a broader GO catalogue for each candidate protein, Blast2GO (Conesa et al., 2005) can be executed from APRICOT subcommand blast2go when already installed by the users. 
+3. **Tertiary structure homologs from Protein Data Bank** ((flag -pdb): The tertiary structures are critical to identify the ligand partners of proteins in order to achieve a high-resolution annotation. Out of several millions of proteins available in non-redundant (nr) database in NCBI, only 105,417 proteins and 5,198 protein/nucleic-acid complexes (November 2015) have been crystalized. There are numerous computational tools available for the estimation of tertiary structures of proteins, e.g. PHYRE2 (Kelley et al., 2015), CPHModels (Nielsen et al., 2010) and I-TASSER online (Zhang et al., 2008). Most of these methods are computationally demanding and are available only as web-servers making their integration difficult into automated workflows. As such, in order to provide a quick insight into the potential binding mechanisms of selected proteins based on the available annotation of the PDB (Kouranov, 2006) structure homologs, APRICOT lists known tertiary structure homologs for the query proteins from PDB.
+
+4. **Gene Ontology** (flag -go): The Gene Ontology or GO consortium (Gaudet et al., 2009) is a bioinformatics initiative for unifying annotation by means of controlled vocabulary. GO terms are widely used for standard annotation of a gene with various information, including cellular localization, biological processes, and molecular function. GO is determined by extracting all GO terms available for a protein in UniProt database and for the domains in InterPro and CDD databases. In order to achieve a broader GO catalogue for each candidate protein, Blast2GO (Conesa et al., 2005) can be executed from APRICOT subcommand blast2go when already installed by the users. 
 
 ````
 usage: apricot addanno [-h] [--force] [--pdb] [--psortb] [--raptorx] [--refss]
@@ -625,7 +640,7 @@ APRICOT_analysis
 ###summary
 Quick help: `python3 APRICOT/bin/apricot summary -h`
 
-To get an overview of the analysis carried out on a set of query proteins, this sub command can be used. It create a basic overview like, how many queries could be mapped to the UniProt IDs, how many contain the reference domains etc.
+To get an overview of the analysis carried out on a set of query proteins, this sub command can be used. It generate information like, how many queries could be mapped to the UniProt IDs, how many contain the reference domains etc., to provide analysis overview.
 
 ````
 usage: apricot summary [-h] [--analysis_path ANALYSIS_PATH]
