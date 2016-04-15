@@ -1,5 +1,6 @@
-#[APRICOT](http://malvikasharan.github.io/APRICOT/)
-![alt tag](https://github.com/malvikasharan/APRICOT/blob/master/APRICOT_logo.png)
+![alt tag](https://github.com/malvikasharan/APRICOT/blob/master/APRICOT_logo.png)(http://malvikasharan.github.io/APRICOT/)
+
+#[APRICOT github.io page](http://malvikasharan.github.io/APRICOT/)
 
 ###A tool for sequence-based identification and characterization of protein classes
 
