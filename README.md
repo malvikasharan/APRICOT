@@ -1,8 +1,7 @@
 ![alt tag](https://github.com/malvikasharan/APRICOT/blob/master/APRICOT_logo.png)
 
-###GitHub page of [APRICOT](http://malvikasharan.github.io/APRICOT/)
-
 ###A tool for sequence-based identification and characterization of protein classes
+####GitHub page of [APRICOT](http://malvikasharan.github.io/APRICOT/)
 
 **APRICOT** is a computational pipeline for the identification of specific functional classes of interest in large protein sets. The pipeline uses efficient sequence-based algorithms and predictive models like signature motifs of protein families for the characterization of user-provided query proteins with specific functional features. The dynamic framework of APRICOT allows the identification of unexplored functional classes of interest in the large protein sets or the entire proteome.
 
