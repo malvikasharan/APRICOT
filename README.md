@@ -11,7 +11,9 @@ The functionality of APRICOT can be explained in 3 parts: program input, analysi
 #####Program inputs
 1) Query proteins that are subjected to characterization by domains and associated functional properties
 
-2) Set of terms indicating protein domains of functional relevance. Based on these inputs
+2) Set of terms indicating protein domains of functional relevance. 
+
+Based on these inputs, APRICOT can be executed for the analysis of the proteins of interest using the analysis modules as explained later.
 
 #####Analysis modules of APRICOT
 The functionalities involved in the primary analysis are retrieval of sequences and known annotations of query proteins, collection of domains of interest from domain databases, and identification of all the functional domains in a given query.
