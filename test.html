@@ -1,0 +1,30 @@
+<h1 id="a-tool-for-sequence-based-identification-and-characterization-of-protein-classes">A tool for sequence-based identification and characterization of protein classes</h1>
+<p><a href="http://malvikasharan.github.io/APRICOT/">APRICOT</a> is a computational pipeline for the identification of specific functional classes of interest in large protein sets. The pipeline uses efficient sequence-based algorithms and predictive models like signature motifs of protein families for the characterization of user-provided query proteins with specific functional features. The dynamic framework of APRICOT allows the identification of unexplored functional classes of interest in the large protein sets or the entire proteome.</p>
+<h1 id="summary-of-the-pipeline">Summary of the pipeline</h1>
+<p>The functionality of APRICOT can be explained in 3 parts: program input, analysis modules and program output.</p>
+<h2 id="program-inputs">Program inputs</h2>
+<ol style="list-style-type: decimal">
+<li>Query proteins that are subjected to characterization by domains and associated functional properties</li>
+<li>Set of terms indicating protein domains of functional relevance.</li>
+</ol>
+<p>Based on these inputs, APRICOT can be executed for the analysis of the proteins of interest using the analysis modules as explained later.</p>
+<h2 id="analysis-modules-of-apricot">Analysis modules of APRICOT</h2>
+<p>The functionalities involved in the primary analysis are retrieval of sequences and known annotations of query proteins, collection of domains of interest from domain databases, and identification of all the functional domains in a given query.</p>
+<p>The data obtained from the primary analysis is used as a resource for the secondary analysis, which mainly involves the selection of proteins based on the predicted domains, the calculation of the statistical and biological significance of the selected proteins to possess the function of interest by means of sequence-based features, and biological characterization of these proteins by additional annotations like subcellular localization and secondary structures.</p>
+<h2 id="program-output">Program output</h2>
+<p>For each analysis step, APRICOT generates results in tablular manner, in addition with an overview of the analysis and graphics associated with the resulting information.</p>
+<h2 id="trivia">Trivia</h2>
+<p>The initial focus of this project was to identify functional domains in bacterial proteins that have the potential to interact with RNA (RNA-binding proteins or RBPs) and understand their regulatory roles and mechanisms. Hence, the tool is named <strong>APRICOT</strong> that stands for <strong>A</strong>nalysing <strong>P</strong>rotein <strong>R</strong>NA <strong>I</strong>nteractions by <strong>Co</strong>mbined-scoring <strong>T</strong>echnique. However, due to the adaptability of the pipeline to different sets of reference domains, APRICOT is not limited to RBP identification and has been tested successfully on the other classes of functional domains as well. We are carrying out the experimental validations of few RBPs identified by APRICOT in collaboration with the biologists in our lab, which can provide a high confidence dataset and contribute significantly to the improvement of this computational approach.</p>
+<h1 id="authors-and-contributors">Authors and Contributors</h1>
+<p>The tool is designed and developed by Malvika Sharan @malvikasharan in the lab of Prof. Dr. Jörg Vogel and Dr. Ana Eulalio in the Institute for Molecular Infection Biology at the University of Würzburg. Dr. Konrad Förstner @konrad contributed to the project by providing important technical supervision and discussions. The authors are grateful to Prof. Thomas dandekar, Dr. Charlotte Michaux, Caroline Taouk and Dr. Lars Barquist for critical discussions and feedback.</p>
+<p>Documentation and source code ~~~~~~~~~~~</p>
+<p>The documentations and source codes of APRICOT are available at: <a href="https://github.com/malvikasharan/APRICOT" class="uri">https://github.com/malvikasharan/APRICOT</a>.</p>
+<h3 id="license">License</h3>
+<p>APRICOT is open source software and available under the ISC license.</p>
+<p>Copyright (c) 2011-2015, Malvika Sharan, <script type="text/javascript">
+<!--
+h='&#x75;&#110;&#x69;&#x2d;&#x77;&#x75;&#x65;&#114;&#122;&#98;&#x75;&#114;&#x67;&#46;&#100;&#x65;';a='&#64;';n='&#x6d;&#x61;&#108;&#118;&#x69;&#x6b;&#x61;&#46;&#x73;&#104;&#x61;&#114;&#x61;&#110;';e=n+a+h;
+document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'" clas'+'s="em' + 'ail">'+e+'<\/'+'a'+'>');
+// -->
+</script><noscript>&#x6d;&#x61;&#108;&#118;&#x69;&#x6b;&#x61;&#46;&#x73;&#104;&#x61;&#114;&#x61;&#110;&#32;&#x61;&#116;&#32;&#x75;&#110;&#x69;&#x2d;&#x77;&#x75;&#x65;&#114;&#122;&#98;&#x75;&#114;&#x67;&#32;&#100;&#x6f;&#116;&#32;&#100;&#x65;</noscript></p>
+<p>Please read the <a href="https://github.com/malvikasharan/APRICOT/blob/master/LICENSE.md">license</a> content.</p>
