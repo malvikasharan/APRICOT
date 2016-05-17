@@ -1,13 +1,8 @@
 test:
-	python3 tests/test_all.py
-
-coverage:
-	python3-coverage run tests/test_all.py
-	python3-coverage report
+	sh run_template_min.sh
 
 package:
 	python3 setup.py bdist_wheel
-	rm -rf READemption.egg-info
 	ls dist/*
 
 build:
@@ -15,15 +10,10 @@ build:
 
 package_to_pypi:
 	python3 setup.py sdist upload
-	@echo "Go to https://pypi.python.org/pypi/READemption/"
+	@echo "Go to https://pypi.python.org/pypi/bio-apricot/"
 
 html_doc:
 	cd docs && make html && cd ..
-
-upload_doc:
-	cd docs/build/html/ && zip -r READemption_docs.zip * && cd ../../.. && mv docs/build/html/READemption_docs.zip .
-	@echo ""
-	@echo "Upload READemption_docs.zip at https://pypi.python.org/pypi?%3Aaction=pkg_edit&name=READemption"
 
 show_html_docs:
 	firefox docs/build/html/index.html &
@@ -44,13 +34,13 @@ readme_clean:
 	rm -f README.tex README.html README.txt
 
 pylint:
-	pylint bin/reademption reademptionlib/* tests/*
+	pylint bin/apricot apricotlib/* tests/*
 
 new_release:
 	@echo "* Create/checkout a release branch"
 	@echo "  git branch release_v0.3.X"
 	@echo "  git checkout release_v0.3.X"
-	@echo "* Change bin/reademption"
+	@echo "* Change bin/apricot"
 	@echo "* Change setup.py"
 	@echo "* Change docs/source/conf.py"
 	@echo "* Change CHANGELOG.txt"
@@ -58,11 +48,11 @@ new_release:
 	@echo "* Test package creation"
 	@echo "* Test doc creation"
 	@echo "* make package_to_pypi"
-	@echo "* git add CHANGELOG.txt bin/reademption docs/source/conf.py setup.py"
-	@echo "* Commit changes e.g. 'git commit -m \"Set version to 0.3.X\"'"
-	@echo "* Tag the commit e.g. 'git tag -a v0.3.X -m \"version v0.3.X\"'"
+	@echo "* git add CHANGELOG.txt bin/apricot docs/source/conf.py setup.py"
+	@echo "* Commit changes e.g. 'git commit -m \"Set version to 1.0.X\"'"
+	@echo "* Tag the commit e.g. 'git tag -a v1.0.X -m \"version v1.0.X\"'"
 	@echo "* Merge release into dev and master"
 	@echo "* Push it to github: git push"
 	@echo "* Generate a new release based on this tag at"
-	@echo "  https://github.com/konrad/READemption/releases/new"
+	@echo "  https://github.com/malvikasharan/APRICOT/releases/new"
 	@echo "* Upload new docs using 'make upload_doc'"
