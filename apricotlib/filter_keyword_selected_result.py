@@ -156,7 +156,7 @@ class FilterPredictedDomains(object):
                                 each_stat_group)
                             coverage_percent = "%.4f" % ((int(
                             parameter_dict["cover_length"])/int(length))*100)
-                            if coverage_percent > 100:
+                            if float(coverage_percent) > 100:
                                 coverage_percent = 100
                             similarity_percent = "%.4f" % ((int(
                             parameter_dict["similarity_value"].split('/')[0])/int(
