@@ -113,7 +113,10 @@ class MapDomainToGo(object):
                         if len(self._interpro_go_dict[ipr]) > 1:
                             go_list = []
                             for go in self._interpro_go_dict[ipr]:
-                                go_list.append(self._go_info_dict[go])
+                                try:
+                                    go_list.append(self._go_info_dict[go])
+                                except KeyError:
+                                    go_list.append('%s: No description' % go)
                             map_out_fh.write("%s\t%s\t%s\n" % (
                                 ipr, self._interpro_domain_dict[ipr],
                                 ','.join(go_list)))

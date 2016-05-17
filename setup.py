@@ -5,7 +5,7 @@ try:
 except ImportError:
     from distutils.core import setup
 
-setup(name='bio-apricot',
+setup(name='bio-APRICOT',
       version='1.0',
       description='Sequence-based identification and characterization of protein classes',
       author='Malvika Sharan',

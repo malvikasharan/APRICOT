@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 #works with python3 and up
 #AUTHOR: Malvika Sharan {malvikasharan@gmail.com}
-#Date: 2015-08-07
+#Date: 2016-05-17
 
 import argparse
 import os
@@ -116,10 +116,10 @@ def main():
     default='bin/reference_db_files/cdd/cdd_annotation_data/cddid.tbl',
     help="Absolute path of CDD domain table")
     domain_data_parser.add_argument("--ipr_table", "-ipr",
-    default='bin/reference_db_files/interpro/ipr_annotation_data/interproid.tbl',
+    default='bin/reference_db_files/interpro/interpro_annotation_data/interproid.tbl',
     help="Absolute path of InterPro domain table")
     domain_data_parser.add_argument("--interpro_mapped_cdd", "-map",
-    default='bin/reference_db_files/interpro/ipr_annotation_data/mapped_interpro_to_cdd_length.csv',
+    default='bin/reference_db_files/interpro/interpro_annotation_data/mapped_interpro_to_cdd_length.csv',
     help="InterPro domains mapped to CDD domains.")
     domain_data_parser.add_argument("--domain_path", "-dp",
     default='bin/domain_data',
@@ -362,7 +362,7 @@ def select_uniprot_taxid(args):
     else:
         select_taxids(args.db_path, args.species)
     print("\n----------------------------------------------------------------\n"
-          "Selected taxonomy ids associated with the query species" % args.species)
+          "Selected taxonomy ids associated with the query species %s" % args.species)
     print("Please refer to bin/selected_taxonomy_ids.txt for the selected taxonomy ids."
     "\n----------------------------------------------------------------\n")
 

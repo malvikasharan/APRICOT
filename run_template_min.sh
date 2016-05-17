@@ -2,8 +2,8 @@
 #AUTHOR: Malvika Sharan {malvikasharan@gmail.com}
 
 PYTHON_PATH=python3
-ANALYSIS_PATH=APRICOT_analysis_release
-APRICOT_PATH=APRICOT_release
+ANALYSIS_PATH=APRICOT_analysis
+APRICOT_PATH=APRICOT
 DB_PATH=bin/reference_db_files
 
 ##FIXED PATHS for flatfiles downloaded by APRICOT
@@ -52,21 +52,21 @@ domain_kw='RRM,KH,DEAD'
 class_kw='ribosom,helicase,synthetase,polymerase,transferase,nuclease,RRM,RNP'
 
 main(){
-    install_complete_db_and_tools
-    install_minimum_required_files
+    #install_complete_db_and_tools              ###-Includes external tools for additional annotation
+    #install_minimum_required_files             ###-Use this to install the minimum required files
     
     set_up_analysis_folder
-    retrieve_taxonomy_id_list                  ####-This step could be skipped if using uniprot ids as queries
+    #retrieve_taxonomy_id_list                   ###-This step could be skipped if using uniprot ids as queries
                                                 ###-select a taxonomy id from the list genetrated by using $species
                                                 ###-for full list look at $FIXED_DB_FILES/all_taxids/speclist.txt
-    provide_input_queries
-    provide_domain_and_class_keywords
-    select_domains_by_keywords
-    run_domain_prediction
-    filter_domain_analysis
-    classify_filtered_result
-    calculate_annotation_score                 
-    create_analysis_summary
+    #provide_input_queries
+    #provide_domain_and_class_keywords
+    #select_domains_by_keywords
+    #run_domain_prediction
+    #filter_domain_analysis
+    #classify_filtered_result
+    #calculate_annotation_score                 
+    #create_analysis_summary
 }
 
 install_complete_db_and_tools(){

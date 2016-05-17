@@ -35,6 +35,7 @@ main(){
         download_pdb_sec_str
         sort_and_format_pdb_data
         ###Other-requirements###
+        get_pfam_domain_file
         get_blast_executables
         ontology_mapping_to_domains
         get_biojs_dependencies
@@ -246,6 +247,14 @@ sort_and_format_pdb_data(){
     $PYTHON_PATH $apricot_lib/sort_sec_struc_pdb_data.py \
     -i $apricot_flatfiles/pdb/pdb_secstr/ss.txt -seq $apricot_flatfiles/pdb/pdb_sequence -str $apricot_flatfiles/pdb/pdb_secstr
     $apricot_flatfiles/blast/makeblastdb -in $apricot_flatfiles/pdb/pdb_sequence/pdb_sequence.txt -dbtype prot
+}
+
+get_pfam_domain_file(){
+    wget -O - ftp://ftp.ebi.ac.uk/pub/databases/Pfam/releases/ > $apricot_files/pfam/index.html
+    current_release=$(cut -d'>' -f2 $apricot_files/pfam/index.html | cut -d'/' -f1 | cut -d'm' -f2 | sort -g | tail -n1)
+    echo $current_release
+    wget -c -P $apricot_files/pfam ftp://ftp.ebi.ac.uk/pub/databases/Pfam/releases/Pfam$current_release/database_files/pfamA.txt.gz
+    gunzip $apricot_files'/pfam/pfamA.txt.gz'
 }
 
 get_blast_executables(){

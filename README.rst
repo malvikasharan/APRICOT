@@ -10,45 +10,20 @@ dynamic framework of APRICOT allows the identification of unexplored
 functional classes of interest in the large protein sets or the entire
 proteome.
 
-Summary of the pipeline
-~~~~~~~~~~~~~~~~~~~~~~~
+Documentation and source code
+-----------------------------
 
-The functionality of APRICOT can be explained in 3 parts: program input,
-analysis modules and program output.
+The documentation and source codes of APRICOT are available at
+https://github.com/malvikasharan/APRICOT.
 
-Program inputs
-''''''''''''''
+License
+-------
 
-1) Query proteins that are subjected to characterization by domains and
-   associated functional properties
+APRICOT is open source software and available under the ISC license.
 
-2) Set of terms indicating protein domains of functional relevance.
+Copyright (c) 2011-2015, Malvika Sharan, malvika.sharan@uni-wuerzburg.de
 
-Based on these inputs, APRICOT can be executed for the analysis of the
-proteins of interest using the analysis modules as explained later.
-
-Analysis modules of APRICOT
-'''''''''''''''''''''''''''
-
-The functionalities involved in the primary analysis are retrieval of
-sequences and known annotations of query proteins, collection of domains
-of interest from domain databases, and identification of all the
-functional domains in a given query.
-
-The data obtained from the primary analysis is used as a resource for
-the secondary analysis, which mainly involves the selection of proteins
-based on the predicted domains, the calculation of the statistical and
-biological significance of the selected proteins to possess the function
-of interest by means of sequence-based features, and biological
-characterization of these proteins by additional annotations like
-subcellular localization and secondary structures.
-
-Program output
-''''''''''''''
-
-For each analysis step, APRICOT generates results in tablular manner, in
-addition with an overview of the analysis and graphics associated with
-the resulting information.
+Please read the license content `here`_.
 
 Trivia
 ''''''
@@ -66,21 +41,6 @@ experimental validations of few RBPs identified by APRICOT in
 collaboration with the biologists in our lab, which can provide a high
 confidence dataset and contribute significantly to the improvement of
 this computational approach.
-
-Documentation and source code
------------------------------
-
-The documentation and source codes of APRICOT are available at
-https://github.com/malvikasharan/APRICOT.
-
-License
--------
-
-APRICOT is open source software and available under the ISC license.
-
-Copyright (c) 2011-2015, Malvika Sharan, malvika.sharan@uni-wuerzburg.de
-
-Please read the license content `here`_.
 
 .. _APRICOT: http://malvikasharan.github.io/APRICOT/
 .. _here: https://github.com/malvikasharan/APRICOT/blob/master/LICENSE.md

@@ -34,8 +34,8 @@ apricotlib/sort_sec_struc_pdb_data.py
 apricotlib/uniprot_proteome_table.py
 apricotlib/uniprot_taxid.py
 bin/apricot
-bio_apricot.egg-info/PKG-INFO
-bio_apricot.egg-info/SOURCES.txt
-bio_apricot.egg-info/dependency_links.txt
-bio_apricot.egg-info/requires.txt
-bio_apricot.egg-info/top_level.txt
+bio_APRICOT.egg-info/PKG-INFO
+bio_APRICOT.egg-info/SOURCES.txt
+bio_APRICOT.egg-info/dependency_links.txt
+bio_APRICOT.egg-info/requires.txt
+bio_APRICOT.egg-info/top_level.txt
