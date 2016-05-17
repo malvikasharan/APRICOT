@@ -1,5 +1,5 @@
-[![Latest Version](https://img.shields.io/pypi/v/APRICOT.svg)](https://pypi.python.org/pypi/APRICOT/)
-[![License](https://img.shields.io/pypi/l/APRICOT.svg)](https://pypi.python.org/pypi/APRICOT/)
+[![Latest Version](https://img.shields.io/pypi/v/bio-apricot.svg)](https://pypi.python.org/pypi/bio-apricot/)
+[![License](https://img.shields.io/pypi/l/bio-apricot.svg)](https://pypi.python.org/pypi/bio-apricot/)
 
 ![alt tag](https://github.com/malvikasharan/APRICOT/blob/master/APRICOT_logo.png)
 
