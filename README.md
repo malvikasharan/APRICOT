@@ -7,6 +7,27 @@
 
 [APRICOT](http://malvikasharan.github.io/APRICOT/) is a computational pipeline for the identification of specific functional classes of interest in large protein sets. The pipeline uses efficient sequence-based algorithms and predictive models like signature motifs of protein families for the characterization of user-provided query proteins with specific functional features. The dynamic framework of APRICOT allows the identification of unexplored functional classes of interest in the large protein sets or the entire proteome.
 
+###Authors and Contributors
+
+The tool is designed and developed by Malvika Sharan @malvikasharan in the lab of Prof. Dr. Jörg Vogel and Dr. Ana Eulalio in the Institute for Molecular Infection Biology at the University of Würzburg. Dr. Konrad Förstner @konrad contributed to the project by providing important technical supervision and discussions. The authors are grateful to Prof. Thomas dandekar, Dr. Charlotte Michaux, Caroline Taouk and Dr. Lars Barquist for critical discussions and feedback.
+
+###Source code
+
+The source codes of APRICOT are available at https://github.com/malvikasharan/APRICOT.
+
+The light version is available at https://pypi.python.org/pypi/bio-apricot.
+
+##License
+
+APRICOT is open source software and available under the ISC license.
+
+Copyright (c) 2011-2015, Malvika Sharan, <malvika.sharan@uni-wuerzburg.de>
+
+Please read the license content [here](https://github.com/malvikasharan/APRICOT/blob/master/LICENSE.md).
+
+#####Trivia
+The initial focus of this project was to identify functional domains in bacterial proteins that have the potential to interact with RNA (RNA-binding proteins or RBPs) and understand their regulatory roles and mechanisms. Hence, the tool is named **APRICOT** that stands for **A**nalysing **P**rotein **R**NA **I**nteractions by **Co**mbined-scoring **T**echnique. However, due to the adaptability of the pipeline to different sets of reference domains, APRICOT is not limited to RBP identification and has been tested successfully on the other classes of functional domains as well. We are carrying out the experimental validations of few RBPs identified by APRICOT in collaboration with the biologists in our lab, which can provide a high confidence dataset and contribute significantly to the improvement of this computational approach.
+
 ###Summary of the pipeline
 
 The functionality of APRICOT can be explained in 3 parts: program input, analysis modules and program output. 
@@ -25,25 +46,6 @@ The data obtained from the primary analysis is used as a resource for the second
 
 #####Program output
 For each analysis step, APRICOT generates results in tablular manner, in addition with an overview of the analysis and graphics associated with the resulting information.
-
-#####Trivia
-The initial focus of this project was to identify functional domains in bacterial proteins that have the potential to interact with RNA (RNA-binding proteins or RBPs) and understand their regulatory roles and mechanisms. Hence, the tool is named **APRICOT** that stands for **A**nalysing **P**rotein **R**NA **I**nteractions by **Co**mbined-scoring **T**echnique. However, due to the adaptability of the pipeline to different sets of reference domains, APRICOT is not limited to RBP identification and has been tested successfully on the other classes of functional domains as well. We are carrying out the experimental validations of few RBPs identified by APRICOT in collaboration with the biologists in our lab, which can provide a high confidence dataset and contribute significantly to the improvement of this computational approach.
-
-###Authors and Contributors
-
-The tool is designed and developed by Malvika Sharan @malvikasharan in the lab of Prof. Dr. Jörg Vogel and Dr. Ana Eulalio in the Institute for Molecular Infection Biology at the University of Würzburg. Dr. Konrad Förstner @konrad contributed to the project by providing important technical supervision and discussions. The authors are grateful to Prof. Thomas dandekar, Dr. Charlotte Michaux, Caroline Taouk and Dr. Lars Barquist for critical discussions and feedback.
-
-###Source code
-
-The source codes of APRICOT are available at https://github.com/malvikasharan/APRICOT.
-
-##License
-
-APRICOT is open source software and available under the ISC license.
-
-Copyright (c) 2011-2015, Malvika Sharan, <malvika.sharan@uni-wuerzburg.de>
-
-Please read the license content [here](https://github.com/malvikasharan/APRICOT/blob/master/LICENSE.md).
 
 ##Installation
 The scripts for the installaton of the different componenents of APRICOT (databases, tools and flatfiles) are available on the GitHub repository.
@@ -66,20 +68,21 @@ Please update the package list: `sudo apt-get update` and install the required p
 Please clone `git clone https://github.com/malvikasharan/APRICOT.git` or [download](https://github.com/malvikasharan/APRICOT/archive/master.zip) this repository in your system locally, which comprise of a directory tree of the following structure.
 ```
 APRICOT
-│   APRICOT_EXAMPLE.md
 │   CHANGELOG.md
 │   Dockerfile
 │   LICENCE.md
 │   README.md
+|   ...
 |
 └───├apricotlib
 └───├bin
-└───├run_scripts
+└───├...
 ```
 
-The run script for the installation of all the required files (apricot_db_tool.sh) can be found in `run_scripts` folder of this github repository. Users need to provide the path of the APRICOT repository in the system (APRICOT) and the path where the users wish to install APRICOT related tools and files (apricot_db_and_tools). APRICOT will mainly install  BLAST executables (ftp://ftp.ncbi.nih.gov/blast/executables/blast+) and InterProScan (ftp://ftp.ebi.ac.uk/pub/software/unix/iprscan/5/) along with establishing CDD and InterPro databases locally.
+The run script for the installation ocan be found in `run_scripts` folder of this github repository. Users need to provide the path of the APRICOT repository in the system (APRICOT) and the path where the users wish to install APRICOT related tools and files (apricot_db_and_tools). 
+With the light version, APRICOT will mainly install  BLAST executables (ftp://ftp.ncbi.nih.gov/blast/executables/blast+) and InterProScan (ftp://ftp.ebi.ac.uk/pub/software/unix/iprscan/5/) along with establishing CDD and InterPro databases locally.
 
-    sh apricotlib/apricot_db_tool.sh APRICOT apricot_db_and_tools
+    APRICOT/bin/apricotlib/apricot_minimum_required_files.sh APRICOT
 
 Alternatively, the BLAST executables (rpsblast, blastp, psiblast, makeblastdb) can be installed locally as directed [here](http://bioinformatics.ai.sri.com/ptools/installation-guide/released/blast.html) and CDD can be established locally (in the path apricot_db_and_tools/conserved_domain_database/Cdd) as shown below:
 
@@ -91,7 +94,7 @@ InterProSan can be downloaded and installed locally (in the path apricot_db_and_
     wget ftp://ftp.ebi.ac.uk/pub/software/unix/iprscan/5/5.17-56.0/interproscan-5.17-56.0-64-bit.tar.gz
     tar xvf interproscan-5.17-56.0-64-bit.tar.gz
 
-APRICOT also requires various flatfiles, namely [CDD tables](ftp://ftp.ncbi.nih.gov/pub/mmdb/cdd/cdd.info), [InterPro tables](ftp://ftp.ebi.ac.uk/pub/software/unix/iprscan/5), [PDB secondary structures](http://www.rcsb.org/pdb/files/ss.txt), [taxonomy information] (http://www.uniprot.org/docs/speclist.txt), [Gene Ontology data](http://www.geneontology.org/ontology/go.obo) and [pfam table](ftp://ftp.ebi.ac.uk/pub/databases/Pfam/releases/Pfam29.0/database_files/), which are downloaded and saved locally in the pre-defined location (for e.g. 'reference_db_files' in 'APRICOT' folder).
+APRICOT requires various flatfiles, namely [CDD tables](ftp://ftp.ncbi.nih.gov/pub/mmdb/cdd/cdd.info), [InterPro tables](ftp://ftp.ebi.ac.uk/pub/software/unix/iprscan/5), [PDB secondary structures](http://www.rcsb.org/pdb/files/ss.txt), [taxonomy information] (http://www.uniprot.org/docs/speclist.txt), [Gene Ontology data](http://www.geneontology.org/ontology/go.obo) and [pfam table](ftp://ftp.ebi.ac.uk/pub/databases/Pfam/releases/Pfam29.0/database_files/), which are downloaded and saved locally in the pre-defined location (for e.g. 'reference_db_files' in 'APRICOT' folder).
 ```
 bin
 │   ...
