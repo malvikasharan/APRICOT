@@ -1,3 +1,6 @@
+[![Latest Version](https://img.shields.io/pypi/v/apricot.svg)](https://pypi.python.org/pypi/APRICOT/)
+[![License](https://img.shields.io/pypi/l/apricot.svg)](https://pypi.python.org/pypi/APRICOT/)
+
 ![alt tag](https://github.com/malvikasharan/APRICOT/blob/master/APRICOT_logo.png)
 
 ###A tool for sequence-based identification and characterization of protein classes
