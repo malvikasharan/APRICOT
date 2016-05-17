@@ -747,7 +747,3 @@ APRICOT_analysis
 
 ##Versions/Change log
 Please check the current version [here](https://github.com/malvikasharan/APRICOT/blob/master/CHNAGELOG.md).
-
-
-
-# apricot_data_misc
