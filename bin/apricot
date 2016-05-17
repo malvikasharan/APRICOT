@@ -653,7 +653,7 @@ def classify_output(args):
 
 def annotation_scoring(args):
     print("\n----------------------------------------------------------------\n"
-      "Calculating annotation scores for the selected domain data"
+      "Calculating annotation scores for the selected domain data\n"
       "This might take some time, please be patient ..."
     "\n----------------------------------------------------------------\n")
     outpath = args.analysis_path+'/'+args.outpath
