@@ -36,6 +36,7 @@ The tool is designed and developed by Malvika Sharan @malvikasharan in the lab o
 ###Source code
 
 The source codes of APRICOT are available at https://github.com/malvikasharan/APRICOT.
+The minimum requirement version is available at https://pypi.python.org/pypi/bio-apricot.
 
 ##License
 
