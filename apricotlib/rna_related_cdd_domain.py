@@ -1,18 +1,14 @@
 #!/usr/bin/env python 
 
-'''Identifies domains from CDD database'''
-
-#'''FUNCTION & USAGE'''
-
 import sys
 import os
 import argparse
 import re
 
-__description__ = ""
+__description__ = "Identifies domains from CDD database"
 __author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
 __email__ = "malvika.sharan@uni-wuerzburg.de"
-__version__ = ""
+
 
 def main():
     '''all commandline arguement dclaration'''
