@@ -2,8 +2,16 @@
 
 import os
 import argparse
-from urllib.request import urlopen
-import xml.etree.ElementTree as ET
+try:
+    from urllib.request import urlopen
+except ImportError:
+    print('Python package urllib is missing. Please install/update.\n'
+    'Please ignore if you are only testing the example provided by APRICOT')
+try:
+    import xml.etree.ElementTree as ET
+except ImportError:
+    print('Python package xml is missing. Please install/update.')
+    sys.exit(0)
 import sys
 XML_PARSE = '{http://uniprot.org/uniprot}'
 
