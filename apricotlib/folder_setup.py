@@ -1,7 +1,13 @@
-import os
-import sys
 
-'''Sets up all the required folders for APRICOT analysis'''
+#!/usr/bin/env python 
+
+import os
+import argparse
+
+__description__ = "Sets up all the required folders for APRICOT analysis"
+__author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
+__email__ = "malvika.sharan@uni-wuerzburg.de"
+__version__ = ""
 
 
 def setup_analysis_folders(analysis_path):
