@@ -1,10 +1,5 @@
 #!/usr/bin/env python 
 
-__description__ = '''code to collect protein proteins from uniprot protein gene, 
-their xml file and all the details. further collection of fasta files'''
-__author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
-__email__ = "malvika.sharan@uni-wuerzburg.de"
-
 import os
 import argparse
 import csv
@@ -14,6 +9,12 @@ from urllib.request import urlopen
 import xml.etree.ElementTree as ET
 from xml.parsers import expat
 XML_PARSE = '{http://uniprot.org/uniprot}'
+
+__description__ = '''code to collect protein proteins from uniprot protein gene, 
+their xml file and all the details. further collection of fasta files'''
+__author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
+__email__ = "malvika.sharan@uni-wuerzburg.de"
+
 
 def main():
     parser = argparse.ArgumentParser(description=__description__)
