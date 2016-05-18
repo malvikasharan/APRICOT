@@ -42,7 +42,6 @@ new_release:
 	@echo "  git checkout release_v0.3.X"
 	@echo "* Change bin/apricot"
 	@echo "* Change setup.py"
-	@echo "* Change docs/source/conf.py"
 	@echo "* Change CHANGELOG.txt"
 	@echo "* Create new docs"
 	@echo "* Test package creation"
