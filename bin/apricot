@@ -783,15 +783,15 @@ def output_format(args):
     excel_out = outpath+'/excel_files'
     if args.html:
         for folders in os.listdir(inpath):
-            if folders == '5_analysis_summary' or folders == '2_selected_domain_information':
-            #if not 'format_' in folders and not 'visualization' in folders:
+            #if folders == '5_analysis_summary' or folders == '2_selected_domain_information':
+            if not 'format_' in folders and not 'visualization' in folders:
                 if not os.path.exists(html_out + '/ '+ folders):
                     os.mkdir(html_out + '/ '+ folders)
                 csv_to_html(inpath + '/ '+ folders, html_out + '/ '+ folders)
     if args.xlsx:
         for folders in os.listdir(inpath):
-            if folders == '5_analysis_summary' or folders == '2_selected_domain_information':
-            #if not 'format_' in folders and not 'visualization' in folders:
+            #if folders == '5_analysis_summary' or folders == '2_selected_domain_information':
+            if not 'format_' in folders and not 'visualization' in folders:
                 if not os.path.exists(excel_out + '/ '+ folders):
                     os.mkdir(excel_out + '/ '+ folders)
                 csv_to_xlsx(inpath + '/ '+ folders, excel_out + '/ '+ folders)
