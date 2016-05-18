@@ -7,18 +7,18 @@ __description__ = "Parses the taxonomy id file from UniProt for all the species.
 __author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
 __email__ = "malvika.sharan@uni-wuerzburg.de"
 
-def select_taxids(taxonomy_file, species):
+def select_taxids(species, reference_taxonomy_file, selected_taxonomy_file):
     '''Selects taxonomy ids for the query species'''
     if not str(species) == 'None':
-        parse_uniprot_tax_file(species, taxonomy_file)
+        parse_uniprot_tax_file(species, reference_taxonomy_file, selected_taxonomy_file)
     else:
-        parse_uniprot_tax_file('N=', taxonomy_file)
+        parse_uniprot_tax_file('N=', reference_taxonomy_file, selected_taxonomy_file)
     
-def parse_uniprot_tax_file(species, taxonomy_file):
+def parse_uniprot_tax_file(species, reference_taxonomy_file, selected_taxonomy_file):
     '''Parses the taxonomy id file from UniProt for all the species'''
-    with open('bin/selected_taxonomy_ids.txt', 'w') as out_fh:
+    with open(selected_taxonomy_file, 'w') as out_fh:
         out_fh.write("Official (scientific) name\tTaxonomy ID\n")
-        with open(taxonomy_file, 'r') as in_fh:
+        with open(reference_taxonomy_file, 'r') as in_fh:
             for entry in in_fh:
                 if 'N=' in entry:
                     if ',' in species:
@@ -34,6 +34,7 @@ def parse_uniprot_tax_file(species, taxonomy_file):
                             out_fh.write("%s\t%s\n" % (species_name, tax_id))
   
 if __name__ == '__main__':
-    taxonomy_file = sys.argv[1]
-    species = sys.argv[2]
-    setup_analysis_folders(taxonomy_file, species)
+    species = sys.argv[1]
+    reference_taxonomy_file = sys.argv[2]
+    selected_taxonomy_file = sys.argv[3]
+    setup_analysis_folders(species, reference_taxonomy_file, selected_taxonomy_file)
