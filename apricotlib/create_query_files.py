@@ -1,4 +1,9 @@
+#!/usr/bin/env python 
+
 import sys
+
+
+
 
 
 def create_uid_query_file(uids, query_path):
