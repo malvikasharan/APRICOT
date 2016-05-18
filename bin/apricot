@@ -359,23 +359,24 @@ def create_folders(args):
     print("\n----------------------------------------------------------------\n")
 
 def select_uniprot_taxid(args):
+    taxonomy_file = args.db_path + '/source_files/selected_taxonomy_ids.txt'
     if ',' in args.species:
         for each_species in args.species.split(','):
             select_taxids(args.db_path, each_species)
     else:
-        select_taxids(args.db_path, args.species)
+        select_taxids(, args.species)
     print("\n----------------------------------------------------------------\n"
           "Selected taxonomy ids associated with the query species %s" % args.species)
     print("Please refer to source_files/selected_taxonomy_ids.txt for the selected taxonomy ids."
     "\n----------------------------------------------------------------\n")
 
 def query_set(args):
-    query_path = args.analysis_path+'/'+args.query_path
-    xml_path = args.analysis_path+'/'+args.xml_path
-    fasta_path = args.analysis_path+'/'+args.fasta_path
-    feature_table = args.analysis_path+'/'+args.feature_table
-    proteome_path = args.analysis_path+'/'+args.proteome_path
-    query_file = args.analysis_path+'/'+args.query_path+'/query_to_uids.txt'
+    query_path = args.analysis_path + '/ '+ args.query_path
+    xml_path = args.analysis_path + '/ '+ args.xml_path
+    fasta_path = args.analysis_path + '/ '+ args.fasta_path
+    feature_table = args.analysis_path + '/ '+ args.feature_table
+    proteome_path = args.analysis_path + '/ '+ args.proteome_path
+    query_file = args.analysis_path + '/ '+ args.query_path+'/query_to_uids.txt'
     reference_file = proteome_path+'/query_uids_reference.tab'
     feature_file = feature_table+'/query_feature_table.csv'
     for files in [query_file, reference_file, feature_file]:
@@ -439,7 +440,7 @@ def query_set(args):
             for entry in in_fh.read().split('>'):
                 if not entry == '':
                     uid = entry.split('\n')[0].split('|')[1]
-                    with open(args.fasta_path+'/'+uid+'.fasta', 'w') as out_fh:
+                    with open(args.fasta_path + '/ '+ uid+'.fasta', 'w') as out_fh:
                         out_fh.write(">%s" % entry)
 
 def keyword_input(args):
@@ -493,8 +494,8 @@ def select_domain_data(args):
 def run_domain_analysis(args):
     script_path = '/'.join(
         os.path.realpath(__file__).split('/')[0:-1])+'/apricotlib'
-    analysis_path_cdd = args.analysis_path+'/'+args.outpath+'/cdd_analysis'
-    analysis_path_ipr = args.analysis_path+'/'+args.outpath+'/ipr_analysis'
+    analysis_path_cdd = args.analysis_path + '/ '+ args.outpath+'/cdd_analysis'
+    analysis_path_ipr = args.analysis_path + '/ '+ args.outpath+'/ipr_analysis'
     if not os.path.exists(analysis_path_cdd):
         os.mkdir(analysis_path_cdd)
     if not os.path.exists(analysis_path_ipr):
@@ -520,7 +521,7 @@ def run_domain_analysis(args):
 def cdd_based_pred(fasta_path, outpath, cdd_db):
     for fasta in os.listdir(fasta_path):
         filename = fasta.split('.')[0]
-        if os.path.exists(outpath+'/'+filename+'.txt'):
+        if os.path.exists(outpath + '/ '+ filename+'.txt'):
             print("CDD based analysis result for %s exists." % filename)
         else:
             print("CDD based domain prediction for file %s..." % filename)
@@ -531,9 +532,9 @@ def cdd_based_pred(fasta_path, outpath, cdd_db):
 def force_cdd_based_pred(fasta_path, outpath, cdd_db):
     for fasta in os.listdir(fasta_path):
         filename = fasta.split('.')[0]
-        if os.path.exists(outpath+'/'+filename+'.txt'):
+        if os.path.exists(outpath + '/ '+ filename+'.txt'):
             print("Removing the existing file %s" % filename)
-            os.remove(outpath+'/'+filename+'.txt')
+            os.remove(outpath + '/ '+ filename+'.txt')
         print("CDD based domain prediction for file %s..." % filename)
         cdd_process = subprocess.Popen(
             ["rpsblast -i %s/%s -d %s/Cdd -o %s/%s.txt" % (
@@ -542,7 +543,7 @@ def force_cdd_based_pred(fasta_path, outpath, cdd_db):
 def ipr_based_pred(fasta_path, outpath, ipr_db):
     for fasta in os.listdir(fasta_path):
         filename = fasta.split('.')[0]
-        if os.path.exists(outpath+'/'+filename+'.tsv'):
+        if os.path.exists(outpath + '/ '+ filename+'.tsv'):
             print("IPR based analysis result for %s exists." % filename)
         else:
             ipr_process = subprocess.Popen(
@@ -555,9 +556,9 @@ def ipr_based_pred(fasta_path, outpath, ipr_db):
 def force_ipr_based_pred(fasta_path, outpath, ipr_db):
     for fasta in os.listdir(fasta_path):
         filename = fasta.split('.')[0]
-        if os.path.exists(outpath+'/'+filename+'.tsv'):
+        if os.path.exists(outpath + '/ '+ filename+'.tsv'):
             print("Removing the existing file %s.tsv" % filename)
-            os.remove(outpath+'/'+filename+'.tsv')
+            os.remove(outpath + '/ '+ filename+'.tsv')
         ipr_process = subprocess.Popen(
                 ["bash %s/interproscan.sh -i %s/%s -b %s/%s -f tsv -dp -goterms" %
                  (ipr_db, fasta_path, fasta, outpath, filename)], shell=True).wait()
@@ -571,12 +572,12 @@ def filter_domain(args):
     parameter_list = []
     domain_description_file = args.domain_description_file
     go_path = args.go_path
-    uniprot_table = args.analysis_path+'/'+args.up_table #(:-2)
-    xml_info=args.analysis_path+'/'+args.xml_info #(3, 5:)
-    outpath1 = args.analysis_path+'/'+args.compile_out
+    uniprot_table = args.analysis_path + '/ '+ args.up_table #(:-2)
+    xml_info=args.analysis_path + '/ '+ args.xml_info #(3, 5:)
+    outpath1 = args.analysis_path + '/ '+ args.compile_out
     filtered_result_path = outpath1+'/selected_data'
     all_prediction_output = outpath1+'/unfiltered_data'
-    outpath2 = args.analysis_path+'/'+args.selected
+    outpath2 = args.analysis_path + '/ '+ args.selected
     if args.similarity:
         parameter_list.append("similarity:%s" % args.similarity)
     else:
@@ -647,8 +648,8 @@ def classify_output(args):
         "Classifying selected domain data using classification keywords:\n"
         "source_files/domain_data/keywords_for_result_classification.txt\n"
         "----------------------------------------------------------------\n")
-    select_data = args.analysis_path+'/'+args.selected
-    outpath = args.analysis_path+'/'+args.outpath
+    select_data = args.analysis_path + '/ '+ args.selected
+    outpath = args.analysis_path + '/ '+ args.outpath
     class_kw = args.class_kw
     protein_classification = ProteinClassifier(
     select_data, class_kw, outpath)
@@ -659,17 +660,17 @@ def annotation_scoring(args):
       "Calculating annotation scores for the selected domain data\n"
       "This might take some time, please be patient ..."
     "\n----------------------------------------------------------------\n")
-    outpath = args.analysis_path+'/'+args.outpath
-    select_data = args.analysis_path+'/'+args.selected
-    cdd_pred = args.analysis_path+'/'+args.cdd_pred
+    outpath = args.analysis_path + '/ '+ args.outpath
+    select_data = args.analysis_path + '/ '+ args.selected
+    cdd_pred = args.analysis_path + '/ '+ args.cdd_pred
     compute_composition_distance = ComputeCompositionDistance(
     select_data, cdd_pred, outpath)
     compute_composition_distance.streamline_annotation_scoring()
 
 def analysis_summary(args):
-    summary_out = args.analysis_path+'/'+args.outpath #output/5_analysis_summary
-    query_map = args.analysis_path+'/'+args.query_map
-    unfilter_path = args.analysis_path+'/'+args.unfilter_path #output/2_selected_domain_information/unfiltered_data
+    summary_out = args.analysis_path + '/ '+ args.outpath #output/5_analysis_summary
+    query_map = args.analysis_path + '/ '+ args.query_map
+    unfilter_path = args.analysis_path + '/ '+ args.unfilter_path #output/2_selected_domain_information/unfiltered_data
     create_analysis_summary = CreateAnalysisSummary(
     query_map, args.domains, unfilter_path, summary_out)
     create_analysis_summary.streamline_create_analysis_summary()
@@ -679,10 +680,10 @@ def analysis_summary(args):
           "\n----------------------------------------------------------------\n")
     
 def additional_annotation(args):
-    selected_proteins = args.analysis_path+'/'+args.selected
-    pdb_out = args.analysis_path+'/'+args.outpath+'/pdb_sequence_prediction'
-    psortb_out = args.analysis_path+'/'+args.outpath+'/protein_localization'
-    secstr_out = args.analysis_path+'/'+args.outpath+'/protein_secondary_structure'
+    selected_proteins = args.analysis_path + '/ '+ args.selected
+    pdb_out = args.analysis_path + '/ '+ args.outpath+'/pdb_sequence_prediction'
+    psortb_out = args.analysis_path + '/ '+ args.outpath+'/protein_localization'
+    secstr_out = args.analysis_path + '/ '+ args.outpath+'/protein_secondary_structure'
     if args.force:
         if args.pdb:
             annotation_pdb(args.pdb_path, args.fasta,
@@ -754,10 +755,10 @@ def annotation_secstr_literature(fasta_path, selected_proteins, outpath):
     literature_secstr_analysis.streamline_literature_secstr_analysis()
     
 def visualize_result(args):
-    outpath = args.analysis_path+'/'+args.outpath
+    outpath = args.analysis_path + '/ '+ args.outpath
     biojs_viz_of_apricot_analysis = BiojsVizOfApricotAnalysis(
-        args.analysis_path+'/'+args.ann_score,
-        args.analysis_path+'/'+args.add_anno, outpath)
+        args.analysis_path + '/ '+ args.ann_score,
+        args.analysis_path + '/ '+ args.add_anno, outpath)
     biojs_viz_of_apricot_analysis.parse_annotation_scoring()
     if args.domain:
         biojs_viz_of_apricot_analysis.viz_domain_highlights()
@@ -777,22 +778,22 @@ def visualize_result(args):
 def output_format(args):
     analysis_path = args.analysis_path
     inpath = args.inpath
-    outpath = analysis_path+'/'+args.outpath
+    outpath = analysis_path + '/ '+ args.outpath
     html_out = outpath+'/html_files'
     excel_out = outpath+'/excel_files'
     if args.html:
         for folders in os.listdir(inpath):
             if folders == '5_analysis_summary' or folders == '2_selected_domain_information':
             #if not 'format_' in folders and not 'visualization' in folders:
-                if not os.path.exists(html_out+'/'+folders):
-                    os.mkdir(html_out+'/'+folders)
-                csv_to_html(inpath+'/'+folders, html_out+'/'+folders)
+                if not os.path.exists(html_out + '/ '+ folders):
+                    os.mkdir(html_out + '/ '+ folders)
+                csv_to_html(inpath + '/ '+ folders, html_out + '/ '+ folders)
     if args.xlsx:
         for folders in os.listdir(inpath):
             if folders == '5_analysis_summary' or folders == '2_selected_domain_information':
             #if not 'format_' in folders and not 'visualization' in folders:
-                if not os.path.exists(excel_out+'/'+folders):
-                    os.mkdir(excel_out+'/'+folders)
-                csv_to_xlsx(inpath+'/'+folders, excel_out+'/'+folders)
+                if not os.path.exists(excel_out + '/ '+ folders):
+                    os.mkdir(excel_out + '/ '+ folders)
+                csv_to_xlsx(inpath + '/ '+ folders, excel_out + '/ '+ folders)
                 
 main()
