@@ -25,6 +25,7 @@ __description__ = "Calculates scores for feature based annotation of domains sel
 __author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
 __email__ = "malvika.sharan@uni-wuerzburg.de"
 
+
 def main():
     parser = argparse.ArgumentParser(description=__description__)
     parser.add_argument("filtered_data") ##selected data with annotation
