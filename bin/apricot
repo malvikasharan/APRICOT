@@ -368,7 +368,7 @@ def select_uniprot_taxid(args):
         select_taxids(args.species, reference_taxonomy_file, selected_taxonomy_file)
     print("\n----------------------------------------------------------------\n"
           "Selected taxonomy ids associated with the query species %s" % args.species)
-    print("Please refer to source_files/selected_taxonomy_ids.txt for the selected taxonomy ids."
+    print("Please refer to source_files/reference_db_files/selected_taxonomy_ids.txt for the selected taxonomy ids."
     "\n----------------------------------------------------------------\n")
 
 def query_set(args):
