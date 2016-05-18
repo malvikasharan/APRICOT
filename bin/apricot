@@ -99,7 +99,7 @@ def main():
     keyword_input_parser.add_argument("--classify", "-cl",
     help="Optional comma separated keyword for result classification")
     keyword_input_parser.add_argument("--kw_path", "-kp",
-    default='bin/domain_data',
+    default='source_files/domain_data',
     help="Path for keyword files")
     
     domain_data_parser = subparsers.add_parser(
@@ -113,22 +113,22 @@ def main():
     default=False, action="store_true",
     help="Selects functional domains of interest from CDD")
     domain_data_parser.add_argument("--dom_kw", "-dk",
-    default='bin/domain_data/keywords_for_domain_selection.txt',
+    default='source_files/domain_data/keywords_for_domain_selection.txt',
     help="Absolute path of keyword files")
     domain_data_parser.add_argument("--cdd_table", "-cdd",
-    default='bin/reference_db_files/cdd/cdd_annotation_data/cddid.tbl',
+    default='source_files/reference_db_files/cdd/cdd_annotation_data/cddid.tbl',
     help="Absolute path of CDD domain table")
     domain_data_parser.add_argument("--ipr_table", "-ipr",
-    default='bin/reference_db_files/interpro/interpro_annotation_data/interproid.tbl',
+    default='source_files/reference_db_files/interpro/interpro_annotation_data/interproid.tbl',
     help="Absolute path of InterPro domain table")
     domain_data_parser.add_argument("--interpro_mapped_cdd", "-map",
-    default='bin/reference_db_files/interpro/interpro_annotation_data/mapped_interpro_to_cdd_length.csv',
+    default='source_files/reference_db_files/interpro/interpro_annotation_data/mapped_interpro_to_cdd_length.csv',
     help="InterPro domains mapped to CDD domains.")
     domain_data_parser.add_argument("--domain_path", "-dp",
-    default='bin/domain_data',
+    default='source_files/domain_data',
     help="Absolute path for keyword selected domains")
     domain_data_parser.add_argument("--pfam_domain_file", "-pf",
-    default='bin/reference_db_files/pfam/pfamA.txt',
+    default='source_files/reference_db_files/pfam/pfamA.txt',
     help="The domain summary from PfamA")
     
     domain_analysis_parser = subparsers.add_parser(
@@ -172,7 +172,7 @@ def main():
     default=False, action="store_true",
     help="Filter of domain prediction based on InterProScan only")
     filter_domain_table.add_argument("--domain_description_file", "-d",
-    default='bin/domain_data/all_keyword_selected_domain_data.tab',
+    default='source_files/domain_data/all_keyword_selected_domain_data.tab',
     help='Description table of the selected domains')
     filter_domain_table.add_argument("--similarity", "-sim", default=30,
     help="Percent similarity of prediction with reference")
@@ -187,7 +187,7 @@ def main():
     filter_domain_table.add_argument("--bit", "-bit", default=None,
     help="Bit score in predicted domain")
     filter_domain_table.add_argument("--go_path",  "-gp",
-    default='bin/reference_db_files/go_mapping/',
+    default='source_files/reference_db_files/go_mapping/',
     help='Go mapping data from fixed database reference files')
     filter_domain_table.add_argument("--pred_path", "-pp",
     default='output/0_predicted_domains', 
@@ -215,7 +215,7 @@ def main():
     default="output/2_selected_domain_information/combined_data/annotation_extended_for_selected.csv",
     help="Selected data file (from select) with annotations")
     classify_selected_output.add_argument("--class_kw", "-ck",
-    default='bin/domain_data/keywords_for_result_classification.txt',
+    default='source_files/domain_data/keywords_for_result_classification.txt',
     help="Path for keyword files")
     classify_selected_output.add_argument("--outpath", "-o",
     default="output/2_selected_domain_information/classified_data",
@@ -246,7 +246,7 @@ def main():
     default='input/query_proteins/query_to_uids.txt',
     help='query_to_uids.txt file created by APRICOT to save query mapping information')
     get_analysis_summary.add_argument("--domains", '-d',
-    default='bin/domain_data/all_keyword_selected_domain_data.tab',
+    default='source_files/domain_data/all_keyword_selected_domain_data.tab',
     help='File containing all the keyword selected_domains of interest')
     get_analysis_summary.add_argument("--unfilter_path", '-uf',
     default='output/1_compiled_domain_information/unfiltered_data',
@@ -286,7 +286,7 @@ def main():
     default="output/4_additional_annotations",
     help="Output path for additional annotation data")
     get_additional_annotation.add_argument("--pdb_path", "-pdb_path",
-    default="bin/reference_db_files/pdb/pdb_sequence/pdb_sequence.txt",
+    default="source_files/reference_db_files/pdb/pdb_sequence/pdb_sequence.txt",
     help="Provide absolute path of APRICOT formatted pdb database ~pdb/pdb_sequence/pdb_sequence.txt")
     get_additional_annotation.add_argument("--psortb_path", '-psortb_path',
     default='psort', help="Provide absolute path of APRICOT installed psortb")
@@ -366,7 +366,7 @@ def select_uniprot_taxid(args):
         select_taxids(args.db_path, args.species)
     print("\n----------------------------------------------------------------\n"
           "Selected taxonomy ids associated with the query species %s" % args.species)
-    print("Please refer to bin/selected_taxonomy_ids.txt for the selected taxonomy ids."
+    print("Please refer to source_files/selected_taxonomy_ids.txt for the selected taxonomy ids."
     "\n----------------------------------------------------------------\n")
 
 def query_set(args):
@@ -645,7 +645,7 @@ def classify_output(args):
     print(
         "\n----------------------------------------------------------------\n"
         "Classifying selected domain data using classification keywords:\n"
-        "bin/domain_data/keywords_for_result_classification.txt\n"
+        "source_files/domain_data/keywords_for_result_classification.txt\n"
         "----------------------------------------------------------------\n")
     select_data = args.analysis_path+'/'+args.selected
     outpath = args.analysis_path+'/'+args.outpath
