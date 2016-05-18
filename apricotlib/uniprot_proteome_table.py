@@ -1,8 +1,12 @@
 #!/usr/bin/env python 
 
 import sys
-import urllib.request
-from urllib.request import urlopen
+try:
+    import urllib.request
+    from urllib.request import urlopen
+except ImportError:
+    print('Python package urllib is missing. Please install/update.\n'
+    'Please ignore if you are only testing the example provided by APRICOT')
 
 __description__ = "Downloads the complete proteome data from UniProt."
 __author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
