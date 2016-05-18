@@ -1,16 +1,13 @@
 #!/usr/bin/env python 
 
-'''summarize psortb result'''
-
 import argparse
 import os
 import subprocess
 from collections import defaultdict
 
-__description__ = ""
+__description__ = "summarize psortb result"
 __author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
 __email__ = "malvika.sharan@uni-wuerzburg.de"
-__version__ = ""
 
 
 def main():
