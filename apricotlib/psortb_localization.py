@@ -5,6 +5,7 @@
 import argparse
 import os
 import subprocess
+from collections import defaultdict
 
 __description__ = ""
 __author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
@@ -40,7 +41,8 @@ class PsortbSubcellularLocalization(object):
         self._outpath = outpath
         
         self._selected_protein_set = set()
-        self._localization_dict = defaultdict(lambda: defaultdict(float))
+        self._localization_dict = defaultdict(
+            lambda: defaultdict(float))
         
     def streamline_psortb_localization_analysis(self):
         '''To call from apricot'''
