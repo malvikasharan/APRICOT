@@ -1,15 +1,12 @@
 #!/usr/bin/env python
 
-'''summarize RaptorX result'''
-
 import argparse
 import os
 import subprocess
 
-__description__ = ""
+__description__ = "Summarizes RaptorX result"
 __author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
 __email__ = "malvika.sharan@uni-wuerzburg.de"
-__version__ = ""
 
 
 def main():
