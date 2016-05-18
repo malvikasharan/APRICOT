@@ -4,7 +4,11 @@ import os
 import re
 import argparse
 import codecs
-import xml.etree.ElementTree as ET
+try:
+    import xml.etree.ElementTree as ET
+except ImportError:
+    print('Python package xmlis missing. Please install/update.')
+    sys.exit(0)
 
 __description__ = "Compiles InterProScan data from XML files to table"
 __author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
