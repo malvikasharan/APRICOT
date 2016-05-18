@@ -1,13 +1,9 @@
 #!/usr/bin/env python 
 
-'''Annotates selected queries with
-proteins and domain information'''
-
-
 import argparse
 import os
 
-__description__ = ""
+__description__ = "Annotates selected queries with proteins and domain information"
 __author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
 __email__ = "malvika.sharan@uni-wuerzburg.de"
 __version__ = ""
@@ -38,7 +34,7 @@ class SelectedProteinTableWithoutUniprot(object):
         self._protein_feature_dict = {}
         
     def streamline_selected_protein_table_without_uniprot(self):
-        '''To call from apricot'''
+        '''To call from apricot exe'''
         self.parse_filtered_data()
         self.create_selected_data_table()
         
