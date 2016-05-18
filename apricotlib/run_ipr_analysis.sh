@@ -1,6 +1,7 @@
 #!/usr/bin/env sh
 #AUTHOR: Malvika Sharan {malvikasharan@gmail.com}
-#Date: 2015-08-07
+
+##Addition shell script to run InterProScan against InterPro
 
 DB_PATH=$1
 UP_FASTA_PATH=$2
