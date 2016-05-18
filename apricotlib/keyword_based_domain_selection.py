@@ -1,11 +1,8 @@
-#!/usr/bin/env python 
+#!/usr/bin/env python
 
 '''selects rna related domains from cdd and interpro database.'''
 
-#'''FUNCTION & USAGE'''
-
 import sys
-import os
 import argparse
 import re
 
@@ -13,6 +10,7 @@ __description__ = ""
 __author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
 __email__ = "malvika.sharan@uni-wuerzburg.de"
 __version__ = ""
+
 
 def main():
     parser = argparse.ArgumentParser(description=__description__)
@@ -25,7 +23,6 @@ def main():
     parser.add_argument("ipr_domain_path")
     args = parser.parse_args()
 
-
     keyword_based_domain_selection = KeywordBasedDomainSelection(
         args.keywords_file, args.pfam_domain_file,
         args.cdd_whole_data_file, args.interpro_whole_data_file,
@@ -35,7 +32,8 @@ def main():
     keyword_based_domain_selection.read_interpro_mapped_cdd_file()
     keyword_based_domain_selection.map_cdd_data_to_keywords()
     keyword_based_domain_selection.map_ipr_data_to_keywords()
-    
+
+
 class KeywordBasedDomainSelection(object):
     def __init__(self, keywords_file,
                  pfam_domain_file,
@@ -60,7 +58,6 @@ class KeywordBasedDomainSelection(object):
         self._selected_ipr_entry_dict = {}
     
     def select_cdd_and_ipr_domains(self):
-        '''To call from apriot'''
         self.read_keyword_file()
         self.read_pfam_domain_file()
         self.read_interpro_mapped_cdd_file()
@@ -68,23 +65,20 @@ class KeywordBasedDomainSelection(object):
         self.map_ipr_data_to_keywords()
         
     def select_cdd_domains(self):
-        '''To call from apriot'''
         self.read_keyword_file()
         self.read_pfam_domain_file()
         self.read_interpro_mapped_cdd_file()
         self.map_cdd_data_to_keywords()
         
     def select_ipr_domains(self):
-        '''To call from apriot'''
         self.read_keyword_file()
         self.read_pfam_domain_file()
         self.read_interpro_mapped_cdd_file()
         self.map_ipr_data_to_keywords()
     
     def _string_search(self, keyword, annotation):
-        ''''''
-        if not ' ' in  keyword:
-            if not '. ' in annotation:
+        if ' ' not in keyword:
+            if '. ' not in annotation:
                 if ',' in str(annotation):
                     annotation = ' '.join(str(annotation).split(','))
                 keyword_match = self._match_keys_in_annotation(keyword, annotation)
@@ -122,7 +116,6 @@ class KeywordBasedDomainSelection(object):
         return False
     
     def _match_keys_in_annotation(self, keyw, annotation):
-        ''''''
         if not '#' in keyw:
             annotation = annotation.lower().replace(
                     '_', ' ').replace('-', ' ')
@@ -130,10 +123,10 @@ class KeywordBasedDomainSelection(object):
                 for each_annotation in list(annotation.split(' ')):
                     if re.findall(r"(?:\s|^)%s(?=\s|$)" %
                         keyw.lower(), each_annotation):
-                        return True 
+                        return True
             else:
                 if re.findall(r"(?:\s|^)%s(?=\s|$)" %
-                    keyw.lower(), annotation):
+                              keyw.lower(), annotation):
                     return True
         else:
             keyw = keyw.replace('#', str('\w*'))

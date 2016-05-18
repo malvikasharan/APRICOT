@@ -3,11 +3,8 @@
 '''Annotates selected queries with
 proteins and domain information'''
 
-#'''FUNCTION & USAGE'''
 
 import argparse
-import csv
-import re
 import os
 
 __description__ = ""
@@ -26,7 +23,8 @@ def main():
         args.filtered_data_path, args.selected_data_table)
     selected_protein_table_without_uniprot.parse_filtered_data()
     selected_protein_table_without_uniprot.create_selected_data_table()
-    
+
+
 class SelectedProteinTableWithoutUniprot(object):
     def __init__(self, filtered_data_path,
                  selected_data_table):
@@ -47,7 +45,7 @@ class SelectedProteinTableWithoutUniprot(object):
     def parse_filtered_data(self):
         '''Parse filtered information'''
         for files in os.listdir(self._filtered_data_path):
-            if not 'id' in files:
+            if 'id' not in files:
                 with open(self._filtered_data_path+'/'+files,
                           'r') as in_fh:
                     for entry in in_fh:
@@ -56,7 +54,7 @@ class SelectedProteinTableWithoutUniprot(object):
                         else:
                             uid = entry.split('\t')[1]
                             self._filter_data_dict.setdefault(
-                            uid, set()).add(entry.strip())
+                                uid, set()).add(entry.strip())
         return self._filter_data_header, self._filter_data_dict
     
     def create_selected_data_table(self):
@@ -73,19 +71,21 @@ class SelectedProteinTableWithoutUniprot(object):
                             self._entries_into_the_file(out_fh, filter_data)
                 else:
                     filter_data = FilteredData(
-                    list(self._filter_data_dict[uid])[0].split('\t'))
+                        list(self._filter_data_dict[uid])[0].split('\t'))
                     if filter_data.parameter == 'ParameterSelected':
                         self._entries_into_the_file(out_fh, filter_data)
                     
     def _entries_into_the_file(self, out_fh, filter_data):
         '''Creates an output with the protein features'''
-        out_fh.write("\t".join([filter_data.uid,
-        filter_data.resource_id, filter_data.domain_id,
-        filter_data.short_name, filter_data.full_name,
-        filter_data.keyword, filter_data.domain_go, filter_data.members,
-        filter_data.domain_length, filter_data.start,
-        filter_data.stop, '\t'.join(filter_data.stats)])+'\n')
-        
+        out_fh.write("\t".join([
+            filter_data.uid,
+            filter_data.resource_id, filter_data.domain_id,
+            filter_data.short_name, filter_data.full_name,
+            filter_data.keyword, filter_data.domain_go, filter_data.members,
+            filter_data.domain_length, filter_data.start,
+            filter_data.stop, '\t'.join(filter_data.stats)])+'\n')
+
+
 class FilteredData(object):
     def __init__(self, row):
         self.resource = row[0]
@@ -104,5 +104,4 @@ class FilteredData(object):
         self.parameter = row[-1]
 
 if __name__ == "__main__":
-
     main()

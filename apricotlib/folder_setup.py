@@ -3,13 +3,15 @@ import sys
 
 '''Sets up all the required folders for APRICOT analysis'''
 
+
 def setup_analysis_folders(analysis_path):
     '''sets up folder for APRICOT analysis,
     default folder name is APRICOT_analysis'''
     create_main_folders(analysis_path)
     create_domain_analysis_path(analysis_path)
     create_subanalysis_path(analysis_path)
-    
+
+
 def create_main_folders(analysis_path):
     '''creates main folders in the APRICOT analysis folder'''
     if not os.path.exists(analysis_path):
@@ -21,6 +23,7 @@ def create_main_folders(analysis_path):
     if not os.path.exists(analysis_path+'/output'):
         os.mkdir(analysis_path+'/output')
 
+
 def create_domain_analysis_path(analysis_path):
     '''sets up domain analysis and output folders'''
     if not os.path.exists('bin/domain_data'):
@@ -28,13 +31,14 @@ def create_domain_analysis_path(analysis_path):
     if not os.path.exists('bin/reference_db_files'):
         os.mkdir('bin/reference_db_files')
     if not os.path.exists(
-        'bin/domain_data/cdd'):
+            'bin/domain_data/cdd'):
         os.mkdir(
                 'bin/domain_data/cdd')
     if not os.path.exists(
-        'bin/domain_data/interpro'):
+            'bin/domain_data/interpro'):
         os.mkdir(
                 'bin/domain_data/interpro')
+
 
 def create_subanalysis_path(analysis_path):
     '''create sub paths in the analysis folders'''
@@ -70,7 +74,7 @@ def create_subanalysis_path(analysis_path):
         'output/visualization_files/secondary_structure',
         'output/visualization_files/subcellular_localization',
         'output/visualization_files/homologous_pdb_msa',
-        'output/visualization_files/domain_highlighting'):
+            'output/visualization_files/domain_highlighting'):
         if not os.path.exists(analysis_path+'/'+sub_analysis_path):
             os.mkdir(analysis_path+'/'+sub_analysis_path)
             

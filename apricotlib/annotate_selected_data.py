@@ -2,10 +2,13 @@
 
 '''Annotates selected queries with proteins and domain information'''
 
-#'''FUNCTION & USAGE'''
-
 import argparse
 import os
+
+__description__ = ""
+__author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
+__email__ = "malvika.sharan@uni-wuerzburg.de"
+__version__ = ""
 
 
 def main():
