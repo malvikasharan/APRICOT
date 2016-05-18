@@ -1,11 +1,7 @@
 #!/usr/bin/env python 
 
-#'''FUNCTION & USAGE'''
-
 import argparse
-import csv
 import os
-import sys
 
 __description__ = ""
 __author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
@@ -21,17 +17,17 @@ def main():
     parser.add_argument("cdd_data")
     args = parser.parse_args()
     
-    map_domain_to_go = MapDomainToGo(args.go_path,
-                          args.interpro_to_go,
-                          args.interpro_data,
-                          args.cdd_data)
+    map_domain_to_go = MapDomainToGo(
+        args.go_path, args.interpro_to_go,
+        args.interpro_data, args.cdd_data)
     map_domain_to_go.read_obo_file()
     map_domain_to_go.map_interpro_to_domains()
     map_domain_to_go.read_mapped_go_data()
     map_domain_to_go.map_cdd_to_go()
-    
+
+
 class MapDomainToGo(object):
-    ''''''
+
     def __init__(self, go_path,
                  interpro_to_go,
                  interpro_data,
@@ -102,8 +98,8 @@ class MapDomainToGo(object):
                                                 )[1].split(' ')[0]
                     go_id = mapped_entry.split(';')[-1].split(
                         'GO:')[1].strip()
-                    self._interpro_go_dict.setdefault(ipr_id,
-                                    []).append("GO:%s" % go_id)
+                    self._interpro_go_dict.setdefault(
+                        ipr_id, []).append("GO:%s" % go_id)
         with open(self._go_path+'/mapped_interpro_to_go.csv',
                   'w') as map_out_fh:
             with open(self._go_path+'/unmapped_interpro_to_go.csv',
@@ -121,13 +117,13 @@ class MapDomainToGo(object):
                                 ipr, self._interpro_domain_dict[ipr],
                                 ','.join(go_list)))
                         else:
-                            map_out_fh.write("%s\t%s\t%s\n" % (ipr,
-                            self._interpro_domain_dict[ipr],
-                            self._go_info_dict[
-                                self._interpro_go_dict[ipr][0]]))
+                            map_out_fh.write("%s\t%s\t%s\n" % (
+                                ipr, self._interpro_domain_dict[ipr],
+                                self._go_info_dict[
+                                    self._interpro_go_dict[ipr][0]]))
                     else:
-                        unmap_out_fh.write("%s\t%s\n" % (ipr,
-                        self._interpro_domain_dict[ipr]))
+                        unmap_out_fh.write("%s\t%s\n" % (
+                            ipr, self._interpro_domain_dict[ipr]))
         return self._interpro_go_dict
     
     def map_cdd_to_go(self):
@@ -151,7 +147,7 @@ class MapDomainToGo(object):
                 if 'pfam' in cdd_db_id:
                     cdd_db_id = cdd_db_id.replace('pfam', 'PF')
                 if 'smart' in cdd_db_id:
-                    cdd_db_id = cdd_db_id.replace('smart', 'SM')    
+                    cdd_db_id = cdd_db_id.replace('smart', 'SM')
                 if cdd_db_id in set(self._domain_interpro_dict.keys()):
                     ipr = self._domain_interpro_dict[cdd_db_id]
                     ipr_map_cdd_length.write("%s\t%s\t%s\t%s\t%s\n" % (
@@ -159,7 +155,7 @@ class MapDomainToGo(object):
                         cdd_id, cdd_db_id, cdd_length))
                     map_ipr_fh.write("%s\t%s\t%s\t%s\n" % (
                         cdd_id, cdd_db_id,
-                    ipr, self._interpro_domain_dict[ipr]))
+                        ipr, self._interpro_domain_dict[ipr]))
                     try:
                         if self._interpro_go_dict[ipr]:
                             if len(self._interpro_go_dict[ipr]) > 1:
@@ -169,12 +165,12 @@ class MapDomainToGo(object):
                                 map_go_fh.write("%s\t%s\t%s\n" % (
                                     cdd_id, cdd_db_id, ','.join(go_list)))
                             else:
-                                map_go_fh.write("%s\t%s\t%s\n" % (cdd_id,
-                                cdd_db_id, self._go_info_dict[
-                                    self._interpro_go_dict[ipr][0]]))
+                                map_go_fh.write("%s\t%s\t%s\n" % (
+                                    cdd_id, cdd_db_id, self._go_info_dict[
+                                        self._interpro_go_dict[ipr][0]]))
                     except KeyError:
-                        unmap_go_fh.write("%s\t%s\n" % (cdd_id,
-                        cdd_db_id))
+                        unmap_go_fh.write("%s\t%s\n" % (
+                            cdd_id, cdd_db_id))
                 else:
                     unmap_ipr_fh.write("%s\t%s\n" % (cdd_id, cdd_db_id))
         ipr_map_cdd_length.close()

@@ -2,10 +2,6 @@
 
 '''selects rna related domains from cdd database.'''
 
-#'''FUNCTION & USAGE'''
-
-import sys
-import os
 import argparse
 import re
 
@@ -13,6 +9,7 @@ __description__ = ""
 __author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
 __email__ = "malvika.sharan@uni-wuerzburg.de"
 __version__ = ""
+
 
 def main():
     '''all commandline arguement dclaration'''
@@ -23,7 +20,6 @@ def main():
     parser.add_argument("domain_data_path")
     args = parser.parse_args()
 
-
     keyword_selected_domain_selection = RnaRelatedDomainSelection(
         args.keywords_file, args.cdd_whole_data_file,
         args.interpro_mapped_cdd, args.domain_data_path)
@@ -31,7 +27,8 @@ def main():
     keyword_selected_domain_selection.read_interpro_mapped_cdd_file()
     keyword_selected_domain_selection.read_cdd_whole_data_file()
     keyword_selected_domain_selection.create_keyword_selected_domain_file()
-    
+
+
 class RnaRelatedDomainSelection(object):
     '''classification of data'''
     def __init__(self, keywords_file,
@@ -128,15 +125,18 @@ class RnaRelatedDomainSelection(object):
                         keyword_specific_domain.write('%s\t%s\t%s\n'%(
                             '\t'.join(each_entry.split('\t')[0:-1]), members,
                             each_entry.split('\t')[-1]))
-                        self._keyword_selected_domain.append(('%s\t%s\t%s'%(
-                            '\t'.join(each_entry.split('\t')[0:-1]), members,
-                            each_entry.split('\t')[-1])))
+                        self._keyword_selected_domain.append(
+                            ('%s\t%s\t%s' % (
+                                '\t'.join(each_entry.split('\t')[0:-1]),
+                                members, each_entry.split('\t')[-1])))
             
-        uniq_keyword_selected_domains = list(set(self._keyword_selected_domain))
+        uniq_keyword_selected_domains = list(
+            set(self._keyword_selected_domain))
         with open(self._domain_data_path+'/all_keyword_selected_cdd_data.tab',
                   'w') as keyword_selected_domain_file:
             for domain_entry in uniq_keyword_selected_domains:
-                keyword_selected_domain_file.write('%s\n'%str(domain_entry))
+                keyword_selected_domain_file.write(
+                    '%s\n' % str(domain_entry))
 
 if __name__ == "__main__":
 

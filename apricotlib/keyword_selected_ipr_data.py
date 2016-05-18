@@ -2,10 +2,6 @@
 
 '''selects rna related domains from ipr database.'''
 
-#'''FUNCTION & USAGE'''
-
-import sys
-import os
 import argparse
 import re
 
@@ -13,6 +9,7 @@ __description__ = ""
 __author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
 __email__ = "malvika.sharan@uni-wuerzburg.de"
 __version__ = ""
+
 
 def main():
     '''all commandline arguement dclaration'''
@@ -30,7 +27,8 @@ def main():
     keyword_selected_domain_selection.read_interpro_mapped_cdd_file()
     keyword_selected_domain_selection.read_ipr_whole_data_file()
     keyword_selected_domain_selection.create_keyword_selected_domain_file()
-    
+
+
 class RnaRelatedDomainSelection(object):
     '''classification of data'''
     def __init__(self, keywords_file,
@@ -80,7 +78,6 @@ class RnaRelatedDomainSelection(object):
         self._keyword_annotation_dict = {}
         self._keyword_selected_domain = []
         for ipr_entry in self.ipr_whole_data_list:
-            #print('--%s-------'%ipr_entry)
             for keyword in self.keyword_list:
                 if ' ' in keyword:
                     key_list = []
@@ -93,14 +90,15 @@ class RnaRelatedDomainSelection(object):
                         self._keyword_annotation_dict.setdefault(
                             keyword, []).append(ipr_entry)
                 else:
-                    match = re.search(r'\b%s\b'%keyword, self._ipr_dict[ipr_entry])
+                    match = re.search(r'\b%s\b' % keyword, self._ipr_dict[
+                        ipr_entry])
                     if match:
                         self._keyword_annotation_dict.setdefault(
                             keyword, []).append(ipr_entry)
         for fkeyword in self.keyword_list:
             fkeyword = fkeyword.replace(' ', '_')
-            with open(self._domain_data_path+'/'+fkeyword+'_related_ipr_ids.tab',
-                      'w') as key_fh:
+            with open(self._domain_data_path +'/' +
+                      fkeyword+'_related_ipr_ids.tab', 'w') as key_fh:
                 if self._keyword_annotation_dict.get(fkeyword):
                     for each_entry in self._keyword_annotation_dict[fkeyword]:
                         each_entry = each_entry.replace(each_entry.split(
@@ -111,14 +109,16 @@ class RnaRelatedDomainSelection(object):
                             length = self._mapped_interpro_length[cdd_id]
                         else:
                             length = 'NA'
-                        self._keyword_selected_domain.append("%s\t%s" % (each_entry, length))
+                        self._keyword_selected_domain.append("%s\t%s" % (
+                            each_entry, length))
                         key_fh.write("%s\t%s\n" % (each_entry, length))
-        uniq_keyword_selected_domains = list(set(self._keyword_selected_domain))
+        uniq_keyword_selected_domains = list(
+            set(self._keyword_selected_domain))
         with open(self._domain_data_path+'/all_keyword_selected_ipr_data.tab',
                   'w') as keyword_selected_domain_file:
             for domain_entry in uniq_keyword_selected_domains:
-                keyword_selected_domain_file.write('%s\n'%str(domain_entry))
+                keyword_selected_domain_file.write(
+                    '%s\n' % str(domain_entry))
 
 if __name__ == "__main__":
-
     main()
