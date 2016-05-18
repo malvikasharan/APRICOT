@@ -1,6 +1,12 @@
+#!/usr/bin/env python 
+
 import sys
 import urllib.request
 from urllib.request import urlopen
+
+__description__ = "Downloads the complete proteome data from UniProt."
+__author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
+__email__ = "malvika.sharan@uni-wuerzburg.de"
 
 def format_uniprot_table(proteome_table, uniprot_link):
     '''Downloads protein information
