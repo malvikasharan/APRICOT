@@ -1,14 +1,11 @@
 #!/usr/bin/env python 
 
-'''selects rna related domains from ipr database.'''
-
 import argparse
 import re
 
-__description__ = ""
+__description__ = "selects rna related domains from ipr database."
 __author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
 __email__ = "malvika.sharan@uni-wuerzburg.de"
-__version__ = ""
 
 
 def main():
