@@ -1,13 +1,13 @@
 #!/usr/bin/env python 
 
-__description__ = ""
-__author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
-__email__ = "malvika.sharan@uni-wuerzburg.de"
-__version__ = ""
-
 import os       
 import sys
 import argparse
+
+__description__ = "Sorts secondary structre and sequence from PDB"
+__author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
+__email__ = "malvika.sharan@uni-wuerzburg.de"
+
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-i","--pdb_ss_file",help="input secondary structure")
