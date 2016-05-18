@@ -1,7 +1,5 @@
 #!/usr/bin/env python
 
-#'''FUNCTION & USAGE'''
-
 import os
 import sys
 import argparse
@@ -23,10 +21,9 @@ from Bio import SeqIO
 from Bio import pairwise2
 from Bio.Emboss.Applications import NeedleCommandline
 
-__description__ = ""
+__description__ = "Calculates scores for feature based annotation of domains selected by APRICOT"
 __author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
 __email__ = "malvika.sharan@uni-wuerzburg.de"
-__version__ = ""
 
 def main():
     parser = argparse.ArgumentParser(description=__description__)
