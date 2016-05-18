@@ -359,12 +359,13 @@ def create_folders(args):
     print("\n----------------------------------------------------------------\n")
 
 def select_uniprot_taxid(args):
-    taxonomy_file = args.db_path + '/source_files/selected_taxonomy_ids.txt'
+    reference_taxonomy_file = args.db_path + '/all_taxids/speclist.txt'
+    selected_taxonomy_file = args.db_path + '/source_files/selected_taxonomy_ids.txt'
     if ',' in args.species:
         for each_species in args.species.split(','):
-            select_taxids(taxonomy_file, each_species)
+            select_taxids(each_species, reference_taxonomy_file, selected_taxonomy_file)
     else:
-        select_taxids(taxonomy_file, args.species)
+        select_taxids(args.species, reference_taxonomy_file, selected_taxonomy_file)
     print("\n----------------------------------------------------------------\n"
           "Selected taxonomy ids associated with the query species %s" % args.species)
     print("Please refer to source_files/selected_taxonomy_ids.txt for the selected taxonomy ids."
