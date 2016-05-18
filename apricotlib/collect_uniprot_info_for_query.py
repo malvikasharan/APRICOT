@@ -5,10 +5,17 @@ import argparse
 import csv
 import re
 from itertools import islice
-from urllib.request import urlopen
-import xml.etree.ElementTree as ET
-from xml.parsers import expat
-XML_PARSE = '{http://uniprot.org/uniprot}'
+try:
+    from urllib.request import urlopen
+except ImportError:
+    print('Python package urllib is missing. Please install/update.\n'
+    'Please ignore if you are only testing the example provided by APRICOT')
+try:
+    import xml.etree.ElementTree as ET
+    from xml.parsers import expat
+    XML_PARSE = '{http://uniprot.org/uniprot}'
+except ImportError:
+    print('Python package xml is missing. Please install/update.)
 
 __description__ = '''code to collect protein proteins from uniprot protein gene, 
 their xml file and all the details. further collection of fasta files'''
