@@ -1,15 +1,12 @@
 #!/usr/bin/env python
 
-'''selects rna related domains from cdd and interpro database.'''
-
 import sys
 import argparse
 import re
 
-__description__ = ""
+__description__ = "selects rna related domains from cdd and interpro database."
 __author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
 __email__ = "malvika.sharan@uni-wuerzburg.de"
-__version__ = ""
 
 
 def main():
