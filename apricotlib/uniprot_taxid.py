@@ -7,7 +7,7 @@ __description__ = "Parses the taxonomy id file from UniProt for all the species.
 __author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
 __email__ = "malvika.sharan@uni-wuerzburg.de"
 
-def select_taxids(db_path, species):
+def select_taxids(taxonomy_file, species):
     '''Selects taxonomy ids for the query species'''
     if not str(species) == 'None':
         parse_uniprot_tax_file(species, db_path)
@@ -18,7 +18,7 @@ def parse_uniprot_tax_file(species, db_path):
     '''Parses the taxonomy id file from UniProt for all the species'''
     with open('bin/selected_taxonomy_ids.txt', 'w') as out_fh:
         out_fh.write("Official (scientific) name\tTaxonomy ID\n")
-        with open(db_path+'/all_taxids/speclist.txt', 'r') as in_fh:
+        with open(taxonomy_file, 'r') as in_fh:
             for entry in in_fh:
                 if 'N=' in entry:
                     if ',' in species:
