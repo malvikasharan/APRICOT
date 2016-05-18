@@ -1,7 +1,5 @@
 #!/usr/bin/env python 
 
-'''Creates visualization files for the APRICOT analysis data'''
-
 import argparse
 import os
 import sys
@@ -9,7 +7,7 @@ from collections import defaultdict
 import subprocess
 import shutil
 
-__description__ = ""
+__description__ = "Creates visualization files for the APRICOT analysis data"
 __author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
 __email__ = "malvika.sharan@uni-wuerzburg.de"
 __version__ = ""
