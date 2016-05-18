@@ -1,17 +1,15 @@
 #!/usr/bin/env python 
 
-'''Compiles InterProScan data from XML files to table'''
-
 import os
 import re
 import argparse
 import codecs
 import xml.etree.ElementTree as ET
 
-__description__ = ""
+__description__ = "Compiles InterProScan data from XML files to table"
 __author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
 __email__ = "malvika.sharan@uni-wuerzburg.de"
-__version__ = ""
+
 
 def main():
     parser = argparse.ArgumentParser(description=__description__)
