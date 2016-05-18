@@ -1,18 +1,14 @@
 #!/usr/bin/env python 
 
-'''Selects RNA related domains from InterPro database.'''
-
-#'''FUNCTION & USAGE'''
-
 import sys
 import os
 import argparse
 import re
 
-__description__ = ""
+__description__ = "Selects RNA related domains from InterPro database."
 __author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
 __email__ = "malvika.sharan@uni-wuerzburg.de"
-__version__ = ""
+
 
 def main():
     '''all commandline arguement dclaration'''
