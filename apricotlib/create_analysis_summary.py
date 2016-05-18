@@ -8,6 +8,7 @@ __description__ = "Summarizes APRICOT analysis results."
 __author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
 __email__ = "malvika.sharan@uni-wuerzburg.de"
 
+
 def main():
     parser = argparse.ArgumentParser(description=__description__)
     parser.add_argument("query_map")
