@@ -838,7 +838,7 @@ class FilteredData(object):
         self.similarity_percent = row[34]
         self.gaps = row[35]
         self.gap_percent = row[36]
-        self.parameter_tag = row[36]
+        self.parameter_tag = row[-1]
     
 if __name__ == '__main__':
     
