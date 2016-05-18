@@ -1,2 +1,0 @@
-apricotlib
-bin
