@@ -7,7 +7,7 @@ APRICOT_PATH=APRICOT
 DB_PATH=bin/reference_db_files
 
 ##FIXED PATHS for flatfiles downloaded by APRICOT
-DB_PATH=bin/reference_db_files
+DB_PATH=source_files/reference_db_files
 
 ##PATHS for domain databases, can be changed by the users
 CDD_PATH=$DB_PATH/cdd/Cdd
@@ -38,7 +38,7 @@ query_uids='P0A6X3,P00957'
 query_geneids=''
     #Input-1, option 2: provide comma separated list of gene ids or gene name
 tax_id='83333'
-    #Input-1, option 3: users can pick a taxonomy id from option 1a (bin/selected_taxonomy_ids.txt), or directly provide it when the taxonomy id is known
+    #Input-1, option 3: users can pick a taxonomy id from option 1a (source_files/selected_taxonomy_ids.txt), or directly provide it when the taxonomy id is known
 FASTA_PATH=$ANALYSIS_PATH/input/mapped_query_annotation/fasta_path_mapped_query
     #Input-1, option 4: provide absolute path of for query fasta sequence
     #default fasta path $ANALYSIS_PATH/input/mapped_query_annotation/fasta_path_mapped_query
@@ -53,20 +53,20 @@ class_kw='ribosom,helicase,synthetase,polymerase,transferase,nuclease,RRM,RNP'
 
 main(){
     #install_complete_db_and_tools              ###-Includes external tools for additional annotation
-    install_minimum_required_files             ###-Use this to install the minimum required files
+    #install_minimum_required_files             ###-Use this to install the minimum required files
     
-    set_up_analysis_folder
-    retrieve_taxonomy_id_list                   ###-This step could be skipped if using uniprot ids as queries
+    #set_up_analysis_folder
+    #retrieve_taxonomy_id_list                   ###-This step could be skipped if using uniprot ids as queries
                                                 ###-select a taxonomy id from the list genetrated by using $species
                                                 ###-for full list look at $FIXED_DB_FILES/all_taxids/speclist.txt
-    provide_input_queries
-    provide_domain_and_class_keywords
+    #provide_input_queries
+    #provide_domain_and_class_keywords
     select_domains_by_keywords
-    run_domain_prediction
-    filter_domain_analysis
-    classify_filtered_result
-    calculate_annotation_score                 
-    create_analysis_summary
+    #run_domain_prediction
+    #ilter_domain_analysis
+    #classify_filtered_result
+    #calculate_annotation_score                 
+    #create_analysis_summary
     
     ###ADDITIONAL ANNOTATION###
     #calculate_additional_annotation            ####-PsortB and -RaptorX must be installed for their respective annotation
@@ -191,7 +191,7 @@ create_visualization_files(){
 output_file_formats(){
     $PYTHON_PATH $APRICOT_PATH/bin/apricot format \
     --analysis_path $ANALYSIS_PATH \
-    -XL -HT 
+    -HT #-XL  
 }
 
 main
