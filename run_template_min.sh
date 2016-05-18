@@ -4,7 +4,6 @@
 PYTHON_PATH=python3
 ANALYSIS_PATH=APRICOT_analysis
 APRICOT_PATH=APRICOT
-DB_PATH=bin/reference_db_files
 
 ##FIXED PATHS for flatfiles downloaded by APRICOT
 DB_PATH=source_files/reference_db_files
@@ -13,7 +12,7 @@ DB_PATH=source_files/reference_db_files
 CDD_PATH=$DB_PATH/cdd/Cdd
 INTERPRO_PATH=$DB_PATH/interpro/interproscan
 
-for paths in bin $APRICOT_PATH $ANALYSIS_PATH $DB_PATH $APRICOT_LIBRARY
+for paths in $APRICOT_PATH $ANALYSIS_PATH $DB_PATH $APRICOT_LIBRARY
 do
     if ! [ -d $paths ] 
     then
