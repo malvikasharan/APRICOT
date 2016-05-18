@@ -22,8 +22,8 @@ def create_main_folders(analysis_path):
     '''creates main folders in the APRICOT analysis folder'''
     if not os.path.exists(analysis_path):
         os.mkdir(analysis_path)
-    if not os.path.exists('bin'):
-        os.mkdir('bin')
+    if not os.path.exists('source_files'):
+        os.mkdir('source_files')
     if not os.path.exists(analysis_path+'/input'):
         os.mkdir(analysis_path+'/input')
     if not os.path.exists(analysis_path+'/output'):
@@ -32,18 +32,18 @@ def create_main_folders(analysis_path):
 
 def create_domain_analysis_path(analysis_path):
     '''sets up domain analysis and output folders'''
-    if not os.path.exists('bin/domain_data'):
-        os.mkdir('bin/domain_data')
-    if not os.path.exists('bin/reference_db_files'):
-        os.mkdir('bin/reference_db_files')
+    if not os.path.exists('source_files/domain_data'):
+        os.mkdir('source_files/domain_data')
+    if not os.path.exists('source_files/reference_db_files'):
+        os.mkdir('source_files/reference_db_files')
     if not os.path.exists(
-            'bin/domain_data/cdd'):
+            'source_files/domain_data/cdd'):
         os.mkdir(
-                'bin/domain_data/cdd')
+                'source_files/domain_data/cdd')
     if not os.path.exists(
-            'bin/domain_data/interpro'):
+            'source_files/domain_data/interpro'):
         os.mkdir(
-                'bin/domain_data/interpro')
+                'source_files/domain_data/interpro')
 
 
 def create_subanalysis_path(analysis_path):
