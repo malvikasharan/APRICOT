@@ -10,11 +10,11 @@ __email__ = "malvika.sharan@uni-wuerzburg.de"
 def select_taxids(taxonomy_file, species):
     '''Selects taxonomy ids for the query species'''
     if not str(species) == 'None':
-        parse_uniprot_tax_file(species, db_path)
+        parse_uniprot_tax_file(species, taxonomy_file)
     else:
-        parse_uniprot_tax_file('N=', db_path)
+        parse_uniprot_tax_file('N=', taxonomy_file)
     
-def parse_uniprot_tax_file(species, db_path):
+def parse_uniprot_tax_file(species, taxonomy_file):
     '''Parses the taxonomy id file from UniProt for all the species'''
     with open('bin/selected_taxonomy_ids.txt', 'w') as out_fh:
         out_fh.write("Official (scientific) name\tTaxonomy ID\n")
@@ -34,6 +34,6 @@ def parse_uniprot_tax_file(species, db_path):
                             out_fh.write("%s\t%s\n" % (species_name, tax_id))
   
 if __name__ == '__main__':
-    db_path = sys.argv[1]
+    taxonomy_file = sys.argv[1]
     species = sys.argv[2]
-    setup_analysis_folders(db_path, species)
+    setup_analysis_folders(taxonomy_file, species)
