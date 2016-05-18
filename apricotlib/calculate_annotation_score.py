@@ -5,21 +5,36 @@ import sys
 import argparse
 import math
 from collections import defaultdict
-from itertools import combinations
 import difflib
 from difflib import *
-from scipy.spatial import distance
-from scipy.cluster.hierarchy import *
-import matplotlib as mpl
-mpl.use('Agg')
-import matplotlib.pyplot as plt
+try:
+    from Bio import SeqIO
+    from Bio import pairwise2
+    from Bio.Emboss.Applications import NeedleCommandline
+except ImportError:
+    print('Python package Biopython is missing. Please install/update.\n'
+    'Please ignore if you are only testing the example provided by APRICOT')
+from itertools import combinations
+try:
+    import matplotlib as mpl
+    mpl.use('Agg')
+    import matplotlib.pyplot as plt
+except ImportError:
+    print('Python package matplotlib is missing. Please install/update.\n'
+    'Please ignore if you are only testing the example provided by APRICOT')
+try:
+    import numpy as np
+except ImportError:
+    print('Python package numpy is missing. Please install/update.\n'
+    'Please ignore if you are only testing the example provided by APRICOT')
 import random
-from scipy import stats
-import numpy as np
-
-from Bio import SeqIO
-from Bio import pairwise2
-from Bio.Emboss.Applications import NeedleCommandline
+try:
+    from scipy.spatial import distance
+    from scipy.cluster.hierarchy import *
+    from scipy import stats
+except ImportError:
+    print('Python package scipy is missing. Please install/update.\n'
+    'Please ignore if you are only testing the example provided by APRICOT')
 
 __description__ = "Calculates scores for feature based annotation of domains selected by APRICOT"
 __author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
