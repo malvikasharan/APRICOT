@@ -16,6 +16,7 @@ try:
     XML_PARSE = '{http://uniprot.org/uniprot}'
 except ImportError:
     print('Python package xml is missing. Please install/update.)
+    sys.exit(0)
 
 __description__ = '''code to collect protein proteins from uniprot protein gene, 
 their xml file and all the details. further collection of fasta files'''
