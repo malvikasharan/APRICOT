@@ -1,18 +1,14 @@
 #!/usr/bin/env python
 
-'''Collect protein ids from UniProt database for the query genes
-'''
-
 import os
 import argparse
 import csv
 import re
 from itertools import islice
 
-__description__ = ""
+__description__ = "Collect protein ids from UniProt database for the query genes"
 __author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
 __email__ = "malvika.sharan@uni-wuerzburg.de"
-__version__ = ""
 
 
 def main():
