@@ -1,6 +1,7 @@
 #!/bin/bash
 #AUTHOR: Malvika Sharan {malvikasharan@gmail.com}
-#Date: 2015-08-07
+
+##Addition shell script to install only PDB related source files
 
 PYTHON_PATH=python
 
