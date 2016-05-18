@@ -362,9 +362,9 @@ def select_uniprot_taxid(args):
     taxonomy_file = args.db_path + '/source_files/selected_taxonomy_ids.txt'
     if ',' in args.species:
         for each_species in args.species.split(','):
-            select_taxids(args.db_path, each_species)
+            select_taxids(taxonomy_file, each_species)
     else:
-        select_taxids(, args.species)
+        select_taxids(taxonomy_file, args.species)
     print("\n----------------------------------------------------------------\n"
           "Selected taxonomy ids associated with the query species %s" % args.species)
     print("Please refer to source_files/selected_taxonomy_ids.txt for the selected taxonomy ids."
