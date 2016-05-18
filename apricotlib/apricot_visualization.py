@@ -2,14 +2,10 @@
 
 '''Creates visualization files for the APRICOT analysis data'''
 
+import argparse
 import os
 import sys
 from collections import defaultdict
-import matplotlib
-matplotlib.use('Agg')
-import matplotlib.pyplot as plt
-from matplotlib.backends.backend_pdf import PdfPages
-import matplotlib.cm as cm
 import subprocess
 import shutil
 
@@ -36,7 +32,8 @@ def main():
     biojs_viz_of_apricot_analysis.sec_str_script()
     biojs_viz_of_apricot_analysis.viz_subcellular_localization()
     biojs_viz_of_apricot_analysis.viz_homologous_pdb_msa()
-    
+
+
 class BiojsVizOfApricotAnalysis(object):
     def __init__(self, annotation_scoring_data,
                  additional_annotation,
@@ -56,17 +53,17 @@ class BiojsVizOfApricotAnalysis(object):
         self._fasta_dict = {}
         self._secstr_dict = {}
         self._dom_annotation = {}
-        self._location_dict = defaultdict(lambda: defaultdict (lambda: []))
+        self._location_dict = defaultdict(lambda: defaultdict(lambda: []))
         self._sec_str_color = {'H': '#FF6666', 'E': '#33CCCC', 'C': '#FFFFCC'}
-        self._localization_dict = defaultdict(lambda: defaultdict(lambda: float))
-        self._color_list = ("Blue", "Green", "Teal", "Lime", 
-            "SeaGreen", "MediumTurquoise", "Pink", "DarkOliveGreen",
-            "Indigo", "Orange", "SlateBlue", "LawnGreen", "Brown",
-            "LightSkyBlue", "LightGreen", "DarkOrchid ", "GoldenRod",
-            "MidnightBlue", "LightPink", "Gold")
+        self._localization_dict = defaultdict(
+            lambda: defaultdict(lambda: float))
+        self._color_list = (
+            "Blue", "Green", "Teal", "Lime", "SeaGreen", "MediumTurquoise",
+            "Pink", "DarkOliveGreen", "Indigo", "Orange", "SlateBlue",
+            "LawnGreen", "Brown", "LightSkyBlue", "LightGreen", "DarkOrchid",
+            "GoldenRod", "MidnightBlue", "LightPink", "Gold")
 
     def viz_all_the_visualization_files(self):
-        ''''''
         self.parse_annotation_scoring()
         self.viz_domain_highlights()
         self.domain_highlight_script()
@@ -77,55 +74,65 @@ class BiojsVizOfApricotAnalysis(object):
         self.viz_homologous_pdb_msa()
         
     def parse_annotation_scoring(self):
-        ''''''
         with open(self._annotation_scoring_data, 'r') as in_fh:
             for entry in in_fh:
                 self._annotation_data.append(entry.strip())
         return self._annotation_data
     
     def viz_domain_highlights(self):
-        ''''''
         for entry in self._annotation_data:
             if not entry.startswith('Entry'):
-                anno_score = AnnotationScoringColumns(entry.strip().split('\t'))
+                anno_score = AnnotationScoringColumns(
+                    entry.strip().split('\t'))
                 prot_name = anno_score.entry_name
-                #anno_score.prot_name
                 prot_end = int(anno_score.length)-1
-                prot_key = '\n'.join(["\tstart: 0,", "\tend: %s,"
-                % prot_end, '\tname: "%s",' % prot_name,
-                '\thref: "http://www.uniprot.org/uniprot/%s"' % anno_score.uid])
+                prot_key = '\n'.join(
+                    ["\tstart: 0,", "\tend: %s,"
+                     % prot_end, '\tname: "%s",' % prot_name,
+                     '\thref: "http://www.uniprot.org/uniprot/%s"'
+                     % anno_score.uid])
                 self._uid_key_dict[anno_score.uid] = prot_key
-                self._location_dict[anno_score.uid][anno_score.domain_id].append(
-                        '\t{start: %s, end: %s}' % (anno_score.start, anno_score.stop))
-                self._dom_annotation[anno_score.domain_id] = anno_score.full_name
+                self._location_dict[
+                    anno_score.uid][anno_score.domain_id].append(
+                        '\t{start: %s, end: %s}' % (
+                            anno_score.start, anno_score.stop))
+                self._dom_annotation[
+                    anno_score.domain_id] = anno_score.full_name
                 src = anno_score.resource
                 if src == 'CDD':
-                    self._dom_rank.setdefault(anno_score.uid+':CDD', []).append(
+                    self._dom_rank.setdefault(
+                        anno_score.uid+':CDD', []).append(
                         anno_score.domain_id)
-                    self._highlight_dict.setdefault(prot_key,
-                    []).append('\n'.join(['\t\tstart: %s,' % anno_score.start,
-                    '\t\tend: %s,' % anno_score.stop,
-                    '\t\tdomain: {', '\t\t\tname: "%s",' % anno_score.domain_id, 
-                    '\t\t\tid: %s,' % len(self._dom_rank[anno_score.uid+':CDD']),
-                    '\t\t\tdescription: "%s"},' % anno_score.short_name,
-                    '\t\tsource: {', '\t\t\tname: "CDD",', 
-                    '\t\t\thref: null,', '\t\t\tid: 1}']))
+                    self._highlight_dict.setdefault(
+                        prot_key, []).append('\n'.join(
+                            ['\t\tstart: %s,' % anno_score.start,
+                             '\t\tend: %s,' % anno_score.stop,
+                             '\t\tdomain: {', '\t\t\tname: "%s",'
+                             % anno_score.domain_id,
+                             '\t\t\tid: %s,' % len(
+                                 self._dom_rank[anno_score.uid+':CDD']),
+                             '\t\t\tdescription: "%s"},' %
+                             anno_score.short_name,
+                             '\t\tsource: {', '\t\t\tname: "CDD",',
+                             '\t\t\thref: null,', '\t\t\tid: 1}']))
                 else:
-                    self._dom_rank.setdefault(anno_score.uid+':IPR', []).append(
-                        
+                    self._dom_rank.setdefault(
+                        anno_score.uid+':IPR', []).append(
                         anno_score.domain_id)
-                    self._highlight_dict.setdefault(prot_key,
-                    []).append('\n'.join(['start: %s,' % anno_score.start,
-                    'end: %s,' % anno_score.stop,
-                    'domain: {', '\t\tname: "%s",' % anno_score.domain_id, 
-                    '\t\tid: %s,' % len(self._dom_rank[anno_score.uid+':IPR']),
-                    '\t\tdescription: "%s"},' % anno_score.short_name,
-                    'source: {', '\t\tname: "InterPro",', 
-                    '\t\thref: null,', '\t\tid: 2}']))
-        return self._highlight_dict, self._uid_key_dict, self._location_dict, self._dom_annotation
+                    self._highlight_dict.setdefault(
+                        prot_key, []).append('\n'.join(
+                            ['start: %s,' % anno_score.start,
+                             'end: %s,' % anno_score.stop,
+                             'domain: {', '\t\tname: "%s",' %
+                             anno_score.domain_id,
+                             '\t\tid: %s,' % len(
+                                 self._dom_rank[anno_score.uid+':IPR']),
+                             '\t\tdescription: "%s"},' % anno_score.short_name,
+                             'source: {', '\t\tname: "InterPro",',
+                             '\t\thref: null,', '\t\tid: 2}']))
+        return(self._highlight_dict, self._uid_key_dict, self._location_dict, self._dom_annotation)
                 
     def domain_highlight_script(self):
-        ''''''
         for uid in self._uid_key_dict.keys():
             header = '\n'.join(['<meta charset="UTF-8">'
             '<link type="text/css" rel="stylesheet" href="http://parce.li/bundle/biojs-vis-protein-viewer@0.1.4">',
@@ -150,7 +157,6 @@ class BiojsVizOfApricotAnalysis(object):
         '''annotation scoring stats, distribution, ref vs query sequence sec str, table'''
         
     def viz_secondary_structure(self):
-        ''''''
         for uid in self._uid_key_dict.keys():
             if uid+'.horiz' in os.listdir(
             self._additional_annotation+'/protein_secondary_structure/'):
@@ -199,7 +205,6 @@ class BiojsVizOfApricotAnalysis(object):
         return self._fasta_dict, self._secstr_dict
                 
     def sec_str_script(self):
-        ''''''
         for uid in self._fasta_dict.keys():
             header = '\n'.join(['<meta charset="UTF-8">',
             '<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>',
@@ -284,7 +289,6 @@ class BiojsVizOfApricotAnalysis(object):
                           self._localize], shell=True).wait()
         
     def viz_homologous_pdb_msa(self):
-        ''''''
         header = '\n'.join(['<meta charset="UTF-8">',
         '<link type="text/css" rel="stylesheet" href="http://parce.li/bundle/msa@0.4.8">',
         '<script src="https://wzrd.in/bundle/msa@0.4.8"></script>',
@@ -323,6 +327,7 @@ class BiojsVizOfApricotAnalysis(object):
                 
         print("\nPlease open the BioJS MSA tab generated in Biojs_pdb_msa_tab.html.")
         print("Import MSA files (.aln) in the BioJS MSA tab to visualize the alignment.\n")
+
 
 class AnnotationScoringColumns(object):
     '''Column information of annotation scoring file'''

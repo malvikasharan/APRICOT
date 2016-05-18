@@ -1,23 +1,21 @@
-#!/usr/bin/env python 
+#!/usr/bin/env python
 
 '''code to collect protein proteins from uniprot
 protein gene, their xml file and all the details.
 further collection of fasta files.'''
+
+import os
+import argparse
+from urllib.request import urlopen
+import xml.etree.ElementTree as ET
+import sys
+XML_PARSE = '{http://uniprot.org/uniprot}'
 
 __description__ = ""
 __author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
 __email__ = "malvika.sharan@uni-wuerzburg.de"
 __version__ = ""
 
-import os
-import argparse
-import re
-from itertools import islice
-import urllib.request
-from urllib.request import urlopen
-import xml.etree.ElementTree as ET
-from xml.parsers import expat
-XML_PARSE = '{http://uniprot.org/uniprot}'
 
 def main():
     parser = argparse.ArgumentParser(description=__description__)
@@ -28,11 +26,12 @@ def main():
     args = parser.parse_args()
 
     collect_uniprot_information = CollectUniprotInformation(
-    args.query_to_uid, args.uniprot_xml_path,
-    args.uniprot_fasta_path, args.uniprot_feature_table)
+        args.query_to_uid, args.uniprot_xml_path,
+        args.uniprot_fasta_path, args.uniprot_feature_table)
     collect_uniprot_information.get_uniprot_xml_and_fasta()
     collect_uniprot_information.create_feature_table()
-    
+
+
 class CollectUniprotInformation(object):
     '''collection of protein protein from gene data'''
     def __init__(self, query_to_uid, uniprot_xml_path,
@@ -46,7 +45,7 @@ class CollectUniprotInformation(object):
         '''Downloads fasta and xml files from UniProt for query Uids'''
         with open(self._query_to_uid, 'r') as in_fh:
             for entry in in_fh:
-                if not 'unmapped' in entry:
+                if 'unmapped' not in entry:
                     uid_list = entry.strip().split(':')[-1]
                     if ',' in uid_list:
                         for uid in uid_list.split(','):
@@ -94,8 +93,8 @@ class CollectUniprotInformation(object):
             xml_file.close()
         except:
             print(
-            "UniProt entry is apparently deleted, please check: %s"
-            % xml_url)
+                "UniProt entry is apparently deleted, please check: %s"
+                % xml_url)
         
     def _get_uniprot_fasta(self, uid, fasta_path):
         '''Downloads fasta file from UniProt for query Uid'''
@@ -107,24 +106,26 @@ class CollectUniprotInformation(object):
             fasta_file.close()
         except:
             print(
-            "UniProt entry is apparently deleted, please check: %s"
-            % fasta_url)
+                "UniProt entry is apparently deleted, please check: %s"
+                % fasta_url)
         
     def create_feature_table(self):
         '''creates feature files by extracting information from uniprot xml'''
-        self._new_xml_detail(self._uniprot_xml_path, self._uniprot_feature_table)
+        self._new_xml_detail(
+            self._uniprot_xml_path, self._uniprot_feature_table)
         print('Table containing features from xml file is created/updated.')
         
     def _new_xml_detail(self, query_xml_path, feature_table_tsv):
         '''Creates new feature file in result_path from
         all the xml files present in uniprot_xml_path'''
-        feature_table = open(feature_table_tsv ,'a')
-        feature_table.write("\t".join(['Entry', 'Name', 'Gene',
-                            'Locus-tag', 'Organism',
-                            'Pubmed-ID', 'EMBL-ID',
-                            'RefSeq-ID', 'KEGG-ID',
-                            'PDB-ID', 'GO', 'InterPro-ID',
-                            'Pfam-ID', 'Existance-Type'])+'\n')
+        feature_table = open(feature_table_tsv, 'a')
+        feature_table.write(
+            "\t".join(['Entry', 'Name', 'Gene',
+                       'Locus-tag', 'Organism',
+                       'Pubmed-ID', 'EMBL-ID',
+                       'RefSeq-ID', 'KEGG-ID',
+                       'PDB-ID', 'GO', 'InterPro-ID',
+                       'Pfam-ID', 'Existance-Type'])+'\n')
         for each_xml in os.listdir(query_xml_path):
             self._get_info_from_xml(query_xml_path+'/'+each_xml, feature_table)
         feature_table.close()
@@ -141,21 +142,22 @@ class CollectUniprotInformation(object):
                     self._get_xml_protein_feature(protein, feature_table)
         except:
             print(
-            "UniProt entry is apparently deleted, please check: 'http://www.uniprot.org/uniprot/%s'"
-            % each_xml)
+            "UniProt entry is apparently deleted, please check: "
+                "'http://www.uniprot.org/uniprot/%s'"
+                % each_xml)
                 
     def _get_xml_protein_feature(self, protein, feature_table):
         '''Records all the features in UniProt xml files'''
         info = []
-        accession = self._get_accession(protein)#accession
+        accession = self._get_accession(protein)  # accession
         info.append(accession)
-        name = self._get_name(protein) #name
+        name = self._get_name(protein)  # name
         info.append(name)
-        gene_name = self._get_genename(protein) #gene name
+        gene_name = self._get_genename(protein)  # gene name
         info.append(gene_name)
         gene_locus_name = self._get_gene_locus_name(protein)
         info.append(gene_locus_name)
-        organism = self._get_organism(protein)#species
+        organism = self._get_organism(protein)  # species
         info.append(organism)
         pubmed_id = self._get_pubmed_id(protein)
         info.append(pubmed_id)
@@ -176,7 +178,7 @@ class CollectUniprotInformation(object):
         existance = self._get_existance_type(protein)
         info.append(existance)
         for eachinfo in info:
-            feature_table.write("%s\t"%eachinfo)
+            feature_table.write("%s\t" % eachinfo)
         feature_table.write('\n')
             
     def _get_accession(self, protein):
@@ -195,11 +197,11 @@ class CollectUniprotInformation(object):
             try:
                 name = protein.find(XML_PARSE+'protein').find(
                     XML_PARSE+'submittedName').findtext(
-                XML_PARSE+'fullName')
+                        XML_PARSE+'fullName')
             except AttributeError:
                 name = protein.find(XML_PARSE+'protein').find(
                     XML_PARSE+'sumittedName').findtext(
-                XML_PARSE+'fullName')
+                        XML_PARSE+'fullName')
         return name
     
     def _get_genename(self, protein):
@@ -328,9 +330,9 @@ class CollectUniprotInformation(object):
                         XML_PARSE+'property')
                     for each_ipr_des in ipr_des_list:
                         if each_ipr_des.get(
-                            'type') == 'entry name':
+                                'type') == 'entry name':
                             ipr_des = each_ipr_des.get('value')
-                            interpro.append('%s->%s'%(
+                            interpro.append('%s->%s' % (
                                 ipr_id, ipr_des))
                             
         interpro = str(interpro).strip('[]').strip("''")
@@ -351,10 +353,10 @@ class CollectUniprotInformation(object):
                         XML_PARSE+'property')
                     for each_pfam_des in pfam_des_list:
                         if each_pfam_des.get(
-                            'type') == 'entry name':
+                                'type') == 'entry name':
                             pfam_des = each_pfam_des.get('value')
                             pfam.append(
-                                '%s->%s'%(pfam_id, pfam_des))
+                                '%s->%s' % (pfam_id, pfam_des))
                             
         pfam = str(pfam).strip('[]').strip("''")
         return pfam

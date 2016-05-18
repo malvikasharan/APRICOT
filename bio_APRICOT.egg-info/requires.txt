@@ -1,4 +1,0 @@
-biopython >= 1.66
-requests >= 2.10.0
-matplotlib >= 1.5.1
-openpyxl >= 2.3.3

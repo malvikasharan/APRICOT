@@ -1,9 +1,5 @@
 #!/usr/bin/env python 
 
-'''Filter all the rna related data.'''
-
-#'''FUNCTION & USAGE'''
-
 import os
 import argparse
 
@@ -11,6 +7,7 @@ __description__ = ""
 __author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
 __email__ = "malvika.sharan@uni-wuerzburg.de"
 __version__ = ""
+
 
 def main():
     parser = argparse.ArgumentParser(description=__description__)
@@ -23,17 +20,19 @@ def main():
     parser.add_argument("filter_parameters")
     args = parser.parse_args()
     
-    filter_predicted_domains = FilterPredictedDomains(args.prediction_method,
-                                 args.analysis_result_path,
-                                 args.domain_description_file,
-                                 args.go_path,
-                                 args.filtered_result_path,
-                                 args.all_prediction_output,
-                                 args.filter_parameters)
+    filter_predicted_domains = FilterPredictedDomains(
+        args.prediction_method,
+        args.analysis_result_path,
+        args.domain_description_file,
+        args.go_path,
+        args.filtered_result_path,
+        args.all_prediction_output,
+        args.filter_parameters)
     filter_predicted_domains.read_id_description_file()
     filter_predicted_domains.summarize_analysis_result_files()
     filter_predicted_domains.create_filtered_result_file()
-    
+
+
 class FilterPredictedDomains(object):
     '''Filter the predicted domain by
     parameters and domain of interest'''
@@ -71,7 +70,7 @@ class FilterPredictedDomains(object):
         with open(self._domain_description_file,
                   'r') as id_description_fh:
             for entry in id_description_fh:
-                if not 'ReferenceId' in entry:
+                if 'ReferenceId' not in entry:
                     try:
                         length = entry.split('\t')[-2]
                         parent_id = entry.split('\t')[1]
@@ -79,7 +78,7 @@ class FilterPredictedDomains(object):
                             parent_id = parent_id.replace('smart', 'SM')
                         elif 'pfam' in parent_id:
                             parent_id = parent_id.replace('pfam', 'PF')
-                        if not parent_id in set(self._domain_length.keys()):
+                        if parent_id not in set(self._domain_length.keys()):
                             self._domain_length[parent_id] = length
                         self._id_description_dict[entry.split(
                             '\t')[0]] = entry.strip().replace(
@@ -130,11 +129,11 @@ class FilterPredictedDomains(object):
     def summarize_rps_analysis_result_files(self):
         '''summarize all the RPS-BLAST results in dictionary'''
         for individual_rps_result_file in os.listdir(
-            self._analysis_result_path):
+                self._analysis_result_path):
             protein_id = individual_rps_result_file.split('.')[0]
             with open(
-            self._analysis_result_path+'/'+individual_rps_result_file
-                ) as individual_rps_result_fh:
+                    self._analysis_result_path+'/'+individual_rps_result_file
+            ) as individual_rps_result_fh:
                 for individual_rps_result_section in \
                 individual_rps_result_fh.read().split('>gnl'):
                     if individual_rps_result_section.startswith('|CDD|'):
@@ -149,38 +148,47 @@ class FilterPredictedDomains(object):
                                     length = individual_rps_result.split(
                                         'Length = ')[1].strip()
                                 except:
-                                    length = self._domain_length[cdd_main.split('\t')[1]]
+                                    length = self._domain_length[
+                                        cdd_main.split('\t')[1]]
                         for each_stat_group in stat_data[1:]:
                             check_list = set()
-                            parameter_dict =  self._compile_cdd_stat(
+                            parameter_dict = self._compile_cdd_stat(
                                 each_stat_group)
                             coverage_percent = "%.4f" % ((int(
-                            parameter_dict["cover_length"])/int(length))*100)
+                                parameter_dict[
+                                    "cover_length"])/int(length)) * 100)
                             if float(coverage_percent) > 100:
                                 coverage_percent = 100
                             similarity_percent = "%.4f" % ((int(
-                            parameter_dict["similarity_value"].split('/')[0])/int(
-                                length))*100)
+                                parameter_dict["similarity_value"].split(
+                                    '/')[0])/int(length))*100)
                             identity_percent = "%.4f" % ((int(
-                            parameter_dict["identity_value"].split('/')[0])/int(
-                                length))*100)
+                                parameter_dict["identity_value"].split(
+                                    '/')[0])/int(length))*100)
                             if parameter_dict["gaps_value"] == 'None':
                                 gap_percent = 0
                             else:
                                 gap_percent = "%.4f" % ((int(
-                            parameter_dict["gaps_value"].split('/')[0])/int(
-                                    length))*100)
+                                    parameter_dict["gaps_value"].split(
+                                        '/')[0])/int(length)) * 100)
                             evalue = parameter_dict["evalue"]
                             bits = parameter_dict["bit"].split(' ')[0]
                             start = parameter_dict["start"]
                             stop = parameter_dict["stop"]
-                            compiled_data = '\t'.join(['CDD', protein_id, cdd_main,
-                            str(length), str(start), str(stop), str(evalue),
-                            str(parameter_dict["bit"]), str(bits),
-                            str(parameter_dict["cover_length"]), str(coverage_percent), 
-                            str(parameter_dict["identity_value"]), str(identity_percent),
-                            str(parameter_dict["similarity_value"]), str(similarity_percent),
-                            str(parameter_dict["gaps_value"]), str(gap_percent)])
+                            compiled_data = '\t'.join([
+                                'CDD', protein_id, cdd_main,
+                                str(length), str(start), str(stop),
+                                str(evalue),
+                                str(parameter_dict["bit"]),
+                                str(bits),
+                                str(parameter_dict["cover_length"]),
+                                str(coverage_percent),
+                                str(parameter_dict["identity_value"]),
+                                str(identity_percent),
+                                str(parameter_dict["similarity_value"]),
+                                str(similarity_percent),
+                                str(parameter_dict["gaps_value"]),
+                                str(gap_percent)])
                             parameter_dict["coverage"] = coverage_percent
                             parameter_dict["identity"] = identity_percent
                             parameter_dict["similarity"] = similarity_percent
@@ -197,16 +205,20 @@ class FilterPredictedDomains(object):
                                             if not float(parameter_dict[param]) <= float(
                                                 self._filter_parameters_dict[param]):
                                                 check_list.add('no')
-                                if not 'no' in check_list:
+                                if 'no' not in check_list:
                                     self._result_detail_dict.setdefault(
-                                    cdd_main.split('\t')[0], []).append(compiled_data+'\tParameterSelected')
+                                        cdd_main.split('\t')[0], []).append(
+                                            compiled_data+'\tParameterSelected')
                                     self._result_detail_dict.setdefault(
-                                    cdd_main.split('\t')[1], []).append(compiled_data+'\tParameterSelected')
+                                        cdd_main.split('\t')[1], []).append(
+                                            compiled_data+'\tParameterSelected')
                                 else:
                                     self._result_detail_dict.setdefault(
-                                    cdd_main.split('\t')[0], []).append(compiled_data+'\tParameterDiscarded')
+                                        cdd_main.split('\t')[0], []).append(
+                                            compiled_data+'\tParameterDiscarded')
                                     self._result_detail_dict.setdefault(
-                                    cdd_main.split('\t')[1], []).append(compiled_data+'\tParameterDiscarded')
+                                        cdd_main.split('\t')[1], []).append(
+                                        compiled_data+'\tParameterDiscarded')
         return self._result_detail_dict
     
     def _compile_cdd_main(self, individual_rps_result):
@@ -383,23 +395,25 @@ class FilterPredictedDomains(object):
         self._candidate_set = set()
         self._discard_set = set()
         self._id_set = set()
-        header = "\t".join(['Resource', 'UniProtID', 'ResourceID',
-            'DomainID', 'ShortName', 'FullName', 'DomainKeyword', 'DomainGo', 'Members',
-            'DomainLength', 'Start', 'Stop', 'Evalue', 'BitScore', 'Bits',
-            'CoverLength', 'CoveragePercent', 'Identity', 'IdentityPercent',
+        header = "\t".join([
+            'Resource', 'UniProtID', 'ResourceID',
+            'DomainID', 'ShortName', 'FullName', 'DomainKeyword',
+            'DomainGo', 'Members', 'DomainLength', 'Start', 'Stop',
+            'Evalue', 'BitScore', 'Bits', 'CoverLength',
+            'CoveragePercent', 'Identity', 'IdentityPercent',
             'Similarity', 'SimilarityPercent', 'Gaps', 'GapPercent',
             'ParameterFilterTag'])
         summary_file = open(
-        self._all_prediction_output+'/%s_unfiltered_all_prediction.csv' %
-        self._prediction_method, 'w')
+            self._all_prediction_output + '/%s_unfiltered_all_prediction.csv' %
+            self._prediction_method, 'w')
         filtered_file = open(
-        self._filtered_result_path+'/'+self._prediction_method+'_filtered.csv',
-        'w')
+            self._filtered_result_path + '/' +
+            self._prediction_method+'_filtered.csv', 'w')
         summary_file.write(header+'\tDomainFilterTag\n')
         filtered_file.write(header+'\n')
         id_file = open(
-        self._filtered_result_path+'/'+self._prediction_method+'_filtered_id.csv',
-        'w')
+            self._filtered_result_path + '/' +
+            self._prediction_method+'_filtered_id.csv', 'w')
         for selected_id in set(self._id_description_dict.keys()):
             if selected_id in set(self._result_detail_dict.keys()):
                 for each_data in self._result_detail_dict[selected_id]:
@@ -410,15 +424,16 @@ class FilterPredictedDomains(object):
         for candidate_entry in self._candidate_set:
             uid = candidate_entry.split('\t')[1]
             db_id = candidate_entry.split('\t')[2]
-            self._id_set.add('%s\t%s'%(uid, db_id))
+            self._id_set.add('%s\t%s' % (uid, db_id))
         id_list = sorted(self._id_set)
         print('UID\tDomainID\n'+'\n'.join(id_list))
         id_file.write('\n'.join(id_list))
         for remaining_id in set(self._result_detail_dict.keys()):
             for each_entry in self._result_detail_dict[remaining_id]:
-                if not each_entry in self._candidate_set:
+                if each_entry not in self._candidate_set:
                     self._discard_set.add(each_entry)
-        summary_file.write('\tNotSelected\n'.join(list(self._discard_set))+'\n')
+        summary_file.write(
+            '\tNotSelected\n'.join(list(self._discard_set))+'\n')
         summary_file.close()
         filtered_file.close()
         id_file.close()

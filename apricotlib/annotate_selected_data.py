@@ -1,13 +1,8 @@
 #!/usr/bin/env python 
 
-'''Annotates selected queries with
-proteins and domain information'''
-
-#'''FUNCTION & USAGE'''
+'''Annotates selected queries with proteins and domain information'''
 
 import argparse
-import csv
-import re
 import os
 
 __description__ = ""
@@ -31,7 +26,8 @@ def main():
     selected_protein_table.parse_uniprot_reference()
     selected_protein_table.read_xml_protein_table()
     selected_protein_table.create_selected_data_table()
-    
+
+
 class SelectedProteinTable(object):
     def __init__(self, filtered_data_path,
                  uniprot_reference_table,
@@ -58,7 +54,7 @@ class SelectedProteinTable(object):
     def parse_filtered_data(self):
         '''Parse filtered information'''
         for files in os.listdir(self._filtered_data_path):
-            if not 'id' in files:
+            if 'id' not in files:
                 with open(self._filtered_data_path+'/'+files,
                           'r') as in_fh:
                     for entry in in_fh:
@@ -67,7 +63,7 @@ class SelectedProteinTable(object):
                         else:
                             uid = entry.split('\t')[1]
                             self._filter_data_dict.setdefault(
-                            uid, set()).add(entry.strip())
+                                uid, set()).add(entry.strip())
         return self._filter_data_header, self._filter_data_dict
         
     def parse_uniprot_reference(self):
@@ -82,7 +78,7 @@ class SelectedProteinTable(object):
                         else:
                             uid = entry.split('\t')[0]
                             if uid in set(
-                                self._filter_data_dict.keys()):
+                                    self._filter_data_dict.keys()):
                                 self._up_ref_dict[uid] = entry.strip()
         return self._reference_data_header, self._up_ref_dict
     
@@ -96,7 +92,7 @@ class SelectedProteinTable(object):
                 else:
                     uid = entry.split('\t')[0]
                     if uid in set(
-                        self._filter_data_dict.keys()):
+                            self._filter_data_dict.keys()):
                         self._protein_feature_dict[uid] = entry.strip()
         return self._feature_data_header, self._protein_feature_dict
 
@@ -109,8 +105,8 @@ class SelectedProteinTable(object):
                 self._reference_data_header.split('\t'))
             feature_header = ProteinFeature(
                 self._feature_data_header.split('\t'))
-            self._entries_into_the_file(out_fh,
-                reference_header, feature_header, filter_header)
+            self._entries_into_the_file(
+                out_fh, reference_header, feature_header, filter_header)
             for uid in self._filter_data_dict.keys():
                 reference_data = UniProtReference(
                     self._up_ref_dict[uid].split('\t'))
@@ -120,31 +116,34 @@ class SelectedProteinTable(object):
                     for entry in self._filter_data_dict[uid]:
                         filter_data = FilteredData(entry.split('\t'))
                         if filter_data.parameter == 'ParameterSelected':
-                            self._entries_into_the_file(out_fh,
-                            reference_data, feature_data, filter_data)
+                            self._entries_into_the_file(
+                                out_fh, reference_data, feature_data,
+                                filter_data)
                 else:
                     filter_data = FilteredData(
-                    list(self._filter_data_dict[uid])[0].split('\t'))
+                        list(self._filter_data_dict[uid])[0].split('\t'))
                     if filter_data.parameter == 'ParameterSelected':
-                        self._entries_into_the_file(out_fh,
-                            reference_data, feature_data, filter_data)
+                        self._entries_into_the_file(
+                            out_fh, reference_data, feature_data, filter_data)
                     
     def _entries_into_the_file(self, out_fh,
-                reference_data, feature_data, filter_data):
+                               reference_data, feature_data, filter_data):
         '''Creates an output with the protein features'''
-        out_fh.write("\t".join([reference_data.uid,
-        reference_data.entry_name, reference_data.protein_name,
-        reference_data.species, reference_data.length,
-        reference_data.gene_name, feature_data.gene_locus,
-        feature_data.type, feature_data.go,
-        feature_data.embl, feature_data.pdb, feature_data.kegg,
-        feature_data.interpro, feature_data.pfam,
-        feature_data.pubmed, filter_data.resource,
-        filter_data.resource_id, filter_data.domain_id,
-        filter_data.short_name, filter_data.full_name,
-        filter_data.keyword, filter_data.domain_go, filter_data.members,
-        filter_data.domain_length, filter_data.start,
-        filter_data.stop, '\t'.join(filter_data.stats)])+'\n')
+        out_fh.write("\t".join([
+            reference_data.uid,
+            reference_data.entry_name, reference_data.protein_name,
+            reference_data.species, reference_data.length,
+            reference_data.gene_name, feature_data.gene_locus,
+            feature_data.type, feature_data.go,
+            feature_data.embl, feature_data.pdb, feature_data.kegg,
+            feature_data.interpro, feature_data.pfam,
+            feature_data.pubmed, filter_data.resource,
+            filter_data.resource_id, filter_data.domain_id,
+            filter_data.short_name, filter_data.full_name,
+            filter_data.keyword, filter_data.domain_go, filter_data.members,
+            filter_data.domain_length, filter_data.start,
+            filter_data.stop, '\t'.join(filter_data.stats)])+'\n')
+
         
 class ProteinFeature(object):
     def __init__(self, row):
@@ -162,7 +161,8 @@ class ProteinFeature(object):
         self.interpro = row[11]
         self.pfam = row[12]
         self.type = row[13]
-        
+
+
 class UniProtReference(object):
     def __init__(self, row):
         self.uid = row[0]
@@ -176,7 +176,8 @@ class UniProtReference(object):
             self.gene_ontology = row[7]
         except:
             self.gene_ontology = '-'
-        
+
+
 class FilteredData(object):
     def __init__(self, row):
         self.resource = row[0]
@@ -195,5 +196,4 @@ class FilteredData(object):
         self.parameter = row[-1]
 
 if __name__ == "__main__":
-
     main()

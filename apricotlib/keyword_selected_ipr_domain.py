@@ -2,10 +2,6 @@
 
 '''Identifies keyword selected domains from InterPro database.'''
 
-#'''FUNCTION & USAGE'''
-
-import sys
-import os
 import argparse
 import re
 
@@ -13,6 +9,7 @@ __description__ = ""
 __author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
 __email__ = "malvika.sharan@uni-wuerzburg.de"
 __version__ = ""
+
 
 def main():
     parser = argparse.ArgumentParser(description=__description__)
@@ -29,11 +26,12 @@ def main():
     keyword_selected_ipr_selection.read_interpro_mapped_cdd_file()
     keyword_selected_ipr_selection.read_ipr_whole_data_file()
     keyword_selected_ipr_selection.create_keyword_selected_domain_file()
-    
+
+
 class RnaRelatedIPRSelection(object):
     def __init__(self, keywords_file,
                  ipr_whole_data_file,
-                 interpro_mapped_cdd, 
+                 interpro_mapped_cdd,
                  domain_data_path):
         self._keywords_file = keywords_file
         self._ipr_whole_data_file = ipr_whole_data_file
@@ -53,9 +51,9 @@ class RnaRelatedIPRSelection(object):
         
     def read_keyword_file(self):
         '''reads user provided keywords for domain selection'''
-        self._keyword_list = [rna_keyword.strip()
-                             for rna_keyword in open(
-                                self._keywords_file)]
+        self._keyword_list = [
+            rna_keyword.strip() for rna_keyword in open(
+                self._keywords_file)]
         return self._keyword_list
     
     def read_interpro_mapped_cdd_file(self):
@@ -85,21 +83,26 @@ class RnaRelatedIPRSelection(object):
         self._keyword_annotation_dict = {}
         self._keyword_selected_domain = {}
         for ipr_entry in self.ipr_whole_data_list:
-            domain_full_name = list(self._ipr_dict[ipr_entry].lower().replace('-', ' ').replace('_', ' ').split(' '))
+            domain_full_name = list(self._ipr_dict[
+                ipr_entry].lower().replace('-', ' ').replace(
+                    '_', ' ').split(' '))
             for keyword in self._keyword_list:
                 check_keyword = keyword.lower()
-                #if 'rna' in check_keyword:
                 if '-' in check_keyword:
                     ref_kw_list = check_keyword.split('-')
                     new_kw_list = []
                     for domain_name in domain_full_name:
                         for string in ref_kw_list:
                             if string == 'rna':
-                                if re.findall(r"(?:\s|^)%s(?=\s|$)" % '*rna', domain_name):
+                                if re.findall(
+                                        r"(?:\s|^)%s(?=\s|$)" % '*rna',
+                                        domain_name):
                                     if not string in set(new_kw_list):
                                         new_kw_list.append(string)
                             else:
-                                if re.findall(r"(?:\s|^)%s(?=\s|$)" % string, domain_name):
+                                if re.findall(
+                                        r"(?:\s|^)%s(?=\s|$)" % string,
+                                        domain_name):
                                     if not string in set(new_kw_list):
                                         new_kw_list.append(string)
                     if str(ref_kw_list) == str(new_kw_list):
@@ -107,7 +110,9 @@ class RnaRelatedIPRSelection(object):
                             keyword, []).append(ipr_entry)
                 else:
                     for domain_name in domain_full_name:
-                        if re.findall(r"(?:\s|^)%s(?=\s|$)" % check_keyword, domain_name):
+                        if re.findall(
+                                r"(?:\s|^)%s(?=\s|$)" % check_keyword,
+                                domain_name):
                             self._keyword_annotation_dict.setdefault(
                                 keyword, []).append(ipr_entry)
         for fkeyword in self._keyword_list:
@@ -126,12 +131,15 @@ class RnaRelatedIPRSelection(object):
                             length = 'NA'
                         self._keyword_selected_domain.setdefault("%s\t%s" % (
                             each_entry, length), set()).add(fkeyword)
-                        key_fh.write("%s\t%s\t%s\n" % (each_entry, length, fkeyword))
+                        key_fh.write("%s\t%s\t%s\n" % (
+                            each_entry, length, fkeyword))
         with open(self._domain_data_path+'/all_keyword_selected_ipr_data.tab',
                   'w') as keyword_selected_domain_file:
             for domain_entry in self._keyword_selected_domain.keys():
-                keywords = ', '.join(list(self._keyword_selected_domain[domain_entry]))
-                keyword_selected_domain_file.write('%s\t%s\n' % (domain_entry, keywords))
+                keywords = ', '.join(list(
+                    self._keyword_selected_domain[domain_entry]))
+                keyword_selected_domain_file.write('%s\t%s\n' % (
+                    domain_entry, keywords))
 
 if __name__ == "__main__":
 

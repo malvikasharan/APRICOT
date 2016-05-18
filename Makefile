@@ -40,15 +40,12 @@ new_release:
 	@echo "* Create/checkout a release branch"
 	@echo "  git branch release_v0.3.X"
 	@echo "  git checkout release_v0.3.X"
-	@echo "* Change bin/apricot"
-	@echo "* Change setup.py"
-	@echo "* Change docs/source/conf.py"
-	@echo "* Change CHANGELOG.txt"
-	@echo "* Create new docs"
+	@echo "* Change version in bin/apricot"
+	@echo "* Change version in setup.py"
+	@echo "* Change version in CHANGELOGS.txt"
 	@echo "* Test package creation"
-	@echo "* Test doc creation"
 	@echo "* make package_to_pypi"
-	@echo "* git add CHANGELOG.txt bin/apricot docs/source/conf.py setup.py"
+	@echo "* git add CHANGELOGS.txt bin/apricot setup.py"
 	@echo "* Commit changes e.g. 'git commit -m \"Set version to 1.0.X\"'"
 	@echo "* Tag the commit e.g. 'git tag -a v1.0.X -m \"version v1.0.X\"'"
 	@echo "* Merge release into dev and master"
@@ -56,3 +53,9 @@ new_release:
 	@echo "* Generate a new release based on this tag at"
 	@echo "  https://github.com/malvikasharan/APRICOT/releases/new"
 	@echo "* Upload new docs using 'make upload_doc'"
+
+clean:
+	find -name "*__pycache__" -exec rm -rf {} \;
+	find -name "*pyc" -exec rm -f {} \;
+	rm -rf build dist
+	rm -rf bio_APRICOT.egg-info

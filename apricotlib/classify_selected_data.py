@@ -2,10 +2,7 @@
 
 '''Classify all the filtered predicted data.'''
 
-#'''FUNCTION & USAGE'''
-
 import argparse
-import csv
 import re
 
 __description__ = ""
@@ -31,7 +28,8 @@ def main():
     protein_classifier.classify_data_by_keywords()
     protein_classifier.create_classified_files()
     protein_classifier.create_unclassified_files()
-    
+
+
 class ProteinClassifier(object):
     '''classification of data'''
     def __init__(self, selected_protein_table,
@@ -89,7 +87,7 @@ class ProteinClassifier(object):
                     self._keyword_selection(keyword, entry, keyword_col)
                     self._keyword_selection(keyword, entry, domain_go)
             else:
-                #ShortName       FullName        DomainKeyword   DomainGo
+                # ShortName       FullName        DomainKeyword   DomainGo
                 short_name = entry.split('\t')[3]
                 full_name = entry.split('\t')[4]
                 keyword_col = entry.split('\t')[5]
@@ -122,12 +120,12 @@ class ProteinClassifier(object):
     def create_unclassified_files(self):
         '''Combines all the files in common'''
         for entry in self._protein_data_set:
-            if not entry in self._classified_data:
+            if entry not in self._classified_data:
                 self._unclassified_data.add(entry.strip())
         if len(list(self._unclassified_data)) > 1:
             with open(
                 self._classified_result_path+'/unclassified_selected_data.csv',
-                'w') as out_fh:
+                    'w') as out_fh:
                 out_fh.write(self._file_header)
                 out_fh.write('\n'.join(list(self._unclassified_data)))
     
@@ -140,22 +138,24 @@ class ProteinClassifier(object):
             for domain_name in domain_full_name:
                 for string in ref_kw_list:
                     if string == 'rna':
-                        if re.findall(r"(?:\s|^)%s(?=\s|$)" % '*rna', domain_name):
-                            if not string in set(new_kw_list):
+                        if re.findall(r"(?:\s|^)%s(?=\s|$)" %
+                                      '*rna', domain_name):
+                            if string not in set(new_kw_list):
                                 new_kw_list.append(string)
                     else:
-                        if re.findall(r"(?:\s|^)%s(?=\s|$)" % string, domain_name):
-                            if not string in set(new_kw_list):
+                        if re.findall(r"(?:\s|^)%s(?=\s|$)" %
+                                      string, domain_name):
+                            if string not in set(new_kw_list):
                                 new_kw_list.append(string)
             if str(ref_kw_list) == str(new_kw_list):
                 self._keyword_candidate_data.setdefault(
-            keyword, set()).add(entry)
+                    keyword, set()).add(entry)
         else:
             for domain_name in domain_full_name:
-                if re.findall(r"(?:\s|^)%s(?=\s|$)" % check_keyword, domain_name):
+                if re.findall(r"(?:\s|^)%s(?=\s|$)" %
+                              check_keyword, domain_name):
                     self._keyword_candidate_data.setdefault(
-                    keyword, set()).add(entry)
+                        keyword, set()).add(entry)
         
 if __name__ == "__main__":
-
     main()

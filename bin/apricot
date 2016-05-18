@@ -1,7 +1,4 @@
 #!/usr/bin/env python
-#works with python3 and up
-#AUTHOR: Malvika Sharan {malvikasharan@gmail.com}
-#Date: 2016-05-17
 
 import argparse
 import os
@@ -27,6 +24,12 @@ from apricotlib.list_similar_pdbstr import PdbHomologyAnalysis
 from apricotlib.create_analysis_summary import CreateAnalysisSummary
 from apricotlib.apricot_visualization import BiojsVizOfApricotAnalysis
 from apricotlib.convert_csv_format import *
+
+__author__ = "Malvika Sharan <malvikasharan@gmail.com>"
+__copyright__ = "2016 by Malvika Sharan <malvikasharan@gmail.com>"
+__license__ = "ISC license"
+__email__ = "malvikasharan@gmail.com>"
+__version__ = "1.0.1"
 
 def main():
     parser = argparse.ArgumentParser()

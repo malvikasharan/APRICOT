@@ -1,9 +1,10 @@
 #!/usr/bin/env python 
 
-'''summarize PsortB result'''
+'''summarize psortb result'''
 
+import argparse
 import os
-import sys
+import subprocess
 from collections import defaultdict
 
 __description__ = ""
@@ -11,18 +12,6 @@ __author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
 __email__ = "malvika.sharan@uni-wuerzburg.de"
 __version__ = ""
 
-#!/usr/bin/env python 
-
-'''summarize psortb result'''
-
-import os
-import sys
-import subprocess
-
-__description__ = ""
-__author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
-__email__ = "malvika.sharan@uni-wuerzburg.de"
-__version__ = ""
 
 def main():
     '''all commandline arguement dclaration'''
@@ -41,7 +30,8 @@ def main():
     psortb_subcellular_localization.parse_psort_outfiles()
     psortb_subcellular_localization.store_compiled_data()
     psortb_subcellular_localization.psortb_subcellular_localization()
-    
+
+
 class PsortbSubcellularLocalization(object):
     def __init__(self, selected_proteins, psortb_path,
                  fasta_path, outpath):
@@ -51,7 +41,8 @@ class PsortbSubcellularLocalization(object):
         self._outpath = outpath
         
         self._selected_protein_set = set()
-        self._localization_dict = defaultdict(lambda: defaultdict(float))
+        self._localization_dict = defaultdict(
+            lambda: defaultdict(float))
         
     def streamline_psortb_localization_analysis(self):
         '''To call from apricot'''
