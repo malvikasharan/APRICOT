@@ -1,14 +1,11 @@
 #!/usr/bin/env python 
 
-'''Identifies keyword selected domains from InterPro database.'''
-
 import argparse
 import re
 
-__description__ = ""
+__description__ = "Identifies keyword selected domains from InterPro database."
 __author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
 __email__ = "malvika.sharan@uni-wuerzburg.de"
-__version__ = ""
 
 
 def main():
