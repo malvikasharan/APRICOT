@@ -4,18 +4,17 @@ import os
 import sys
 import csv
 import shutil
+csv.field_size_limit(sys.maxsize)
 try:
     from openpyxl.workbook import Workbook
 except ImportError:
     print("The python package openpyxl is missing!")
-    
-csv.field_size_limit(sys.maxsize)
-
 
 __description__ = '''This script is designed to convert the file types.
 tab separated files to xlsx files'''
 __author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
 __email__ = "malvika.sharan@uni-wuerzburg.de"
+
 
 def csv_to_xlsx(inpath, outpath):
     '''Converts table to excel'''
