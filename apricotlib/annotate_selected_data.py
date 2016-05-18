@@ -1,11 +1,9 @@
 #!/usr/bin/env python 
 
-'''Annotates selected queries with proteins and domain information'''
-
 import argparse
 import os
 
-__description__ = ""
+__description__ = "Annotates selected queries with proteins and domain information"
 __author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
 __email__ = "malvika.sharan@uni-wuerzburg.de"
 __version__ = ""
@@ -45,7 +43,7 @@ class SelectedProteinTable(object):
         self._protein_feature_dict = {}
         
     def streamline_selected_protein_table(self):
-        '''To call from apricot'''
+        '''To call from apricot exe'''
         self.parse_filtered_data()
         self.parse_uniprot_reference()
         self.read_xml_protein_table()
@@ -144,7 +142,7 @@ class SelectedProteinTable(object):
             filter_data.domain_length, filter_data.start,
             filter_data.stop, '\t'.join(filter_data.stats)])+'\n')
 
-        
+
 class ProteinFeature(object):
     def __init__(self, row):
         self.uid = row[0]
