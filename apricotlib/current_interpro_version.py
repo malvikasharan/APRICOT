@@ -1,10 +1,9 @@
 #!/usr/bin/env python 
 
 import sys
-import time
+from datetime import datetime as DT
 
-__description__ = '''The script creates files to compile user provided keywords
- for domain selection and classification'''
+__description__ = '''Find the current version of InterProData'''
 __author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
 __email__ = "malvika.sharan@uni-wuerzburg.de"
 
@@ -13,33 +12,27 @@ def read_html_file(input_file, output_file):
     month_dict = {'Jan': 1, 'Feb': 2, 'Mar': 3, 'Apr': 4, 'May': 5,
                   'Jun': 6, 'Jul': 7, 'Aug': 8, 'Sep': 9, 'Oct': 10,
                   'Nov': 11, 'Dec': 12}
-    all_versions = {}
     with open(input_file) as in_fh:
-        if 'ipr_info.html'in input_file:
-            for entry in in_fh.read().split('<pre>')[1].split('\n'):
-                list1 = []
-                for each in entry.split(' '):
-                    if not each == '':
-                        list1.append(each)
+        version_link = {}
+        version_list = []
+        for entry in in_fh.read().split('<pre>')[1].split('\n'):
+            if 'Directory' in entry and not 'lookup_service' \
+            in entry and not 'users' in entry and not 'old_releases' in entry:
+                date_data = entry.split('Directory')[0].strip().replace(':', ' ').split(' ')
+                year = int(date_data[0])
+                month = int(month_dict[date_data[1]])
+                date = int(date_data[2])
                 try:
-                    date = "%s/%s/%s" % (
-                        list1[2], month_dict[list1[1]], list1[0])
-                    newdate = time.strptime(date, "%d/%m/%Y")
-                    try:
-                        all_versions[newdate] = list1[-1].split(
-                            '>5.')[1].split('/<')[0]
-                    except IndexError:
-                        pass
+                    time = int(date_data[3])
                 except IndexError:
-                    pass
-            with open(output_file, 'w') as out_fh:
-                out_fh.write('5.'+all_versions[max(all_versions.keys())])
-                
-        elif 'ipr_flatfile.html' in input_file:
-            with open(output_file, 'w') as out_fh:
-                for entry in in_fh.read().split('<pre>')[1].split('\n'):
-                    if '>Current</a> -> ' in entry:
-                        out_fh.write(entry.split('>Current</a> -> ')[1])
+                    time = 0
+                version = entry.split('/</a>')[0].split('">')[-1]
+                version_link[DT(year, month, date, time)] = version
+                version_list.append(DT(year, month, date, time))
+        latest_version = max(version_list)
+        print("Current version: %s" % version_link[latest_version])
+        with open(output_file, 'w') as out_fh:
+            out_fh.write(version_link[latest_version])
 
 if __name__ == '__main__':
     input_file = sys.argv[1]
