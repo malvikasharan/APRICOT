@@ -3,6 +3,11 @@
 import sys
 import time
 
+__description__ = '''The script creates files to compile user provided keywords
+ for domain selection and classification'''
+__author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
+__email__ = "malvika.sharan@uni-wuerzburg.de"
+
 
 def read_html_file(input_file, output_file):
     month_dict = {'Jan': 1, 'Feb': 2, 'Mar': 3, 'Apr': 4, 'May': 5,
