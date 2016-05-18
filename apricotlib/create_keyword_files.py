@@ -1,3 +1,5 @@
+#!/usr/bin/env python 
+
 import sys
 
 __description__ = '''The script creates files to compile user provided keywords
