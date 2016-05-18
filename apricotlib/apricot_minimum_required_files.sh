@@ -11,8 +11,8 @@ apricot_path=$1
 ##full path where you have cloned/save APRICOT from git
 apricot_lib=$apricot_path/apricotlib
 
-##path where you want to store the flatfiles
-apricot_files=bin/reference_db_files
+##path where the source files will be stored
+apricot_files=source_files/reference_db_files
 
 main(){
         create_main_path
@@ -26,17 +26,17 @@ main(){
         check_and_download_interpro
         uniprot_species_to_taxid
         
+        ###Other-requirements###
+        get_blast_executables
+        ontology_mapping_to_domains
+        get_pfam_domain_file
+
         ###PDB-MODULES###
         create_pdb_inpath
         download_uniprot_map
         download_pdb_sec_str
         sort_and_format_pdb_data
-        
-        ###Other-requirements###
-        get_pfam_domain_file
-        get_blast_executables
-        ontology_mapping_to_domains
-} 
+}
 
 create_main_path(){
     if ! [ -d $apricot_files ]
