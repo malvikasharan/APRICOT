@@ -4,7 +4,11 @@ import os
 import sys
 import csv
 import shutil
-from openpyxl.workbook import Workbook
+try:
+    from openpyxl.workbook import Workbook
+except ImportError:
+    print("The python package openpyxl is missing!")
+    
 csv.field_size_limit(sys.maxsize)
 
 
