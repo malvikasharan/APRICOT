@@ -1,0 +1,92 @@
+Official (scientific) name	Taxonomy ID
+Acontias lineatus	764543
+Amycolicicoccus subflavus (strain DSM 45089 / DQS3-9A1)	443218
+Anacolia laevisphaera	188169
+Arthrobacter nitroguajacolicus	211146
+Brachyspira pilosicoli (strain ATCC BAA-1826 / 95/1000)	759914
+Brachyspira pilosicoli	52584
+Campylobacter coli	195
+Colias alexandra	72246
+Colias crocea	72248
+Colius colius	57410
+Colibri coruscans	214663
+Colias erate	72852
+Colias eurytheme	42296
+Colias hecla	78613
+Colias hyale	78615
+Columbina inca	115616
+Coleochaete irregularis	187194
+Colius leucocephalus	57411
+Colias meadii	72251
+Colias nastes	78618
+Colias palaeno	78620
+Colias philodice	72851
+Colius striatus	57412
+Colinus virginianus	9014
+Escherichia coli O103:H2 (strain 12009 / EHEC)	585395
+Escherichia coli O111:H-	168927
+Escherichia coli O104:H4 (strain 2009EL-2050)	1134782
+Escherichia coli O111:H- (strain 11128 / EHEC)	585396
+Escherichia coli O104:H4 (strain 2011C-3493)	1133852
+Escherichia coli O104:H4 (strain 2009EL-2071)	1133853
+Escherichia coli O139:H28 (strain E24377A / ETEC)	331111
+Escherichia coli O26:H11 (strain 11368 / EHEC)	573235
+Escherichia coli O127:H6 (strain E2348/69 / EPEC)	574521
+Escherichia coli O44:H18 (strain 042 / EAEC)	216592
+Escherichia coli O45:K1 (strain S88 / ExPEC)	585035
+Escherichia coli (strain 55989 / EAEC)	585055
+Escherichia coli O157:H7	83334
+Escherichia coli O157:H7 (strain EC869)	478008
+Escherichia coli O157:H7 (strain EC4115 / EHEC)	444450
+Escherichia coli O157:H7 (strain TW14359 / EHEC)	544404
+Escherichia coli O7:K1 (strain IAI39 / ExPEC)	585057
+Escherichia coli O81 (strain ED1a)	585397
+Escherichia coli O8 (strain IAI1)	585034
+Escherichia coli O83:H1 (strain NRG 857C / AIEC)	685038
+Escherichia coli OR:K5:H- (strain ABU 83972)	655817
+Escherichia coli (strain B / BL21)	511693
+Escherichia coli (strain B / BL21-DE3)	469008
+Escherichia coli (strain B / REL606)	413997
+Escherichia coli (strain K12 / MC4100 / BW2952)	595496
+Escherichia coli (strain 'clone D i14')	885275
+Escherichia coli (strain 'clone D i2')	885276
+Escherichia coli O55:H7 (strain CB9615 / EPEC)	701177
+Escherichia coli (strain ATCC 33849 / DSM 4235 / NCIB 12045 / K12 / DH1)	536056
+Escherichia coli (strain K12 / DH10B)	316385
+Escherichia coli O78:H11 (strain H10407 / ETEC)	316401
+Escherichia coli O9:H4 (strain HS)	331112
+Escherichia coli O1:K1 / APEC	405955
+Escherichia coli O18:K1:H7 (strain IHE3034 / ExPEC)	714962
+Escherichia coli (strain ATCC 55124 / KO11FL)	595495
+Escherichia coli O6:K15:H31 (strain 536 / UPEC)	362663
+Escherichia coli O6:H1 (strain CFT073 / ATCC 700928 / UPEC)	199310
+Escherichia coli (strain ATCC 8739 / DSM 1576 / Crooks)	481805
+Escherichia coli (strain K12)	83333
+Escherichia coli O17:K52:H18 (strain UMN026 / ExPEC)	585056
+Escherichia coli (strain ATCC 9637 / CCM 2024 / DSM 1116 / NCIMB 8666 / NRRL B-766 / W)	566546
+Escherichia coli	562
+Escherichia coli (strain MS 21-1)	749527
+Escherichia coli O150:H5 (strain SE15)	431946
+Escherichia coli (strain SE11)	409438
+Escherichia coli (strain SMS-3-5 / SECEC)	439855
+Escherichia coli (strain UMEA 3162-1)	1281200
+Escherichia coli (strain UM146)	869729
+Escherichia coli (strain UTI89 / UPEC)	364106
+Escherichia coli (strain K12 / W3110 / ATCC 27325 / DSM 5911)	316407
+Francolinus francolinus	9023
+Francolinus pintadeanus	472989
+Francolinus pondicerianus	9019
+Megascolia flavifrons	7437
+Psarocolius atrovirens	84846
+Psarocolius decumanus	84847
+Psarocolius yuracares	186235
+Scoliopus bigelovii	49672
+Scomber colias	338315
+Scoliodon laticaudus	210639
+Syntrophobotulus glycolicus (strain DSM 8271 / FlGlyR)	645991
+Urocolius indicus	458196
+Urocolius macrourus	85101
+Yersinia enterocolitica subsp. palearctica serotype O:3 (strain DSM 13030 / CIP 106945 / Y11)	930944
+Yersinia enterocolitica subsp. palearctica serotype O:9 / biotype 3 (strain 105.5R(r))	994476
+Yersinia enterocolitica serotype O:8 / biotype 1B (strain NCTC 13174 / 8081)	393305
+Yersinia enterocolitica	630
