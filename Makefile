@@ -56,3 +56,9 @@ new_release:
 	@echo "* Generate a new release based on this tag at"
 	@echo "  https://github.com/malvikasharan/APRICOT/releases/new"
 	@echo "* Upload new docs using 'make upload_doc'"
+
+clean:
+	find -name "*__pycache__" -exec rm -rf {} \;
+	find -name "*pyc" -exec rm -f {} \;
+	rm -rf build dist
+	rm -rf bio_APRICOT.egg-info
