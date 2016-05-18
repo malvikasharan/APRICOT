@@ -2,8 +2,16 @@
 
 import argparse
 import os
-import subprocess
-from Bio.Blast import NCBIXML
+try:
+    import subprocess
+except ImportError:
+    print('Python package subprocess is missing. Please install/update.\n'
+    'Please ignore if you are only testing the example provided by APRICOT')
+try:
+    from Bio.Blast import NCBIXML
+except ImportError:
+    print('Python package Biopython is missing. Please install/update.\n'
+    'Please ignore if you are only testing the example provided by APRICOT')
 
 __description__ = "Lists homologous PDB structures for the selected proteins"
 __author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
