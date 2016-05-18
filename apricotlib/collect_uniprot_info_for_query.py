@@ -1,13 +1,9 @@
 #!/usr/bin/env python 
 
-'''code to collect protein proteins from uniprot
-protein gene, their xml file and all the details.
-further collection of fasta files.'''
-
-__description__ = ""
+__description__ = '''code to collect protein proteins from uniprot protein gene, 
+their xml file and all the details. further collection of fasta files'''
 __author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
 __email__ = "malvika.sharan@uni-wuerzburg.de"
-__version__ = ""
 
 import os
 import argparse
@@ -19,7 +15,6 @@ import xml.etree.ElementTree as ET
 from xml.parsers import expat
 XML_PARSE = '{http://uniprot.org/uniprot}'
 
-#$query $EFF_PATH $ADD_EFF $UP_REF_PATH $MAPPED_DATA $UP_XML_PATH $FASTA_PATH $FEAT_TABLE $STAT_DATA
 def main():
     parser = argparse.ArgumentParser(description=__description__)
     parser.add_argument("query_to_uid")
