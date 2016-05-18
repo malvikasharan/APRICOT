@@ -1,11 +1,19 @@
 #!/usr/bin/env python 
 
 import argparse
+from collections import defaultdict
 import os
 import sys
-from collections import defaultdict
-import subprocess
-import shutil
+try:
+    import subprocess
+except ImportError:
+    print('Python package subprocess is missing. Please install/update.\n'
+    'Please ignore if you are only testing the example provided by APRICOT')
+try:
+    import shutil
+except ImportError:
+    print('Python package shutil is missing. Please install/update.\n'
+    'Please ignore if you are only testing the example provided by APRICOT')
 
 __description__ = "Creates visualization files for the APRICOT analysis data"
 __author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
