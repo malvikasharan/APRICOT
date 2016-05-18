@@ -1,16 +1,12 @@
 #!/usr/bin/env python 
 
-'''Summarizes APRICOT analysis results.'''
-
 import argparse
 import os
 from collections import defaultdict
 
-__description__ = ""
+__description__ = "Summarizes APRICOT analysis results."
 __author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
 __email__ = "malvika.sharan@uni-wuerzburg.de"
-__version__ = ""
-
 
 def main():
     parser = argparse.ArgumentParser(description=__description__)
@@ -48,7 +44,7 @@ class CreateAnalysisSummary(object):
         self._prot_go_dict = {}
         
     def streamline_create_analysis_summary(self):
-        '''To call from apricot'''
+        '''To call from apricot exe'''
         self.count_queries()
         self.count_domains()
         self.domain_stat()
@@ -207,7 +203,7 @@ class CreateAnalysisSummary(object):
                     out_fh.write("%s\t%s\t%s\n" % (
                         each_key, ', '.join(domain_selected_data[each_key]),
                         len(domain_selected_data[each_key])))
-                        
+ 
 
 class NonFilteredData(object):
     '''all the column details of unfiltered table'''
