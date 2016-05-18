@@ -2,8 +2,10 @@
 
 import sys
 
-
-
+__description__ = '''The script creates files to compile user provided keywords
+ for domain selection and classification'''
+__author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
+__email__ = "malvika.sharan@uni-wuerzburg.de"
 
 
 def create_uid_query_file(uids, query_path):
@@ -17,7 +19,7 @@ def create_uid_query_file(uids, query_path):
                 "Query Error Message:\nPlease check that the query UniProt "
                 "ids are separated by comma\n")
 
-            
+
 def create_gene_query_file(geneids, query_path, proteome_path):
     entry_dict = create_gene_dict(proteome_path)
     with open(query_path, 'a') as out_fh:
