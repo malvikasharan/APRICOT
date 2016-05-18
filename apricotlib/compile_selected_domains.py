@@ -1,10 +1,12 @@
+#!/usr/bin/env python 
+
 import os
 import sys
-
 
 __description__ = "Merges domains files selected from CDD and InterPro"
 __author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
 __email__ = "malvika.sharan@uni-wuerzburg.de"
+
 
 def merge_domain_data(cdd_domains, ipr_domains, merged_file):
     with open(merged_file, 'w') as out_fh:
