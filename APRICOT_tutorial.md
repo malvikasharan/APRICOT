@@ -11,7 +11,7 @@ With this tutorial we will explore different modules of APRICOT and its basic us
 3) Please use the pypi link to update/install python packages.
 `pip install bio-apricot`
 
-4) Basic files required to run the APRICOT pipeline for tutorial/demonstration purpose. [ [DOWNLOAD] ]
+4) Basic files required to run the APRICOT pipeline for tutorial/demonstration purpose. [ [DOWNLOAD](https://zenodo.org/record/51705/files/APRICOT-1.0-demo_files-MS.zip) ]
 
 ####Not required
 
