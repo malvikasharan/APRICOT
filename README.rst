@@ -1,3 +1,6 @@
+.. image:: https://zenodo.org/badge/21283/malvikasharan/APRICOT.svg
+   :target: https://zenodo.org/badge/latestdoi/21283/malvikasharan/APRICOT
+  
 APRICOT
 -------
 
