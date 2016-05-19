@@ -16,7 +16,7 @@ import sys
 XML_PARSE = '{http://uniprot.org/uniprot}'
 
 __description__ = '''code to collect protein proteins from uniprot
-protein gene, their xml file and all the details.
+protein gene, their xml file and all the details.pr
 further collection of fasta files.'''
 __author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
 __email__ = "malvika.sharan@uni-wuerzburg.de"
@@ -143,7 +143,6 @@ class CollectUniprotInformation(object):
                 protein_parse = item.findall(XML_PARSE+'entry')
                 UPorganism = []
                 for protein in protein_parse:
-                    print(protein)
                     self._get_xml_protein_feature(protein, feature_table)
         except:
             print(
