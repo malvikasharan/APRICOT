@@ -25,6 +25,17 @@ then
     ln -s $APRICOT_PATH/apricotlib $APRICOT_PATH/bin
 fi
 
+
+####Tool path for additional annotation####
+raptorx_tool_path=$DB_PATH/raptorx
+raptorx_perl_script=raptorx-ss3-ss8/bin/run_raptorx-ss8.pl #run_raptorx-ss3.pl 
+                    #ss8 script is for 8 state and ss3 script is for 3 state structure prediction
+raptorx_path=$raptorx_tool_path/$raptorx_perl_script
+
+export LD_LIBRARY_PATH=/usr/local/lib64
+export PSORT_ROOT=/opt/biotools/psortb/psort/bin
+export PSORT_PFTOOLS=/opt/biotools/pftools
+
 ###Inputs: *REQUIRED* or *OPTIONAL* ###
 
 ## *OPTIONAL* provide species name to retrieve taxonomy ids for given species in bin/selected_taxonomy_ids.txt##
@@ -55,13 +66,14 @@ class_kw='ribosom,helicase,synthetase,polymerase,transferase,nuclease,RRM,RNP'
     ## *OPTIONAL* Input-2, comma separated list of keywords for protein classification based on the predicted domains
     
 main(){
-    #install_minimum_required_files             ###-Use this to install the minimum required files
-                                                ###Optionally use 'install_complete_db_and_tools', that will install all the third-party tools for additional annotation
+    install_minimum_required_files              ###-Use this to install the minimum required files
+    install_complete_db_and_tools               ###Optionally use 'install_complete_db_and_tools', that will install all the third-party tools for additional annotation
+    
     
     set_up_analysis_folder
     retrieve_taxonomy_id_list                   ###-This step could be skipped if using uniprot ids as queries
-                                                ###-select a taxonomy id from the list genetrated by using $species
-                                                ###-for full list look at $FIXED_DB_FILES/all_taxids/speclist.txt
+                                                ##-select a taxonomy id from the list genetrated by using $species
+                                                ##-for full list look at $FIXED_DB_FILES/all_taxids/speclist.txt
     provide_input_queries
     provide_domain_and_class_keywords
     select_domains_by_keywords
@@ -73,12 +85,12 @@ main(){
     output_file_formats                         ####-Format output files as HTML or xlsx
         
     ###ADDITIONAL ANNOTATION###                 ###requires third party tools: RaptorX, PsortB, can be installed by 'install_complete_db_and_tools'###
-    #calculate_additional_annotation            ####--PsortB and -RaptorX must be installed for their respective annotation
+    #calculate_additional_annotation             ####--PsortB and -RaptorX must be installed for their respective annotation
     #create_visualization_files                 ####--Create visualization files
 }
 
 install_complete_db_and_tools(){
-    sh apricotlib/apricot_complete_db_tool.sh $APRICOT_PATH $DB_PATH 
+    sh $APRICOT_PATH/apricotlib/apricot_complete_db_tool.sh $APRICOT_PATH $DB_PATH 
 }
 
 install_minimum_required_files(){
