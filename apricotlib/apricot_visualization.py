@@ -8,10 +8,12 @@ try:
     import subprocess
 except ImportError:
     print('Python package subprocess is missing. Please install/update.\n')
+    sys.exit(0)
 try:
     import shutil
 except ImportError:
     print('Python package shutil is missing. Please install/update.\n')
+    sys.exit(0)
 
 __description__ = "Creates visualization files for the APRICOT analysis data"
 __author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
