@@ -3,3 +3,4 @@ bio_APRICOT.egg-info
 */__pycache__
 build
 dist
+test_apricot
