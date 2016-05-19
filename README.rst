@@ -1,3 +1,6 @@
+APRICOT
+-------
+
 A tool for sequence-based identification and characterization of protein classes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
