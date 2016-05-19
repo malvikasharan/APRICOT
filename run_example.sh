@@ -4,39 +4,33 @@
 PYTHON_PATH=python3
 ANALYSIS_PATH=APRICOT_analysis
 APRICOT_PATH=APRICOT
+ROOT_DB_PATH=source_files
 
 ##FIXED PATHS for flatfiles downloaded by APRICOT
-DB_PATH=source_files/reference_db_files
+DB_PATH=$ROOT_DB_PATH/reference_db_files
 
-##PATHS for domain databases, can be changed by the users
+##PATHS for domain databases
 CDD_PATH=$DB_PATH/cdd/Cdd
 INTERPRO_PATH=$DB_PATH/interpro/interproscan
 
-for paths in $APRICOT_PATH $ANALYSIS_PATH $DB_PATH $APRICOT_LIBRARY
-do
-    if ! [ -d $paths ] 
-    then
-        mkdir $paths
-    fi
-done
-if ! [ -e $APRICOT_PATH/apricotlib ] 
+if ! [ -e $APRICOT_PATH/apricotlib ]
 then
     git clone https://github.com/malvikasharan/APRICOT.git $APRICOT_PATH
     ln -s $APRICOT_PATH/apricotlib $APRICOT_PATH/bin
 fi
-
+    
 ###Inputs: *REQUIRED* or *OPTIONAL* ###
 
 ## *OPTIONAL* provide species name to retrieve taxonomy ids for given species in bin/selected_taxonomy_ids.txt##
-species='coli'
+species=''
 
 ## *REQUIRED* INPUT-1: query proteins##
 
 ###This must not be altered by the users in the demonstration file
 query_uids='P0A6X3,P00957'
     #Input-1, option 1: provide comma separated list of UniProt ids
-    #P0A6X3 (positive test) is Hfq protein that contains sm and RRM like domain
-    #P00957 (negative test) is alaS protein that contains tRNA-ligase, hence should not be selected by RRM, KH or DEAD domains
+    #P0A6X3 (positive test) is Hfq protein that contains sm and RRM/RNP like domain
+    #P00957 (negative test) is alaS protein is a tRNA-ligase, hence will not be selected by RRM, KH or DEAD domains
     
 ##Not used in the demonstration file  
 query_geneids=''
@@ -50,44 +44,64 @@ FASTA_PATH=$ANALYSIS_PATH/input/mapped_query_annotation/fasta_path_mapped_query
 ###Input-2:  Keywords, *REQUIRED* for domain selection and *OPTIONAL* for classification###
 ###This can be altered by the users in the demonstration file as well
 domain_kw='RRM,KH,DEAD'
-    ## *REQUIRED* Input-2, comma separated list of keywords for domain selection
+    # *REQUIRED* Input-2, comma separated list of keywords for domain selection
 class_kw='ribosom,helicase,synthetase,polymerase,transferase,nuclease,RRM,RNP'
     ## *OPTIONAL* Input-2, comma separated list of keywords for protein classification based on the predicted domains
-    
+
 main(){
-    #install_minimum_required_files             ###-Use this to install the minimum required files
-                                                ###Optionally use 'install_complete_db_and_tools', that will install all the third-party tools for additional annotation
-    
-    set_up_analysis_folder
-    retrieve_taxonomy_id_list                   ###-This step could be skipped if using uniprot ids as queries
-                                                ###-select a taxonomy id from the list genetrated by using $species
-                                                ###-for full list look at $FIXED_DB_FILES/all_taxids/speclist.txt
+    set_up_analysis_folder			    #set_up_analysis_folder
+    basic_requirements_for_demo
     provide_input_queries
     provide_domain_and_class_keywords
     select_domains_by_keywords
     run_domain_prediction
     filter_domain_analysis
     classify_filtered_result
-    calculate_annotation_score                 
+    calculate_annotation_score
     create_analysis_summary
-    output_file_formats                         ####-Format output files as HTML or xlsx
-        
-    ###ADDITIONAL ANNOTATION###                 ###requires third party tools: RaptorX, PsortB, can be installed by 'install_complete_db_and_tools'###
-    #calculate_additional_annotation            ####--PsortB and -RaptorX must be installed for their respective annotation
-    #create_visualization_files                 ####--Create visualization files
-}
-
-install_complete_db_and_tools(){
-    sh apricotlib/apricot_complete_db_tool.sh $APRICOT_PATH $DB_PATH 
-}
-
-install_minimum_required_files(){
-    sh $APRICOT_PATH/apricotlib/apricot_minimum_required_files.sh $APRICOT_PATH
+    output_file_formats				####--Format output files as HTML
 }
 
 set_up_analysis_folder(){
+    
+    for paths in $ROOT_DB_PATH $APRICOT_PATH $ANALYSIS_PATH $APRICOT_LIBRARY
+    do
+        if ! [ -d $paths ] 
+        then
+            mkdir $paths
+        fi
+    done
+    if ! [ -d $DB_PATH ] 
+        then
+            mkdir $DB_PATH
+    fi
+    for db_subpath in cdd go_mapping interpro pfam
+    do
+        if ! [ -d $DB_PATH/$db_subpath ] 
+        then
+            mkdir $DB_PATH/$db_subpath
+        fi
+    done
+    
     $PYTHON_PATH $APRICOT_PATH/bin/apricot create \
     $ANALYSIS_PATH
+}
+
+basic_requirements_for_demo(){
+    ##zenodo_link_for_demo_data=
+    wget $zenodo_link_for_demo_data
+    unzip apricot_demo_files.zip
+    cp apricot_demo_files/go_mapping/* $DB_PATH/go_mapping
+    cp apricot_demo_files/interpro_annotation_data/* $DB_PATH/interpro/interpro_annotation_data
+    cp apricot_demo_files/cdd_analysis/* $ANALYSIS_PATH/output/0_predicted_domains/cdd_analysis
+    cp apricot_demo_files/ipr_analysis/* $ANALYSIS_PATH/output/0_predicted_domains/ipr_analysis
+    ##CDD annotation table
+    wget -c -P $DB_PATH/cdd/cdd_annotation_data ftp://ftp.ncbi.nih.gov/pub/mmdb/cdd/cddid.tbl.gz
+    gunzip $DB_PATH/cdd/cdd_annotation_data/*
+    ##PfamA annotation table
+    pfam_release=Pfam30.0
+    wget -c -P $DB_PATH/pfam ftp://ftp.ebi.ac.uk/pub/databases/Pfam/releases/$pfam_release/database_files/pfamA.txt.gz
+    gunzip $DB_PATH'/pfam/pfamA.txt.gz'
 }
 
 retrieve_taxonomy_id_list(){
@@ -165,36 +179,10 @@ create_analysis_summary(){
     --analysis_path $ANALYSIS_PATH
 }
 
-calculate_additional_annotation(){
-    #$PYTHON_PATH $APRICOT_PATH/bin/apricot addanno -PDB \
-    #--analysis_path $ANALYSIS_PATH \
-    #--fasta $FASTA_PATH -F
-    #
-    #$PYTHON_PATH $APRICOT_PATH/bin/apricot addanno -PSORTB \
-    #--psortb_path $PSORT_ROOT/psort \
-    #--analysis_path $ANALYSIS_PATH \
-    #--fasta $FASTA_PATH -F
-    #
-    #$PYTHON_PATH $APRICOT_PATH/bin/apricot addanno -REFSS \
-    #--analysis_path $ANALYSIS_PATH \
-    #--fasta $FASTA_PATH -F
-    
-    $PYTHON_PATH $APRICOT_PATH/bin/apricot addanno -RAPTORX \
-    --raptorx_path $raptorx_path \
-    --analysis_path $ANALYSIS_PATH \
-    --fasta $FASTA_PATH -F
-}
-
-create_visualization_files(){
-    $PYTHON_PATH $APRICOT_PATH/bin/apricot vis \
-    --analysis_path $ANALYSIS_PATH \
-    -S #-M -A -C -D -L 
-}
-
 output_file_formats(){
     $PYTHON_PATH $APRICOT_PATH/bin/apricot format \
     --analysis_path $ANALYSIS_PATH \
-    -HT #-XL  
+    -HT
 }
 
 main
