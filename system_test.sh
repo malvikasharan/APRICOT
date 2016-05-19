@@ -58,19 +58,19 @@ main(){
     #install_minimum_required_files             ###-Use this to install the minimum required files
                                                 ###Optionally use 'install_complete_db_and_tools', that will install all the third-party tools for additional annotation
     
-    #set_up_analysis_folder
-    #retrieve_taxonomy_id_list                   ###-This step could be skipped if using uniprot ids as queries
+    set_up_analysis_folder
+    retrieve_taxonomy_id_list                   ###-This step could be skipped if using uniprot ids as queries
                                                 ###-select a taxonomy id from the list genetrated by using $species
                                                 ###-for full list look at $FIXED_DB_FILES/all_taxids/speclist.txt
     provide_input_queries
-    #provide_domain_and_class_keywords
-    #select_domains_by_keywords
-    #run_domain_prediction
+    provide_domain_and_class_keywords
+    select_domains_by_keywords
+    run_domain_prediction
     filter_domain_analysis
-    #classify_filtered_result
-    #calculate_annotation_score                 
-    #create_analysis_summary
-    #output_file_formats                         ####-Format output files as HTML or xlsx
+    classify_filtered_result
+    calculate_annotation_score                 
+    create_analysis_summary
+    output_file_formats                         ####-Format output files as HTML or xlsx
         
     ###ADDITIONAL ANNOTATION###                 ###requires third party tools: RaptorX, PsortB, can be installed by 'install_complete_db_and_tools'###
     #calculate_additional_annotation            ####--PsortB and -RaptorX must be installed for their respective annotation
