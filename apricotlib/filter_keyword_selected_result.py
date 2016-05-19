@@ -418,8 +418,9 @@ class FilterPredictedDomains(object):
             if selected_id in set(self._result_detail_dict.keys()):
                 for each_data in self._result_detail_dict[selected_id]:
                     self._candidate_set.add(each_data)
-        filtered_file.write('\n'.join(list(self._candidate_set)))
-        summary_file.write('\tSelected\n'.join(list(self._candidate_set))+'\n')
+        for each_candidate in list(self._candidate_set):
+            filtered_file.write('%s\n' % each_candidate)
+            summary_file.write('%s\tSelected\n' % each_candidate)
         print("Filtered uniprot IDs by %s:" % self._prediction_method)
         for candidate_entry in self._candidate_set:
             uid = candidate_entry.split('\t')[1]
@@ -432,8 +433,8 @@ class FilterPredictedDomains(object):
             for each_entry in self._result_detail_dict[remaining_id]:
                 if each_entry not in self._candidate_set:
                     self._discard_set.add(each_entry)
-        summary_file.write(
-            '\tNotSelected\n'.join(list(self._discard_set))+'\n')
+        for each_discard in list(self._discard_set):
+            summary_file.write('%s\tNotSelected\n' % each_discard)
         summary_file.close()
         filtered_file.close()
         id_file.close()

@@ -6,7 +6,7 @@ except ImportError:
     from distutils.core import setup
 
 setup(name='bio-APRICOT',
-      version='1.0',
+      version='1.0.2',
       description='Sequence-based identification and characterization of protein classes',
       author='Malvika Sharan',
       author_email='malvikasharan@gmail.com',
@@ -17,8 +17,8 @@ setup(name='bio-APRICOT',
         "requests >= 2.10.0",
         "matplotlib >= 1.5.1",
         "openpyxl >= 2.3.1",
-        "numpy" >= '1.9.0',
-        "scipy" >= '0.16.0',
+        "numpy >= 1.9.0",
+        "scipy >= 0.16.0"
     ],
     scripts=['bin/apricot'],
     license='ISC License (ISCL)',
