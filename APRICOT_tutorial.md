@@ -438,6 +438,19 @@ APRICOT_analysis
             
 `````
 
+This concludes the tutorial for the analysis conducted by APRICOT. All of these modules can be run in an automated streamlined manner using the provided shell script as shown below.
+
+`````
+
+sh run_example.sh
+
+`````
+
+###Troubleshooting
+
+We have tested the described modules intensively, however if you encounter any bugs and have problems running any of these modules, please contact me via email: malvikasharan@gmail.com or report the issues in this repository.
+
+Your feedback and comments are welcome.
 
 
 
