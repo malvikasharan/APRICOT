@@ -9,7 +9,7 @@ try:
     from openpyxl.workbook import Workbook
 except ImportError:
     print('Python package openpyxl is missing. Please install/update.\n'
-    'Please ignore if you are only testing the example provided by APRICOT')
+    'Please ignore if you chose the output format as HTML')
 
 __description__ = '''This script is designed to convert the file types.
 tab separated files to xlsx files'''
