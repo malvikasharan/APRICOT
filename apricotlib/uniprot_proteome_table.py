@@ -5,8 +5,7 @@ try:
     import urllib.request
     from urllib.request import urlopen
 except ImportError:
-    print('Python package urllib is missing. Please install/update.'
-    'Please ignore if you are only testing the example provided by APRICOT')
+    print('Python package urllib is missing. Please install/update.\n')
     sys.exit(0)
 
 __description__ = "Downloads the complete proteome data from UniProt."
