@@ -45,6 +45,10 @@ The shell script to install and run the analysis in a streamlined manner is prov
 
 The repository contains a shell script `run_example.sh`, which can be used for the demonstration of APRICOT based analysis. You can find the tutorial that discusses each module in detail. [ [Tutorial](https://github.com/malvikasharan/APRICOT/blob/master/APRICOT_tutorial.md) ]
 
+##Contact
+
+For question, troubleshooting and requests, please feel free to contact Malvika Sharan at <malvika.sharan@uni-wuerzburg.de> / <malvikasharan@gmail.com>
+
 ####Trivia
 The initial focus of this project was to identify functional domains in bacterial proteins that have the potential to interact with RNA (RNA-binding proteins or RBPs) and understand their regulatory roles and mechanisms. Hence, the tool is named **APRICOT** that stands for **A**nalysing **P**rotein **R**NA **I**nteractions by **Co**mbined-scoring **T**echnique. However, due to the adaptability of the pipeline to different sets of reference domains, APRICOT is not limited to RBP identification and has been tested successfully on the other classes of functional domains as well. We are carrying out the experimental validations of few RBPs identified by APRICOT in collaboration with the biologists in our lab, which can provide a high confidence dataset and contribute significantly to the improvement of this computational approach.
 
@@ -66,10 +70,6 @@ The data obtained from the primary analysis is used as a resource for the second
 
 #####Program output
 For each analysis step, APRICOT generates results in tablular manner, in addition with an overview of the analysis and graphics associated with the resulting information.
-
-##Contact
-
-For question, troubleshooting and requests, please feel free to contact Malvika Sharan at <malvika.sharan@uni-wuerzburg.de> / <malvikasharan@gmail.com>
 
 
 ##Detailed documentation
