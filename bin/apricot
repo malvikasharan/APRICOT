@@ -789,6 +789,10 @@ def output_format(args):
                 if not os.path.exists(html_out + '/' + folders):
                     os.mkdir(html_out + '/' + folders)
                 csv_to_html(inpath + '/' + folders, html_out + '/' + folders)
+                print("\n----------------------------------------------------------------\n"
+                "The output files are now generated in HTML format: "
+                "ANALYSIS_PATH/output/format_output_data/"
+                "\n----------------------------------------------------------------\n")
     if args.xlsx:
         for folders in os.listdir(inpath):
             #if folders == '5_analysis_summary' or folders == '2_selected_domain_information':
@@ -796,5 +800,8 @@ def output_format(args):
                 if not os.path.exists(excel_out + '/' + folders):
                     os.mkdir(excel_out + '/' + folders)
                 csv_to_xlsx(inpath + '/' + folders, excel_out + '/' + folders)
-                
+                print("\n----------------------------------------------------------------\n"
+                "The output files are now generated in xlsx format: "
+                "ANALYSIS_PATH/output/format_output_data/"
+                "\n----------------------------------------------------------------\n")                
 main()
