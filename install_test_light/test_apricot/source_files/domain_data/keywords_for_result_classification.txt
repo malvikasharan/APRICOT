@@ -1,8 +1,0 @@
-ribosom
-helicase
-synthetase
-polymerase
-transferase
-nuclease
-RRM
-RNP
