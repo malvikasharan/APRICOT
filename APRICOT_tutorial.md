@@ -4,14 +4,14 @@ With this tutorial we will explore different modules of APRICOT and its basic us
 
 ###Requirements:
 
-1) Shell script `run_example.sh` that can be executed in a linux environment. [DOWNLOAD](https://github.com/malvikasharan/APRICOT/blob/master/run_example.sh)
+1) Shell script `run_example.sh` that can be executed in a linux environment. [ [DOWNLOAD](https://github.com/malvikasharan/APRICOT/blob/master/run_example.sh) ]
 
-2) Please clone `git clone https://github.com/malvikasharan/APRICOT.git` download the APRICOT repository.  [DOWNLOAD](http://malvikasharan.github.io/APRICOT/)
+2) Please clone `git clone https://github.com/malvikasharan/APRICOT.git` download the APRICOT repository.  [ [Download link](http://malvikasharan.github.io/APRICOT/) ]
 
 3) Please use the pypi link to update/install python packages.
 `pip install bio-apricot`
 
-4) Basic files required to run the APRICOT pipeline for tutorial/demonstration purpose. [DOWNLOAD]
+4) Basic files required to run the APRICOT pipeline for tutorial/demonstration purpose. [ [Download link] ]
 
 ####Not required
 
@@ -138,7 +138,7 @@ query_uids='P0A6X3,P00957'
 
 provide_input_queries(){
     ##Option-1: UniProt identifier
-    $PYTHON_PATH $APRICOT_PATH/bin/apricot *query* --analysis_path $ANALYSIS_PATH --uids $query_uids
+    $PYTHON_PATH $APRICOT_PATH/bin/apricot query --analysis_path $ANALYSIS_PATH --uids $query_uids
 }
 
 ````
@@ -156,11 +156,11 @@ For the second set, we have listed few enzymes along with RRM and RNP.
 ### *REQUIRED* Input-2, comma separated list of keywords for domain selection
 domain_kw='RRM,KH,DEAD'
 
-## *OPTIONAL* Input-2, comma separated list of keywords for protein classification based on the predicted domains
+### *OPTIONAL* Input-2, comma separated list of keywords for protein classification based on the predicted domains
 class_kw='ribosom,helicase,synthetase,polymerase,transferase,nuclease,RRM,RNP'
 
 provide_domain_and_class_keywords(){
-    $PYTHON_PATH $APRICOT_PATH/bin/apricot *keywords* $domain_kw -cl $class_kw
+    $PYTHON_PATH $APRICOT_PATH/bin/apricot keywords $domain_kw -cl $class_kw
 }
 
 `````
