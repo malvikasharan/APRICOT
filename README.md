@@ -92,7 +92,7 @@ Or update the package list manually: `sudo apt-get update` and install the requi
 git clone https://github.com/malvikasharan/APRICOT.git
 `````
 
-or [download](https://github.com/malvikasharan/APRICOT/archive/master.zip) 
+or [download](https://github.com/malvikasharan/APRICOT/archive/master.zip) manually.
 
 APRICOT repository comprises of a directory tree of the following structure.
 
