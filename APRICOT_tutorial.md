@@ -53,42 +53,6 @@ INTERPRO_PATH=$DB_PATH/interpro/interproscan
 
 `````
 
-####Defining input data
-
-In this analysis we will identify protein that contains RRM/RNP, which is a family of conserved RNA-binding domains.
-
-##Input-1: query proteins
-
-Users can provide query proteins using various options. Here we use the input option as UniProt identifiers and provide 2 query proteins: P0A6X3,P00957.
-
-P0A6X3 is used as an example for positive test, it is Hfq protein that contains sm and RRM/RNP like domain. P00957 is used as an example for negative test, it is alaS protein that contains domain related to tRNA-ligase therefore, it must not be identified with domains reltaed to RRM/RNP.
-
-`````
-
-## *REQUIRED* INPUT-1: provide comma separated list of UniProt ids##
-
-query_uids='P0A6X3,P00957'
-
-`````
-
-##Input-1: keywords/terms
-
-There are two sets of keyword inputs, first-set is required to select domains from domain databases and second set, which is an optional input, should comprise of terms that will classify our results accordingly.
-
-Since, we are interested in identifying RRM containing protein, we will use it as one term. Additionally, we can provide other terms (for example, KH and DEAD) to see if there are domains associtaed with those terms could be identified in our query proteins.
-
-For the second set, we have listed names of enzymes along with RRM and RNP.
-
-`````
-
-### *REQUIRED* Input-2, comma separated list of keywords for domain selection
-domain_kw='RRM,KH,DEAD'
-
-## *OPTIONAL* Input-2, comma separated list of keywords for protein classification based on the predicted domains
-class_kw='ribosom,helicase,synthetase,polymerase,transferase,nuclease,RRM,RNP'
-    
-`````
-
 ####Creating analysis folders
 
 1) We will create each of the paths that we defined above in the section: *Defining paths*.
@@ -125,8 +89,7 @@ set_up_analysis_folder(){
 `````
 set_up_analysis_folder(){
     ...
-    $PYTHON_PATH $APRICOT_PATH/bin/apricot create \
-    $ANALYSIS_PATH
+    $PYTHON_PATH $APRICOT_PATH/bin/apricot create $ANALYSIS_PATH
 }
 
 `````
@@ -160,5 +123,45 @@ basic_requirements_for_demo(){
 
 `````
 
+####Providing query proteins using the subcommand: `query`
 
+In this analysis we will identify protein that contains RRM/RNP, which is a family of conserved RNA-binding domains.
+
+Users can provide query proteins using various options. Here we use the input option as UniProt identifiers and provide 2 query proteins: P0A6X3,P00957.
+
+P0A6X3 is used as an example for positive test, it is Hfq protein that contains sm and RRM/RNP like domain. P00957 is used as an example for negative test, it is alaS protein that contains domain related to tRNA-ligase therefore, it must not be identified with domains reltaed to RRM/RNP.
+
+`````
+
+## *REQUIRED* INPUT-1: provide comma separated list of UniProt ids##
+query_uids='P0A6X3,P00957'
+
+provide_input_queries(){
+    ##Option-1: UniProt identifier
+    $PYTHON_PATH $APRICOT_PATH/bin/apricot *query* --analysis_path $ANALYSIS_PATH --uids $query_uids
+}
+
+````
+
+####Providing keyword inputs using the subcommand: `keywords`
+
+There are two sets of keyword inputs, first-set is required to select domains from domain databases and second set, which is an optional input, should comprise of terms that will classify our results accordingly.
+
+Since, we are interested in identifying RRM containing protein, we will use it as one term. Additionally, we can provide other terms (for example, KH and DEAD) to see if there are domains associtaed with those terms could be identified in our query proteins.
+
+For the second set, we have listed few enzymes along with RRM and RNP.
+
+`````
+
+### *REQUIRED* Input-2, comma separated list of keywords for domain selection
+domain_kw='RRM,KH,DEAD'
+
+## *OPTIONAL* Input-2, comma separated list of keywords for protein classification based on the predicted domains
+class_kw='ribosom,helicase,synthetase,polymerase,transferase,nuclease,RRM,RNP'
+
+provide_domain_and_class_keywords(){
+    $PYTHON_PATH $APRICOT_PATH/bin/apricot *keywords* $domain_kw -cl $class_kw
+}
+
+`````
 
