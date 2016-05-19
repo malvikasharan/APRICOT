@@ -26,7 +26,26 @@ Copyright (c) 2011-2015, Malvika Sharan, <malvika.sharan@uni-wuerzburg.de>
 
 Please read the license content [here](https://github.com/malvikasharan/APRICOT/blob/master/LICENSE.md).
 
-#####Trivia
+
+##Installation
+APRICOT can be installed with pip
+
+`````
+$ pip install bio-apricot
+`````
+
+The scripts for the installaton of the different componenents of APRICOT (databases, tools and flatfiles) are available on the GitHub repository. You can manually download the APRICOT repository or simply clone it.
+
+`````
+git clone https://github.com/malvikasharan/APRICOT.git
+`````
+The [Docker image for APRICOT](https://github.com/malvikasharan/APRICOT/blob/master/Dockerfile) will be available soon.
+
+##Working example
+
+The repository contains a shell script `run_example.sh`, which can be used for the demonstration of APRICOT based analysis. You can find the tutorial that discusses each module in detail. [ [Tutorial](https://github.com/malvikasharan/APRICOT/blob/master/APRICOT_tutorial.md) ]
+
+####Trivia
 The initial focus of this project was to identify functional domains in bacterial proteins that have the potential to interact with RNA (RNA-binding proteins or RBPs) and understand their regulatory roles and mechanisms. Hence, the tool is named **APRICOT** that stands for **A**nalysing **P**rotein **R**NA **I**nteractions by **Co**mbined-scoring **T**echnique. However, due to the adaptability of the pipeline to different sets of reference domains, APRICOT is not limited to RBP identification and has been tested successfully on the other classes of functional domains as well. We are carrying out the experimental validations of few RBPs identified by APRICOT in collaboration with the biologists in our lab, which can provide a high confidence dataset and contribute significantly to the improvement of this computational approach.
 
 ###Summary of the pipeline
@@ -48,26 +67,36 @@ The data obtained from the primary analysis is used as a resource for the second
 #####Program output
 For each analysis step, APRICOT generates results in tablular manner, in addition with an overview of the analysis and graphics associated with the resulting information.
 
-##Installation
-The scripts for the installaton of the different componenents of APRICOT (databases, tools and flatfiles) are available on the GitHub repository.
-The [Docker image for APRICOT](https://github.com/malvikasharan/APRICOT/blob/master/Dockerfile) will be available soon.
-
 ##Contact
 
 For question, troubleshooting and requests, please feel free to contact Malvika Sharan at <malvika.sharan@uni-wuerzburg.de> / <malvikasharan@gmail.com>
+
+
+##Detailed documentation
 
 ##Tool Requirements
 
 APRICOT is implemented in Python 3 and can be executed in Linux/Unix system. APRICOT requires few third party packages, namely [Biopython](http://biopython.org/wiki/Main_Page), [BLAST executables](https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE_TYPE=BlastDocs&DOC_TYPE=Download), [interproscan](https://www.ebi.ac.uk/interpro/interproscan.html), python libraries like [Matplotlib](http://matplotlib.org/), [requests](https://pypi.python.org/pypi/requests), openpyxl and few other optional tools that are mentioned below.
 
-Please update the package list: `sudo apt-get update` and install the required packages:
-    `sudo apt-get install python3 python3-setuptools python3-pip python3-matplotlib`
-    
-
 ##Instructions for the installation
 
-Please clone `git clone https://github.com/malvikasharan/APRICOT.git` or [download](https://github.com/malvikasharan/APRICOT/archive/master.zip) this repository in your system locally, which comprise of a directory tree of the following structure.
-```
+Use pip to install APRICOT
+
+`````
+pip install bio-apricot
+`````
+
+Or update the package list manually: `sudo apt-get update` and install the required packages (`sudo apt-get install python3 python3-scipy python3-numpy python3-matplotlib python3-requests`) and clone the repository.
+
+`````
+git clone https://github.com/malvikasharan/APRICOT.git
+`````
+
+or [download](https://github.com/malvikasharan/APRICOT/archive/master.zip) 
+
+APRICOT repository comprise of a directory tree of the following structure.
+
+`````
 APRICOT
 │   CHANGELOG.md
 │   Dockerfile
@@ -78,7 +107,7 @@ APRICOT
 └───├apricotlib
 └───├bin
 └───├...
-```
+`````
 
 The run script for the installation ocan be found in `run_scripts` folder of this github repository. Users need to provide the path of the APRICOT repository in the system (APRICOT) and the path where the users wish to install APRICOT related tools and files (apricot_db_and_tools). 
 With the light version, APRICOT will mainly install  BLAST executables (ftp://ftp.ncbi.nih.gov/blast/executables/blast+) and InterProScan (ftp://ftp.ebi.ac.uk/pub/software/unix/iprscan/5/) along with establishing CDD and InterPro databases locally.
@@ -97,7 +126,7 @@ InterProSan can be downloaded and installed locally (in the path apricot_db_and_
 
 APRICOT requires various flatfiles, namely [CDD tables](ftp://ftp.ncbi.nih.gov/pub/mmdb/cdd/cdd.info), [InterPro tables](ftp://ftp.ebi.ac.uk/pub/software/unix/iprscan/5), [PDB secondary structures](http://www.rcsb.org/pdb/files/ss.txt), [taxonomy information] (http://www.uniprot.org/docs/speclist.txt), [Gene Ontology data](http://www.geneontology.org/ontology/go.obo) and [pfam table](ftp://ftp.ebi.ac.uk/pub/databases/Pfam/releases/Pfam29.0/database_files/), which are downloaded and saved locally in the pre-defined location (for e.g. 'reference_db_files' in 'APRICOT' folder).
 ```
-bin
+source_files
 │   ...
 └───├reference_db_files
     └───├all_taxids
@@ -114,7 +143,7 @@ APRICOT allows additional annotations of the proteins by using third party tools
 
 Each subcommand requires the path to the analysis folder ('APRICOT_analysis' by deafult). Different subcommands can be quickly viewed by running `python3 APRICOT/bin/apricot -h`.
 
-````
+``````
 usage: apricot [-h] [--version]
                {create,taxid,query,keywords,select,predict,filter,classify,annoscore,summary,addanno,vis,format}
                ...
@@ -128,21 +157,16 @@ positional arguments:
     query               Map user provided comma separated queries to UniProt
                         ids
     keywords            Save user provided keywords for domain selection
-                        (required). An optional list of term can be provided 
-                        by using the flag -cl to classify results based on the 
-                        functions associated with the identified domains
+                        (required) and analysis classification (-cl)
     select              Select functional domains of interest (specified by
-                        keywords) from CDD and InterPro. please use
-                        -C for CDD or -I for InterPro to use specific consortium
-    predict             Predict functional domains in the queries based on CDD 
-                        and InterPro. please use -C for CDD or -I for InterPro 
-                        to use specific consortium
-    filter              Filter queries predicted with domains of interest and 
-                        extend their annotations with UniProt reference. Cut-offs 
-                        for the parameters can also be provided (please see -h).
-    classify            Optional classification of selected prediction in smaller 
-                        groups by class keywords provided by -cl flag of the 
-                        subcommand keywords
+                        keywords) from CDD (-C) and InterPro (-I) by default
+    predict             Predict functional domains in the queries based on CDD
+                        (-C) and InterPro (-I) databases by default
+    filter              Filter queries predicted with domains of interest (and
+                        optional parameter thresholds) and extend their
+                        annotations
+    classify            Optional classification of selected prediction in
+                        smaller groups by class keywords
     annoscore           Score and rank predicted data by 'annotation scoring'
     summary             Summary analysis output
     addanno             Optional annotation of the selected protein by -PDB,
@@ -153,7 +177,7 @@ positional arguments:
 optional arguments:
   -h, --help            show this help message and exit
   --version, -v         show version
- ````
+``````
  
 ##create
 Quick help: `python3 APRICOT/bin/apricot create -h`
@@ -171,7 +195,6 @@ The structure and annotation of directories and the enclosing files in the 'inpu
 ```
 APRICOT_analysis
     └───├input
-            └───├helper_files
             └───├query_proteins
             └───├uniprot_reference_table
             └───├mapped_query_annotation  
@@ -181,15 +204,15 @@ The structure of directories and the enclosing files in the 'output' folder in t
 ```
 APRICOT_analysis
     └───├output
-            └───├0_predicted_domains  # Location for the output data obtained from the subcommand 'predict'
+            └───├0_predicted_domains            # Location for the output data obtained from the subcommand 'predict'
             └───├1_compiled_domain_information  # Location for the output data obtained from the subcommand 'filter'          
-            └───├2_selected_domain_information            
-            └───├3_annotation_scoring  # Location for the output data obtained from the subcommand 'annoscore'
-            └───├4_additional_annotations  # Location for additional annotations for the selected 
-            |                              # queries using subcommand 'addanno'
-            └───├5_analysis_summary  # Location for the output data obtained from the subcommand 'summary'
-            └───├format_output_data  # Location for the output data obtained from the subcommand 'format'
-            └───├visualization_files  # Location for the output data obtained from the subcommand 'vis'
+            └───├2_selected_domain_information  # Location for the classified data obtained from the subcommand 'classify' 
+            └───├3_annotation_scoring           # Location for the output data obtained from the subcommand 'annoscore'
+            └───├4_additional_annotations       # Location for additional annotations for the selected 
+            |                                   # queries using subcommand 'addanno'
+            └───├5_analysis_summary             # Location for the output data obtained from the subcommand 'summary'
+            └───├format_output_data             # Location for the output data obtained from the subcommand 'format'
+            └───├visualization_files            # Location for the output data obtained from the subcommand 'vis'
 ```
 
 ##taxid
@@ -211,11 +234,10 @@ optional arguments:
                         Species name (comma separated if more than one) for
                         taxonomy id retreival
 ````
-The taxonomy ids are saved in the text file taxonomy_ids.txt in the directory helper_files in the input folder of the main analysis directory (APRICOT_analysis).
+The taxonomy ids are saved in the text file taxonomy_ids.txt in the directory reference_db_files.
 ````
-APRICOT_analysis
-    └───├input
-            └───├helper_files
+source_files
+    └───├reference_db_files
             |    taxonomy_ids.txt
 ````
 
@@ -226,7 +248,7 @@ As mentioned already, APRICOT gives multiple options to the users to supply quer
 
 Paths for the saving the query data and their corresponding fasta files, xml files, annotation tables etc. can be optinally provided by the users.
 
-````
+`````
 usage: apricot query [-h] [--analysis_path ANALYSIS_PATH] [--uids UIDS]
                      [--taxid TAXID] [--geneids GENEIDS] [--proteome]
                      [--fasta] [--query_path QUERY_PATH]
@@ -255,18 +277,18 @@ optional arguments:
                         Get proteome table from UniProt
   --feature_table FEATURE_TABLE, -ft FEATURE_TABLE
                         Get proteome table from UniProt
-````
+``````
 
 APRICOT saves the user provided queries and related information extracted from UniProt knowledgebase (fasta files, xml files, reference files etc.) in the directories as described below.
 ````
 APRICOT_analysis
     └───├input
             └───├query_proteins
-            |   query_to_uids.txt  # User provided queries (gene ids/protein names/whole proteome set) 
-            |                      # mapped to the UniProt Ids (flag --uids, --geneids)
+            |   query_to_uids.txt           # User provided queries (gene ids/protein names/whole proteome set) 
+            |                               # mapped to the UniProt Ids (flag --uids, --geneids)
             └───├uniprot_reference_table
-            |   query_uids_reference.tab   # Basic annotations of the query protein IDs (flag --uids, --geneids)  set
-            |                              # or the whole proteome (flag -P) from a certain taxonomy (flag --taxid)
+            |   query_uids_reference.tab    # Basic annotations of the query protein IDs (flag --uids, --geneids)  set
+            |                               # or the whole proteome (flag -P) from a certain taxonomy (flag --taxid)
             └───├mapped_query_annotation  
                     └───├fasta_path_mapped_query  # Location for protein FASTA sequences of each query
                     |   |                         # qery fasta sequences are also saved here (flag --fasta)
@@ -275,7 +297,7 @@ APRICOT_analysis
                     |   | ...
                     |   | query_id-n.fasta
                     |
-                    └───├xml_path_mapped_query3  # Location for protein FASTA sequences of each query
+                    └───├xml_path_mapped_query    # Location for protein FASTA sequences of each query
                     |   | query_id-1.xml
                     |   | query_id-2.xml
                     |   | ...
@@ -312,13 +334,12 @@ optional arguments:
                         Path for keyword files
 ````
 
-The keywords are saved in the directory helper_files in the input folder of the main analysis directory as shown below.
+The keywords are saved in the directory `source_files` in the subfolder `domain_data` shown below.
 ````
-APRICOT_analysis
-    └───├input
-            └───├helper_files
-                | keywords_for_domain_selection.txt         # All the terms for domain selection
-                | keywords_for_result_classification.txt    # All the terms for result classification
+source_files
+    └───├domain_data
+            keywords_for_domain_selection.txt         # All the terms for domain selection
+            keywords_for_result_classification.txt    # All the terms for result classification
 ````
 
 ##select
@@ -630,7 +651,7 @@ The resulting files are stored in the directory 4_additional_annotations in the 
 APRICOT_analysis
     └───├output
             └───├4_additional_annotations               # Location for additional annotations for the 
-                                                        # selected queries using subcommand 'addanno'
+                    |                                   # selected queries using subcommand 'addanno'
                     └───├pdb_sequence_prediction        # PDB structure homologs of the selected 
                     |                                   # queries (flag --pdb, -PDB)
                     └───├protein_localization           # PSORTb based localization of the selected 
