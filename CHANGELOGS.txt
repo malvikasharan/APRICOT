@@ -1,6 +1,10 @@
+v1.0.2 (2016-05-19)
+- The current source-codes are available in GitHub(https://github.com/malvikasharan/APRICOT) pypi, updated with tutorial and examples.
+  The pypi page can be accessed here: https://pypi.python.org/pypi/bio-apricot.
+
 v1.0.1 (2016-05-18)
-- The current source-codes are available in GitHub(https://github.com/malvikasharan/APRICOT) the the official pypi release. 
+- The current source-codes are available in GitHub(https://github.com/malvikasharan/APRICOT) pypi. 
   The pypi page can be accessed here: https://pypi.python.org/pypi/bio-apricot.
 
 v1.0 (2016-05-17)
-- The current source-codes are available in GitHub(https://github.com/malvikasharan/APRICOT) the the first official release.
+- The current source-codes are available in GitHub(https://github.com/malvikasharan/APRICOT) as the first official release.
