@@ -92,7 +92,7 @@ git clone https://github.com/malvikasharan/APRICOT.git
 
 or [download](https://github.com/malvikasharan/APRICOT/archive/master.zip) 
 
-APRICOT repository comprise of a directory tree of the following structure.
+APRICOT repository comprises of a directory tree of the following structure.
 
 `````
 APRICOT
