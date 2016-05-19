@@ -404,7 +404,7 @@ APRICOT_analysis
 
 #####Format output files using the subcommand: `format`
 
-APRICOT by default produces output files in comma-separated version (.csv). Users can convert these files to HTML format using `-HT` flag or excel format (.xlsx) using -XL flag, where the later one uses `openpyxl` python module.
+APRICOT by default produces output files in comma-separated version (.csv). Users can convert these files to HTML format using `-HT` flag or excel format (.xlsx) using `-XL` flag, where the later one uses `openpyxl` python module.
 
 In this tutorial we have used `-HT` option.
 
