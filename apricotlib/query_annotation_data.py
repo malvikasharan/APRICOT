@@ -303,7 +303,7 @@ class CollectUniprotInformation(object):
     def _get_go_data(self, protein):
         '''get database reference for GO'''
         feature_list = []
-        go_terms = []
+        go_terms = set()
         ref_database = protein.findall(
             XML_PARSE+'dbReference')
         for feature in ref_database:
@@ -316,7 +316,7 @@ class CollectUniprotInformation(object):
                     for each_go_des in go_des_list:
                         if each_go_des.get('type') == 'term':
                             go_des = each_go_des.get('value')
-                            go_terms.append('%s->%s'%(go_id, go_des))
+                            go_terms.add('%s->%s'%(go_id, go_des))
         go_terms = str(go_terms).strip('[]').strip("''")
         return go_terms
     
