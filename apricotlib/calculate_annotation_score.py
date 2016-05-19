@@ -8,33 +8,30 @@ from collections import defaultdict
 import difflib
 from difflib import *
 try:
-    from Bio import SeqIO
-    from Bio import pairwise2
     from Bio.Emboss.Applications import NeedleCommandline
 except ImportError:
-    print('Python package Biopython is missing. Please install/update.\n'
-    'Please ignore if you are only testing the example provided by APRICOT')
+    print('Python package Biopython is missing. Please install/update.\n')
+    sys.sxit(0)
 from itertools import combinations
 try:
     import matplotlib as mpl
     mpl.use('Agg')
     import matplotlib.pyplot as plt
 except ImportError:
-    print('Python package matplotlib is missing. Please install/update.\n'
-    'Please ignore if you are only testing the example provided by APRICOT')
+    print('Python package matplotlib is missing. Please install/update.\n')
 try:
     import numpy as np
 except ImportError:
-    print('Python package numpy is missing. Please install/update.\n'
-    'Please ignore if you are only testing the example provided by APRICOT')
+    print('Python package numpy is missing. Please install/update.\n')
+    sys.sxit(0)
 import random
 try:
     from scipy.spatial import distance
     from scipy.cluster.hierarchy import *
     from scipy import stats
 except ImportError:
-    print('Python package scipy is missing. Please install/update.\n'
-    'Please ignore if you are only testing the example provided by APRICOT')
+    print('Python package scipy is missing. Please install/update.\n')
+    sys.sxit(0)
 
 __description__ = "Calculates scores for feature based annotation of domains selected by APRICOT"
 __author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
