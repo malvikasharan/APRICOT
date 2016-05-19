@@ -104,34 +104,11 @@ basic_requirements_for_demo(){
     gunzip $DB_PATH'/pfam/pfamA.txt.gz'
 }
 
-retrieve_taxonomy_id_list(){
-    $PYTHON_PATH $APRICOT_PATH/bin/apricot taxid \
-    $DB_PATH \
-    --species $species
-}
-
 provide_input_queries(){
-    ##Option-1
+    ##Option-1: UniProt identifiers
     $PYTHON_PATH $APRICOT_PATH/bin/apricot query \
     --analysis_path $ANALYSIS_PATH \
     --uids $query_uids
-    
-    ##Option-2
-    #$PYTHON_PATH $APRICOT_PATH/bin/apricot query \
-    #--analysis_path $ANALYSIS_PATH \
-    #--tx $tax_id \
-    #--uids $query_uids \
-    #--geneids $query_geneids
-    
-    ##Option-3
-    #$PYTHON_PATH $APRICOT_PATH/bin/apricot query \
-    #--analysis_path $ANALYSIS_PATH \
-    #-tx $tax_id -P
-    
-    ##Option-4
-    #$PYTHON_PATH $APRICOT_PATH/bin/apricot query \
-    #--analysis_path $ANALYSIS_PATH \
-    #-fa $fasta_file
 }
 
 provide_domain_and_class_keywords(){
