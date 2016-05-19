@@ -5,13 +5,13 @@ import os
 try:
     import subprocess
 except ImportError:
-    print('Python package subprocess is missing. Please install/update.\n'
-    'Please ignore if you are only testing the example provided by APRICOT')
+    print('Python package subprocess is missing. Please install/update.\n')
+    sys.exit(0)
 try:
     from Bio.Blast import NCBIXML
 except ImportError:
-    print('Python package Biopython is missing. Please install/update.\n'
-    'Please ignore if you are only testing the example provided by APRICOT')
+    print('Python package Biopython is missing. Please install/update.\n')
+    sys.exit(0)
 
 __description__ = "Lists homologous PDB structures for the selected proteins"
 __author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
