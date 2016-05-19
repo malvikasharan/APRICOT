@@ -5,8 +5,8 @@ import argparse
 try:
     from urllib.request import urlopen
 except ImportError:
-    print('Python package urllib is missing. Please install/update.\n'
-    'Please ignore if you are only testing the example provided by APRICOT')
+    print('Python package urllib is missing. Please install/update.\n')
+    sys.exit(0)
 try:
     import xml.etree.ElementTree as ET
 except ImportError:
