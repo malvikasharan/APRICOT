@@ -7,13 +7,11 @@ import sys
 try:
     import subprocess
 except ImportError:
-    print('Python package subprocess is missing. Please install/update.\n'
-    'Please ignore if you are only testing the example provided by APRICOT')
+    print('Python package subprocess is missing. Please install/update.\n')
 try:
     import shutil
 except ImportError:
-    print('Python package shutil is missing. Please install/update.\n'
-    'Please ignore if you are only testing the example provided by APRICOT')
+    print('Python package shutil is missing. Please install/update.\n')
 
 __description__ = "Creates visualization files for the APRICOT analysis data"
 __author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
