@@ -356,7 +356,7 @@ def create_folders(args):
     print(
     "\n----------------------------------------------------------------\n"
     "APRICOT analysis folders are created at %s" % args.analysis_path)
-    print("\n----------------------------------------------------------------\n")
+    print("----------------------------------------------------------------\n")
 
 def select_uniprot_taxid(args):
     reference_taxonomy_file = args.db_path + '/all_taxids/speclist.txt'
@@ -457,7 +457,7 @@ def keyword_input(args):
         print("Keywords for classification of domain prediction: %s"
               % args.kw_domain)
         keyword_class_files(args.kw_path, args.kw_domain)
-    print("\n----------------------------------------------------------------\n")
+    print("----------------------------------------------------------------\n")
 
 def select_domain_data(args):
     cdd_domain_path = args.domain_path + '/cdd'
