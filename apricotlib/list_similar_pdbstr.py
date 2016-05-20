@@ -1,7 +1,9 @@
-#!/usr/bin/env python 
+#!/usr/bin/env python
 
 import argparse
 import os
+import sys
+
 try:
     import subprocess
 except ImportError:
@@ -100,8 +102,9 @@ class PdbHomologyAnalysis(object):
                                     pdb_header, hsp_identity, align_seq)
                 with open(self._outpath+'/' + files.split('.')[0] +
                           '_top5.fasta', 'w') as out_fh:
-                    with open(self._fasta_path+'/'+files.split('.')[0]
-                              + '.fasta', 'r') as fa_fh:
+                    with open(
+                            self._fasta_path+'/' + files.split(
+                                '.')[0] + '.fasta', 'r') as fa_fh:
                         fasta_line = []
                         for entry in fa_fh:
                             if '>' in entry:
