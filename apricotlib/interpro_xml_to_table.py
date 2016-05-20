@@ -1,7 +1,8 @@
-#!/usr/bin/env python 
+#!/usr/bin/env python
 
 import argparse
-import os
+import sys
+
 try:
     import xml.etree.ElementTree as ET
 except ImportError:
@@ -23,7 +24,8 @@ def main():
     interpro_xml_parsing = InterproXmlParsing(
         args.interpro_analysis_path, args.interpro_xml)
     interpro_xml_parsing.regex_interpro_xml_parsing()
-    
+
+
 class InterproXmlParsing(object):
     def __init__(self, interpro_analysis_path,
                  interpro_xml):
@@ -100,7 +102,7 @@ class InterproXmlParsing(object):
                 ipr_data_removed.write('%s\n'%ipr_id)
         ipr_data_removed.close()
         only_id_ipr_xml.close()
-        interproid.close()  
+        interproid.close()
         
 if __name__ == "__main__":
 
