@@ -1,21 +1,21 @@
 #!/bin/bash
-#AUTHOR: Malvika Sharan {malvikasharan@gmail.com}
+# AUTHOR: Malvika Sharan <malvikasharan@gmail.com>
 
-##Addition shell script to install only PDB related source files
+## Addition shell script to install only PDB related source files
 
 PYTHON_PATH=python
 
 apricot_path=$1
-##full path where you have cloned/save APRICOT from git
+## full path where you have cloned/save APRICOT from git
 apricot_lib=$apricot_path/apricotlib
 
-##path where you want to store the data
+## path where you want to store the data
 apricot_db=$2
 
 main(){
         create_main_path
         
-        ###PDB-MODULES####
+        ### PDB-MODULES ####
         create_pdb_inpath
         download_uniprot_map
         download_pdb_sec_str
