@@ -35,7 +35,7 @@ $ pip install bio-apricot
 The scripts for the installaton of the different componenents of APRICOT (databases, tools and flatfiles) are available on the GitHub repository. You can manually download the APRICOT repository or simply clone it.
 
 `````
-git clone https://github.com/malvikasharan/APRICOT.git
+$ git clone https://github.com/malvikasharan/APRICOT.git
 `````
 The [Docker image for APRICOT](https://github.com/malvikasharan/APRICOT/blob/master/Dockerfile) will be available soon.
 
@@ -80,16 +80,16 @@ APRICOT is implemented in Python 3 and can be executed in Linux/Unix system. APR
 
 ##Instructions for the installation
 
-Use pip to install APRICOT
+As mentioned, APRIOCT can be installed using pip.
 
 `````
-pip install bio-apricot
+$ pip install bio-apricot
 `````
 
 Or update the package list manually: `sudo apt-get update` and install the required packages (`sudo apt-get install python3 python3-scipy python3-numpy python3-matplotlib python3-requests`) and clone the repository.
 
 `````
-git clone https://github.com/malvikasharan/APRICOT.git
+$ git clone https://github.com/malvikasharan/APRICOT.git
 `````
 
 or [download](https://github.com/malvikasharan/APRICOT/archive/master.zip) manually.
