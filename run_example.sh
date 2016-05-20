@@ -26,8 +26,8 @@ INTERPRO_PATH=$DB_PATH/interpro/interproscan
 
 
 #########################################################################
-# *OPTIONAL* PROVIDE SPECIES NAME TO RETRIEVE TAXONOMY IDS FOR GIVEN
-# SPECIES IN BIN/SELECTED_TAXONOMY_IDS.TXT
+# *OPTIONAL*. Provide species name to retrieve taxonomy IDS for given
+# species
 SPECIES=''
 #########################################################################
 
