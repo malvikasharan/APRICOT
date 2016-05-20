@@ -41,11 +41,11 @@ Users can provide information for these paths.
 
 `````
 
-## User defined PATHS 
+## User defined PATHS (default paths are given)
 
-ANALYSIS_PATH=APRICOT_analysis  #path where the analysis data by APRICOT will be stored
-APRICOT_PATH=APRICOT            #path where APRICOT modules are located, by-default we use APRICOT as the name of git library
-ROOT_DB_PATH=source_files       #path where the source files and databases will be stored
+ANALYSIS_PATH=APRICOT_analysis  # path where the analysis data by APRICOT will be stored
+APRICOT_PATH=APRICOT            # path where APRICOT modules are located, by-default we use APRICOT as the name of git library
+ROOT_DB_PATH=source_files       # path where the source files and databases will be stored
 
 `````
 
