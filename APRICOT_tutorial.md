@@ -172,7 +172,7 @@ basic_requirements_for_demo(){
     #wget $zenodo_link_for_demo_data
     #unzip APRICOT-1.0-demo_files-MS.zip
     cp apricot_demo_files/go_mapping/* $DB_PATH/go_mapping
-    cp -r apricot_demo_files/interpro_annotation_data $DB_PATH/interpro/interpro_annotation_data
+    cp -r apricot_demo_files/interpro_annotation_data $DB_PATH/interpro
     cp apricot_demo_files/cdd_analysis/* $ANALYSIS_PATH/output/0_predicted_domains/cdd_analysis
     cp apricot_demo_files/ipr_analysis/* $ANALYSIS_PATH/output/0_predicted_domains/ipr_analysis
     
