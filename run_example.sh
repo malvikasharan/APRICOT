@@ -92,11 +92,11 @@ main(){
     downloads_files		                
     provide_input_queries		  # subcommand query
     provide_domain_and_class_keywords	  # subcommand keywords
-    select_domains_by_keywords	  # subcommand select
+    select_domains_by_keywords	          # subcommand select
     run_domain_prediction		  # subcommand predict
     filter_domain_analysis		  # subcommand filter
     classify_filtered_result		  # subcommand classify
-    calculate_annotation_score	  # subcommand annoscore
+    calculate_annotation_score	          # subcommand annoscore
     create_analysis_summary		  # subcommand summary
     format_output			  # subcommand format
 }
