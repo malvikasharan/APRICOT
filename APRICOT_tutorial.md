@@ -4,16 +4,9 @@ This tutorial provides an easy way to test different modules of APRICOT and unde
 
 ###Requirements:
 
-1) Basic files required to run the APRICOT pipeline for tutorial/demonstration purpose including the Shell script [run_example.sh](https://github.com/malvikasharan/APRICOT/blob/master/run_example.sh) that can be executed in a linux environment.
+1) Get the Shell script [run_example.sh](https://github.com/malvikasharan/APRICOT/blob/master/run_example.sh) that can be executed in a linux environment.
 
-use wget
-
-    $ wget https://zenodo.org/record/51705/files/APRICOT-1.0-demo_files-MS.zip
-    $ unzip APRICOT-1.0-demo_files-MS.zip
-    $ cp APRICOT-1.0-demo_files-MS/run_example.sh .
-
-
-or [download manually](https://zenodo.org/record/51705/files/APRICOT-1.0-demo_files-MS.zip)
+    $ wget https://github.com/malvikasharan/APRICOT/blob/master/run_example.sh
 
 2) Get APRICOT repository via git
 
@@ -24,6 +17,17 @@ or [download manually](https://zenodo.org/record/51705/files/APRICOT-1.0-demo_fi
      $ pip install bio-apricot
  
  or [download manually](http://malvikasharan.github.io/APRICOT/)
+ 
+ 3) Basic files required to run the APRICOT pipeline for tutorial/demonstration purpose.
+
+use wget
+
+    $ wget https://zenodo.org/record/51705/files/APRICOT-1.0-demo_files-MS.zip
+    $ unzip APRICOT-1.0-demo_files-MS.zip
+    $ cp APRICOT-1.0-demo_files-MS/run_example.sh .
+
+
+or [download manually](https://zenodo.org/record/51705/files/APRICOT-1.0-demo_files-MS.zip)
 
 ####Not required
 
