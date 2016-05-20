@@ -66,7 +66,7 @@ INTERPRO_PATH=$DB_PATH/interpro/interproscan
 
 ####Creating analysis folders
 
-1) We will create each of the paths that we defined above in the section: *Defining paths*.
+1) We will create each of the paths that we defined above in the section: **Defining paths**.
 
 `````
 
