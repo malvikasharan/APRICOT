@@ -90,7 +90,7 @@ set_up_analysis_folder(){
 basic_requirements_for_demo(){
     zenodo_link_for_demo_data=https://zenodo.org/record/51705/files/APRICOT-1.0-demo_files-MS.zip
     wget $zenodo_link_for_demo_data
-    unzip apricot_demo_files.zip
+    unzip APRICOT-1.0-demo_files-MS
     cp APRICOT-1.0-demo_files-MS/go_mapping/* $DB_PATH/go_mapping
     cp APRICOT-1.0-demo_files-MS/interpro_annotation_data/* $DB_PATH/interpro/interpro_annotation_data
     cp APRICOT-1.0-demo_files-MS/cdd_analysis/* $ANALYSIS_PATH/output/0_predicted_domains/cdd_analysis
