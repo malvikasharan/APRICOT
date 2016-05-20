@@ -17,6 +17,7 @@ or [download manually](https://zenodo.org/record/51705/files/APRICOT-1.0-demo_fi
 `$ git clone https://github.com/malvikasharan/APRICOT.git` 
 
  or, use pip to install/update the package
+ 
  `$ pip install bio-apricot` 
  
  or [download manually](http://malvikasharan.github.io/APRICOT/)
