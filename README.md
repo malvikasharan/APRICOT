@@ -181,7 +181,7 @@ optional arguments:
   --version, -v         show version
 ``````
  
-####create
+####subcommand `create`
 Quick help: `$ python3 APRICOT/bin/apricot create -h`
 
 This subcommand creates all the required directories to store input and output data acquired from APRICOT analysis. The main analysis directory can be named by the users (default name: APRICOT_analysis).
@@ -217,7 +217,7 @@ APRICOT_analysis
             └───├visualization_files            # Location for the output data obtained from the subcommand 'vis'
 ```
 
-####taxid
+####subcommand `taxid`
 Quick help: `$ python3 APRICOT/bin/apricot taxid -h`
     
 The users can provide gene ids or protein names as queries to APRICOT, which is mapped against UniProt Knowledgebase in order to extract relevant information. Since, same gene/protein ids exist across various genomes/proteomes, one can limit the search of the query to a certain organism (rather than all the organisms in the database) by providing one or multiple taxonomy ids. 
@@ -243,7 +243,7 @@ source_files
             |    taxonomy_ids.txt
 ````
 
-####query
+####subcommand `query`
 Quick help: `$ python3 APRICOT/bin/apricot query -h`
 
 As mentioned already, APRICOT gives multiple options to the users to supply queries. For example, the queries can be provided as UniProt ids (--uids), gene ids or protein names (--geneids), fasta sequences (--fasta) or only the taxonomy id (--taxid) for a complete proteome analysis (using flag -P). 
@@ -311,7 +311,7 @@ APRICOT_analysis
 ````
 
     
-####keywords
+####subcommand `keywords`
 Quick help: `$ python3 APRICOT/bin/apricot keywords -h`
 
 Since APRICOT allows identification of certain protein classes like RNA-binding proteins by means of domains, one of the most essential input data, beside the query protein itself, is the terms or keywords that potentially indicates to a protein functional classes (*domain selection terms*). Such terminologies could be pfam ids, Gene Ontology terms, mesh terms or simple biological terms like 'RRM', 'ribosome' or 'polymerases'. Multi-word terms can be provided by using ‘-’ as a connector, for example, 'rna-binding' and 'rna-polymerases'. 
@@ -344,7 +344,7 @@ source_files
             keywords_for_result_classification.txt    # All the terms for result classification
 ````
 
-####select
+####subcommand `select`
 Quick help: `python3 APRICOT/bin/apricot select -h`
 
 This subcommand allows the selection of reference domains based on the *domain selection terms* (in subcommand keywords). For this purpose, by-default APRICOT scans each entries of the domains in both CDD and InterPro domain consortiums for the occurance of any *domain selection term*. 
@@ -389,7 +389,7 @@ bin
     | all_keyword_selected_domain_data.tab
 ````
     
-####predict
+####subcommand `predict`
 Quick help: `$ python3 APRICOT/bin/apricot predict -h`
 
 This subcommand is used to begin the process of domain predictions in the query proteins by all the possible functional domains using RPSBLAST against CDD and InterProScan against InetrPro. APRICOT carries out the domain prediction from both CDD and InterPro consortiums by default but users can choose to predict domains from only one of the databases by using the flag -C for CDD and -I for InterPro. To overwrite old predictions, the flag -F (for force) can be used.
@@ -444,7 +444,7 @@ APRICOT_analysis
                         | query_id-n.tsv
 ````
     
-####filter
+####subcommand `filter`
 Quick help: `$ python3 APRICOT/bin/apricot filter -h`
 
 The filtering of the predicted domains by this subcommand take place by using the *domain selection terms*, hence this subcommand should be executed after 'select' and 'predict' subcommands. 
@@ -523,7 +523,7 @@ APRICOT_analysis
 
 ###Sub-commands for downstream analysis
 
-####classify
+####subcommand `classify`
 Quick help: `$ python3 APRICOT/bin/apricot classify -h`
 
 This subcommand classifies the resulting domain information of the selected queries by using the *result classification terms* (provided in the subcommand 'keywords').
@@ -557,7 +557,7 @@ APRICOT_analysis
                         | classification_key-2_selected_data.csv    # ... based on user provided classification keys.
 ````
             
-####annoscore
+####subcommand `annoscore`
 
 This subcommand is executed for the annotation based scoring of the selcted domains in the query proteins. 
 
@@ -598,7 +598,7 @@ APRICOT_analysis
                 | annotation_extended_for_selected.csv
 ````
 
-####addanno
+####subcommand `addanno`
 Quick help: `$ python3 APRICOT/bin/apricot addanno -h`
 
 This subcommand allows users to further annotate the query sequences that are selected based on the defined functional domains. 
@@ -662,7 +662,7 @@ APRICOT_analysis
                                                         # queries (flag --raptorx, -RAPTORX)
 ````
 
-####summary
+####subcommand `summary`
 Quick help: `$ python3 APRICOT/bin/apricot summary -h`
 
 To get an overview of the analysis carried out on a set of query proteins, this sub command can be used. It generate information like, how many queries could be mapped to the UniProt IDs, how many contain the reference domains etc., to provide analysis overview.
@@ -696,7 +696,7 @@ APRICOT_analysis
                 | APRICOT_analysis_summary.csv
 ````
 
-####format
+####subcommand `format`
 Quick help: `$ python3 APRICOT/bin/apricot format -h`
 
 Formats and stores various tables in the HTML tabels (--html), excel files (--xlsx) or both.
@@ -725,7 +725,7 @@ APRICOT_analysis
                     └───├html_files                # HTML files (flag -HT)
 ````
 
-####vis
+####subcommand `vis`
 Quick help: `$ python3 APRICOT/bin/apricot vis -h`
 
 Visualize different resulting data like predicted domains sites, tertiary structure of selected proteins etc.
