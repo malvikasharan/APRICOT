@@ -8,17 +8,19 @@ This tutorial provides an easy way to test different modules of APRICOT and unde
 
 use wget
 
-`$ wget https://zenodo.org/record/51705/files/APRICOT-1.0-demo_files-MS.zip` 
+    $ wget https://zenodo.org/record/51705/files/APRICOT-1.0-demo_files-MS.zip
+    $ unzip APRICOT-1.0-demo_files-MS.zip
+
 
 or [download manually](https://zenodo.org/record/51705/files/APRICOT-1.0-demo_files-MS.zip)
 
 2) Get APRICOT repository via git
 
-`$ git clone https://github.com/malvikasharan/APRICOT.git` 
+    $ git clone https://github.com/malvikasharan/APRICOT.git
 
  or, use pip to install/update the package
  
- `$ pip install bio-apricot` 
+     $ pip install bio-apricot
  
  or [download manually](http://malvikasharan.github.io/APRICOT/)
 
