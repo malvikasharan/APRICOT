@@ -83,7 +83,7 @@ set_up_analysis_folder(){
         fi
     done
     
-    python $APRICOT_PATH/bin/apricot create \
+    $PYTHON_PATH $APRICOT_PATH/bin/apricot create \
     $ANALYSIS_PATH
 }
 
@@ -106,13 +106,13 @@ basic_requirements_for_demo(){
 
 provide_input_queries(){
     ## Option-1: UniProt identifiers
-    python $APRICOT_PATH/bin/apricot query \
+    $PYTHON_PATH $APRICOT_PATH/bin/apricot query \
     --analysis_path $ANALYSIS_PATH \
     --uids $query_uids
 }
 
 provide_domain_and_class_keywords(){
-    python $APRICOT_PATH/bin/apricot keywords \
+    $PYTHON_PATH $APRICOT_PATH/bin/apricot keywords \
     $domain_kw \
     -cl $class_kw
 }
@@ -120,14 +120,14 @@ provide_domain_and_class_keywords(){
 select_domains_by_keywords(){
     ## Selection of domains from both CDD and InterPro by default
     ## use from flags -C for CDD or -I for InterPro
-    python $APRICOT_PATH/bin/apricot select
+    $PYTHON_PATH $APRICOT_PATH/bin/apricot select
 }
 
 run_domain_prediction(){
     ## prediction by both CDD and InterPro by default
     ## use from flags -C for CDD or -I for InterPro
     ## use --force or -F option to overwrite the existing analysis
-    python $APRICOT_PATH/bin/apricot predict \
+    $PYTHON_PATH $APRICOT_PATH/bin/apricot predict \
     --analysis_path $ANALYSIS_PATH \
     --fasta $FASTA_PATH \
     --cdd_db $CDD_PATH \
@@ -136,28 +136,28 @@ run_domain_prediction(){
 }
 
 filter_domain_analysis(){
-    python $APRICOT_PATH/bin/apricot filter \
+    $PYTHON_PATH $APRICOT_PATH/bin/apricot filter \
     --analysis_path $ANALYSIS_PATH \
     --similarity 24 --coverage 39
 }
 
 classify_filtered_result(){
-    python $APRICOT_PATH/bin/apricot classify \
+    $PYTHON_PATH $APRICOT_PATH/bin/apricot classify \
     --analysis_path $ANALYSIS_PATH
 }
 
 calculate_annotation_score(){
-    python $APRICOT_PATH/bin/apricot annoscore \
+    $PYTHON_PATH $APRICOT_PATH/bin/apricot annoscore \
     --analysis_path $ANALYSIS_PATH
 }
 
 create_analysis_summary(){
-    python $APRICOT_PATH/bin/apricot summary \
+    $PYTHON_PATH $APRICOT_PATH/bin/apricot summary \
     --analysis_path $ANALYSIS_PATH
 }
 
 output_file_formats(){
-    python $APRICOT_PATH/bin/apricot format \
+    $PYTHON_PATH $APRICOT_PATH/bin/apricot format \
     --analysis_path $ANALYSIS_PATH \
     -HT
 }
