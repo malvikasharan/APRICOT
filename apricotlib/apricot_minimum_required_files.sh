@@ -8,30 +8,30 @@ PYTHON_PATH=python3
 
 apricot_path=$1
 
-##full path where you have cloned/save APRICOT from git
+## full path where you have cloned/save APRICOT from git
 apricot_lib=$apricot_path/apricotlib
 
-##path where the source files will be stored
+## path where the source files will be stored
 apricot_files=source_files/reference_db_files
 
 main(){
         create_main_path
         
-        ###CDD-MODULES###
+        ### CDD-MODULES ###
         create_cdd_inpath
         check_and_download_cdd
         
-        ###InterProScan-MODULES###
+        ### InterProScan-MODULES ###
         create_interpro_inpath
         check_and_download_interpro
         uniprot_species_to_taxid
         
-        ###Other-requirements###
+        ### Other-requirements ###
         get_blast_executables
         ontology_mapping_to_domains
         get_pfam_domain_file
 
-        ###PDB-MODULES###
+        ### PDB-MODULES ###
         create_pdb_inpath
         download_uniprot_map
         download_pdb_sec_str
