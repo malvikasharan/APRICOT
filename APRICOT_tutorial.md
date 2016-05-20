@@ -4,13 +4,13 @@ This tutorial provides an easy way to test different modules of APRICOT and unde
 
 ###Requirements:
 
-1) Shell script `run_example.sh` that can be executed in a linux environment. [ [DOWNLOAD](https://github.com/malvikasharan/APRICOT/blob/master/run_example.sh) ]
+1) Shell script `$ run_example.sh` that can be executed in a linux environment. [ [DOWNLOAD](https://github.com/malvikasharan/APRICOT/blob/master/run_example.sh) ]
 
-2) Clone `git clone https://github.com/malvikasharan/APRICOT.git` or download the APRICOT repository.  [ [DOWNLOAD](http://malvikasharan.github.io/APRICOT/) ]
+2) Clone `$ git clone https://github.com/malvikasharan/APRICOT.git` or download the APRICOT repository.  [ [DOWNLOAD](http://malvikasharan.github.io/APRICOT/) ]
 
 OR
 
-use pip to install/update the package: `pip install bio-apricot`
+use pip to install/update the package: `$ pip install bio-apricot`
 
 3) Basic files required to run the APRICOT pipeline for tutorial/demonstration purpose. [ [DOWNLOAD](https://zenodo.org/record/51705/files/APRICOT-1.0-demo_files-MS.zip) ]
 
@@ -22,7 +22,7 @@ We will **NOT** install these for the tutorial, instead we have provided the req
 
 ###Tutorial with an example analysis
 
-In this part, we will go through the shell script `run_example.sh` step by step.
+APRICOT can be executed by python (python3 is recommended) in a linux environment. In this part, we will go through the shell script `run_example.sh` step by step.
 
 ####Defining paths
 
@@ -32,7 +32,6 @@ Users can provide information for these paths.
 
 ##User defined PATHS 
 
-PYTHON_PATH=python3             #python version, works with python2, python3 and up
 ANALYSIS_PATH=APRICOT_analysis  #path where the analysis data by APRICOT will be stored
 APRICOT_PATH=APRICOT            #path where APRICOT modules are located, by-default we use APRICOT as the name of git library
 ROOT_DB_PATH=source_files       #path where the source files and databases will be stored
@@ -111,7 +110,7 @@ source_files
 `````
 set_up_analysis_folder(){
     ...
-    $PYTHON_PATH $APRICOT_PATH/bin/apricot create $ANALYSIS_PATH
+    python $APRICOT_PATH/bin/apricot create $ANALYSIS_PATH
 }
 
 `````
@@ -188,7 +187,7 @@ query_uids='P0A6X3,P00957'
 
 provide_input_queries(){
     ##Option-1: UniProt identifier
-    $PYTHON_PATH $APRICOT_PATH/bin/apricot query --analysis_path $ANALYSIS_PATH --uids $query_uids
+    python $APRICOT_PATH/bin/apricot query --analysis_path $ANALYSIS_PATH --uids $query_uids
 }
 
 ````
@@ -210,7 +209,7 @@ domain_kw='RRM,KH,DEAD'
 class_kw='ribosom,helicase,synthetase,polymerase,transferase,nuclease,RRM,RNP'
 
 provide_domain_and_class_keywords(){
-    $PYTHON_PATH $APRICOT_PATH/bin/apricot keywords $domain_kw -cl $class_kw
+    python $APRICOT_PATH/bin/apricot keywords $domain_kw -cl $class_kw
 }
 
 `````
@@ -236,7 +235,7 @@ In this tutorial we will use the default option, which selects domains from both
 `````
     
 select_domains_by_keywords(){
-    $PYTHON_PATH $APRICOT_PATH/bin/apricot select
+    python $APRICOT_PATH/bin/apricot select
 }
 
 `````
@@ -270,7 +269,7 @@ For this analysis, APRICOT uses both the databases by default, however single da
 `````
 
 run_domain_prediction(){
-    $PYTHON_PATH $APRICOT_PATH/bin/apricot predict --analysis_path $ANALYSIS_PATH --cdd_db $CDD_PATH --ipr_db $INTERPRO_PATH
+    python $APRICOT_PATH/bin/apricot predict --analysis_path $ANALYSIS_PATH --cdd_db $CDD_PATH --ipr_db $INTERPRO_PATH
 }
 
 `````
@@ -302,7 +301,7 @@ In this tutorial we have used the parameters defined as default (`--similarity 2
 `````
 
 filter_domain_analysis(){
-    $PYTHON_PATH $APRICOT_PATH/bin/apricot filter --analysis_path $ANALYSIS_PATH \
+    python $APRICOT_PATH/bin/apricot filter --analysis_path $ANALYSIS_PATH \
     --similarity 24 --coverage 39
 }
 
@@ -338,7 +337,7 @@ All the selected proteins with their domains (selected by `filter`) are classifi
 `````
 
 classify_filtered_result(){
-    $PYTHON_PATH $APRICOT_PATH/bin/apricot classify --analysis_path $ANALYSIS_PATH
+    python $APRICOT_PATH/bin/apricot classify --analysis_path $ANALYSIS_PATH
 }
 
 `````
@@ -363,7 +362,7 @@ This subcommand uses another important module of APRICOT to calculate annotation
 `````
 
 calculate_annotation_score(){
-    $PYTHON_PATH $APRICOT_PATH/bin/apricot annoscore \
+    python $APRICOT_PATH/bin/apricot annoscore \
     --analysis_path $ANALYSIS_PATH
 }
 
@@ -386,7 +385,7 @@ Users can summarize the analysis result using this module. The summary file cont
 `````
 
 create_analysis_summary(){
-    $PYTHON_PATH $APRICOT_PATH/bin/apricot summary \
+    python $APRICOT_PATH/bin/apricot summary \
     --analysis_path $ANALYSIS_PATH
 }
 
@@ -412,7 +411,7 @@ In this tutorial we have used `-HT` option.
 `````
 
 output_file_formats(){
-    $PYTHON_PATH $APRICOT_PATH/bin/apricot format \
+    python $APRICOT_PATH/bin/apricot format \
     --analysis_path $ANALYSIS_PATH \
     -HT
 }
