@@ -6,11 +6,20 @@ This tutorial provides an easy way to test different modules of APRICOT and unde
 
 1) Basic files required to run the APRICOT pipeline for tutorial/demonstration purpose including the Shell script [run_example.sh](https://github.com/malvikasharan/APRICOT/blob/master/run_example.sh) that can be executed in a linux environment.
 
-`$ wget https://github.com/malvikasharan/APRICOT/blob/master/run_example.sh` or [download manually](https://zenodo.org/record/51705/files/APRICOT-1.0-demo_files-MS.zip)
+use wget
 
-2) Get APRICOT repository via git `$ git clone https://github.com/malvikasharan/APRICOT.git` or use pip to install/update the package: `$ pip install bio-apricot` or [download manually](http://malvikasharan.github.io/APRICOT/)
+`$ wget https://github.com/malvikasharan/APRICOT/blob/master/run_example.sh` 
 
-OR
+or [download manually](https://zenodo.org/record/51705/files/APRICOT-1.0-demo_files-MS.zip)
+
+2) Get APRICOT repository via git
+
+`$ git clone https://github.com/malvikasharan/APRICOT.git` 
+
+ or, use pip to install/update the package
+ `$ pip install bio-apricot` 
+ 
+ or [download manually](http://malvikasharan.github.io/APRICOT/)
 
 ####Not required
 
