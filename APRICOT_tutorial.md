@@ -11,10 +11,13 @@ use wget
     $ wget https://zenodo.org/record/51705/files/APRICOT-1.0-demo_files-MS.zip
     $ unzip APRICOT-1.0-demo_files-MS.zip
     $ cd APRICOT-1.0-demo_files-MS
-
+    
 or [download manually](https://zenodo.org/record/51705/files/APRICOT-1.0-demo_files-MS.zip)
+    
+    $ unzip APRICOT-1.0-demo_files-MS.zip
+    $ cd APRICOT-1.0-demo_files-MS
 
-This folder contains a Shell script [run_example.sh](https://github.com/malvikasharan/APRICOT/blob/master/run_example.sh) that can be executed in a linux environment [GitHub link](https://github.com/malvikasharan/APRICOT/blob/master/run_example.sh). Please make sure that you are using the updated version.
+This folder contains a Shell script [run_example.sh](https://github.com/malvikasharan/APRICOT/blob/master/run_example.sh) that can be executed in a linux environment. Please make sure that you are using the [updated version](https://github.com/malvikasharan/APRICOT/blob/master/run_example.sh).
 
 2) Get APRICOT repository via git
 
