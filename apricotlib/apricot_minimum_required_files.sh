@@ -1,5 +1,5 @@
 #!/bin/bash
-#AUTHOR: Malvika Sharan {malvikasharan@gmail.com}
+#AUTHOR: Malvika Sharan <malvikasharan@gmail.com>
 
 ## This installation will skip the third party tools for additional annotations
 # Tools that are skipped: PsortB, RaptorX, Biojs, openpyxl
