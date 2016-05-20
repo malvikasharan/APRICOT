@@ -58,7 +58,7 @@ You can manually download the APRICOT repository or simply clone it.
 
 ::
 
-    git clone https://github.com/malvikasharan/APRICOT.git
+    $ git clone https://github.com/malvikasharan/APRICOT.git
 
 The `Docker image for APRICOT`_ will be available soon.
 
