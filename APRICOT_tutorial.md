@@ -4,27 +4,25 @@ This tutorial provides an easy way to test different modules of APRICOT and unde
 
 ### Requirements:
 
-1) Retrieve basic files required to run the APRICOT pipeline for tutorial/demonstration purpose:
-
-    $ wget https://zenodo.org/record/51705/files/APRICOT-1.0-demo_files-MS.zip
-    $ unzip APRICOT-1.0-demo_files-MS.zip
-    $ cd APRICOT-1.0-demo_files-MS
-
-2) Get the Shell script
+1) Get the Shell script
 [run_example.sh](https://github.com/malvikasharan/APRICOT/blob/master/run_example.sh)
 from GitHub, which will assist you in following the tutorial.
-    
-    $ wget -N https://raw.githubusercontent.com/malvikasharan/APRICOT/master/run_example.sh
 
-3) Get APRICOT repository via git
+```
+$ wget -N https://raw.githubusercontent.com/malvikasharan/APRICOT/master/run_example.sh
+````
 
-    $ git clone https://github.com/malvikasharan/APRICOT.git
+2) Use pip to install/update the package
 
- or, use pip to install/update the package
- 
-     $ pip install bio-apricot
- 
- or [download manually](http://malvikasharan.github.io/APRICOT/)
+```
+$ pip install bio-apricot
+```
+
+or
+
+```
+$ pip install --user bio-apricot
+```
 
 #### Not required for this tutorial
 
@@ -425,7 +423,7 @@ The summary file is stored in the subfolder `5_analysis_summary` analysis folder
 APRICOT_analysis
     └───├output                             
             └───├5_analysis_summary
-                       APRICOT_analysis_summary.csv         #Summary file
+                       APRICOT_analysis_summary.csv   # bSummary file
 `````
 
 ##### Format output files using the subcommand `format`
