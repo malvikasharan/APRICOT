@@ -14,7 +14,7 @@ use wget
 
 or [download manually](https://zenodo.org/record/51705/files/APRICOT-1.0-demo_files-MS.zip)
 
-This folder contains a Shell script, [run_example.sh](https://github.com/malvikasharan/APRICOT/blob/master/run_example.sh) that can be executed in a linux environment [GitHub link](https://github.com/malvikasharan/APRICOT/blob/master/run_example.sh)
+This folder contains a Shell script [run_example.sh](https://github.com/malvikasharan/APRICOT/blob/master/run_example.sh) that can be executed in a linux environment [GitHub link](https://github.com/malvikasharan/APRICOT/blob/master/run_example.sh). Please make sure that you are using the updated version.
 
 2) Get APRICOT repository via git
 
