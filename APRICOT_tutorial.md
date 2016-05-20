@@ -164,7 +164,7 @@ basic_requirements_for_demo(){
     wget -c -P $DB_PATH/cdd/cdd_annotation_data ftp://ftp.ncbi.nih.gov/pub/mmdb/cdd/cddid.tbl.gz
     gunzip $DB_PATH/cdd/cdd_annotation_data/*
     
-    ##P famA annotation table
+    ## PfamA annotation table
     pfam_release=Pfam30.0
     wget -c -P $DB_PATH/pfam ftp://ftp.ebi.ac.uk/pub/databases/Pfam/releases/$pfam_release/database_files/pfamA.txt.gz
     gunzip $DB_PATH'/pfam/pfamA.txt.gz'
