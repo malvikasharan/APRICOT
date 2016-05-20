@@ -10,6 +10,7 @@ use wget
 
     $ wget https://zenodo.org/record/51705/files/APRICOT-1.0-demo_files-MS.zip
     $ unzip APRICOT-1.0-demo_files-MS.zip
+    $ cp APRICOT-1.0-demo_files-MS/run_example.sh .
 
 
 or [download manually](https://zenodo.org/record/51705/files/APRICOT-1.0-demo_files-MS.zip)
