@@ -10,7 +10,7 @@ This tutorial provides an easy way to test different modules of APRICOT and unde
 
 OR
 
-Please use the pip to install/update the package.
+use pip to install/update the package.
 `pip install bio-apricot`
 
 3) Basic files required to run the APRICOT pipeline for tutorial/demonstration purpose. [ [DOWNLOAD](https://zenodo.org/record/51705/files/APRICOT-1.0-demo_files-MS.zip) ]
