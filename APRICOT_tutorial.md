@@ -312,7 +312,7 @@ APRICOT_analysis
 
 All the domains (predicted by `predict`) undergoes a filtering step in order to select proteins that are predicted with the domains of interest (selected from databases using `select`).
 
-In this tutorial we have used the parameters defined as default (`--similarity 24` for 24% minimum similarity between the reference and predicted domain and `--coverage 39`` for 39% minimum domain coverage in the query protein), however users can provide cut-offs for different parameters (refer documentation).
+In this tutorial we have used the default parameters (refer documentation) with their optimal cut-offs (`--similarity 24` for 24% minimum similarity between the reference and predicted domain and `--coverage 39` for 39% minimum domain coverage in the query protein), however users can provide cut-offs for different parameters (refer documentation).
 
 `````
 
@@ -456,11 +456,7 @@ APRICOT_analysis
 
 This concludes the tutorial for the analysis conducted by APRICOT. All of these modules can be run in an automated streamlined manner using the provided shell script as shown below.
 
-`````
-
-sh run_example.sh
-
-`````
+    $ sh run_example.sh
 
 ###Troubleshooting
 
