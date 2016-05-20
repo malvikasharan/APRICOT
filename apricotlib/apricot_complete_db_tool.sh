@@ -1,40 +1,39 @@
 #!/bin/bash
-#AUTHOR: Malvika Sharan {malvikasharan@gmail.com}
-#Date: 2015-08-07
+# AUTHOR: Malvika Sharan {malvikasharan@gmail.com}
 
 PYTHON_PATH=python3.4
 apricot_path=$1
-apricot_lib= $apricot_path/apricotlib ##provide full path where you have cloned/save APRICOT from git
-apricot_db=$2 #apricot_db_path ##provide full path where you want to store the data
+apricot_lib= $apricot_path/apricotlib   ## provide full path where you have cloned/save APRICOT from git
+apricot_db=$2                           ## apricot_db_path ##provide full path where you want to store the data
 apricot_flatfiles=bin/reference_db_files/
 
 main(){
         create_db_path
         
-        ###DATABASES###
+        ### DATABASES ###
         create_cdd_inpath
         check_and_download_cdd
         create_interpro_inpath
         check_and_download_interpro
-        ###ANNOTATION TOOLS###
+        ### ANNOTATION TOOLS ###
         install_raptorx
         install_psortb
         
-        ###FLAT-FILE DATA###
+        ### FLAT-FILE DATA ###
         create_flatfile_path
-        ###CDD-MODULES###
+        ### CDD-MODULES ###
         create_cdd_flatfiles_inpath
         check_and_download_cdd_flatfiles
-        ###InterProScan-MODULES###
+        ### InterProScan-MODULES ###
         create_interpro_flatfiles_inpath
         check_and_download_interpro_flatfiles
         uniprot_species_to_taxid
-        ######PDB-MODULES####
+        ### PDB-MODULES ###
         create_pdb_inpath
         download_uniprot_map
         download_pdb_sec_str
         sort_and_format_pdb_data
-        ###Other-requirements###
+        ### Other-requirements ###
         get_pfam_domain_file
         get_blast_executables
         ontology_mapping_to_domains
