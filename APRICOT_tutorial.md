@@ -1,6 +1,6 @@
 #APRICOT TUTORIAL
 
-With this tutorial we will explore different modules of APRICOT and its basic usage.
+This tutorial provides an easy way to test different modules of APRICOT and understand the basic usage of this pipeline.
 
 ###Requirements:
 
