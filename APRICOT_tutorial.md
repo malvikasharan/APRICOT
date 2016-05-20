@@ -21,7 +21,7 @@ or [download manually](https://zenodo.org/record/51705/files/APRICOT-1.0-demo_fi
     
     wget https://raw.githubusercontent.com/malvikasharan/APRICOT/master/run_example.sh
 
-2) Get APRICOT repository via git
+3) Get APRICOT repository via git
 
     $ git clone https://github.com/malvikasharan/APRICOT.git
 
