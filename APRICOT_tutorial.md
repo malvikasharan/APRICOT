@@ -177,7 +177,7 @@ basic_requirements_for_demo(){
 }
 `````
 
-#### Providing query proteins using the subcommand: `query`
+#### Providing query proteins using the subcommand `query`
 
 In this analysis we will identify protein that contains RRM/RNP, which
 is a family of conserved RNA-binding domains.
@@ -202,7 +202,7 @@ provide_input_queries(){
 }
 ````
 
-#### Providing keyword inputs using the subcommand: `keywords`
+#### Providing keyword inputs using the subcommand `keywords`
 
 There are two sets of keyword inputs, first-set is required to select
 domains from domain databases and second set, which is an optional
@@ -241,7 +241,7 @@ source_files
             keywords_for_result_classification.txt
 `````
 
-#### Selecting domains of interest using the subcommand: `select`
+#### Selecting domains of interest using the subcommand `select`
 
 APRICOT uses the keywords provided in previous section and uses them
 to select functional domains. Users can use `-C` flag to select only
@@ -273,7 +273,7 @@ source_files
             |all_keyword_selected_domain_data.tab   #All the keyword selected domains are mapped and combined
 `````
 
-#### Domain predictions using the subcommand: `predict`
+#### Domain predictions using the subcommand `predict`
 
 This subcommand uses one of the core modules of APRICOT, which
 predicts all the possible domains in the query domains.
@@ -313,7 +313,7 @@ APRICOT_analysis
                         P0A6X3.tsv
 `````
 
-#### Filtering the predicted domains using the subcommand: `filter`
+#### Filtering the predicted domains using the subcommand `filter`
 
 All the domains (predicted by `predict`) undergoes a filtering step in
 order to select proteins that are predicted with the domains of
@@ -358,7 +358,7 @@ APRICOT_analysis
                         annotation_extended_for_selected.csv    
 `````
 
-#### Classify all the selected domains from previous analysis using the subcommand: `classify`
+#### Classify all the selected domains from previous analysis using the subcommand `classify`
 
 All the selected proteins with their domains (selected by `filter`)
 are classified into smaller subsets to help navigating the output
@@ -382,7 +382,7 @@ APRICOT_analysis
                         RRM_selected_data.csv
 `````
 
-#### Calculating annotation scores for the selected domains using the subcommand: `annoscore`
+#### Calculating annotation scores for the selected domains using the subcommand `annoscore`
 
 This subcommand uses another important module of APRICOT to calculate
 annotation-based scores for each predicted domains in the query
@@ -429,7 +429,7 @@ APRICOT_analysis
                        APRICOT_analysis_summary.csv         #Summary file
 `````
 
-##### Format output files using the subcommand: `format`
+##### Format output files using the subcommand `format`
 
 APRICOT by default produces output files in comma-separated version
 (.csv). Users can convert these files to HTML format using `-HT` flag
