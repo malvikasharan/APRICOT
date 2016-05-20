@@ -8,10 +8,12 @@ This tutorial provides an easy way to test different modules of APRICOT and unde
 
 2) Clone `git clone https://github.com/malvikasharan/APRICOT.git` or download the APRICOT repository.  [ [DOWNLOAD](http://malvikasharan.github.io/APRICOT/) ]
 
-3) Please use the pypi link to update/install python packages.
+OR
+
+Please use the pip to install/update the package.
 `pip install bio-apricot`
 
-4) Basic files required to run the APRICOT pipeline for tutorial/demonstration purpose. [ [DOWNLOAD](https://zenodo.org/record/51705/files/APRICOT-1.0-demo_files-MS.zip) ]
+3) Basic files required to run the APRICOT pipeline for tutorial/demonstration purpose. [ [DOWNLOAD](https://zenodo.org/record/51705/files/APRICOT-1.0-demo_files-MS.zip) ]
 
 ####Not required
 
