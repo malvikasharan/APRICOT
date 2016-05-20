@@ -30,7 +30,7 @@ Users can provide information for these paths.
 
 `````
 
-##User defined PATHS 
+## User defined PATHS 
 
 ANALYSIS_PATH=APRICOT_analysis  #path where the analysis data by APRICOT will be stored
 APRICOT_PATH=APRICOT            #path where APRICOT modules are located, by-default we use APRICOT as the name of git library
@@ -42,12 +42,12 @@ APRICOT stores databases and source files in these paths.
 
 `````
 
-##FIXED PATHS 
+## FIXED PATHS 
 
-#Source data downloaded by APRICOT
+# Source data downloaded by APRICOT
 DB_PATH=$ROOT_DB_PATH/reference_db_files
 
-##PATHS for domain databases
+## PATHS for domain databases
 CDD_PATH=$DB_PATH/cdd/Cdd
 INTERPRO_PATH=$DB_PATH/interpro/interproscan
 
@@ -145,14 +145,14 @@ APRICOT_analysis
 
 ####Fetching required source files
 
-We have provided few processed files, which is available in *apricot_demo_files* and was downloaded via zenodo. We can copy these files to the APRICOT defined paths.
+We have provided few processed files, which is available in *apricot_demo_files* and was downloaded via zenodo, if it is already available, please comment the first three lines in the script, which copies these files to the APRICOT defined paths.
 
 Additionally, we will download domain annotation files from CDD and Pfam databases.
 
 `````
 
 basic_requirements_for_demo(){
-    ##zenodo_link_for_demo_data=
+    zenodo_link_for_demo_data=https://zenodo.org/record/51705/files/APRICOT-1.0-demo_files-MS.zip
     wget $zenodo_link_for_demo_data
     unzip apricot_demo_files.zip
     cp apricot_demo_files/go_mapping/* $DB_PATH/go_mapping
@@ -160,11 +160,11 @@ basic_requirements_for_demo(){
     cp apricot_demo_files/cdd_analysis/* $ANALYSIS_PATH/output/0_predicted_domains/cdd_analysis
     cp apricot_demo_files/ipr_analysis/* $ANALYSIS_PATH/output/0_predicted_domains/ipr_analysis
     
-    ##CDD annotation table
+    ## CDD annotation table
     wget -c -P $DB_PATH/cdd/cdd_annotation_data ftp://ftp.ncbi.nih.gov/pub/mmdb/cdd/cddid.tbl.gz
     gunzip $DB_PATH/cdd/cdd_annotation_data/*
     
-    ##PfamA annotation table
+    ##P famA annotation table
     pfam_release=Pfam30.0
     wget -c -P $DB_PATH/pfam ftp://ftp.ebi.ac.uk/pub/databases/Pfam/releases/$pfam_release/database_files/pfamA.txt.gz
     gunzip $DB_PATH'/pfam/pfamA.txt.gz'
@@ -186,7 +186,7 @@ P0A6X3 is used as an example for positive test, it is Hfq protein that contains 
 query_uids='P0A6X3,P00957'
 
 provide_input_queries(){
-    ##Option-1: UniProt identifier
+    ## Option-1: UniProt identifier
     python $APRICOT_PATH/bin/apricot query --analysis_path $ANALYSIS_PATH --uids $query_uids
 }
 
