@@ -4,9 +4,17 @@ This tutorial provides an easy way to test different modules of APRICOT and unde
 
 ###Requirements:
 
-1) Get the Shell script [run_example.sh](https://github.com/malvikasharan/APRICOT/blob/master/run_example.sh) that can be executed in a linux environment. 
+1) Basic files required to run the APRICOT pipeline for tutorial/demonstration purpose.
 
-GitHub link: https://github.com/malvikasharan/APRICOT/blob/master/run_example.sh
+use wget
+
+    $ wget https://zenodo.org/record/51705/files/APRICOT-1.0-demo_files-MS.zip
+    $ unzip APRICOT-1.0-demo_files-MS.zip
+    $ cd APRICOT-1.0-demo_files-MS
+
+or [download manually](https://zenodo.org/record/51705/files/APRICOT-1.0-demo_files-MS.zip)
+
+This folder contains a Shell script, [run_example.sh](https://github.com/malvikasharan/APRICOT/blob/master/run_example.sh) that can be executed in a linux environment [GitHub link](https://github.com/malvikasharan/APRICOT/blob/master/run_example.sh)
 
 2) Get APRICOT repository via git
 
@@ -18,14 +26,7 @@ GitHub link: https://github.com/malvikasharan/APRICOT/blob/master/run_example.sh
  
  or [download manually](http://malvikasharan.github.io/APRICOT/)
  
- 3) Basic files required to run the APRICOT pipeline for tutorial/demonstration purpose.
-
-use wget
-
-    $ wget https://zenodo.org/record/51705/files/APRICOT-1.0-demo_files-MS.zip
-    $ unzip APRICOT-1.0-demo_files-MS.zip
-
-or [download manually](https://zenodo.org/record/51705/files/APRICOT-1.0-demo_files-MS.zip)
+ 
 
 ####Not required
 
