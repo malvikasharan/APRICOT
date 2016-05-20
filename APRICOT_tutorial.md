@@ -8,7 +8,7 @@ This tutorial provides an easy way to test different modules of APRICOT and unde
 
 use wget
 
-`$ wget https://github.com/malvikasharan/APRICOT/blob/master/run_example.sh` 
+`$ wget https://zenodo.org/record/51705/files/APRICOT-1.0-demo_files-MS.zip` 
 
 or [download manually](https://zenodo.org/record/51705/files/APRICOT-1.0-demo_files-MS.zip)
 
