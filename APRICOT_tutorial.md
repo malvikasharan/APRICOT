@@ -4,9 +4,9 @@ This tutorial provides an easy way to test different modules of APRICOT and unde
 
 ###Requirements:
 
-1) Get the Shell script [run_example.sh](https://github.com/malvikasharan/APRICOT/blob/master/run_example.sh) that can be executed in a linux environment.
+1) Get the Shell script [run_example.sh](https://github.com/malvikasharan/APRICOT/blob/master/run_example.sh) that can be executed in a linux environment. 
 
-    $ wget https://github.com/malvikasharan/APRICOT/blob/master/run_example.sh
+GitHub link: https://github.com/malvikasharan/APRICOT/blob/master/run_example.sh
 
 2) Get APRICOT repository via git
 
