@@ -9,13 +9,10 @@ This tutorial provides an easy way to test different modules of APRICOT and unde
     $ wget https://zenodo.org/record/51705/files/APRICOT-1.0-demo_files-MS.zip
     $ unzip APRICOT-1.0-demo_files-MS.zip
     $ cd APRICOT-1.0-demo_files-MS
-    
-or [download manually](https://zenodo.org/record/51705/files/APRICOT-1.0-demo_files-MS.zip)
-    
-    $ unzip APRICOT-1.0-demo_files-MS.zip
-    $ cd APRICOT-1.0-demo_files-MS
 
-2)  Get the Shell script [run_example.sh](https://github.com/malvikasharan/APRICOT/blob/master/run_example.sh) from GitHub, which will assist you in following the tutorial.
+2) Get the Shell script
+[run_example.sh](https://github.com/malvikasharan/APRICOT/blob/master/run_example.sh)
+from GitHub, which will assist you in following the tutorial.
     
     $ wget -N https://raw.githubusercontent.com/malvikasharan/APRICOT/master/run_example.sh
 
@@ -28,18 +25,25 @@ or [download manually](https://zenodo.org/record/51705/files/APRICOT-1.0-demo_fi
      $ pip install bio-apricot
  
  or [download manually](http://malvikasharan.github.io/APRICOT/)
- 
- 
 
 #### Not required for this tutorial
 
-APRICOT requires local databases of CDD and InterPro databases, along with the BLAST executables and InterProScan to carry out domain predictions. Additonally, in order to provide additional annotation of the proteins with biological features, it uses locally installed Psort and RaptorX tools. These requirements have been discussed in detail in the [documentation](https://github.com/malvikasharan/APRICOT/blob/master/README.md). 
-
-We will **NOT** install these for the tutorial, instead we have provided the required files that should allow you test the functionality of the tool [ [Zenodo record](https://zenodo.org/record/51705/files) ].
+APRICOT usually requires local databases of CDD and InterPro, along
+with the BLAST executables and InterProScan to carry out domain
+predictions. In order to provide additional annotation of the proteins
+with biological features, it uses locally installed Psort and RaptorX
+executable. These requirements have been discussed in detail in the
+[documentation](https://github.com/malvikasharan/APRICOT/blob/master/README.md).
+We will **NOT** install these for the tutorial, instead we have
+provided pre-processed files that should allow you test the
+functionality of the tool [ [Zenodo
+record](https://zenodo.org/record/51705/files) ].
 
 ### Tutorial with an example analysis
 
-APRICOT can be executed by python (python3 is recommended) on Unix-flavors (GNU/Linux, BSD, OS X). In this part, we will go through the shell script `run_example.sh` step by step.
+APRICOT can be executed by python (python3 is recommended) on
+Unix-flavors (GNU/Linux, BSD, OS X). In this part, we will go through
+the shell script `run_example.sh` step by step.
 
 #### Defining paths
 
@@ -86,7 +90,6 @@ set_up_analysis_folder(){
    done
 
 [...]
-
 `````
 
 This will create a main folder `source_files` with subfolder as shown below.
@@ -115,14 +118,12 @@ analysis folder and its subfolder.
 [...]
     python $APRICOT_PATH/bin/apricot create $ANALYSIS_PATH
 }
-
 `````
 
 This generates a main folder `APRICOT_analysis` (name can be defined
 by users), which contains subfolders as shown below.
 
 `````
-
 APRICOT_analysis
     └───├input                                  # Location used by subcommand 'query' to store all the related files
     |       └───├query_proteins                 # Location for the list of query proteins
@@ -143,7 +144,6 @@ APRICOT_analysis
             └───├5_analysis_summary             # Location for the output data obtained from the subcommand 'summary'
             └───├format_output_data             # Location for the output data obtained from the subcommand 'format'
             └───├visualization_files            # Location for the output data obtained from the subcommand 'vis'
-
 `````
 
 #### Fetching required source files
@@ -155,8 +155,8 @@ copies these files to the APRICOT defined paths.
 
 Additionally, we will download domain annotation files from CDD and
 Pfam databases.
-`````
 
+`````
 basic_requirements_for_demo(){
     # zenodo_link_for_demo_data=https://zenodo.org/record/51705/files/APRICOT-1.0-demo_files-MS.zip
     # wget $zenodo_link_for_demo_data
@@ -256,6 +256,7 @@ select_domains_by_keywords(){
     python $APRICOT_PATH/bin/apricot select
 }
 `````
+
 The selected domains are saved in theor respective location as ashown below.
 
 `````
