@@ -598,8 +598,8 @@ APRICOT_analysis
                 | annotation_extended_for_selected.csv
 ````
 
-####$ addanno
-Quick help: `python3 APRICOT/bin/apricot addanno -h`
+####addanno
+Quick help: `$ python3 APRICOT/bin/apricot addanno -h`
 
 This subcommand allows users to further annotate the query sequences that are selected based on the defined functional domains. 
 
@@ -662,8 +662,8 @@ APRICOT_analysis
                                                         # queries (flag --raptorx, -RAPTORX)
 ````
 
-####$ summary
-Quick help: `python3 APRICOT/bin/apricot summary -h`
+####summary
+Quick help: `$ python3 APRICOT/bin/apricot summary -h`
 
 To get an overview of the analysis carried out on a set of query proteins, this sub command can be used. It generate information like, how many queries could be mapped to the UniProt IDs, how many contain the reference domains etc., to provide analysis overview.
 
@@ -696,8 +696,8 @@ APRICOT_analysis
                 | APRICOT_analysis_summary.csv
 ````
 
-####$ format
-Quick help: `python3 APRICOT/bin/apricot format -h`
+####format
+Quick help: `$ python3 APRICOT/bin/apricot format -h`
 
 Formats and stores various tables in the HTML tabels (--html), excel files (--xlsx) or both.
 
@@ -725,8 +725,8 @@ APRICOT_analysis
                     └───├html_files                # HTML files (flag -HT)
 ````
 
-####$ vis
-Quick help: `python3 APRICOT/bin/apricot vis -h`
+####vis
+Quick help: `$ python3 APRICOT/bin/apricot vis -h`
 
 Visualize different resulting data like predicted domains sites, tertiary structure of selected proteins etc.
 
