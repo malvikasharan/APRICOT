@@ -123,7 +123,6 @@ source_files
 
 `````
 set_up_analysis_folder(){
-    ...
     python $APRICOT_PATH/bin/apricot create $ANALYSIS_PATH
 }
 
