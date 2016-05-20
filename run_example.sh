@@ -92,7 +92,7 @@ basic_requirements_for_demo(){
     wget $zenodo_link_for_demo_data
     unzip APRICOT-1.0-demo_files-MS
     cp APRICOT-1.0-demo_files-MS/go_mapping/* $DB_PATH/go_mapping
-    cp APRICOT-1.0-demo_files-MS/interpro_annotation_data/* $DB_PATH/interpro/interpro_annotation_data
+    cp -r APRICOT-1.0-demo_files-MS/interpro_annotation_data $DB_PATH/interpro
     cp APRICOT-1.0-demo_files-MS/cdd_analysis/* $ANALYSIS_PATH/output/0_predicted_domains/cdd_analysis
     cp APRICOT-1.0-demo_files-MS/ipr_analysis/* $ANALYSIS_PATH/output/0_predicted_domains/ipr_analysis
     ## CDD annotation table
