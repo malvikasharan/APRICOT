@@ -57,7 +57,6 @@ APRICOT_PATH=APRICOT
 
 # path where the source files and databases will be stored
 ROOT_DB_PATH=source_files
-
 `````
 
 APRICOT stores databases and source files in these paths.
@@ -71,12 +70,11 @@ DB_PATH=$ROOT_DB_PATH/reference_db_files
 ## PATHS for domain databases
 CDD_PATH=$DB_PATH/cdd/Cdd
 INTERPRO_PATH=$DB_PATH/interpro/interproscan
-
 `````
 
 #### Creating analysis folders
 
-1) We will create each of the paths that we defined above in the section above (**Defining paths**):
+1) We will create each of the paths that we defined above in the section above:
 
 `````
 set_up_analysis_folder(){
@@ -110,7 +108,8 @@ source_files
 
 `````
 
-2) Using `create` subcommand from APRICOT, we will create the analysis folder and its subfolder. 
+2) Using the `create` subcommand from APRICOT, we will create the
+analysis folder and its subfolder.
 
 `````
 [...]
@@ -149,14 +148,13 @@ APRICOT_analysis
 
 #### Fetching required source files
 
-We have provided few processed files, which is available in
-*apricot_demo_files* and was downloaded via zenodo, if it is already
+We have provided a few pre-processed files, which are available in
+*apricot_demo_files* folder (retrieved from zenodo), if it is already
 available, please comment the first three lines in the script, which
 copies these files to the APRICOT defined paths.
 
 Additionally, we will download domain annotation files from CDD and
 Pfam databases.
-
 `````
 
 basic_requirements_for_demo(){
@@ -177,7 +175,6 @@ basic_requirements_for_demo(){
     wget -c -P $DB_PATH/pfam ftp://ftp.ebi.ac.uk/pub/databases/Pfam/releases/$pfam_release/database_files/pfamA.txt.gz
     gunzip $DB_PATH'/pfam/pfamA.txt.gz'
 }
-
 `````
 
 #### Providing query proteins using the subcommand: `query`
@@ -203,7 +200,6 @@ provide_input_queries(){
     ## Option-1: UniProt identifier
     python $APRICOT_PATH/bin/apricot query --analysis_path $ANALYSIS_PATH --uids $query_uids
 }
-
 ````
 
 #### Providing keyword inputs using the subcommand: `keywords`
@@ -231,7 +227,6 @@ class_kw='ribosom,helicase,synthetase,polymerase,transferase,nuclease,RRM,RNP'
 provide_domain_and_class_keywords(){
     python $APRICOT_PATH/bin/apricot keywords $domain_kw -cl $class_kw
 }
-
 `````
 
 These keywords are listed in the files
@@ -260,12 +255,10 @@ from both CDD and InterPro databases.
 select_domains_by_keywords(){
     python $APRICOT_PATH/bin/apricot select
 }
-
 `````
 The selected domains are saved in theor respective location as ashown below.
 
 `````
-
 source_files
     └───├domain_data            
             └───├cdd                                #Containes individual files generated for each keyword related domains      
@@ -277,7 +270,6 @@ source_files
             |    key2_related_interpro_domains.tab
             |    ..
             |all_keyword_selected_domain_data.tab   #All the keyword selected domains are mapped and combined
-    
 `````
 
 #### Domain predictions using the subcommand: `predict`
@@ -296,12 +288,10 @@ $FASTA_PATH`.
 APRICOT skips re-prediction of the domains when the output files are
 present for the analysis of each query proteins, however users can use
 the flag `-F` to *force* the re-analysis.
-
 `````
 run_domain_prediction(){
     python $APRICOT_PATH/bin/apricot predict --analysis_path $ANALYSIS_PATH --cdd_db $CDD_PATH --ipr_db $INTERPRO_PATH
 }
-
 `````
 
 For this tutorial, to avoid the use of domain databases and tools
@@ -379,7 +369,6 @@ for the domain selection.
 classify_filtered_result(){
     python $APRICOT_PATH/bin/apricot classify --analysis_path $ANALYSIS_PATH
 }
-
 `````
 The selected proteins that are selected based on the domains of interest are classified when the annotations contain on ethese proteins can stored in the subfolder `2_selected_domain_information` as shown below.
 
@@ -405,7 +394,6 @@ calculate_annotation_score(){
     python $APRICOT_PATH/bin/apricot annoscore \
     --analysis_path $ANALYSIS_PATH
 }
-
 `````
 
 The files generated from this analysis are stored in the subfolder
@@ -416,7 +404,6 @@ The files generated from this analysis are stored in the subfolder
 APRICOT_analysis
     └───├output                             
             └───├2_selected_domain_information
-            
 `````
 
 #### Generating analysis summary using the subcommand: `summary`
@@ -431,7 +418,6 @@ create_analysis_summary(){
     python $APRICOT_PATH/bin/apricot summary \
     --analysis_path $ANALYSIS_PATH
 }
-
 `````
 The summary file is stored in the subfolder `5_analysis_summary` analysis folder as shown below.
 
@@ -457,7 +443,6 @@ output_file_formats(){
     --analysis_path $ANALYSIS_PATH \
     -HT
 }
-
 `````
 
 All the files in the format of selection are stored in the subfolder
