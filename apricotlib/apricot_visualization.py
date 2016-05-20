@@ -32,7 +32,6 @@ def main():
         args.additional_annotation, args.outpath)
     biojs_viz_of_apricot_analysis.parse_annotation_scoring()
     biojs_viz_of_apricot_analysis.viz_domain_highlights()
-    biojs_viz_of_apricot_analysis.viz_annotation_scoring()
     biojs_viz_of_apricot_analysis.viz_secondary_structure()
     biojs_viz_of_apricot_analysis.sec_str_script()
     biojs_viz_of_apricot_analysis.viz_subcellular_localization()
@@ -157,10 +156,8 @@ class BiojsVizOfApricotAnalysis(object):
                 'pv.render();', '</script>'])
             with open(self._dom_highlight+'/%s.html' % uid, 'w') as out_fh:
                 out_fh.write('\n'.join([header, body, panel, footer]))
-
-    def viz_annotation_scoring(self):
-        '''annotation scoring stats, distribution, ref vs query sequence sec str, table'''
-        
+                
+                
     def viz_secondary_structure(self):
         for uid in self._uid_key_dict.keys():
             if uid+'.horiz' in os.listdir(
