@@ -91,10 +91,10 @@ basic_requirements_for_demo(){
     zenodo_link_for_demo_data=https://zenodo.org/record/51705/files/APRICOT-1.0-demo_files-MS.zip
     wget $zenodo_link_for_demo_data
     unzip apricot_demo_files.zip
-    cp apricot_demo_files/go_mapping/* $DB_PATH/go_mapping
-    cp apricot_demo_files/interpro_annotation_data/* $DB_PATH/interpro/interpro_annotation_data
-    cp apricot_demo_files/cdd_analysis/* $ANALYSIS_PATH/output/0_predicted_domains/cdd_analysis
-    cp apricot_demo_files/ipr_analysis/* $ANALYSIS_PATH/output/0_predicted_domains/ipr_analysis
+    cp APRICOT-1.0-demo_files-MS/go_mapping/* $DB_PATH/go_mapping
+    cp APRICOT-1.0-demo_files-MS/interpro_annotation_data/* $DB_PATH/interpro/interpro_annotation_data
+    cp APRICOT-1.0-demo_files-MS/cdd_analysis/* $ANALYSIS_PATH/output/0_predicted_domains/cdd_analysis
+    cp APRICOT-1.0-demo_files-MS/ipr_analysis/* $ANALYSIS_PATH/output/0_predicted_domains/ipr_analysis
     ## CDD annotation table
     wget -c -P $DB_PATH/cdd/cdd_annotation_data ftp://ftp.ncbi.nih.gov/pub/mmdb/cdd/cddid.tbl.gz
     gunzip $DB_PATH/cdd/cdd_annotation_data/*
