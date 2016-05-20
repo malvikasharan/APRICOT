@@ -17,9 +17,9 @@ use pip to install/update the package.
 
 ####Not required
 
-APRICOT requires local databases of Cdd and InterPro databases, along with the BLAST executables and InterProScan to carry out domain predictions. These requirements have been discussed in detail in the [documentation](https://github.com/malvikasharan/APRICOT/blob/master/README.md). 
+APRICOT requires local databases of Cdd and InterPro databases, along with the BLAST executables and InterProScan to carry out domain predictions. Additonally, in order to use the provide additional annotation of the proteins with biological features, it uses locally installed Psort and RaptorX tools. These requirements have been discussed in detail in the [documentation](https://github.com/malvikasharan/APRICOT/blob/master/README.md). 
 
-We will **NOT** install these for the tutorial. For the demonstration of the APRICOT pipeline, we have provided few required files on [zenodo].
+We will **NOT** install these for the tutorial, instead we have provided the required files that should allow you test the functionality of the tool [ [Zenodo record](https://zenodo.org/record/51705/files) ].
 
 ###Tutorial with an example analysis
 
