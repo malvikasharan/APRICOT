@@ -83,18 +83,18 @@ set_up_analysis_folder(){
         fi
     done
     
-    $PYTHON_PATH $APRICOT_PATH/bin/apricot create \
+    python3 $APRICOT_PATH/bin/apricot create \
     $ANALYSIS_PATH
 }
 
 basic_requirements_for_demo(){
     zenodo_link_for_demo_data=https://zenodo.org/record/51705/files/APRICOT-1.0-demo_files-MS.zip
     wget $zenodo_link_for_demo_data
-    unzip APRICOT-1.0-demo_files-MS
-    cp APRICOT-1.0-demo_files-MS/go_mapping/* $DB_PATH/go_mapping
-    cp -r APRICOT-1.0-demo_files-MS/interpro_annotation_data $DB_PATH/interpro
-    cp APRICOT-1.0-demo_files-MS/cdd_analysis/* $ANALYSIS_PATH/output/0_predicted_domains/cdd_analysis
-    cp APRICOT-1.0-demo_files-MS/ipr_analysis/* $ANALYSIS_PATH/output/0_predicted_domains/ipr_analysis
+    unzip apricot_demo_files.zip
+    cp apricot_demo_files/go_mapping/* $DB_PATH/go_mapping
+    cp -r apricot_demo_files/interpro_annotation_data $DB_PATH/interpro
+    cp apricot_demo_files/cdd_analysis/* $ANALYSIS_PATH/output/0_predicted_domains/cdd_analysis
+    cp apricot_demo_files/ipr_analysis/* $ANALYSIS_PATH/output/0_predicted_domains/ipr_analysis
     ## CDD annotation table
     wget -c -P $DB_PATH/cdd/cdd_annotation_data ftp://ftp.ncbi.nih.gov/pub/mmdb/cdd/cddid.tbl.gz
     gunzip $DB_PATH/cdd/cdd_annotation_data/*
@@ -106,13 +106,13 @@ basic_requirements_for_demo(){
 
 provide_input_queries(){
     ## Option-1: UniProt identifiers
-    $PYTHON_PATH $APRICOT_PATH/bin/apricot query \
+    python3 $APRICOT_PATH/bin/apricot query \
     --analysis_path $ANALYSIS_PATH \
     --uids $query_uids
 }
 
 provide_domain_and_class_keywords(){
-    $PYTHON_PATH $APRICOT_PATH/bin/apricot keywords \
+    python3 $APRICOT_PATH/bin/apricot keywords \
     $domain_kw \
     -cl $class_kw
 }
@@ -120,14 +120,14 @@ provide_domain_and_class_keywords(){
 select_domains_by_keywords(){
     ## Selection of domains from both CDD and InterPro by default
     ## use from flags -C for CDD or -I for InterPro
-    $PYTHON_PATH $APRICOT_PATH/bin/apricot select
+    python3 $APRICOT_PATH/bin/apricot select
 }
 
 run_domain_prediction(){
     ## prediction by both CDD and InterPro by default
     ## use from flags -C for CDD or -I for InterPro
     ## use --force or -F option to overwrite the existing analysis
-    $PYTHON_PATH $APRICOT_PATH/bin/apricot predict \
+    python3 $APRICOT_PATH/bin/apricot predict \
     --analysis_path $ANALYSIS_PATH \
     --fasta $FASTA_PATH \
     --cdd_db $CDD_PATH \
@@ -136,28 +136,28 @@ run_domain_prediction(){
 }
 
 filter_domain_analysis(){
-    $PYTHON_PATH $APRICOT_PATH/bin/apricot filter \
+    python3 $APRICOT_PATH/bin/apricot filter \
     --analysis_path $ANALYSIS_PATH \
     --similarity 24 --coverage 39
 }
 
 classify_filtered_result(){
-    $PYTHON_PATH $APRICOT_PATH/bin/apricot classify \
+    python3 $APRICOT_PATH/bin/apricot classify \
     --analysis_path $ANALYSIS_PATH
 }
 
 calculate_annotation_score(){
-    $PYTHON_PATH $APRICOT_PATH/bin/apricot annoscore \
+    python3 $APRICOT_PATH/bin/apricot annoscore \
     --analysis_path $ANALYSIS_PATH
 }
 
 create_analysis_summary(){
-    $PYTHON_PATH $APRICOT_PATH/bin/apricot summary \
+    python3 $APRICOT_PATH/bin/apricot summary \
     --analysis_path $ANALYSIS_PATH
 }
 
 output_file_formats(){
-    $PYTHON_PATH $APRICOT_PATH/bin/apricot format \
+    python3 $APRICOT_PATH/bin/apricot format \
     --analysis_path $ANALYSIS_PATH \
     -HT
 }
