@@ -83,7 +83,6 @@ INTERPRO_PATH=$DB_PATH/interpro/interproscan
 `````
 set_up_analysis_folder(){
    mkdir -p $ROOT_DB_PATH $APRICOT_PATH $ANALYSIS_PATH $APRICOT_LIBRARY
-   mkdir -p 
    for db_subpath in cdd go_mapping interpro pfam
    do
        mkdir -p $DB_PATH/$db_subpath
@@ -116,7 +115,7 @@ analysis folder and its subfolder.
 
 `````
 [...]
-    python $APRICOT_PATH/bin/apricot create $ANALYSIS_PATH
+    apricot create $ANALYSIS_PATH
 }
 `````
 
@@ -197,8 +196,8 @@ to RRM/RNP.
 query_uids='P0A6X3,P00957'
 
 provide_input_queries(){
-    ## Option-1: UniProt identifier
-    python $APRICOT_PATH/bin/apricot query --analysis_path $ANALYSIS_PATH --uids $query_uids
+    # Option-1: UniProt identifier
+    apricot query --analysis_path $ANALYSIS_PATH --uids $query_uids
 }
 ````
 
@@ -225,7 +224,7 @@ domain_kw='RRM,KH,DEAD'
 class_kw='ribosom,helicase,synthetase,polymerase,transferase,nuclease,RRM,RNP'
 
 provide_domain_and_class_keywords(){
-    python $APRICOT_PATH/bin/apricot keywords $domain_kw -cl $class_kw
+    apricot keywords $domain_kw -cl $class_kw
 }
 `````
 
@@ -253,7 +252,7 @@ from both CDD and InterPro databases.
 
 `````
 select_domains_by_keywords(){
-    python $APRICOT_PATH/bin/apricot select
+    apricot select
 }
 `````
 
@@ -262,15 +261,15 @@ The selected domains are saved in theor respective location as ashown below.
 `````
 source_files
     └───├domain_data            
-            └───├cdd                                #Containes individual files generated for each keyword related domains      
+            └───├cdd                                # Containes individual files generated for each keyword related domains      
             |    key1_related_cdd_domains.tab
             |    key2_related_cdd_domains.tab
             |    ..
-            └───├interpro                           #Containes individual files generated for each keyword related domains
+            └───├interpro                           # Containes individual files generated for each keyword related domains
             |    key1_related_interpro_domains.tab
             |    key2_related_interpro_domains.tab
             |    ..
-            |all_keyword_selected_domain_data.tab   #All the keyword selected domains are mapped and combined
+            |all_keyword_selected_domain_data.tab   # All the keyword selected domains are mapped and combined
 `````
 
 #### Domain predictions using the subcommand `predict`
@@ -291,7 +290,7 @@ present for the analysis of each query proteins, however users can use
 the flag `-F` to *force* the re-analysis.
 `````
 run_domain_prediction(){
-    python $APRICOT_PATH/bin/apricot predict --analysis_path $ANALYSIS_PATH --cdd_db $CDD_PATH --ipr_db $INTERPRO_PATH
+    apricot predict --analysis_path $ANALYSIS_PATH --cdd_db $CDD_PATH --ipr_db $INTERPRO_PATH
 }
 `````
 
@@ -328,7 +327,7 @@ documentation).
 
 `````
 filter_domain_analysis(){
-    python $APRICOT_PATH/bin/apricot filter --analysis_path $ANALYSIS_PATH \
+    apricot filter --analysis_path $ANALYSIS_PATH \
     --similarity 24 --coverage 39
 }
 `````
@@ -368,7 +367,7 @@ for the domain selection.
 
 `````
 classify_filtered_result(){
-    python $APRICOT_PATH/bin/apricot classify --analysis_path $ANALYSIS_PATH
+    apricot classify --analysis_path $ANALYSIS_PATH
 }
 `````
 The selected proteins that are selected based on the domains of interest are classified when the annotations contain on ethese proteins can stored in the subfolder `2_selected_domain_information` as shown below.
@@ -392,7 +391,7 @@ predicted domains with respect to their reference consensus.
 
 `````
 calculate_annotation_score(){
-    python $APRICOT_PATH/bin/apricot annoscore \
+    apricot annoscore \
     --analysis_path $ANALYSIS_PATH
 }
 `````
@@ -416,7 +415,7 @@ per keyword, summary of domain predictions and their selection.
 
 `````
 create_analysis_summary(){
-    python $APRICOT_PATH/bin/apricot summary \
+    apricot summary \
     --analysis_path $ANALYSIS_PATH
 }
 `````
@@ -440,7 +439,7 @@ In this tutorial we have used `-HT` option.
 
 `````
 output_file_formats(){
-    python $APRICOT_PATH/bin/apricot format \
+    apricot format \
     --analysis_path $ANALYSIS_PATH \
     -HT
 }
@@ -453,7 +452,7 @@ All the files in the format of selection are stored in the subfolder
 APRICOT_analysis
     └───├output                             
             └───├format_output_data
-                └───├html_files                         #Output files for each folder in HTML format
+                └───├html_files                         # Output files for each folder in HTML format
                 |   └───├0_predicted_domains  
                 |   └───├1_compiled_domain_information  
                 |   └───├2_selected_domain_information  
@@ -461,7 +460,7 @@ APRICOT_analysis
                 |   └───├4_additional_annotations 
                 |   └───├5_analysis_summary
                 |
-                └───├excel_files                        #Output files for each folder in Excel format
+                └───├excel_files                        # Output files for each folder in Excel format
                     └───├ ...
 `````
 
