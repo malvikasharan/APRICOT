@@ -115,21 +115,9 @@ def main():
     domain_data_parser.add_argument("--dom_kw", "-dk",
     default='source_files/domain_data/keywords_for_domain_selection.txt',
     help="Absolute path of keyword files")
-    domain_data_parser.add_argument("--cdd_table", "-cdd",
-    default='source_files/reference_db_files/cdd/cdd_annotation_data/cddid.tbl',
-    help="Absolute path of CDD domain table")
-    domain_data_parser.add_argument("--ipr_table", "-ipr",
-    default='source_files/reference_db_files/interpro/interpro_annotation_data/interproid.tbl',
-    help="Absolute path of InterPro domain table")
-    domain_data_parser.add_argument("--interpro_mapped_cdd", "-map",
-    default='source_files/reference_db_files/interpro/interpro_annotation_data/mapped_interpro_to_cdd_length.csv',
-    help="InterPro domains mapped to CDD domains.")
-    domain_data_parser.add_argument("--domain_path", "-dp",
-    default='source_files/domain_data',
-    help="Absolute path for keyword selected domains")
-    domain_data_parser.add_argument("--pfam_domain_file", "-pf",
-    default='source_files/reference_db_files/pfam/pfamA.txt',
-    help="The domain summary from PfamA")
+    domain_data_parser.add_argument("--db_root", "-dr",
+    default='source_files', 
+    help="Uses to get absolute path of domain annoation files, keyword selected domains")
     
     domain_analysis_parser = subparsers.add_parser(
     "predict",
