@@ -108,6 +108,7 @@ set_up_analysis_folder(){
 
 downloads_files(){
     # Demo files stored at Zenodo
+    
     DEMO_ZIP=$(basename $ZENODO_LINK_FOR_DEMO_DATA)
     DEMO_FOLDER=$(basename $DEMO_ZIP .zip)/apricot_demo_files/
     wget $ZENODO_LINK_FOR_DEMO_DATA
@@ -146,15 +147,10 @@ provide_domain_and_class_keywords(){
 }
 
 select_domains_by_keywords(){
-    # Selection of domains from both CDD and InterPro by default.
-    # Use from flags -C for CDD or -I for InterPro
     apricot select --db_root $ROOT_DB_PATH
 }
 
 run_domain_prediction(){
-    # Prediction by both CDD and InterPro by default
-    # use from flags -C for CDD or -I for InterPro
-    # use --force or -F option to overwrite the existing analysis
     apricot predict \
 	    --analysis_path $ANALYSIS_PATH
 }
