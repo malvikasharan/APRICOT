@@ -24,6 +24,8 @@ or
 $ pip install --user bio-apricot
 ```
 
+or use `$ git clone https://github.com/malvikasharan/APRICOT.git`
+
 #### Not required for this tutorial
 
 APRICOT usually requires local databases of CDD and InterPro, along
