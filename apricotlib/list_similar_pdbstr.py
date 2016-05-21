@@ -82,7 +82,6 @@ class PdbHomologyAnalysis(object):
         '''parese blast xml to get seq'''
         for files in os.listdir(self._outpath):
             if '.xml' in files:
-                data_list = []
                 hit_set = set('None')
                 identity_align_dict = {}
                 with open(self._outpath+'/'+files) as blast_fh:
