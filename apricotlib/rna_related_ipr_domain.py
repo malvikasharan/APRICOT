@@ -1,7 +1,5 @@
-#!/usr/bin/env python 
+#!/usr/bin/env python
 
-import sys
-import os
 import argparse
 import re
 
@@ -26,11 +24,12 @@ def main():
     rna_related_ipr_selection.read_interpro_mapped_cdd_file()
     rna_related_ipr_selection.read_ipr_whole_data_file()
     rna_related_ipr_selection.create_rna_related_domain_file()
-    
+
+
 class RnaRelatedIPRSelection(object):
     def __init__(self, keywords_file,
                  ipr_whole_data_file,
-                 interpro_mapped_cdd, 
+                 interpro_mapped_cdd,
                  domain_data_path):
         self._keywords_file = keywords_file
         self._ipr_whole_data_file = ipr_whole_data_file
@@ -81,7 +80,6 @@ class RnaRelatedIPRSelection(object):
         self._keyword_annotation_dict = {}
         self._rna_related_domain = []
         for ipr_entry in self.ipr_whole_data_list:
-            #print('--%s-------'%ipr_entry)
             for keyword in self.keyword_list:
                 if ' ' in keyword:
                     key_list = []
@@ -100,7 +98,8 @@ class RnaRelatedIPRSelection(object):
                             keyword, []).append(ipr_entry)
         for fkeyword in self.keyword_list:
             fkeyword = fkeyword.replace(' ', '_')
-            with open(self._domain_data_path+'/'+fkeyword+'_related_ipr_ids.tab',
+            with open(self._domain_data_path + '/' +
+                      fkeyword + '_related_ipr_ids.tab',
                       'w') as key_fh:
                 if self._keyword_annotation_dict.get(fkeyword):
                     for each_entry in self._keyword_annotation_dict[fkeyword]:
@@ -112,14 +111,14 @@ class RnaRelatedIPRSelection(object):
                             length = self._mapped_interpro_length[cdd_id]
                         else:
                             length = 'NA'
-                        self._rna_related_domain.append("%s\t%s" % (each_entry, length))
+                        self._rna_related_domain.append("%s\t%s" % (
+                            each_entry, length))
                         key_fh.write("%s\t%s\n" % (each_entry, length))
         uniq_rna_related_domains = list(set(self._rna_related_domain))
         with open(self._domain_data_path+'/all_rna_related_ipr_data.tab',
                   'w') as rna_related_domain_file:
             for domain_entry in uniq_rna_related_domains:
-                rna_related_domain_file.write('%s\n'%str(domain_entry))
+                rna_related_domain_file.write('%s\n' % str(domain_entry))
 
 if __name__ == "__main__":
-
     main()

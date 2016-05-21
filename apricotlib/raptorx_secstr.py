@@ -10,7 +10,6 @@ __email__ = "malvika.sharan@uni-wuerzburg.de"
 
 
 def main():
-    '''all commandline arguement dclaration'''
     parser = argparse.ArgumentParser(description=__description__)
     parser.add_argument("selected_poteins")
     parser.add_argument("raptorx_path")
@@ -51,15 +50,17 @@ class RaptorxSecstrAnalysis(object):
         return self._selected_protein_set
     
     def run_raptorx_analysis(self):
-        '''Runs RaptorX on the selected uids for
-        8-state secondary structure prediction'''
+        '''Runs RaptorX on the selected uids for 8-state secondary structure
+        prediction
+
+        '''
         for files in os.listdir(self._fasta_path):
             if files.split('.')[0] in self._selected_protein_set:
                 print("RaptorX 8-state secondary structure analysis for %s" %
                       files)
                 subprocess.Popen(
-                ["perl %s %s/%s" %
-                 (self._raptorx_path, self._fasta_path, files)],
+                    ["perl %s %s/%s" %
+                     (self._raptorx_path, self._fasta_path, files)],
                     shell=True).wait()
                 subprocess.Popen(["mv *.ss* %s" % self._outpath],
                                  shell=True).wait()

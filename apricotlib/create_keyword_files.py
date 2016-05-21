@@ -1,9 +1,9 @@
-#!/usr/bin/env python 
+#!/usr/bin/env python
 
 import sys
 
 __description__ = '''The script creates files to compile user provided keywords
- for domain selection and classification'''
+for domain selection and classification'''
 __author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
 __email__ = "malvika.sharan@uni-wuerzburg.de"
 
@@ -22,6 +22,7 @@ def keyword_domains_files(kw_file_path, keywords):
                   "has been given.")
             print("Multiple keywords can be provided as comma separated "
                   "list.\n------")
+
 
 def keyword_class_files(kw_file_path, keywords):
     with open(kw_file_path+'/keywords_for_result_classification.txt',
