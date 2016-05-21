@@ -368,7 +368,7 @@ classify_filtered_result(){
     apricot classify --analysis_path $ANALYSIS_PATH
 }
 `````
-The selected proteins that are selected based on the domains of interest are classified when the annotations contain one of the terms provided vie `keyword` subcommand. APRICOT uses the list of terms given with the option `-cl`, or when not defined by users, it uses the list of terms given for the domain selection. The list of selectedd proteins are stored in the subfolder `2_selected_domain_information` as shown below.
+The list of proteins that are selected based on the domains of interest is classified when the annotations contain one of the terms. The classified files are stored in the subfolder `2_selected_domain_information` as shown below.
 
 `````
 APRICOT_analysis
