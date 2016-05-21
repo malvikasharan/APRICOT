@@ -4,9 +4,10 @@
 PYTHON_PATH=python3
 ANALYSIS_PATH=APRICOT_analysis
 APRICOT_PATH=APRICOT
+DB_ROOT_PATH=source_files
 
 ## FIXED PATHS for flatfiles downloaded by APRICOT
-DB_PATH=source_files/reference_db_files
+DB_PATH=$DB_ROOT_PATH/reference_db_files
 
 ### PATHS for domain databases, can be changed by the users
 CDD_PATH=$DB_PATH/cdd/Cdd
@@ -134,14 +135,16 @@ provide_input_queries(){
 
 provide_domain_and_class_keywords(){
     $PYTHON_PATH $APRICOT_PATH/bin/apricot keywords \
-    $domain_kw \
+    --db_root $DB_ROOT_PATH \
+    $domain_kw  \
+    --db_root $\
     -cl $class_kw
 }
 
 select_domains_by_keywords(){
     ## Selection of domains from both CDD and InterPro by default
     ## use from flags -C for CDD or -I for InterPro
-    $PYTHON_PATH $APRICOT_PATH/bin/apricot select
+    $PYTHON_PATH $APRICOT_PATH/bin/apricot select --db_root $DB_ROOT_PATH
 }
 
 run_domain_prediction(){
