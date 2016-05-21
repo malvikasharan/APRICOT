@@ -151,6 +151,7 @@ Pfam databases.
 
 `````
 basic_requirements_for_demo(){
+
    ## Here DB_PATH=source_files/reference_db_files and $ANALYSIS_PATH=APRICOT_analysis
    
     zenodo_link_for_demo_data=https://zenodo.org/record/51705/files/APRICOT-demo_files.zip
