@@ -221,7 +221,7 @@ domain_kw='RRM,KH,DEAD'
 class_kw='ribosom,helicase,synthetase,polymerase,transferase,nuclease,RRM,RNP'
 
 provide_domain_and_class_keywords(){
-    apricot keywords $domain_kw -cl $class_kw
+    apricot keywords --db_root source_files $domain_kw -cl $class_kw
 }
 `````
 
@@ -249,11 +249,11 @@ from both CDD and InterPro databases.
 
 `````
 select_domains_by_keywords(){
-    apricot select
+    apricot select --db_root source_files
 }
 `````
 
-The selected domains are saved in theor respective location as ashown below.
+The selected domains are saved in these respective locations as ashown below.
 
 `````
 source_files
@@ -422,7 +422,7 @@ The summary file is stored in the subfolder `5_analysis_summary` analysis folder
 APRICOT_analysis
     └───├output                             
             └───├5_analysis_summary
-                       APRICOT_analysis_summary.csv   # bSummary file
+                       APRICOT_analysis_summary.csv   # Summary file
 `````
 
 ##### Format output files using the subcommand `format`
