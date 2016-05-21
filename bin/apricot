@@ -454,7 +454,7 @@ def select_domain_data(args):
     ipr_domain_path = domain_path + '/interpro'
     selected_domain_path = domain_path + '/all_keyword_selected_domain_data.tab'
     
-    cdd_table = args.db_root + '/reference_db_files/cdd/cdd_annotation_data/cddid.tbl''
+    cdd_table = args.db_root + '/reference_db_files/cdd/cdd_annotation_data/cddid.tbl'
     ipr_table = args.db_root + '/reference_db_files/interpro/interpro_annotation_data/interproid.tbl'
     pfam_domain_file = args.db_root + '/reference_db_files/pfam/pfamA.txt'
     interpro_mapped_cdd = args.db_root + 'reference_db_files/interpro/interpro_annotation_data/mapped_interpro_to_cdd_length.csv'
