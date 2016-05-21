@@ -673,8 +673,8 @@ def analysis_summary(args):
     create_analysis_summary.streamline_create_analysis_summary()
     print("\n----------------------------------------------------------------\n"
             "Please check the analysis overview: "
-            "ANALYSIS_PATH/output/5_analysis_summary/APRICOT_analysis_summary.csv"
-          "\n----------------------------------------------------------------\n")
+            "%s/output/5_analysis_summary/APRICOT_analysis_summary.csv" % args.analysis_path)
+          print("\n----------------------------------------------------------------\n")
     
 def additional_annotation(args):
     selected_proteins = args.analysis_path + '/' + args.selected
@@ -787,8 +787,8 @@ def output_format(args):
                 csv_to_html(inpath + '/' + folders, html_out + '/' + folders)
         print("\n----------------------------------------------------------------\n"
             "The output files are now generated in HTML format: "
-            "ANALYSIS_PATH/output/format_output_data/"
-            "\n----------------------------------------------------------------\n")
+            "%s/output/format_output_data/"  % args.analysis_path)
+            print("\n----------------------------------------------------------------\n")
     if args.xlsx:
         for folders in os.listdir(inpath):
             #if folders == '5_analysis_summary' or folders == '2_selected_domain_information':
@@ -798,6 +798,6 @@ def output_format(args):
                 csv_to_xlsx(inpath + '/' + folders, excel_out + '/' + folders)
         print("\n----------------------------------------------------------------\n"
             "The output files are now generated in excel (.xlsx) format: "
-            "ANALYSIS_PATH/output/format_output_data/"
-            "\n----------------------------------------------------------------\n")           
+            "%s/output/format_output_data/" % args.analysis_path)
+            print("\n----------------------------------------------------------------\n")           
 main()
