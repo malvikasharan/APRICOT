@@ -154,13 +154,13 @@ basic_requirements_for_demo(){
 
    ## Here DB_PATH=source_files/reference_db_files and $ANALYSIS_PATH=APRICOT_analysis
    
-    zenodo_link_for_demo_data=https://zenodo.org/record/51705/files/APRICOT-demo_files.zip
+    zenodo_link_for_demo_data=https://zenodo.org/record/51705/files/APRICOT-1.0-demo_files-MS.zip
     wget $zenodo_link_for_demo_data
-    unzip APRICOT-demo_files.zip
-    cp -r APRICOT-demo_files/go_mapping/* $DB_PATH   
-    cp -r APRICOT-demo_files/interpro_annotation_data $DB_PATH/interpro
-    cp APRICOT-demo_files/cdd_analysis/* $ANALYSIS_PATH/output/0_predicted_domains/cdd_analysis
-    cp APRICOT-demo_files/ipr_analysis/* $ANALYSIS_PATH/output/0_predicted_domains/ipr_analysis
+    unzip APRICOT-1.0-demo_files-MS.zip
+    cp -r APRICOT-1.0-demo_files-MS/apricot_demo_files/go_mapping/* $DB_PATH   
+    cp -r APRICOT-1.0-demo_files-MS/apricot_demo_files/interpro_annotation_data $DB_PATH/interpro
+    cp APRICOT-1.0-demo_files-MS/apricot_demo_files/cdd_analysis/* $ANALYSIS_PATH/output/0_predicted_domains/cdd_analysis
+    cp APRICOT-1.0-demo_files-MS/apricot_demo_files/ipr_analysis/* $ANALYSIS_PATH/output/0_predicted_domains/ipr_analysis
     
     ## CDD annotation table
     wget -c -P $DB_PATH/cdd/cdd_annotation_data ftp://ftp.ncbi.nih.gov/pub/mmdb/cdd/cddid.tbl.gz
