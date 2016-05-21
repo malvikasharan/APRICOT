@@ -674,7 +674,7 @@ def analysis_summary(args):
     print("\n----------------------------------------------------------------\n"
             "Please check the analysis overview: "
             "%s/output/5_analysis_summary/APRICOT_analysis_summary.csv" % args.analysis_path)
-          print("\n----------------------------------------------------------------\n")
+    print("\n----------------------------------------------------------------\n")
     
 def additional_annotation(args):
     selected_proteins = args.analysis_path + '/' + args.selected
@@ -788,7 +788,7 @@ def output_format(args):
         print("\n----------------------------------------------------------------\n"
             "The output files are now generated in HTML format: "
             "%s/output/format_output_data/"  % args.analysis_path)
-            print("\n----------------------------------------------------------------\n")
+        print("\n----------------------------------------------------------------\n")
     if args.xlsx:
         for folders in os.listdir(inpath):
             #if folders == '5_analysis_summary' or folders == '2_selected_domain_information':
@@ -799,5 +799,5 @@ def output_format(args):
         print("\n----------------------------------------------------------------\n"
             "The output files are now generated in excel (.xlsx) format: "
             "%s/output/format_output_data/" % args.analysis_path)
-            print("\n----------------------------------------------------------------\n")           
+        print("\n----------------------------------------------------------------\n")           
 main()
