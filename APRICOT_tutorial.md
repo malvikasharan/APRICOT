@@ -10,7 +10,7 @@ from GitHub, which will assist you in following the tutorial.
 
 ```
 $ wget -N https://raw.githubusercontent.com/malvikasharan/APRICOT/master/run_example.sh
-````
+```
 
 2) Use pip to install/update the package
 
@@ -24,7 +24,11 @@ or
 $ pip install --user bio-apricot
 ```
 
-or use the [APRICOT repository](https://github.com/malvikasharan/APRICOT/archive/master.zip) from GiHub `$ git clone https://github.com/malvikasharan/APRICOT.git`
+or use the [APRICOT repository](https://github.com/malvikasharan/APRICOT/archive/master.zip) from GiHub 
+
+```
+$ git clone https://github.com/malvikasharan/APRICOT.git
+```
 
 #### Not required for this tutorial
 
