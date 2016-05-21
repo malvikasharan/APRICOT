@@ -53,14 +53,10 @@ query_geneids=''
 # (source_files/selected_taxonomy_ids.txt), or directly provide it
 # when the taxonomy id is known
 tax_id=''
-######################################################################
 
-
-######################################################################
 # Input-1, option 4: provide absolute path of for query fasta sequence
-# default fasta path
-# $ANALYSIS_PATH/input/mapped_query_annotation/fasta_path_mapped_query
-FASTA_PATH=$ANALYSIS_PATH/input/mapped_query_annotation/fasta_path_mapped_query
+# default fasta path is $ANALYSIS_PATH/input/mapped_query_annotation/fasta_path_mapped_query
+FASTA_PATH=''
 ######################################################################
 
 
@@ -116,7 +112,7 @@ downloads_files(){
     DEMO_FOLDER=$(basename $DEMO_ZIP .zip)/apricot_demo_files/
     wget $ZENODO_LINK_FOR_DEMO_DATA
     unzip ${DEMO_ZIP}
-    cp ${DEMO_FOLDER}/go_mapping/* $DB_PATH/go_mapping
+    cp -r ${DEMO_FOLDER}/go_mapping/* $DB_PATH
     cp -r ${DEMO_FOLDER}/interpro_annotation_data $DB_PATH/interpro
     cp ${DEMO_FOLDER}/cdd_analysis/* $ANALYSIS_PATH/output/0_predicted_domains/cdd_analysis
     cp ${DEMO_FOLDER}/ipr_analysis/* $ANALYSIS_PATH/output/0_predicted_domains/ipr_analysis
@@ -144,6 +140,7 @@ provide_input_queries(){
 
 provide_domain_and_class_keywords(){
     apricot keywords \
+	    --kw_path $ROOT_DB_PATH \
 	    -cl $CLASS_KEYWORDS \
 	    $DOMAIN_KEYWORDS 
 }
@@ -151,7 +148,7 @@ provide_domain_and_class_keywords(){
 select_domains_by_keywords(){
     # Selection of domains from both CDD and InterPro by default.
     # Use from flags -C for CDD or -I for InterPro
-    apricot select
+    apricot select --db $DB_PATH
 }
 
 run_domain_prediction(){
@@ -159,10 +156,7 @@ run_domain_prediction(){
     # use from flags -C for CDD or -I for InterPro
     # use --force or -F option to overwrite the existing analysis
     apricot predict \
-	    --analysis_path $ANALYSIS_PATH \
-	    --fasta $FASTA_PATH \
-	    --cdd_db $CDD_PATH \
-	    --ipr_db $INTERPRO_PATH
+	    --analysis_path $ANALYSIS_PATH
 }
 
 filter_domain_analysis(){
