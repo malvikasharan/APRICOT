@@ -184,7 +184,7 @@ optional arguments:
 ####subcommand `create`
 Quick help: `$ python3 APRICOT/bin/apricot create -h`
 
-This subcommand creates all the required directories to store input and output data acquired from APRICOT analysis. The main analysis directory can be named by the users (default name: APRICOT_analysis).
+This subcommand creates all the required directories to store input and output data acquired from APRICOT analysis. The main analysis folder can be provided by the users (default name: APRICOT_analysis).
 ````
 usage: apricot create [-h] analysis_path
 
