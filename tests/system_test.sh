@@ -13,20 +13,6 @@ DB_PATH=$DB_ROOT_PATH/reference_db_files
 CDD_PATH=$DB_PATH/cdd/Cdd
 INTERPRO_PATH=$DB_PATH/interpro/interproscan
 
-for paths in $APRICOT_PATH $ANALYSIS_PATH $DB_PATH $APRICOT_LIBRARY
-do
-    if ! [ -d $paths ] 
-    then
-        mkdir $paths
-    fi
-done
-if ! [ -e $APRICOT_PATH/apricotlib ] 
-then
-    git clone https://github.com/malvikasharan/APRICOT.git $APRICOT_PATH
-    ln -s $APRICOT_PATH/apricotlib $APRICOT_PATH/bin
-fi
-
-
 ### External tool's path for additional annotation: PLEASE CORRECT THIS PATH
 raptorx_tool_path=$DB_PATH/raptorx
 raptorx_perl_script=raptorx-ss3-ss8/bin/run_raptorx-ss8.pl # run_raptorx-ss3.pl 
@@ -67,6 +53,12 @@ class_kw='ribosom,helicase,synthetase,polymerase,transferase,nuclease,RRM,RNP'
     ## *OPTIONAL* Input-2, comma separated list of keywords for protein classification based on the predicted domains
     
 main(){
+
+
+
+    
+
+    
     install_minimum_required_files              ### Use this to install the minimum required files
     install_complete_db_and_tools               ### Optionally use 'install_complete_db_and_tools', that will install all the third-party tools for additional annotation
     
@@ -89,6 +81,23 @@ main(){
     #calculate_additional_annotation            ## PsortB and -RaptorX must be installed for their respective annotation
     #create_visualization_files                 ## Create visualization files
 }
+
+
+
+for paths in $APRICOT_PATH $ANALYSIS_PATH $DB_PATH $APRICOT_LIBRARY
+do
+    if ! [ -d $paths ] 
+    then
+        mkdir $paths
+    fi
+done
+if ! [ -e $APRICOT_PATH/apricotlib ] 
+then
+    git clone https://github.com/malvikasharan/APRICOT.git $APRICOT_PATH
+    ln -s $APRICOT_PATH/apricotlib $APRICOT_PATH/bin
+fi
+
+
 
 install_complete_db_and_tools(){
     sh $APRICOT_PATH/apricotlib/apricot_complete_db_tool.sh $APRICOT_PATH $DB_PATH 
