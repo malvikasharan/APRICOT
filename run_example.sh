@@ -140,7 +140,7 @@ provide_input_queries(){
 
 provide_domain_and_class_keywords(){
     apricot keywords \
-	    --kw_path $ROOT_DB_PATH \
+	    --db_root $ROOT_DB_PATH \
 	    -cl $CLASS_KEYWORDS \
 	    $DOMAIN_KEYWORDS 
 }
@@ -148,7 +148,7 @@ provide_domain_and_class_keywords(){
 select_domains_by_keywords(){
     # Selection of domains from both CDD and InterPro by default.
     # Use from flags -C for CDD or -I for InterPro
-    apricot select --db $DB_PATH
+    apricot select --db_root $ROOT_DB_PATH
 }
 
 run_domain_prediction(){
