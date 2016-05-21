@@ -1,30 +1,6 @@
 #!/usr/bin/env python
 
-import argparse
 import re
-
-__description__ = "Classify all the filtered predicted data."
-__author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
-__email__ = "malvika.sharan@uni-wuerzburg.de"
-
-
-def main():
-    '''all commandline arguement dclaration'''
-    parser = argparse.ArgumentParser(description=__description__)
-    parser.add_argument("selected_protein_table")
-    parser.add_argument("keyword_file")
-    parser.add_argument("classified_result_path")
-    args = parser.parse_args()
-
-    protein_classifier = ProteinClassifier(
-        args.selected_protein_table,
-        args.keyword_file,
-        args.classified_result_path)
-    protein_classifier.parse_protein_table()
-    protein_classifier.parse_keyword_file()
-    protein_classifier.classify_data_by_keywords()
-    protein_classifier.create_classified_files()
-    protein_classifier.create_unclassified_files()
 
 
 class ProteinClassifier(object):
@@ -153,6 +129,3 @@ class ProteinClassifier(object):
                               check_keyword, domain_name):
                     self._keyword_candidate_data.setdefault(
                         keyword, set()).add(entry)
-        
-if __name__ == "__main__":
-    main()

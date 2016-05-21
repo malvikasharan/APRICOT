@@ -2,23 +2,16 @@
 
 import os
 import sys
-import argparse
-import math
 from collections import defaultdict
-import difflib
 from difflib import *
+
 try:
     from Bio.Emboss.Applications import NeedleCommandline
 except ImportError:
     print('Python package Biopython is missing. Please install/update.\n')
     sys.sxit(0)
 from itertools import combinations
-try:
-    import matplotlib as mpl
-    mpl.use('Agg')
-    import matplotlib.pyplot as plt
-except ImportError:
-    print('Python package matplotlib is missing. Please install/update.\n')
+
 try:
     import numpy as np
 except ImportError:
@@ -33,22 +26,7 @@ except ImportError:
     print('Python package scipy is missing. Please install/update.\n')
     sys.sxit(0)
 
-__description__ = "Calculates scores for feature based annotation of domains selected by APRICOT"
-__author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
-__email__ = "malvika.sharan@uni-wuerzburg.de"
 
-
-def main():
-    parser = argparse.ArgumentParser(description=__description__)
-    parser.add_argument("filtered_data") ##selected data with annotation
-    parser.add_argument("cdd_pred_files") ##cdd based domain prediction
-    parser.add_argument("outpath") ##outpath with distance calculation
-    args = parser.parse_args()
-    compute_composition_distance = ComputeCompositionDistance(
-        args.filtered_data, args.cdd_pred_files, args.outpath)
-    compute_composition_distance.parse_filtered_data()
-    compute_composition_distance.summarize_rps_analysis_result_files()
-    
 class ComputeCompositionDistance(object):
     def __init__(self, filtered_data,
                  cdd_pred_files,
@@ -852,8 +830,3 @@ class FilteredData(object):
         self.gaps = row[35]
         self.gap_percent = row[36]
         self.parameter_tag = row[-1]
-    
-if __name__ == '__main__':
-    
-    main()
-

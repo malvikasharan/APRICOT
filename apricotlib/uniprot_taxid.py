@@ -1,10 +1,5 @@
 #!/usr/bin/env python
 
-__description__ = "Parses the taxonomy id file from UniProt for all" \
-                  " the species."
-__author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
-__email__ = "malvika.sharan@uni-wuerzburg.de"
-
 
 def select_taxids(species, reference_taxonomy_file, selected_taxonomy_file):
     '''Selects taxonomy ids for the query species'''

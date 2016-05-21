@@ -1,34 +1,6 @@
 #!/usr/bin/env python
 
-import sys
-import argparse
 import re
-
-__description__ = "selects rna related domains from cdd and interpro database."
-__author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
-__email__ = "malvika.sharan@uni-wuerzburg.de"
-
-
-def main():
-    parser = argparse.ArgumentParser(description=__description__)
-    parser.add_argument("keywords_file")
-    parser.add_argument("pfam_domain_file")
-    parser.add_argument("cdd_whole_data_file", )
-    parser.add_argument("interpro_whole_data_file")
-    parser.add_argument("interpro_mapped_cdd")
-    parser.add_argument("cdd_domain_path")
-    parser.add_argument("ipr_domain_path")
-    args = parser.parse_args()
-
-    keyword_based_domain_selection = KeywordBasedDomainSelection(
-        args.keywords_file, args.pfam_domain_file,
-        args.cdd_whole_data_file, args.interpro_whole_data_file,
-        args.interpro_mapped_cdd, args.cdd_domain_path, args.ipr_domain_path)
-    keyword_based_domain_selection.read_keyword_file()
-    keyword_based_domain_selection.read_pfam_domain_file()
-    keyword_based_domain_selection.read_interpro_mapped_cdd_file()
-    keyword_based_domain_selection.map_cdd_data_to_keywords()
-    keyword_based_domain_selection.map_ipr_data_to_keywords()
 
 
 class KeywordBasedDomainSelection(object):
@@ -261,7 +233,3 @@ class KeywordBasedDomainSelection(object):
             for domain_entry in keyword_selected_domain_dict.keys():
                 all_keywords = ', '.join(list(keyword_selected_domain_dict[domain_entry]))
                 keyword_selected_domain_file.write('%s\t%s\n' % (domain_entry.strip(), all_keywords))
-
-if __name__ == "__main__":
-
-    sys.exit(main())

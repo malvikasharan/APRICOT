@@ -1,33 +1,9 @@
 #!/usr/bin/env python
 
 import sys
-import os
-import argparse
 import re
 
-__description__ = "Identifies domains from CDD database"
-__author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
-__email__ = "malvika.sharan@uni-wuerzburg.de"
 
-
-def main():
-    '''all commandline arguement dclaration'''
-    parser = argparse.ArgumentParser(description=__description__)
-    parser.add_argument("keywords_file")
-    parser.add_argument("cdd_whole_data_file")
-    parser.add_argument("interpro_mapped_cdd")
-    parser.add_argument("domain_data_path")
-    args = parser.parse_args()
-
-
-    rna_related_cdd_selection = RnaRelatedCDDSelection(
-        args.keywords_file, args.cdd_whole_data_file,
-        args.interpro_mapped_cdd, args.domain_data_path)
-    rna_related_cdd_selection.read_keyword_file()
-    rna_related_cdd_selection.read_interpro_mapped_cdd_file()
-    rna_related_cdd_selection.read_cdd_whole_data_file()
-    rna_related_cdd_selection.create_rna_related_domain_file()
-    
 class RnaRelatedCDDSelection(object):
     '''classification of data'''
     def __init__(self, keywords_file,
@@ -140,8 +116,3 @@ class RnaRelatedCDDSelection(object):
                   'w') as rna_related_domain_file:
             for domain_entry in uniq_rna_related_domains:
                 rna_related_domain_file.write('%s\n'%str(domain_entry))
-
-if __name__ == "__main__":
-
-    sys.exit(main())
-

@@ -1,29 +1,7 @@
 #!/usr/bin/env python
 
-import argparse
 import os
 from collections import defaultdict
-
-__description__ = "Summarizes APRICOT analysis results."
-__author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
-__email__ = "malvika.sharan@uni-wuerzburg.de"
-
-
-def main():
-    parser = argparse.ArgumentParser(description=__description__)
-    parser.add_argument("query_map")
-    parser.add_argument("selected_domains")
-    parser.add_argument("unfilter_path")
-    parser.add_argument("outpath")
-    args = parser.parse_args()
-
-    create_analysis_summary = CreateAnalysisSummary(
-        args.query_map, args. selected_domains,
-        args.unfilter_path, args.outpath)
-    create_analysis_summary.count_queries()
-    create_analysis_summary.count_domains()
-    create_analysis_summary.domain_stat()
-    create_analysis_summary.record_selected_stat()
 
 
 class CreateAnalysisSummary(object):

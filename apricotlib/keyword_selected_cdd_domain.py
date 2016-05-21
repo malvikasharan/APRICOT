@@ -3,30 +3,7 @@
 '''selects rna related domains from cdd database.'''
 
 import sys
-import argparse
 import re
-
-__description__ = ""
-__author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
-__email__ = "malvika.sharan@uni-wuerzburg.de"
-__version__ = ""
-
-
-def main():
-    parser = argparse.ArgumentParser(description=__description__)
-    parser.add_argument("keywords_file")
-    parser.add_argument("cdd_whole_data_file")
-    parser.add_argument("interpro_mapped_cdd")
-    parser.add_argument("domain_data_path")
-    args = parser.parse_args()
-
-    keyword_selected_cdd_selection = RnaRelatedCDDSelection(
-        args.keywords_file, args.cdd_whole_data_file,
-        args.interpro_mapped_cdd, args.domain_data_path)
-    keyword_selected_cdd_selection.read_keyword_file()
-    keyword_selected_cdd_selection.read_interpro_mapped_cdd_file()
-    keyword_selected_cdd_selection.read_cdd_whole_data_file()
-    keyword_selected_cdd_selection.create_keyword_selected_domain_file()
 
 
 class RnaRelatedCDDSelection(object):
@@ -159,7 +136,3 @@ class RnaRelatedCDDSelection(object):
                     self._keyword_selected_domain[domain_entry]))
                 keyword_selected_domain_file.write(
                     '%s\t%s\n' % (domain_entry, keywords))
-
-if __name__ == "__main__":
-    sys.exit(main())
-
