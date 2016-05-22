@@ -13,34 +13,20 @@ apricot_lib=$APRICOT_PATH/apricotlib
 APRICOT_DB_PATH=$2
 
 main(){
-        create_main_path
-        
+        create_folder
         ### PDB-MODULES ####
-        create_pdb_inpath
         download_uniprot_map
         download_pdb_sec_str
         sort_and_format_pdb_data
 }
 
-create_main_path(){
-    if ! [ -d $APRICOT_DB_PATH ]
-        then
-            mkdir -p $APRICOT_DB_PATH
-    fi
-    if ! [ -d $APRICOT_DB_PATH/pdb ]
-    then
-        mkdir -p $APRICOT_DB_PATH/pdb
-    fi
-}
-
-create_pdb_inpath(){
-    for FOLDER in pdb_sequence pdb_secstr pdb2uniprot
-    do
-        if ! [ -d $APRICOT_DB_PATH/pdb/$FOLDER ]
-        then
-            mkdir -p $APRICOT_DB_PATH/pdb/$FOLDER
-        fi
-    done
+create_folders(){
+    mkdir -p \
+	  $APRICOT_DB_PATH \
+	  $APRICOT_DB_PATH/pdb \
+	  $APRICOT_DB_PATH/pdb/pdb_sequence \
+	  $APRICOT_DB_PATH/pdb/pdb_secstr \
+	  $APRICOT_DB_PATH/pdb/pdb2uniprot
 }
 
 download_uniprot_map(){
