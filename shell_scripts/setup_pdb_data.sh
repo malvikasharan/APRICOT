@@ -1,15 +1,16 @@
 #!/bin/bash
 # AUTHOR: Malvika Sharan <malvikasharan@gmail.com>
 
-## Addition shell script to install only PDB related source files
+# Installs PDB related source files
 
 PYTHON_PATH=python
 
 APRICOT_PATH=$1
-## full path where you have cloned/save APRICOT from git
+
+# Full path where you have cloned/save APRICOT
 apricot_lib=$APRICOT_PATH/apricotlib
 
-## path where you want to store the data
+# Path where you want to store the data
 APRICOT_DB_PATH=$2
 
 main(){
@@ -30,17 +31,23 @@ create_folders(){
 }
 
 download_uniprot_map(){
-    wget -P $APRICOT_DB_PATH/pdb/pdb2uniprot http://www.uniprot.org/docs/pdbtosp.txt
+    wget -P $APRICOT_DB_PATH/pdb/pdb2uniprot \
+	 http://www.uniprot.org/docs/pdbtosp.txt
 }
 
 download_pdb_sec_str(){
-    wget -c -P $APRICOT_DB_PATH/pdb/pdb_secstr http://www.rcsb.org/pdb/files/ss.txt
+    wget -c -P $APRICOT_DB_PATH/pdb/pdb_secstr \
+	 http://www.rcsb.org/pdb/files/ss.txt
 }
 
 sort_and_format_pdb_data(){
     $PYTHON_PATH $apricot_lib/sort_sec_struc_pdb_data.py \
-    -i $APRICOT_DB_PATH/pdb/pdb_secstr/ss.txt -seq $APRICOT_DB_PATH/pdb/pdb_sequence -str $APRICOT_DB_PATH/pdb/pdb_secstr
-    $APRICOT_DB_PATH/blast/makeblastdb -in $APRICOT_DB_PATH/pdb/pdb_sequence/pdb_sequence.txt -dbtype prot
+	 -i $APRICOT_DB_PATH/pdb/pdb_secstr/ss.txt\
+	 -seq $APRICOT_DB_PATH/pdb/pdb_sequence \
+	 -str $APRICOT_DB_PATH/pdb/pdb_secstr
+    $APRICOT_DB_PATH/blast/makeblastdb \
+	-in $APRICOT_DB_PATH/pdb/pdb_sequence/pdb_sequence.txt \
+	-dbtype prot
 }
 
 main
