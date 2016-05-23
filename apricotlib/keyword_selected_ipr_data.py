@@ -1,11 +1,13 @@
 #!/usr/bin/env python 
+# Description = selects domains from interpro database
+# author= "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
+# email = "malvika.sharan@uni-wuerzburg.de"
+# 2016-05-20
 
 import argparse
 import re
 
 __description__ = "selects rna related domains from ipr database."
-__author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
-__email__ = "malvika.sharan@uni-wuerzburg.de"
 
 
 def main():
