@@ -1,4 +1,10 @@
 #!/usr/bin/env python
+# Description = collect protein from uniprot
+# protein gene, their xml file and all the details.pr
+# further collection of fasta files.
+# author= "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
+# email = "malvika.sharan@uni-wuerzburg.de"
+# 2016-05-20
 
 import os
 import argparse
@@ -15,11 +21,9 @@ except ImportError:
 import sys
 XML_PARSE = '{http://uniprot.org/uniprot}'
 
-__description__ = '''code to collect protein proteins from uniprot
+__description__ = '''code to collect protein from uniprot
 protein gene, their xml file and all the details.pr
 further collection of fasta files.'''
-__author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
-__email__ = "malvika.sharan@uni-wuerzburg.de"
 
 
 def main():
