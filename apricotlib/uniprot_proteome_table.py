@@ -1,4 +1,8 @@
 #!/usr/bin/env python
+# Description = Download UniProt based proteome data for a taxonomy id
+# author= "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
+# email = "malvika.sharan@uni-wuerzburg.de"
+# 2016-05-20
 
 import sys
 try:
