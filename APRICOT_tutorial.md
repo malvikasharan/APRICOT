@@ -46,8 +46,11 @@ record](https://zenodo.org/record/51705/files).
 ### Tutorial with an example analysis
 
 APRICOT can be executed by python (python3 is recommended) on
-Unix-flavors (GNU/Linux, BSD, OS X). In this part, we will go through
-the shell script `run_example.sh` step by step.
+Unix-flavors (GNU/Linux, BSD, OS X). 
+
+We will go through the shell script `run_example.sh` step by step. This script assumes that users have installed the software using pip. 
+
+**If you are using locally installed git repository**, please specifiy the path where APRICOT modules are located (see below: APRICOT_PATH) and run the tool using `python $APRICOT_PATH/bin/apricot` command.
 
 #### Defining paths
 
@@ -59,12 +62,12 @@ Users can set the following paths:
 # path where the analysis data by APRICOT will be stored
 ANALYSIS_PATH=APRICOT_analysis
 
+# path where the source files and databases will be stored
+ROOT_DB_PATH=source_files
+
 # path where APRICOT modules are located, by-default we use APRICOT as
 # the name of git library
 APRICOT_PATH=APRICOT
-
-# path where the source files and databases will be stored
-ROOT_DB_PATH=source_files
 `````
 
 APRICOT stores databases and source files in these paths.
