@@ -43,7 +43,7 @@ provided pre-processed files that should allow you to test the
 functionality of the tool. The files are avaialable at: [Zenodo
 record](https://zenodo.org/record/51705/files).
 
-### Tutorial with an example analysis
+### Example analysis
 
 APRICOT can be executed by python (python3 is recommended) on
 Unix-flavors (GNU/Linux, BSD, OS X). 
