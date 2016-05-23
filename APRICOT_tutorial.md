@@ -39,9 +39,9 @@ with biological features, it uses locally installed Psort and RaptorX
 executable. These requirements have been discussed in detail in the
 [documentation](https://github.com/malvikasharan/APRICOT/blob/master/README.md).
 We will **NOT** install these for the tutorial, instead we have
-provided pre-processed files that should allow you test the
-functionality of the tool [ [Zenodo
-record](https://zenodo.org/record/51705/files) ].
+provided pre-processed files that should allow you to test the
+functionality of the tool. The files are avaialable at: [Zenodo
+record](https://zenodo.org/record/51705/files).
 
 ### Tutorial with an example analysis
 
