@@ -117,9 +117,7 @@ source_files
 2) Using the `create` subcommand from APRICOT, we will create the analysis folder and its subfolder. This generates a main folder `APRICOT_analysis` (name can be defined by users), which contains subfolders as shown below.
 
 `````
-[...]
-    apricot create APRICOT_analysis
-}
+apricot create APRICOT_analysis
 `````
 
 `````
@@ -196,12 +194,9 @@ to RRM/RNP.
 
 `````
 ## *REQUIRED* INPUT-1: provide comma separated list of UniProt ids##
-query_uids='P0A6X3,P00957'
 
-provide_input_queries(){
-    # Option-1: UniProt identifier
-    apricot query --analysis_path APRICOT_analysis --uids $query_uids
-}
+query_uids='P0A6X3,P00957'          # Option-1: UniProt identifier
+apricot query --analysis_path APRICOT_analysis --uids $query_uids
 ````
 
 #### Providing keyword inputs using the subcommand `keywords`
@@ -224,11 +219,9 @@ For the second set, we have listed few enzymes along with RRM and RNP.
 domain_kw='RRM,KH,DEAD'
 
 ### *OPTIONAL* Input-2, comma separated list of keywords for protein classification based on the predicted domains
-class_kw='ribosom,helicase,synthetase,polymerase,transferase,nuclease,RRM,RNP'
 
-provide_domain_and_class_keywords(){
-    apricot keywords --db_root source_files $domain_kw -cl $class_kw
-}
+class_kw='ribosom,helicase,synthetase,polymerase,transferase,nuclease,RRM,RNP'
+apricot keywords --db_root source_files $domain_kw -cl $class_kw
 `````
 
 These keywords are listed in the files
@@ -254,9 +247,7 @@ In this tutorial we will use the default option, which selects domains
 from both CDD and InterPro databases.
 
 `````
-select_domains_by_keywords(){
-    apricot select --db_root source_files
-}
+apricot select --db_root source_files
 `````
 
 The selected domains are saved in these respective locations as ashown below.
@@ -291,10 +282,9 @@ $FASTA_PATH`.
 APRICOT skips re-prediction of the domains when the output files are
 present for the analysis of each query proteins, however users can use
 the flag `-F` to *force* the re-analysis.
+
 `````
-run_domain_prediction(){
-    apricot predict --analysis_path APRICOT_analysis 
-}
+apricot predict --analysis_path APRICOT_analysis 
 `````
 
 Please note that we are using default directory structure  for this tutorial, however, it is possible to define locations of the databases by using options `--cdd_db $CDD_PATH` and `--ipr_db $INTERPRO_PATH` for CDD and interpro respectively.
@@ -331,10 +321,8 @@ however users can provide cut-offs for different parameters (refer
 documentation).
 
 `````
-filter_domain_analysis(){
-    apricot filter --analysis_path APRICOT_analysis \
-    --similarity 24 --coverage 39
-}
+apricot filter --analysis_path APRICOT_analysis \
+--similarity 24 --coverage 39
 `````
 
 The files obtained from this analysis are stored in the subfolder
@@ -371,10 +359,9 @@ are either explicitely defined (`-cl` flag in `keywords`) or are used
 for the domain selection.
 
 `````
-classify_filtered_result(){
-    apricot classify --analysis_path APRICOT_analysis
-}
+apricot classify --analysis_path APRICOT_analysis
 `````
+
 The list of proteins that are selected based on the domains of interest is classified when the annotations contain one of the terms. The classified files are stored in the subfolder `2_selected_domain_information` as shown below.
 
 `````
@@ -395,9 +382,7 @@ features, which have been used in APRICOT for the scoring of the
 predicted domains with respect to their reference consensus.
 
 `````
-calculate_annotation_score(){
-    apricot annoscore --analysis_path APRICOT_analysis
-}
+apricot annoscore --analysis_path APRICOT_analysis
 `````
 
 The files generated from this analysis are stored in the subfolder
@@ -418,9 +403,7 @@ example, the query proteins mapped to UniPro, total selected domains
 per keyword, summary of domain predictions and their selection.
 
 `````
-create_analysis_summary(){
-    apricot summary --analysis_path APRICOT_analysis
-}
+apricot summary --analysis_path APRICOT_analysis
 `````
 The summary file is stored in the subfolder `5_analysis_summary` analysis folder as shown below.
 
@@ -441,9 +424,7 @@ or excel format (.xlsx) using `-XL` flag, where the later one uses
 In this tutorial we have used `-HT` option.
 
 `````
-output_file_formats(){
-    apricot format --analysis_path APRICOT_analysis -HT
-}
+apricot format --analysis_path APRICOT_analysis -HT
 `````
 
 All the files in the format of selection are stored in the subfolder
