@@ -21,28 +21,30 @@
     <section class="main-content">
       <h3>
 <a id="APRICOT" class="anchor" href="#apricot" aria-hidden="true"><span class="octicon octicon-link"></span></a>APRICOT</h3>
+<h2 id="a-tool-for-sequence-based-identification-and-characterization-of-protein-classes">A tool for sequence-based identification and characterization of protein classes</h2>
+<p>APRICOT_ is a computational pipeline for the identification of specific functional classes of interest in large protein sets. The pipeline uses efficient sequence-based algorithms and predictive models like signature motifs of protein families for the characterization of user-provided query proteins with specific functional features. The dynamic framework of APRICOT allows the identification of unexplored functional classes of interest in the large protein sets or the entire proteome.</p>
+<h2 id="authors-and-contributors">Authors and Contributors</h2>
+<p>The tool is designed and developed by Malvika Sharan @malvikasharan in the lab of Prof. Dr. Jörg Vogel and Dr. Ana Eulalio in the Institute for Molecular Infection Biology at the University of Würzburg. Dr. Konrad Förstner @konrad contributed to the project by providing important technical supervision and discussions. The authors are grateful to Prof. Thomas dandekar, Dr. Charlotte Michaux, Caroline Taouk and Dr. Lars Barquist for critical discussions and feedback.</p>
+<h2 id="source-code">Source code</h2>
+<p>The source codes of APRICOT are available via git <a href="https://github.com/malvikasharan/APRICOT" class="uri">https://github.com/malvikasharan/APRICOT</a> and pypi <a href="https://pypi.python.org/pypi/bio-apricot" class="uri">https://pypi.python.org/pypi/bio-apricot</a>.</p>
+<h1 id="license">License</h1>
+<p>APRICOT is open source software and available under the ISC license.</p>
+<p>Copyright (c) 2011-2015, Malvika Sharan, <a href="mailto:malvika.sharan@uni-wuerzburg.de">malvika.sharan@uni-wuerzburg.de</a></p>
+<p>Please read the license content here_.</p>
+<h1 id="installation">Installation</h1>
+<p>APRICOT can be installed with pip</p>
+<pre><code>$ pip install bio-apricot</code></pre>
+<p>The scripts for the installaton of the different componenents of APRICOT (databases, tools and flatfiles) are available on the GitHub repository. You can manually download the APRICOT repository or simply clone it.</p>
+<pre><code>$ git clone https://github.com/malvikasharan/APRICOT.git</code></pre>
+<p>The Docker image for APRICOT_ will be available soon.</p>
+<p>The shell script to install and run the analysis in a streamlined manner is provided with the package (see here_).</p>
+<h1 id="working-example">Working example</h1>
+<p>We recomend you to check out the tutorial_ that discusses each module of APRICOT in detail. The repository contains a shell script run\_example.sh_, which can be used for the demonstration of APRICOT analysis with an example.</p>
+<p>In the GitHub repository we have provided a test folder named tests_, to allow the system testing. The instructions and commands are provided in the shell scipt system\_test.sh_.</p>
+<p>Users can choose to install all the tools and databases for a complete test. Optionally, the test datasets_ can be used for basic testing, which does not require installation of third party tools.</p>
+<h1 id="contact">Contact</h1>
 
-<p>APRICOT is a computational pipeline for the identification of specific functional classes of interest in large protein sets. The pipeline uses efficient sequence-based algorithms and predictive models like signature motifs of protein families for the characterization of user-provided query proteins with specific functional features. The dynamic framework of APRICOT allows the identification of unexplored functional classes of interest in the large protein sets or the entire proteome.</p>
-
-<p>Please check the <a href="https://github.com/malvikasharan/APRICOT/blob/master/README.md">documentation</a> for detail.</p>
-<h3>
-<a id="Trivia" class="anchor" href="#trivia" aria-hidden="true"><span class="octicon octicon-link"></span></a>Trivia</h3>
-
-<p>The initial focus of this project was to identify functional domains in bacterial proteins that have the potential to interact with RNA (RNA-binding proteins or RBPs) and understand their regulatory roles and mechanisms. Hence, the tool is named APRICOT that stands for Analysing Protein RNA Interactions by Combined Output Technique. However, due to the adaptability of the pipeline to different sets of reference domains, APRICOT is not limited to RBP identification. The combined output referes to the combined scoring method of the software that uses a series of sequence based features to score the proteins predicted with the domains of interest, which has been tested successfully on the several functional classes besides RBPs. We are carrying out the experimental validations of few RBPs identified by APRICOT in collaboration with the biologists in our lab, which can provide a high confidence dataset and contribute significantly to the improvement of this computational approach.
-</p>
-
-<h3>
-<a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-<p>The tool is designed and developed by Malvika Sharan <a href="https://github.com/malvikasharan" class="user-mention">@malvikasharan</a> in the lab of <a href="http://www.imib-wuerzburg.de/research/vogel/group-leader/">Prof. Dr. Jörg Vogel</a> and Dr. Ana Eulalio in the Institute for Molecular Infection Biology at the University of Würzburg. 
-
-Dr. Konrad Förstner <a href="https://github.com/konrad" class="user-mention">@konrad</a> contributed to the project by providing important technical supervision and discussions. 
-
-The authors are grateful to Prof. Thomas dandekar, Dr. Charlotte Michaux, Caroline Taouk and Dr. Lars Barquist for critical discussions and feedback.</p>
-<h3>
-<a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out our <a href="https://github.com/malvikasharan/APRICOT/blob/master/README.md">documentation</a> or <a href="https://github.com/malvikasharan">contact us</a> and we’ll help you sort it out.</p>
+<p>For questions, troubleshooting and requests, check out our <a href="https://github.com/malvikasharan/APRICOT/blob/master/README.md">documentation</a> or <a href="https://github.com/malvikasharan">contact us</a> and we’ll help you sort it out.</p>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/malvikasharan/APRICOT">APRICOT</a> is maintained by <a href="https://github.com/malvikasharan">malvikasharan</a>.</span>
