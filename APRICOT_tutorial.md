@@ -12,7 +12,7 @@ from GitHub, which will assist you in following the tutorial.
 $ wget -N https://raw.githubusercontent.com/malvikasharan/APRICOT/master/run_example.sh
 ```
 
-2) Use pip to install/update the package
+2) Use [pip](https://pip.pypa.io/en/stable/) to install/update the package
 
 ```
 $ pip install bio-apricot
@@ -48,7 +48,9 @@ record](https://zenodo.org/record/51705/files).
 APRICOT can be executed by python (python3 is recommended) on
 Unix-flavors (GNU/Linux, BSD, OS X). 
 
-We will go through the shell script `run_example.sh` step by step. This script assumes that users have installed the software using pip. 
+We will go through the shell script `run_example.sh` step by
+step. This script assumes that users have installed the software using
+[pip](https://pip.pypa.io/en/stable/) as described above.
 
 **If you are using locally installed git repository**, please specifiy the path where APRICOT modules are located (see below: APRICOT_PATH) and run the tool using `python $APRICOT_PATH/bin/apricot` or `./$APRICOT_PATH/bin/apricot` command.
 
