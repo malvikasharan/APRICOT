@@ -1,4 +1,8 @@
 #!/usr/bin/env python
+# Description = Stores user provided keywords in files.
+# author= "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
+# email = "malvika.sharan@uni-wuerzburg.de"
+# 2016-05-20
 
 
 def keyword_domains_files(kw_file_path, keywords):
