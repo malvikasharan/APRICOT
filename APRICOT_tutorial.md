@@ -69,13 +69,13 @@ Users can set the following paths:
 ```
 ## User defined PATHS (default paths are given)
 
-# path where the analysis data by APRICOT will be stored
+# Path where the analysis data by APRICOT will be stored
 ANALYSIS_PATH=APRICOT_analysis
 
-# path where the source files and databases will be stored
+# Path where the source files and databases will be stored
 ROOT_DB_PATH=source_files
 
-# path where APRICOT modules are located, by-default we use APRICOT as
+# Path where APRICOT modules are located, by default we use APRICOT as
 # the name of git library
 APRICOT_PATH=APRICOT
 ```
@@ -88,7 +88,7 @@ APRICOT stores databases and source files in these paths.
 # Source data downloaded by APRICOT
 DB_PATH=$ROOT_DB_PATH/reference_db_files
 
-## PATHS for domain databases
+# Path for domain databases
 CDD_PATH=$DB_PATH/cdd/Cdd
 INTERPRO_PATH=$DB_PATH/interpro/interproscan
 ```
@@ -128,7 +128,10 @@ source_files
 
 ```
 
-2) Using the `create` subcommand from APRICOT, we will create the analysis folder and its subfolder. This generates a main folder `APRICOT_analysis` (name can be defined by users), which contains subfolders as shown below.
+2) Using the `create` subcommand from APRICOT, we will create the
+analysis folder and its subfolder. This generates a main folder
+`APRICOT_analysis` (name can be defined by users), which contains
+subfolders as shown below.
 
 ```
 apricot create APRICOT_analysis
@@ -198,13 +201,13 @@ is a family of conserved RNA-binding domains.
 
 Users can provide query proteins using various options. Here we use
 the input option as UniProt identifiers and provide 2 query proteins:
-P0A6X3,P00957.
+´P0A6X3,P00957´.
 
-P0A6X3 is used as an example for positive test, it is Hfq protein that
-contains sm and RRM/RNP like domain. P00957 is used as an example for
-negative test, it is alaS protein that contains domain related to
-tRNA-ligase therefore, it must not be identified with domains reltaed
-to RRM/RNP.
+´P0A6X3´ is used as an example for positive test, it is Hfq protein
+that contains sm and RRM/RNP like domain. ´P00957´ is used as an
+example for negative test, it is alaS protein that contains domain
+related to tRNA-ligase therefore, it must not be identified with
+domains reltaed to RRM/RNP.
 
 ```
 ## *REQUIRED* INPUT-1: provide comma separated list of UniProt ids##
@@ -215,18 +218,18 @@ apricot query --analysis_path APRICOT_analysis --uids $query_uids
 
 #### Providing keyword inputs using the subcommand `keywords`
 
-There are two sets of keyword inputs, first-set is required to select
-domains from domain databases and second set, which is an optional
-input, should comprise of terms that will classify our results
-accordingly.
+There are two sets of keyword inputs: The first set is required to
+select domains from domain databases and the second set, which is an
+optional input, should comprise of terms that will classify our
+results accordingly.
 
-In this turtorial we are interested in identifying RRM containing
-protein, hence, we will use RRM as one of the terms. Additionally, we
-can provide other terms (for example, KH and DEAD) to see if there are
-domains associtaed with those terms could be identified in our query
-proteins.
+In this turtorial we are interested in identifying `RRM` containing
+protein, hence, we will use `RRM` as one of the terms. Additionally,
+we can provide other terms (for example, `KH` and `DEAD`) to see if
+there are domains associated with those terms could be identified in
+our query proteins.
 
-For the second set, we have listed few enzymes along with RRM and RNP.
+For the second set, we have listed few enzymes along with `RRM` and `RNP`.
 
 ```
 ### *REQUIRED* Input-2, comma separated list of keywords for domain selection
@@ -286,11 +289,11 @@ This subcommand uses one of the core modules of APRICOT, which
 predicts all the possible domains in the query domains.
 
 For this analysis, APRICOT uses both the databases by default, however
-single database can be defined by using flag `-C` or `-I` for CDD and
-InterPro respectively. In case users provide the input as fasta files,
-the `query` subcommand can be skipped and the prediction of domains
-can be carried out directly, however in that case the path for fasta
-files (FASTA_PATH) can be provided using the option `--fasta
+a single database can be defined by using flag `-C` or `-I` for CDD
+and InterPro respectively. In case users provide the input as fasta
+files, the `query` subcommand can be skipped and the prediction of
+domains can be carried out directly, however in that case the path for
+fasta files (FASTA_PATH) can be provided using the option `--fasta
 $FASTA_PATH`.
 
 APRICOT skips re-prediction of the domains when the output files are
@@ -301,7 +304,10 @@ the flag `-F` to *force* the re-analysis.
 apricot predict --analysis_path APRICOT_analysis 
 ```
 
-Please note that we are using default directory structure  for this tutorial, however, it is possible to define locations of the databases by using options `--cdd_db $CDD_PATH` and `--ipr_db $INTERPRO_PATH` for CDD and interpro respectively.
+Please note that we are using default directory structure for this
+tutorial, however, it is possible to define locations of the databases
+by using options `--cdd_db $CDD_PATH` and `--ipr_db $INTERPRO_PATH`
+for CDD and interpro respectively.
 
 In this tutorial, to avoid the use of domain databases and tools
 (avoid the prediction of domains), we provided the output files
@@ -328,11 +334,11 @@ order to select proteins that are predicted with the domains of
 interest (selected from databases using `select`).
 
 In this tutorial we have used the default parameters (refer
-documentation) with their optimal cut-offs (`--similarity 24` for 24%
+documentation) with their optimal cut-offs (`--similarity 24` for 24 %
 minimum similarity between the reference and predicted domain and
-`--coverage 39` for 39% minimum domain coverage in the query protein),
-however users can provide cut-offs for different parameters (refer
-documentation).
+`--coverage 39` for 39 % minimum domain coverage in the query
+protein), however users can provide cut-offs for different parameters
+(refer documentation).
 
 ```
 apricot filter --analysis_path APRICOT_analysis \
@@ -348,19 +354,19 @@ location are as shown below.
 ```
 APRICOT_analysis
     └───├output                             
-            └───├1_compiled_domain_information  #Formatted flat files containg domain information
-            |   └───├selected_data              #Files containing proteins that contain domains of interest with the predcited domains
-            |   |       cdd_filtered.csv        #proteins containing CDD domains of interest
-            |   |       cdd_filtered_id.csv     #proteins IDs containing CDD domains IDs of interest
-            |   |       ipr_filtered.csv        #proteins containing InterPro domains of interest
-            |   |       ipr_filtered_id.csv     #proteins IDs containing InterPro domains IDs of interest
+            └───├1_compiled_domain_information  # Formatted flat files containg domain information
+            |   └───├selected_data              # Files containing proteins that contain domains of interest with the predcited domains
+            |   |       cdd_filtered.csv        # proteins containing CDD domains of interest
+            |   |       cdd_filtered_id.csv     # proteins IDs containing CDD domains IDs of interest
+            |   |       ipr_filtered.csv        # proteins containing InterPro domains of interest
+            |   |       ipr_filtered_id.csv     # proteins IDs containing InterPro domains IDs of interest
             |   |
-            |   └───├unfiltered_data                            #All the domains predicted in the query proteins (unfiltered)
+            |   └───├unfiltered_data            # All the domains predicted in the query proteins (unfiltered)
             |            cdd_unfiltered_all_prediction.csv  
             |            ipr_unfiltered_all_prediction.csv
             |
             └───├2_selected_domain_information
-                └───├combined_data                              #Annotation extended for the selected proteins
+                └───├combined_data              # Annotation extended for the selected proteins
                         annotation_extended_for_selected.csv    
 ```
 
@@ -376,12 +382,15 @@ for the domain selection.
 apricot classify --analysis_path APRICOT_analysis
 ```
 
-The list of proteins that are selected based on the domains of interest is classified when the annotations contain one of the terms. The classified files are stored in the subfolder `2_selected_domain_information` as shown below.
+The list of proteins that are selected based on the domains of
+interest is classified when the annotations contain one of the
+terms. The classified files are stored in the subfolder
+`2_selected_domain_information` as shown below.
 
 ```
 APRICOT_analysis
     └───├output                             
-            └───├2_selected_domain_information         # Selected data classified into smaller subsets based on the keyword input
+            └───├2_selected_domain_information   # Selected data classified into smaller subsets based on the keyword input
                 └───├classified_data
                         RNP_selected_data.csv  
                         RRM_selected_data.csv
@@ -430,7 +439,7 @@ APRICOT_analysis
 
 ##### Format output files using the subcommand `format`
 
-APRICOT by default produces output files in comma-separated version
+APRICOT by default produces output files in comma-separated format
 (.csv). Users can convert these files to HTML format using `-HT` flag
 or excel format (.xlsx) using `-XL` flag, where the later one uses
 `openpyxl` python module.
@@ -464,7 +473,9 @@ This concludes the tutorial for the analysis conducted by APRICOT. All
 of these modules can be run in an automated streamlined manner using
 the provided shell script as shown below.
 
-    $ sh run_example.sh
+```
+$ sh run_example.sh
+```
 
 ### Troubleshooting
 
