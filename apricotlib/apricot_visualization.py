@@ -1,13 +1,12 @@
 #!/usr/bin/env python
+# Description = Visualizes different output data from APRICOT analysis
+# author= "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
+# email = "malvika.sharan@uni-wuerzburg.de"
+# 2016-05-20
 
 from collections import defaultdict
 import os
 import sys
-
-__description__ = "Visualizes different output data from APRICOT analysis."
-__author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
-__email__ = "malvika.sharan@uni-wuerzburg.de"
-
 
 try:
     import subprocess
