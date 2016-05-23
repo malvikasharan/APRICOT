@@ -39,7 +39,7 @@ $ git clone https://github.com/malvikasharan/APRICOT.git
 `````
 The [Docker image for APRICOT](https://github.com/malvikasharan/APRICOT/blob/master/Dockerfile) will be available soon.
 
-The shell script to install and run the analysis in a streamlined manner is provided with the package ([see here](https://github.com/malvikasharan/APRICOT/blob/master/system_test.sh)).
+The shell script to install and run the analysis in a streamlined manner is provided with the package, [see here](https://github.com/malvikasharan/APRICOT/blob/master/system_test.sh).
 
 ####Working example
 
