@@ -37,7 +37,7 @@ https://pypi.python.org/pypi/bio-apricot.
 License
 -------
 
-APRICOT is open source software and available under the ISC license.
+APRICOT is open source software and is available under the ISC license.
 
 Copyright (c) 2011-2015, Malvika Sharan, malvika.sharan@uni-wuerzburg.de
 
