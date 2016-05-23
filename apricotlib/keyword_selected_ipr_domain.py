@@ -1,11 +1,11 @@
 #!/usr/bin/env python
+# Description = selects rna related domains from InterPro database.
+# author= "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
+# email = "malvika.sharan@uni-wuerzburg.de"
+# 2016-05-20
 
 import argparse
 import re
-
-__description__ = "Identifies keyword selected domains from InterPro database."
-__author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
-__email__ = "malvika.sharan@uni-wuerzburg.de"
 
 
 def main():
