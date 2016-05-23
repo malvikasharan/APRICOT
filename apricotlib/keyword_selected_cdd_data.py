@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# Description = selects proteins based on the domains from cdd database
+# Description = selects domains from cdd database
 # author= "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
 # email = "malvika.sharan@uni-wuerzburg.de"
 # 2016-05-20
