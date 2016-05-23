@@ -8,7 +8,7 @@ PYTHON_PATH=python
 APRICOT_PATH=$1
 
 # Full path where you have cloned/save APRICOT
-apricot_lib=$APRICOT_PATH/apricotlib
+apricot_lib=../$APRICOT_PATH/apricotlib
 
 # Path where you want to store the data
 APRICOT_DB_PATH=$2
