@@ -203,11 +203,11 @@ Users can provide query proteins using various options. Here we use
 the input option as UniProt identifiers and provide 2 query proteins:
 ´P0A6X3,P00957´.
 
-´P0A6X3´ is used as an example for positive test, it is Hfq protein
-that contains sm and RRM/RNP like domain. ´P00957´ is used as an
-example for negative test, it is alaS protein that contains domain
-related to tRNA-ligase therefore, it must not be identified with
-domains reltaed to RRM/RNP.
+The protein ID ´P0A6X3´ is used as an positive example. It represents
+the Hfq protein that contains sm and RRM/RNP like domain. The protein
+ID ´P00957´ is used as an negative example which represents the
+protein AlaS that contains a domain related to tRNA-ligase therefore,
+it must not be identified with domains reltaed to RRM/RNP.
 
 ```
 ## *REQUIRED* INPUT-1: provide comma separated list of UniProt ids##
@@ -442,7 +442,7 @@ APRICOT_analysis
 APRICOT by default produces output files in comma-separated format
 (.csv). Users can convert these files to HTML format using `-HT` flag
 or excel format (.xlsx) using `-XL` flag, where the later one uses
-`openpyxl` python module.
+the `openpyxl` python module.
 
 In this tutorial we have used `-HT` option.
 
