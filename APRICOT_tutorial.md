@@ -24,7 +24,7 @@ or
 $ pip install --user bio-apricot
 ```
 
-or use the [APRICOT repository](https://github.com/malvikasharan/APRICOT/archive/master.zip) from GiHub 
+or use [APRICOT repository](https://github.com/malvikasharan/APRICOT/archive/master.zip) from GiHub 
 
 ```
 $ git clone https://github.com/malvikasharan/APRICOT.git
