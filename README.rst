@@ -66,7 +66,7 @@ The shell script to install and run the analysis in a streamlined manner
 is provided with the package (`see here`_).
 
 Working example
-^^^^^^^^^^^^^^^
+---------------
 
 We recomend you to check out the `tutorial`_ that discusses each module
 of APRICOT in detail. The repository contains a shell script
@@ -91,6 +91,7 @@ malvikasharan@gmail.com
 .. _APRICOT: http://malvikasharan.github.io/APRICOT/
 .. _here: https://github.com/malvikasharan/APRICOT/blob/master/LICENSE.md
 .. _Docker image for APRICOT: https://github.com/malvikasharan/APRICOT/blob/master/Dockerfile
+.. _see here: https://github.com/malvikasharan/APRICOT/blob/master/system_test.sh
 .. _tutorial: https://github.com/malvikasharan/APRICOT/blob/master/APRICOT_tutorial.md
 .. _run\_example.sh: https://github.com/malvikasharan/APRICOT/blob/master/shell_scripts/run_example.sh
 .. _tests: https://github.com/malvikasharan/APRICOT/tree/master/tests
