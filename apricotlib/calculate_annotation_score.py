@@ -1,4 +1,8 @@
 #!/usr/bin/env python
+# Description = Calculate feature based combined annotation scores
+# author= "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
+# email = "malvika.sharan@uni-wuerzburg.de"
+# 2016-05-20
 
 import os
 import sys
@@ -25,11 +29,6 @@ try:
 except ImportError:
     print('Python package scipy is missing. Please install/update.\n')
     sys.sxit(0)
-
-__description__ = "Calculates annotation based scoring."
-__author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
-__email__ = "malvika.sharan@uni-wuerzburg.de"
-
 
 class ComputeCompositionDistance(object):
     def __init__(self, filtered_data,
