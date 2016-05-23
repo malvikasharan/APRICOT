@@ -1,4 +1,9 @@
 #! /usr/bin/env python
+# Description = This script is designed to convert the file types.
+# tab separated files to xlsx files
+# author= "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
+# email = "malvika.sharan@uni-wuerzburg.de"
+# 2016-05-20
 
 import os
 import sys
@@ -10,12 +15,7 @@ try:
 except ImportError:
     print('Python package openpyxl is missing. Please install/update.\n'
     'Please ignore if you chose the output format as HTML')
-
-__description__ = '''This script is designed to convert the file types.
-tab separated files to xlsx files'''
-__author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
-__email__ = "malvika.sharan@uni-wuerzburg.de"
-
+    
 
 def csv_to_xlsx(inpath, outpath):
     '''Converts table to excel'''
