@@ -1,6 +1,9 @@
 #!/usr/bin/env python
+# Description = selects rna related domains from cdd database
+# author= "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
+# email = "malvika.sharan@uni-wuerzburg.de"
+# 2016-05-20
 
-'''selects rna related domains from cdd database.'''
 
 import sys
 import re
