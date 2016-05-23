@@ -1,4 +1,8 @@
 #!/usr/bin/env python
+# Description = Predic 3 or 8 state secondary structure using RaptorX
+# author= "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
+# email = "malvika.sharan@uni-wuerzburg.de"
+# 2016-05-20
 
 import os
 import subprocess
