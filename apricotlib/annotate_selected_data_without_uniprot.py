@@ -2,6 +2,10 @@
 
 import os
 
+__description__ = "Annotates protein entries."
+__author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
+__email__ = "malvika.sharan@uni-wuerzburg.de"
+
 
 class SelectedProteinTableWithoutUniprot(object):
     def __init__(self, filtered_data_path,
