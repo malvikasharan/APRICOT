@@ -1,5 +1,8 @@
 #!/usr/bin/env python
-
+# Description = Download the taxonomy ids related to user provided species
+# author= "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
+# email = "malvika.sharan@uni-wuerzburg.de"
+# 2016-05-20
 
 def select_taxids(species, reference_taxonomy_file, selected_taxonomy_file):
     '''Selects taxonomy ids for the query species'''
