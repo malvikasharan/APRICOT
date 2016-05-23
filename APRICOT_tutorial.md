@@ -52,7 +52,11 @@ We will go through the shell script `run_example.sh` step by
 step. This script assumes that users have installed the software using
 [pip](https://pip.pypa.io/en/stable/) as described above.
 
-**If you are using locally installed git repository**, please specifiy the path where APRICOT modules are located (see below: APRICOT_PATH) and run the tool using `python $APRICOT_PATH/bin/apricot` or `./$APRICOT_PATH/bin/apricot` command.
+**If you are using locally installed git repository**, please specifiy
+the path where APRICOT modules are located (see below: APRICOT_PATH)
+and run the tool using `python $APRICOT_PATH/bin/apricot` (which would
+have the advantage that you can specify the Python version you would
+like to use) or `./$APRICOT_PATH/bin/apricot` command.
 
 ```
 python $APRICOT_PATH/bin/apricot -h
