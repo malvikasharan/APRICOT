@@ -1,4 +1,8 @@
 #!/usr/bin/env python
+# Description = Creates an overview for APRICOT analysis
+# author= "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
+# email = "malvika.sharan@uni-wuerzburg.de"
+# 2016-05-20
 
 import os
 from collections import defaultdict
