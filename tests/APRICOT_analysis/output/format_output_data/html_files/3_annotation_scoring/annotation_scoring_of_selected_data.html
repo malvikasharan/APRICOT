@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css">
+<script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
+<script type="text/javascript" language="javascript" class="init">
+$(document).ready(function () {
+	$("#subscriptionlist").dataTable();
+});
+</script>
+<style type="text/CSS">
+table, th, td {
+	border: 1px solid #E8E8E8;
+	border-collapse: collapse;
+	min-width:150px;
+	text-align:center
+}
+</style>
+</head>
+<div id="subscriptionsList">
+<h2>Source file: annotation_scoring_of_selected_data.csv</h2>
+<h3>Source path: APRICOT_analysis/output/3_annotation_scoring</h3>
+<table id="subscriptionlist">
+<thead>
+<tr>
+<th>Entry</th><th>Entry name</th><th>Protein names</th><th>Organism</th><th>Length</th><th>Resource</th><th>ResourceID</th><th>DomainID</th><th>ShortName</th><th>FullName</th><th>DomainLength</th><th>Start</th><th>Stop</th><th>ReferenceSequence</th><th>QuerySequence</th><th>ReferenceSecStr (H:alpha-helix, E:beta-sheet, C:tu<br>rns&loops)</th><th>QuerySecStr (H:alpha-helix, E:beta-sheet, C:turns&<br>loops)</th><th>Coverage</th><th>Identity</th><th>Similarity</th><th>Gap</th><th>CoverageByDomainLength (filter-1)</th><th>IdentityByCoverage (filter-1)</th><th>SimilarityByCoverage (filter-1)</th><th>UngappedByCoverage (filter-1)</th><th>MolecularMass (filter-2)</th><th>IsoelectricPoint (filter-2)</th><th>Solubility (filter-2)</th><th>VanDerWaalValue (filter-2)</th><th>PkaValue (filter-2)</th><th>AA-RODistance(filter-3)</th><th>SecStr-RODistance (filter-3)</th><th>PhysiChemiComp-EDistance (filter-4)</th><th>DipeptideComp-EDistance (filter-4)</th><th>TripeptideComp-EDistance (filter-4)</th><th>Average filter-1 (Predicted properties (PP))</th><th>Average filter-2 (Chemical properties)</th><th>Average filter-3 (Needleman Wunsch sequence similarity)</th><th>Average filter-4 (Euclidean distance for composition)</th><th>Bayesian Score (based on all the filters)
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P0A6X3</td><td>HFQ_ECOLI</td><td>RNA-binding protein Hfq (HF-1) (Host factor-I protein) (HF-I)</td><td>Escherichia coli (strain K12)</td><td>102</td><td>CDD</td><td>241036</td><td>cd12592</td><td>RRM_RBM7</td><td>RNA recognition motif in vertebrate RNA-binding protein 7 (RBM7). This subfamily corresponds to the RRM of RBM7, a ubiquitously expressed pre-mRNA splicing factor that enhances messenger RNA (mRNA) splicing in a cell-specific manner or in a certain developmental process, such as spermatogenesis. RBM7 interacts with splicing factors SAP145 (the spliceosomal splicing factor 3b subunit 2) and SRp20. It may play a more specific role in meiosis entry and progression. Together with additional testis-specific RNA-binding proteins, RBM7 may regulate the splicing of specific pre-mRNA species that are important in the meiotic cell cycle. RBM7 contains an N-terminal RNA recognition motif (RRM), also termed RBD (RNA binding domain) or RNP (ribonucleoprotein domain), and a region lacking known homology at the C-terminus.</td><td>75</td><td>4</td><td>35</td><td>GKPKQFAFVNFKHEVSVPYAMNLLNGIKLYGR</td><td>GQSLQDPFLNALRRERVPVSIYLVNGIKLQGQ</td><td>CHCHHEHEECEHHHECECEHHCHHCCEHHECH</td><td>CHCHHCCEHCHHHHHHECECEEHECCEHHHCH</td><td>31.0</td><td>13/32 (40%)</td><td>19/32 (59%)</td><td>0</td><td>0.3039</td><td>0.4194</td><td>0.6129</td><td>1.0000</td><td>1 (3592.2360, 3649.3590)</td><td>0 (325.4210, 500.0280)</td><td>1 (552.8323, 628.2586)</td><td>1 (2775.0000, 3068.0000)</td><td>0 (208.3100, 352.4300)</td><td>0.5120</td><td>0.6490</td><td>0.6010</td><td>0.6825</td><td>0.6364</td><td>0.5840</td><td>0.6000</td><td>0.5805</td><td>0.6400</td><td>0.6011258132743056
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</html>

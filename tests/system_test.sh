@@ -16,7 +16,7 @@ APRICOT_CALL="../bin/apricot"
 
 # ... or set a Python version for that call ...
 # PYTHON_PATH=python3
-# APRICOT_CALL="$APRICOT_PATH/bin/apricot"
+# APRICOT_CALL="$APRICOT_PATH/bin/apricot"    #"python3 ../bin/apricot"
 
 # ... or use the installed version of apricot
 # APRICOT_CALL="apricot"
@@ -95,33 +95,41 @@ class_kw='ribosom,helicase,synthetase,polymerase,transferase,nuclease,RRM,RNP'
 ######################################################################
     
 main(){
-    create_folders
-    install_minimum_required_files
-    # install_complete_db_and_tools               ### Optionally use 'install_complete_db_and_tools', that will install all the third-party tools for additional annotation
-    exit
     
-    set_up_analysis_folder    
+    set_up_analysis_folder			            ### Set up analysis folders for APRICOT analysis
 
-    retrieve_taxonomy_id_list                   ### This step could be skipped if using uniprot ids as queries
-                                                ## select a taxonomy id from the list genetrated by using $species
+    ### Install databases and third-party tools required by APRICOT
+    # install_minimum_required_files            ### Optionally use 'install_complete_db_and_tools', that will install all the third-party tools for additional annotation
+
+    ### Test APRICOT without installing databases and the third-party tools
+    ## this test is only for query uids: P0A6X3,P00957
+    ## additional annotation is not allowed with this option
+    work_with_test_files			            ### Copies small demo files from GitHub
+    
+    ### This step could be skipped if using uniprot ids as queries
+    # retrieve_taxonomy_id_list                 ## select a taxonomy id from the list genetrated by using $species
                                                 ## for full list look at $FIXED_DB_FILES/all_taxids/speclist.txt
-    provide_input_queries
-    provide_domain_and_class_keywords
-    select_domains_by_keywords
-    run_domain_prediction
-    filter_domain_analysis
-    classify_filtered_result
-    calculate_annotation_score                 
-    create_analysis_summary
-    output_file_formats                         #### Format output files as HTML or xlsx
-        
-    ###ADDITIONAL ANNOTATION###                 ### requires third party tools: RaptorX, PsortB, can be installed by 'install_complete_db_and_tools'###
-    #calculate_additional_annotation            ## PsortB and -RaptorX must be installed for their respective annotation
-    #create_visualization_files                 ## Create visualization files
+    provide_input_queries			            ### Subcommand: query
+    provide_domain_and_class_keywords		    ### Subcommand: keywords
+    select_domains_by_keywords			        ### Subcommand: select
+    run_domain_prediction			            ### Subcommand: predict
+    filter_domain_analysis			            ### Subcommand: filter
+    classify_filtered_result			        ### Subcommand: classify
+    calculate_annotation_score			        ### Subcommand: annoscore
+    create_analysis_summary			            ### Subcommand: summary
+    output_file_formats                         ### Subcommand: format (output file conversion fro csv to HTML or xlsx)
+
+    ###ADDITIONAL ANNOTATION###                 ### requires third party tools, which can be installed by 'install_complete_db_and_tools'###
+    #calculate_additional_annotation            ## Subcommand: addanno (PsortB and -RaptorX must be installed for their respective annotation)
+    #create_visualization_files                 ## Subcommand: vis
 }
 
-create_folders(){
-    mkdir -p $APRICOT_PATH # $ANALYSIS_PATH $DB_PATH $APRICOT_LIBRARY
+set_up_analysis_folder(){
+    ## paths for source files/databases
+    mkdir -p $DB_PATH # $APRICOT_PATH $APRICOT_LIBRARY
+    
+    ## Paths for APRICOT analysis
+    $APRICOT_CALL create $ANALYSIS_PATH
 }
 
 install_complete_db_and_tools(){
@@ -133,9 +141,15 @@ install_minimum_required_files(){
     # sh $APRICOT_PATH/shell_scripts/apricot_minimum_required_files.sh $APRICOT_PATH
 }
 
-set_up_analysis_folder(){
-    $APRICOT_CALL create $ANALYSIS_PATH
+work_with_test_files (){
+    cp -r demo_files_small/cdd $DB_PATH
+    cp -r demo_files_small/interpro $DB_PATH
+    cp -r demo_files_small/go_mapping $DB_PATH
+    cp -r demo_files_small/pfam $DB_PATH
+    cp -r demo_files_small/cdd_analysis $ANALYSIS_PATH/output/0_predicted_domains/
+    cp -r demo_files_small/ipr_analysis $ANALYSIS_PATH/output/0_predicted_domains/
 }
+
 
 retrieve_taxonomy_id_list(){
     $APRICOT_CALL taxid \
@@ -147,7 +161,7 @@ provide_input_queries(){
     ## Option-1
     $APRICOT_CALL query \
     --analysis_path $ANALYSIS_PATH \
-    --uids $query_uids
+    --uids $QUERY_UIDS
     
     ## Option-2
     #$APRICOT_CALL query \
@@ -168,17 +182,15 @@ provide_input_queries(){
 }
 
 provide_domain_and_class_keywords(){
-    $APRICOT_CALL keywords \
-    --db_root $DB_ROOT_PATH \
-    $domain_kw  \
-    --db_root $\
-    -cl $class_kw
+    $APRICOT_CALL keywords $domain_kw  \
+    --class $class_kw \
+    --db_root $ROOT_DB_PATH
 }
 
 select_domains_by_keywords(){
     ## Selection of domains from both CDD and InterPro by default
     ## use from flags -C for CDD or -I for InterPro
-    $APRICOT_CALL select --db_root $DB_ROOT_PATH
+    $APRICOT_CALL select --db_root $ROOT_DB_PATH
 }
 
 run_domain_prediction(){

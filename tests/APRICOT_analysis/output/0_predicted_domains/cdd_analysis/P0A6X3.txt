@@ -1,0 +1,467 @@
+RPS-BLAST 2.2.26 [Sep-21-2011]
+
+Database: CDD.v3.14 
+           47,363 sequences; 11,500,350 total letters
+
+Searching..................................................done
+
+Query= sp|P0A6X3|HFQ_ECOLI RNA-binding protein Hfq OS=Escherichia coli
+(strain K12) GN=hfq PE=1 SV=2
+         (102 letters)
+
+
+
+                                                                 Score    E
+Sequences producing significant alignments:                      (bits) Value
+
+gnl|CDD|179001 PRK00395, hfq, RNA-binding protein Hfq; Provisional.   148   5e-47
+gnl|CDD|224834 COG1923, Hfq, Uncharacterized host factor I prote...   125   4e-38
+gnl|CDD|274101 TIGR02383, RNA-binding_protein_Hfq, RNA chaperone...   101   8e-29
+gnl|CDD|212463 cd01716, Hfq, bacterial Hfq-like.  Hfq, an abunda...    97   3e-27
+gnl|CDD|237607 PRK14091, PRK14091, RNA-binding protein Hfq; Prov...    91   1e-23
+gnl|CDD|250608 pfam01423, LSM, LSM domain.  The LSM domain conta...    44   3e-07
+gnl|CDD|197820 smart00651, Sm, snRNP Sm proteins.  small nuclear...    34   8e-04
+gnl|CDD|224869 COG1958, LSM1, Small nuclear ribonucleoprotein (s...    33   0.003
+gnl|CDD|241036 cd12592, RRM_RBM7, RNA recognition motif in verte...    29   0.13 
+gnl|CDD|259889 cd04227, CuRO_3_FVIII_like, The third cupredoxin ...    29   0.46 
+gnl|CDD|238742 cd01465, vWA_subgroup, VWA subgroup: Von Willebra...    27   1.4  
+gnl|CDD|212462 cd00600, Sm_like, Sm and related proteins.  The e...    25   2.4  
+gnl|CDD|224287 COG1368, MdoB, Phosphoglycerol transferase and re...    27   3.0  
+gnl|CDD|212472 cd01725, LSm2, Like-Sm protein 2.  The eukaryotic...    26   3.7  
+gnl|CDD|176681 cd07258, PpCmtC_C, C-terminal domain of 2,3-dihyd...    26   4.3  
+gnl|CDD|234644 PRK00115, hemE, uroporphyrinogen decarboxylase; V...    26   4.7  
+gnl|CDD|241037 cd12593, RRM_RBM11, RNA recognition motif in vert...    25   5.7  
+gnl|CDD|225952 COG3418, COG3418, Flagellar biosynthesis/type III...    25   9.8  
+
+>gnl|CDD|179001 PRK00395, hfq, RNA-binding protein Hfq; Provisional.
+          Length = 79
+
+ Score =  148 bits (375), Expect = 5e-47
+ Identities = 61/77 (79%), Positives = 69/77 (89%), Gaps = 1/77 (1%)
+
+Query: 1  MAKGQSLQDPFLNALRRERVPVSIYLVNGIKLQGQIESFDQFVILLKNTV-SQMVYKHAI 59
+          MAKGQ+LQDPFLNALR+ERVPV+IYLVNGIKLQGQIESFD FV+LL+NT  SQ+VYKHAI
+Sbjct: 1  MAKGQNLQDPFLNALRKERVPVTIYLVNGIKLQGQIESFDNFVVLLRNTGKSQLVYKHAI 60
+
+Query: 60 STVVPSRPVSHHSNNAG 76
+          STVVP+RPVS H +   
+Sbjct: 61 STVVPARPVSLHEDEEE 77
+
+
+>gnl|CDD|224834 COG1923, Hfq, Uncharacterized host factor I protein [General
+          function prediction only].
+          Length = 77
+
+ Score =  125 bits (316), Expect = 4e-38
+ Identities = 55/77 (71%), Positives = 66/77 (85%), Gaps = 1/77 (1%)
+
+Query: 1  MAKGQSLQDPFLNALRRERVPVSIYLVNGIKLQGQIESFDQFVILLKNT-VSQMVYKHAI 59
+          MAKGQ+LQDPFLNALR+E++PV+I+LVNG KLQGQ+ESFD FV+LLKNT   Q+VYKHAI
+Sbjct: 1  MAKGQNLQDPFLNALRKEKIPVTIFLVNGFKLQGQVESFDNFVVLLKNTGKQQLVYKHAI 60
+
+Query: 60 STVVPSRPVSHHSNNAG 76
+          ST+VPSRPV  H+    
+Sbjct: 61 STIVPSRPVQLHTEEEE 77
+
+
+>gnl|CDD|274101 TIGR02383, RNA-binding_protein_Hfq, RNA chaperone Hfq.  This
+          model represents the RNA-binding pleiotropic regulator
+          Hfq, a small, Sm-like protein of bacteria. It helps
+          pair regulatory noncoding RNAs with complementary mRNA
+          target regions. It enhances the elongation of poly(A)
+          tails on mRNA. It appears also to protect RNase E
+          recognition sites (A/U-rich sequences with adjacent
+          stem-loop structures) from cleavage. Being pleiotropic,
+          it differs in some of its activities in different
+          species. Hfq binds the non-coding regulatory RNA DsrA
+          (see Rfam RF00014) in the few species known to have it:
+          Escherichia coli, Shigella flexneri, Salmonella spp. In
+          Azorhizobium caulinodans, an hfq mutant is unable to
+          express nifA, and Hfq is called NrfA, for nif
+          regulatory factor (see . The name hfq reflects
+          phenomenology as a host factor for phage Q-beta RNA
+          replication. [Regulatory functions, Other].
+          Length = 61
+
+ Score =  101 bits (253), Expect = 8e-29
+ Identities = 36/61 (59%), Positives = 51/61 (83%), Gaps = 1/61 (1%)
+
+Query: 5  QSLQDPFLNALRRERVPVSIYLVNGIKLQGQIESFDQFVILLKNTVSQ-MVYKHAISTVV 63
+          Q+LQD FLN LR+ER+PV+++LVNG++L+G IESFD F +LL++   Q ++YKHAIST+ 
+Sbjct: 1  QNLQDQFLNQLRKERIPVTVFLVNGVQLKGVIESFDNFTVLLESQGKQQLIYKHAISTIS 60
+
+Query: 64 P 64
+          P
+Sbjct: 61 P 61
+
+
+>gnl|CDD|212463 cd01716, Hfq, bacterial Hfq-like.  Hfq, an abundant, ubiquitous
+          RNA-binding protein, functions as a pleiotropic
+          regulator of RNA metabolism in prokaryotes, required
+          for transcription of some transcripts and degradation
+          of others. Hfq binds small RNA molecules called
+          riboregulators that modulate the stability or
+          translation efficiency of RNA transcripts. Hfq binds
+          preferentially to unstructured A/U-rich RNA sequences
+          and is similar to the eukaryotic Sm proteins in both
+          sequence and structure. Hfq forms a homo-hexameric ring
+          similar to the heptameric ring of the Sm proteins.
+          Length = 60
+
+ Score = 97.2 bits (243), Expect = 3e-27
+ Identities = 36/60 (60%), Positives = 51/60 (85%), Gaps = 1/60 (1%)
+
+Query: 6  SLQDPFLNALRRERVPVSIYLVNGIKLQGQIESFDQFVILLK-NTVSQMVYKHAISTVVP 64
+          +LQD FLN LR+E+ PV+IYLVNG++L+G+I+SFD F +LL+ +   Q++YKHAIST+VP
+Sbjct: 1  NLQDQFLNTLRKEKKPVTIYLVNGVRLKGKIKSFDNFTVLLESDGKQQLIYKHAISTIVP 60
+
+
+>gnl|CDD|237607 PRK14091, PRK14091, RNA-binding protein Hfq; Provisional.
+          Length = 165
+
+ Score = 90.6 bits (225), Expect = 1e-23
+ Identities = 37/68 (54%), Positives = 52/68 (76%), Gaps = 1/68 (1%)
+
+Query: 3  KGQSLQDPFLNALRRERVPVSIYLVNGIKLQGQIESFDQFVILL-KNTVSQMVYKHAIST 61
+          K  +LQD FLN+LR+ + PV+++LV G+KLQG I  FD F ILL ++  SQ+VYKHAIST
+Sbjct: 8  KVNNLQDIFLNSLRKTKTPVTMFLVKGVKLQGIITWFDNFSILLRRDGQSQLVYKHAIST 67
+
+Query: 62 VVPSRPVS 69
+          ++P+ P+ 
+Sbjct: 68 IMPAHPLD 75
+
+
+
+ Score = 83.7 bits (207), Expect = 5e-21
+ Identities = 35/67 (52%), Positives = 50/67 (74%), Gaps = 1/67 (1%)
+
+Query: 3   KGQSLQDPFLNALRRERVPVSIYLVNGIKLQGQIESFDQFVILL-KNTVSQMVYKHAIST 61
+           K + LQD FL+A+R    PV+++LVNG+ LQG+I +FD F +LL ++   Q+VYKHA+ST
+Sbjct: 88  KSRLLQDVFLSAVRDSGEPVTMFLVNGVMLQGEIAAFDLFCMLLERDGYVQLVYKHAVST 147
+
+Query: 62  VVPSRPV 68
+           V P+ PV
+Sbjct: 148 VQPAGPV 154
+
+
+>gnl|CDD|250608 pfam01423, LSM, LSM domain.  The LSM domain contains Sm proteins
+          as well as other related LSM (Like Sm) proteins. The
+          U1, U2, U4/U6, and U5 small nuclear ribonucleoprotein
+          particles (snRNPs) involved in pre-mRNA splicing
+          contain seven Sm proteins (B/B', D1, D2, D3, E, F and
+          G) in common, which assemble around the Sm site present
+          in four of the major spliceosomal small nuclear RNAs.
+          The U6 snRNP binds to the LSM (Like Sm) proteins. Sm
+          proteins are also found in archaebacteria, which do not
+          have any splicing apparatus suggesting a more general
+          role for Sm proteins. All Sm proteins contain a common
+          sequence motif in two segments, Sm1 and Sm2, separated
+          by a short variable linker. This family also includes
+          the bacterial Hfq (host factor Q) proteins. Hfq are
+          also RNA-binding proteins, that form hexameric rings.
+          Length = 66
+
+ Score = 44.1 bits (105), Expect = 3e-07
+ Identities = 17/68 (25%), Positives = 32/68 (47%), Gaps = 15/68 (22%)
+
+Query: 10 PFLNALRRERVPVSIYLVNGIKLQGQIESFDQFV-ILLKNTVSQ------------MVYK 56
+           FL  L  +RV  ++ L NG +L+G ++ FDQF+ ++L +                ++  
+Sbjct: 1  KFLQKLLGKRV--TVELKNGRELRGTLKGFDQFMNLVLDDVEETIKDGEKRKLGLVLIRG 58
+
+Query: 57 HAISTVVP 64
+          + I  + P
+Sbjct: 59 NNIVLISP 66
+
+
+>gnl|CDD|197820 smart00651, Sm, snRNP Sm proteins.  small nuclear
+          ribonucleoprotein particles (snRNPs) involved in
+          pre-mRNA splicing.
+          Length = 67
+
+ Score = 34.4 bits (80), Expect = 8e-04
+ Identities = 14/42 (33%), Positives = 25/42 (59%), Gaps = 3/42 (7%)
+
+Query: 10 PFLNALRRERVPVSIYLVNGIKLQGQIESFDQFV-ILLKNTV 50
+           FL  L  +RV   + L NG + +G ++ FDQF+ ++L++  
+Sbjct: 1  KFLKKLIGKRV--LVELKNGREYRGTLKGFDQFMNLVLEDVE 40
+
+
+>gnl|CDD|224869 COG1958, LSM1, Small nuclear ribonucleoprotein (snRNP) homolog
+          [Transcription].
+          Length = 79
+
+ Score = 33.4 bits (77), Expect = 0.003
+ Identities = 14/48 (29%), Positives = 25/48 (52%), Gaps = 3/48 (6%)
+
+Query: 10 PFLNALRRERVPVSIYLVNGIKLQGQIESFDQFV-ILLKNTVSQMVYK 56
+           FL  L  +RV V   L NG + +G +  FDQ++ ++L +    + + 
+Sbjct: 10 SFLKKLLNKRVLVK--LKNGREYRGTLVGFDQYMNLVLDDVEEIISHD 55
+
+
+>gnl|CDD|241036 cd12592, RRM_RBM7, RNA recognition motif in vertebrate
+          RNA-binding protein 7 (RBM7).  This subfamily
+          corresponds to the RRM of RBM7, a ubiquitously
+          expressed pre-mRNA splicing factor that enhances
+          messenger RNA (mRNA) splicing in a cell-specific manner
+          or in a certain developmental process, such as
+          spermatogenesis. RBM7 interacts with splicing factors
+          SAP145 (the spliceosomal splicing factor 3b subunit 2)
+          and SRp20. It may play a more specific role in meiosis
+          entry and progression. Together with additional
+          testis-specific RNA-binding proteins, RBM7 may regulate
+          the splicing of specific pre-mRNA species that are
+          important in the meiotic cell cycle. RBM7 contains an
+          N-terminal RNA recognition motif (RRM), also termed RBD
+          (RNA binding domain) or RNP (ribonucleoprotein domain),
+          and a region lacking known homology at the C-terminus.
+          .
+          Length = 75
+
+ Score = 29.1 bits (65), Expect = 0.13
+ Identities = 13/32 (40%), Positives = 19/32 (59%)
+
+Query: 4  GQSLQDPFLNALRRERVPVSIYLVNGIKLQGQ 35
+          G+  Q  F+N      VP ++ L+NGIKL G+
+Sbjct: 39 GKPKQFAFVNFKHEVSVPYAMNLLNGIKLYGR 70
+
+
+>gnl|CDD|259889 cd04227, CuRO_3_FVIII_like, The third cupredoxin domain of
+           coagulation factor VIII and similar proteins.  Factor
+           VIII functions in the factor X-activating complex of the
+           intrinsic coagulation pathway. It facilitates blood
+           clotting by acting as a cofactor for factor IXa. In the
+           presence of Ca2+ and phospholipids, Factor VIII and IXa
+           form a complex that converts factor X to the activated
+           form Xa. A variety of mutations in the Factor VIII gene
+           can cause hemophilia A, which typically requires
+           replacement therapy with purified protein. Factor VIII
+           is synthesized as a single polypeptide with six
+           cupredoxin domains and a domain structure of
+           1-2-3-4-B-5-6-C1-C2, where 1-6 are cupredoxin domains, B
+           is a domain with no known structural homologs and is
+           dispensible for coagulant activity, and C are domains
+           distantly related to discoidin protein-fold family
+           members. Factor VIII is initially processed through
+           proteolysis to generate a heterodimer consisting of a
+           heavy chain (1-2-3-4) and a light chain (5-6-C1-C2),
+           which circulates in a tight complex with von Willebrand
+           factor (VWF). Further processing of the heavy chain
+           produces activated factor VIIIa, a heterotrimer composed
+           of polypeptides (1-2), (3-4), and the light chain. This
+           model represents the cupredoxin domain 3 of unprocessed
+           Factor VIII or the heavy chain of circulating Factor
+           VIII, and similar proteins.
+          Length = 177
+
+ Score = 28.7 bits (64), Expect = 0.46
+ Identities = 15/39 (38%), Positives = 22/39 (56%), Gaps = 5/39 (12%)
+
+Query: 40  DQFVILLKNTVSQ--MVYKHAISTVVPSRPVSHHSNNAG 76
+           DQ  I+ KNT S+   +Y H +++V   RP+    N AG
+Sbjct: 80  DQIHIMFKNTASRPYNIYPHGLTSV---RPMYRSRNPAG 115
+
+
+>gnl|CDD|238742 cd01465, vWA_subgroup, VWA subgroup: Von Willebrand factor type A
+          (vWA) domain was originally found in the blood
+          coagulation protein von Willebrand factor (vWF).
+          Typically, the vWA domain is made up of approximately
+          200 amino acid residues folded into a classic a/b
+          para-rossmann type of fold. The vWA domain, since its
+          discovery, has drawn great interest because of its
+          widespread occurrence and its involvement in a wide
+          variety of important cellular functions. These include
+          basal membrane formation, cell migration, cell
+          differentiation, adhesion, haemostasis, signaling,
+          chromosomal stability, malignant transformation and in
+          immune defenses  In integrins these domains form
+          heterodimers while in vWF it forms multimers. There are
+          different interaction surfaces of this domain as seen
+          by the various molecules it complexes with. Ligand
+          binding in most cases is mediated by the presence of a
+          metal ion dependent adhesion site termed as the MIDAS
+          motif that is a characteristic feature of most, if not
+          all A domains. Not much is known about the function of
+          the VWA domain in these proteins. The members do have a
+          conserved MIDAS motif. The biochemical function however
+          is not known.
+          Length = 170
+
+ Score = 27.2 bits (61), Expect = 1.4
+ Identities = 11/41 (26%), Positives = 18/41 (43%), Gaps = 8/41 (19%)
+
+Query: 47 KNTVSQMVYKHAISTVVPSRPVSHHSN--------NAGGGT 79
+           + ++ + Y  A  TV+P+ PV   +          AGG T
+Sbjct: 35 DDRLAIVTYDGAAETVLPATPVRDKAAILAAIDRLTAGGST 75
+
+
+>gnl|CDD|212462 cd00600, Sm_like, Sm and related proteins.  The eukaryotic Sm and
+          Sm-like (LSm) proteins associate with RNA to form the
+          core domain of the ribonucleoprotein particles involved
+          in a variety of RNA processing events including
+          pre-mRNA splicing, telomere replication, and mRNA
+          degradation. Members of this family share a highly
+          conserved Sm fold containing an N-terminal helix
+          followed by a strongly bent five-stranded antiparallel
+          beta-sheet. Sm-like proteins exist in archaea as well
+          as prokaryotes that form heptameric and hexameric ring
+          structures similar to those found in eukaryotes.
+          Length = 63
+
+ Score = 25.3 bits (56), Expect = 2.4
+ Identities = 10/37 (27%), Positives = 19/37 (51%), Gaps = 1/37 (2%)
+
+Query: 22 VSIYLVNGIKLQGQIESFDQF-VILLKNTVSQMVYKH 57
+          VS+ L +G  L G + +FD++  ++L + V       
+Sbjct: 9  VSVELKDGRVLTGTLVAFDKYMNLVLDDVVETGRDGK 45
+
+
+>gnl|CDD|224287 COG1368, MdoB, Phosphoglycerol transferase and related proteins,
+           alkaline phosphatase superfamily [Cell envelope
+           biogenesis, outer membrane].
+          Length = 650
+
+ Score = 26.6 bits (59), Expect = 3.0
+ Identities = 12/45 (26%), Positives = 16/45 (35%), Gaps = 3/45 (6%)
+
+Query: 35  QIESFDQFVILLKNT---VSQMVYKHAISTVVPSRPVSHHSNNAG 76
+           Q+ESF  F+I  K     V+  + K     V            AG
+Sbjct: 268 QLESFQGFLINPKVNGIEVTPNLNKLQKGGVSLLFSNFFGGVTAG 312
+
+
+>gnl|CDD|212472 cd01725, LSm2, Like-Sm protein 2.  The eukaryotic LSm proteins
+          (LSm2-8 or LSm1-7) assemble into a hetero-heptameric
+          ring around the 3'-terminus uridylation tag of the
+          gamma-methyl triphosphate (gamma-m-P3) capped U6 snRNA.
+          LSm2-8 form the core of the snRNP particle that, in
+          turn, assembles with other components onto the pre-mRNA
+          to form the spliceosome which is responsible for the
+          excision of introns and the ligation of exons. LSm1-7
+          is involved in recognition of the 3' uridylation tag
+          and recruitment of the decapping machinery. Members of
+          this family share a highly conserved Sm fold containing
+          an N-terminal helix followed by a strongly bent
+          five-stranded antiparallel beta-sheet.
+          Length = 89
+
+ Score = 25.6 bits (57), Expect = 3.7
+ Identities = 13/44 (29%), Positives = 21/44 (47%), Gaps = 3/44 (6%)
+
+Query: 20 VPVSIYLVNGIKLQGQIESFDQFV-ILLKNT--VSQMVYKHAIS 60
+            V++ L N + + G + S DQ++ I L N        Y H +S
+Sbjct: 12 KEVTVELKNDLSITGTLHSVDQYLNIKLTNISVNDPEKYPHLLS 55
+
+
+>gnl|CDD|176681 cd07258, PpCmtC_C, C-terminal domain of
+          2,3-dihydroxy-p-cumate-3,4-dioxygenase (PpCmtC).  This
+          subfamily contains the C-terminal, catalytic, domain of
+          PpCmtC. 2,3-dihydroxy-p-cumate-3,4-dioxygenase (CmtC of
+          Pseudomonas putida F1) is a dioxygenase involved in the
+          eight-step catabolism pathway of p-cymene. CmtC acts
+          upon the reaction intermediate 2,3-dihydroxy-p-cumate,
+          yielding
+          2-hydroxy-3-carboxy-6-oxo-7-methylocta-2,4-dienoate.
+          The CmtC belongs to the type I family of extradiol
+          dioxygenases. Fe2+ was suggested as a cofactor, same as
+          for other enzymes in the family. The type I family of
+          extradiol dioxygenases contains two structurally
+          homologous barrel-shaped domains at the N- and
+          C-terminal. The active-site metal is located in the
+          C-terminal barrel and plays an essential role in the
+          catalytic mechanism.
+          Length = 141
+
+ Score = 25.6 bits (56), Expect = 4.3
+ Identities = 7/16 (43%), Positives = 11/16 (68%)
+
+Query: 70 HHSNNAGGGTSSNYHH 85
+          HH+   G  +SS++HH
+Sbjct: 44 HHTFAVGPASSSHFHH 59
+
+
+>gnl|CDD|234644 PRK00115, hemE, uroporphyrinogen decarboxylase; Validated.
+          Length = 346
+
+ Score = 25.9 bits (58), Expect = 4.7
+ Identities = 10/17 (58%), Positives = 10/17 (58%), Gaps = 3/17 (17%)
+
+Query: 9  DPFLNALRRE---RVPV 22
+          D FL ALR E   R PV
+Sbjct: 6  DRFLRALRGEPVDRTPV 22
+
+
+>gnl|CDD|241037 cd12593, RRM_RBM11, RNA recognition motif in vertebrate
+          RNA-binding protein 11 (RBM11).  This subfamily
+          corresponds to the RRM or RBM11, a novel
+          tissue-specific splicing regulator that is selectively
+          expressed in brain, cerebellum and testis, and to a
+          lower extent in kidney. RBM11 is localized in the
+          nucleoplasm and enriched in SRSF2-containing splicing
+          speckles. It may play a role in the modulation of
+          alternative splicing during neuron and germ cell
+          differentiation. RBM11 contains an N-terminal RNA
+          recognition motif (RRM), also termed RBD (RNA binding
+          domain) or RNP (ribonucleoprotein domain), and a region
+          lacking known homology at the C-terminus. The RRM of
+          RBM11 is responsible for RNA binding, whereas the
+          C-terminal region permits nuclear localization and
+          homodimerization. .
+          Length = 75
+
+ Score = 24.9 bits (54), Expect = 5.7
+ Identities = 11/25 (44%), Positives = 16/25 (64%)
+
+Query: 11 FLNALRRERVPVSIYLVNGIKLQGQ 35
+          F+     E VP +I L+NGI+L G+
+Sbjct: 46 FVCFKHSESVPYAIALLNGIRLYGR 70
+
+
+>gnl|CDD|225952 COG3418, COG3418, Flagellar biosynthesis/type III secretory pathway
+           chaperone [Cell motility and secretion / Intracellular
+           trafficking and secretion / Posttranslational
+           modification, protein turnover, chaperones].
+          Length = 146
+
+ Score = 24.8 bits (54), Expect = 9.8
+ Identities = 14/30 (46%), Positives = 17/30 (56%)
+
+Query: 26  LVNGIKLQGQIESFDQFVILLKNTVSQMVY 55
+           L NG  L+GQIES  Q + LLK      +Y
+Sbjct: 99  LHNGWLLEGQIESNQQALELLKPHHGPSLY 128
+
+
+  Database: CDD.v3.14
+    Posted date:  Apr 24, 2015  7:12 PM
+  Number of letters in database: 11,500,350
+  Number of sequences in database:  47,363
+  
+Lambda     K      H
+   0.311    0.125    0.343 
+
+Gapped
+Lambda     K      H
+   0.267   0.0838    0.140 
+
+
+Matrix: BLOSUM62
+Gap Penalties: Existence: 11, Extension: 1
+Number of Sequences: 47363
+Number of Hits to DB: 5,040,247
+Number of extensions: 392274
+Number of successful extensions: 240
+Number of sequences better than 10.0: 1
+Number of HSP's gapped: 234
+Number of HSP's successfully gapped: 28
+Length of query: 102
+Length of database: 11,500,350
+Length adjustment: 68
+Effective length of query: 34
+Effective length of database: 8,279,666
+Effective search space: 281508644
+Effective search space used: 281508644
+Neighboring words threshold: 11
+Window for multiple hits: 40
+X1: 16 ( 7.2 bits)
+X2: 38 (14.6 bits)
+X3: 64 (24.7 bits)
+S1: 42 (21.8 bits)
+S2: 49 (22.5 bits)
