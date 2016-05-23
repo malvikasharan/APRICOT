@@ -91,14 +91,15 @@ INTERPRO_PATH=$DB_PATH/interpro/interproscan
 1) We will create each of the paths that we defined above in the section above:
 
 `````
-set_up_analysis_folder(){
+donwload_files(){
    mkdir -p $ROOT_DB_PATH $APRICOT_PATH $ANALYSIS_PATH $APRICOT_LIBRARY
    for db_subpath in cdd go_mapping interpro pfam
    do
        mkdir -p $DB_PATH/$db_subpath
    done
-
+   
 [...]
+}
 `````
 
 This will create a main folder `source_files` with subfolder as shown below.
