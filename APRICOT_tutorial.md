@@ -51,6 +51,8 @@ Unix-flavors (GNU/Linux, BSD, OS X).
 We will go through the shell script `run_example.sh` step by step. This script assumes that users have installed the software using pip. 
 
 **If you are using locally installed git repository**, please specifiy the path where APRICOT modules are located (see below: APRICOT_PATH) and run the tool using `python $APRICOT_PATH/bin/apricot` command.
+Try:
+    python $APRICOT_PATH/bin/apricot -h
 
 #### Defining paths
 
