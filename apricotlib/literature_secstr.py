@@ -1,4 +1,8 @@
 #!/usr/bin/env python
+# Description = Calculates literature based secondary structures derived from residue information
+# author= "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
+# email = "malvika.sharan@uni-wuerzburg.de"
+# 2016-05-20
 
 import os
 from collections import defaultdict
