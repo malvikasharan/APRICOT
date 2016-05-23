@@ -1,2 +1,0 @@
-ProteinId	ReferenceSequence	QuerySequence	AA-RODistance (filter-3)	AA-RODistance - t_statistics	AA-RODistance -P_value	SecStr-RODistance (filter-3)	SecStr-RODistance - t_statistics	SecStr-RODistance - P_value	Average filter-3 (Ratcliff Obershelp distance of PP)	Average filter-3 - t_statistics	Average filter-3 - P_value
-P0A6X3	GKPKQFAFVNFKHEVSVPYAMNLLNGIKLYGR	GQSLQDPFLNALRRERVPVSIYLVNGIKLQGQ	0.5120	-93.3889	0.0000	0.6490	-157.3333	0.0000	0.5805	-95.0337	0.0000
