@@ -160,7 +160,7 @@ Additionally, we will download domain annotation files from CDD and
 Pfam databases.
 
 `````
-basic_requirements_for_demo(){
+complete_data_for_demo(){
 
    ## Here DB_PATH=source_files/reference_db_files and $ANALYSIS_PATH=APRICOT_analysis
    
