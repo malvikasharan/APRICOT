@@ -34,7 +34,7 @@ $ git clone https://github.com/malvikasharan/APRICOT.git
 
 APRICOT usually requires local databases of CDD and InterPro, along
 with the BLAST executables and InterProScan to carry out domain
-predictions. In order to provide additional annotation of the proteins
+predictions. In addition, to provide additional annotation of the proteins
 with biological features, it uses locally installed Psort and RaptorX
 executable. These requirements have been discussed in detail in the
 [documentation](https://github.com/malvikasharan/APRICOT/blob/master/README.md).
