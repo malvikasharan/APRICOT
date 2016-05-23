@@ -66,11 +66,20 @@ The shell script to install and run the analysis in a streamlined manner
 is provided with the package (`see here`_).
 
 Working example
----------------
+^^^^^^^^^^^^^^^
 
-The repository contains a shell script ``run_example.sh``, which can be
-used for the demonstration of APRICOT based analysis. You can find the
-tutorial that discusses each module in detail. [ `Tutorial`_ ]
+We recomend you to check out the `tutorial`_ that discusses each module
+of APRICOT in detail. The repository contains a shell script
+`run\_example.sh`_, which can be used for the demonstration of APRICOT
+analysis with an example.
+
+In the GitHub repository we have provided a test folder named `tests`_,
+to allow the system testing. The instructions and commands are provided
+in the shell scipt `system\_test.sh`_.
+
+Users can choose to install all the tools and databases for a complete
+test. Optionally, the `test datasets`_ can be used for basic testing,
+which does not require installation of third party tools.
 
 Contact
 -------
@@ -82,5 +91,8 @@ malvikasharan@gmail.com
 .. _APRICOT: http://malvikasharan.github.io/APRICOT/
 .. _here: https://github.com/malvikasharan/APRICOT/blob/master/LICENSE.md
 .. _Docker image for APRICOT: https://github.com/malvikasharan/APRICOT/blob/master/Dockerfile
-.. _see here: https://github.com/malvikasharan/APRICOT/blob/master/system_test.sh
-.. _Tutorial: https://github.com/malvikasharan/APRICOT/blob/master/APRICOT_tutorial.md
+.. _tutorial: https://github.com/malvikasharan/APRICOT/blob/master/APRICOT_tutorial.md
+.. _run\_example.sh: https://github.com/malvikasharan/APRICOT/blob/master/shell_scripts/run_example.sh
+.. _tests: https://github.com/malvikasharan/APRICOT/tree/master/tests
+.. _system\_test.sh: https://github.com/malvikasharan/APRICOT/blob/master/tests/system_test.sh
+.. _test datasets: https://github.com/malvikasharan/APRICOT/tree/master/tests/demo_files_small
