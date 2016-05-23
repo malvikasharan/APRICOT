@@ -1,4 +1,7 @@
 #!/usr/bin/env python
+# Description = Annotates selected queries with proteins and domain informatio
+# author= "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
+# email = "malvika.sharan@uni-wuerzburg.de"
 # 2016-05-20
 
 import argparse
@@ -6,9 +9,6 @@ import os
 
 __description__ = ("Annotates selected queries with proteins and "
                    "domain information")
-__author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
-__email__ = "malvika.sharan@uni-wuerzburg.de"
-
 
 def main():
     parser = argparse.ArgumentParser(description=__description__)
