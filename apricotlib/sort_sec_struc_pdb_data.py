@@ -1,4 +1,8 @@
 #!/usr/bin/env python
+# Description = Formt PDB secodary structure database
+# author= "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
+# email = "malvika.sharan@uni-wuerzburg.de"
+# 2016-05-20
 
 import argparse
 
