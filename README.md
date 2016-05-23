@@ -43,7 +43,7 @@ The shell script to install and run the analysis in a streamlined manner is prov
 
 ####Working example
 
-We recomend you to check out the [tutorial](https://github.com/malvikasharan/APRICOT/blob/master/APRICOT_tutorial.md) that discusses each module of APRICOT in detail. The repository contains a shell script `run_example.sh`, which can be used for the demonstration of APRICOT analysis with an example. 
+We recomend you to check out the [tutorial](https://github.com/malvikasharan/APRICOT/blob/master/APRICOT_tutorial.md) that discusses each module of APRICOT in detail. The repository contains a shell script [run_example.sh](https://github.com/malvikasharan/APRICOT/blob/master/shell_scripts/run_example.sh), which can be used for the demonstration of APRICOT analysis with an example. 
 
 In the GitHub repository we have provided a test folder named [tests](https://github.com/malvikasharan/APRICOT/tree/master/tests), to allow the system testing. The instructions and commands are provided in the shell scipt [system_test.sh](https://github.com/malvikasharan/APRICOT/blob/master/tests/system_test.sh). 
 
