@@ -1,9 +1,9 @@
 #!/bin/bash
 # AUTHOR: Malvika Sharan <malvikasharan@gmail.com>
 
-PYTHON_PATH=python3.4
+PYTHON_PATH=python
 apricot_path=$1
-apricot_lib= $apricot_path/apricotlib   ## provide full path where you have cloned/save APRICOT from git
+apricot_lib= ../$apricot_path/apricotlib   ## provide full path where you have cloned/save APRICOT from git
 apricot_db=$2                           ## apricot_db_path ##provide full path where you want to store the data
 apricot_flatfiles=bin/reference_db_files/
 
