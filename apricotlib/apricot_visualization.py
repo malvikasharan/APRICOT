@@ -4,6 +4,11 @@ from collections import defaultdict
 import os
 import sys
 
+__description__ = "Visualizes different output data from APRICOT analysis."
+__author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
+__email__ = "malvika.sharan@uni-wuerzburg.de"
+
+
 try:
     import subprocess
 except ImportError:
