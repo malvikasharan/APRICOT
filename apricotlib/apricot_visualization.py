@@ -1,9 +1,9 @@
-#!/usr/bin/env python 
+#!/usr/bin/env python
 
-import argparse
 from collections import defaultdict
 import os
 import sys
+
 try:
     import subprocess
 except ImportError:
@@ -14,28 +14,6 @@ try:
 except ImportError:
     print('Python package shutil is missing. Please install/update.\n')
     sys.exit(0)
-
-__description__ = "Creates visualization files for the APRICOT analysis data"
-__author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
-__email__ = "malvika.sharan@uni-wuerzburg.de"
-
-
-def main():
-    parser = argparse.ArgumentParser(description=__description__)
-    parser.add_argument("annotation_scoring_data")
-    parser.add_argument("additional_annotation")
-    parser.add_argument("outpath")
-    args = parser.parse_args()
-
-    biojs_viz_of_apricot_analysis = BiojsVizOfApricotAnalysis(
-        args.annotation_scoring_data,
-        args.additional_annotation, args.outpath)
-    biojs_viz_of_apricot_analysis.parse_annotation_scoring()
-    biojs_viz_of_apricot_analysis.viz_domain_highlights()
-    biojs_viz_of_apricot_analysis.viz_secondary_structure()
-    biojs_viz_of_apricot_analysis.sec_str_script()
-    biojs_viz_of_apricot_analysis.viz_subcellular_localization()
-    biojs_viz_of_apricot_analysis.viz_homologous_pdb_msa()
 
 
 class BiojsVizOfApricotAnalysis(object):
@@ -371,5 +349,3 @@ class AnnotationScoringColumns(object):
         self.DPC_ED = row[34]
         self.TPC_ED = row[35]
         
-if __name__ == '__main__':
-    main()

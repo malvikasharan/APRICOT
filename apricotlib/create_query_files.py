@@ -1,11 +1,4 @@
-#!/usr/bin/env python 
-
-import sys
-
-__description__ = '''The script creates files to compile user provided keywords
- for domain selection and classification'''
-__author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
-__email__ = "malvika.sharan@uni-wuerzburg.de"
+#!/usr/bin/env python
 
 
 def create_uid_query_file(uids, query_path):
@@ -79,15 +72,3 @@ def create_proteome_query_file(query, query_path, proteome_path):
             for entry in in_fh:
                 if 'Entry' not in entry:
                     out_fh.write("%s\n" % (entry.split('\t')[0]))
-
-if __name__ == '__main__':
-    qids = sys.argv[1]
-    query_path = sys.argv[2]
-    try:
-        proteome_path = sys.argv[3]
-        if qids == 'proteome':
-            create_proteome_query_file(qids, query_path, proteome_path)
-        else:
-            create_gene_query_file(qids, query_path, proteome_path)
-    except:
-        create_uid_query_file(qids, query_path, proteome_path)

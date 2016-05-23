@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 
-import argparse
 import sys
 
 try:
@@ -9,21 +8,6 @@ except ImportError:
     print('Python package xmlis missing. Please install/update.')
     sys.exit(0)
 import re
-
-__description__ = "Compiles InterProScan data from XML files to table"
-__author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
-__email__ = "malvika.sharan@uni-wuerzburg.de"
-
-
-def main():
-    parser = argparse.ArgumentParser(description=__description__)
-    parser.add_argument("interpro_analysis_path")
-    parser.add_argument("interpro_xml")
-    args = parser.parse_args()
-
-    interpro_xml_parsing = InterproXmlParsing(
-        args.interpro_analysis_path, args.interpro_xml)
-    interpro_xml_parsing.regex_interpro_xml_parsing()
 
 
 class InterproXmlParsing(object):
@@ -103,7 +87,3 @@ class InterproXmlParsing(object):
         ipr_data_removed.close()
         only_id_ipr_xml.close()
         interproid.close()
-        
-if __name__ == "__main__":
-
-    main()

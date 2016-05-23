@@ -1,23 +1,6 @@
-#!/usr/bin/env python 
+#!/usr/bin/env python
 
-import argparse
 import os
-
-__description__ = "Annotates selected queries with proteins and domain information"
-__author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
-__email__ = "malvika.sharan@uni-wuerzburg.de"
-
-
-def main():
-    parser = argparse.ArgumentParser(description=__description__)
-    parser.add_argument("filtered_data_path")
-    parser.add_argument("selected_data_table")
-    args = parser.parse_args()
-
-    selected_protein_table_without_uniprot = SelectedProteinTableWithoutUniprot(
-        args.filtered_data_path, args.selected_data_table)
-    selected_protein_table_without_uniprot.parse_filtered_data()
-    selected_protein_table_without_uniprot.create_selected_data_table()
 
 
 class SelectedProteinTableWithoutUniprot(object):
@@ -97,6 +80,3 @@ class FilteredData(object):
         self.stop = row[11]
         self.stats = row[12:]
         self.parameter = row[-1]
-
-if __name__ == "__main__":
-    main()

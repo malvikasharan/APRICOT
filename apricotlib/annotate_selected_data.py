@@ -1,9 +1,10 @@
-#!/usr/bin/env python 
+#!/usr/bin/env python
 
 import argparse
 import os
 
-__description__ = "Annotates selected queries with proteins and domain information"
+__description__ = ("Annotates selected queries with proteins and "
+                   "domain information")
 __author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
 __email__ = "malvika.sharan@uni-wuerzburg.de"
 
@@ -26,6 +27,7 @@ def main():
 
 
 class SelectedProteinTable(object):
+    
     def __init__(self, filtered_data_path,
                  uniprot_reference_table,
                  xml_feature_table,
@@ -143,6 +145,7 @@ class SelectedProteinTable(object):
 
 
 class ProteinFeature(object):
+    
     def __init__(self, row):
         self.uid = row[0]
         self.protein_name = row[1]
@@ -161,6 +164,7 @@ class ProteinFeature(object):
 
 
 class UniProtReference(object):
+    
     def __init__(self, row):
         self.uid = row[0]
         self.entry_name = row[1]
@@ -176,6 +180,7 @@ class UniProtReference(object):
 
 
 class FilteredData(object):
+    
     def __init__(self, row):
         self.resource = row[0]
         self.uid = row[1]

@@ -1,36 +1,6 @@
-#!/usr/bin/env python 
+#!/usr/bin/env python
 
 import os
-import argparse
-
-__description__ = ""
-__author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
-__email__ = "malvika.sharan@uni-wuerzburg.de"
-__version__ = ""
-
-
-def main():
-    parser = argparse.ArgumentParser(description=__description__)
-    parser.add_argument("prediction_method")
-    parser.add_argument("analysis_result_path")
-    parser.add_argument("domain_description_file")
-    parser.add_argument("go_path")
-    parser.add_argument("filtered_result_path")
-    parser.add_argument("all_prediction_output")
-    parser.add_argument("filter_parameters")
-    args = parser.parse_args()
-    
-    filter_predicted_domains = FilterPredictedDomains(
-        args.prediction_method,
-        args.analysis_result_path,
-        args.domain_description_file,
-        args.go_path,
-        args.filtered_result_path,
-        args.all_prediction_output,
-        args.filter_parameters)
-    filter_predicted_domains.read_id_description_file()
-    filter_predicted_domains.summarize_analysis_result_files()
-    filter_predicted_domains.create_filtered_result_file()
 
 
 class FilterPredictedDomains(object):
@@ -438,8 +408,3 @@ class FilterPredictedDomains(object):
         summary_file.close()
         filtered_file.close()
         id_file.close()
-
-if __name__ == '__main__':
-    
-    main()
-    

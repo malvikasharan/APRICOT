@@ -1,10 +1,8 @@
-#!/usr/bin/env python 
+#!/usr/bin/env python
 
 import os
-import argparse
-import csv
-import re
-from itertools import islice
+import sys
+
 try:
     from urllib.request import urlopen
 except ImportError:
@@ -12,31 +10,12 @@ except ImportError:
     sys.exit(0)
 try:
     import xml.etree.ElementTree as ET
-    from xml.parsers import expat
     XML_PARSE = '{http://uniprot.org/uniprot}'
 except ImportError:
     print('Python package xml is missing. Please install/update.')
     sys.exit(0)
 
-__description__ = '''code to collect protein proteins from uniprot protein gene, 
-their xml file and all the details. further collection of fasta files'''
-__author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
-__email__ = "malvika.sharan@uni-wuerzburg.de"
 
-
-def main():
-    parser = argparse.ArgumentParser(description=__description__)
-    parser.add_argument("query_to_uid")
-    parser.add_argument("uniprot_xml_path")
-    parser.add_argument("uniprot_fasta_path")
-    parser.add_argument("uniprot_feature_table")
-    args = parser.parse_args()
-
-    collect_uniprot_information = CollectUniprotInformation(
-    args.query_to_uid, args.uniprot_xml_path,
-    args.uniprot_fasta_path, args.uniprot_feature_table)
-    collect_uniprot_information.create_feature_table()
-    
 class CollectUniprotInformation(object):
     def __init__(self, query_to_uid, uniprot_xml_path,
                  uniprot_fasta_path, uniprot_feature_table):
@@ -47,7 +26,8 @@ class CollectUniprotInformation(object):
 
     def create_feature_table(self):
         '''create feature files from uniprot xml'''
-        self._new_xml_detail(self._uniprot_xml_path, self._uniprot_feature_table)
+        self._new_xml_detail(
+            self._uniprot_xml_path, self._uniprot_feature_table)
         print('Table containing features from xml file is created/updated.')
         
     def _get_uniprot_xml(self, uid, xml_path):
@@ -61,7 +41,7 @@ class CollectUniprotInformation(object):
                 xml_file.write(str('<?xml version="1.0" encoding="UTF-8"?>\n'))
             else:
                 xml_file.write("%s\n" % entry)
-        xml_file.close()   
+        xml_file.close()
         
     def _get_uniprot_fasta(self, uid, fasta_path):
         ''''''
@@ -180,7 +160,7 @@ class CollectUniprotInformation(object):
             return gene_locus
         except:
             gene_locus = 'None'
-            return gene_locus    
+            return gene_locus
     
     def _get_organism(self, protein):
         '''Get the species name'''
@@ -318,7 +298,3 @@ class CollectUniprotInformation(object):
         prot_exist = protein.findall(XML_PARSE+'proteinExistence')
         for exist_type in prot_exist:
             return exist_type.get('type')
-    
-if __name__ == "__main__":
-
-    main()

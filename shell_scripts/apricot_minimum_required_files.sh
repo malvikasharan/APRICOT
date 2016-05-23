@@ -6,10 +6,10 @@
 
 PYTHON_PATH=python3
 
-apricot_path=$1
+APRICOT_PATH=$1
 
 ## full path where you have cloned/save APRICOT from git
-apricot_lib=$apricot_path/apricotlib
+apricot_lib=$APRICOT_PATH/apricotlib
 
 ## path where the source files will be stored
 apricot_files=source_files/reference_db_files
