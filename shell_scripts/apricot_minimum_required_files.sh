@@ -4,12 +4,12 @@
 ## This installation will skip the third party tools for additional annotations
 # Tools that are skipped: PsortB, RaptorX, Biojs, openpyxl
 
-PYTHON_PATH=python3
+PYTHON_PATH=python
 
 APRICOT_PATH=$1
 
 ## full path where you have cloned/save APRICOT from git
-apricot_lib=$APRICOT_PATH/apricotlib
+apricot_lib=../$APRICOT_PATH/apricotlib
 
 ## path where the source files will be stored
 apricot_files=source_files/reference_db_files
