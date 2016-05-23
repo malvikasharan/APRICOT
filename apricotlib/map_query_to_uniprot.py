@@ -1,4 +1,8 @@
 #!/usr/bin/env python
+# Description = Collect protein ids from UniProt database for the query genes
+# author= "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
+# email = "malvika.sharan@uni-wuerzburg.de"
+# 2016-05-20
 
 import os
 import argparse
@@ -7,8 +11,6 @@ import re
 from itertools import islice
 
 __description__ = "Collect protein ids from UniProt database for the query genes"
-__author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
-__email__ = "malvika.sharan@uni-wuerzburg.de"
 
 
 def main():
