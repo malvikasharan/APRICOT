@@ -73,7 +73,7 @@ of APRICOT in detail. The repository contains a shell script
 `run\_example.sh`_, which can be used for the demonstration of APRICOT
 analysis with an example.
 
-In the GitHub repository we have provided a test folder named `tests`_,
+In the packages we have provided a test folder named `tests`_,
 to allow the system testing. The instructions and commands are provided
 in the shell scipt `system\_test.sh`_.
 
