@@ -1,6 +1,28 @@
-#!/usr/bin/env python
+#!/usr/bin/env python 
 
+import argparse
 import os
+
+__description__ = "Maps each domains to their corresponding domains from InterPro"
+__author__ = "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
+__email__ = "malvika.sharan@uni-wuerzburg.de"
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__description__)
+    parser.add_argument("go_path")
+    parser.add_argument("interpro_to_go")
+    parser.add_argument("interpro_data")
+    parser.add_argument("cdd_data")
+    args = parser.parse_args()
+    
+    map_domain_to_go = MapDomainToGo(
+        args.go_path, args.interpro_to_go,
+        args.interpro_data, args.cdd_data)
+    map_domain_to_go.read_obo_file()
+    map_domain_to_go.map_interpro_to_domains()
+    map_domain_to_go.read_mapped_go_data()
+    map_domain_to_go.map_cdd_to_go()
 
 
 class MapDomainToGo(object):
@@ -155,3 +177,7 @@ class MapDomainToGo(object):
         unmap_go_fh.close()
         map_ipr_fh.close()
         unmap_ipr_fh.close()
+
+if __name__ == '__main__':
+    
+    main()
