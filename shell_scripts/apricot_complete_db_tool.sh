@@ -1,5 +1,5 @@
 #!/bin/bash
-# AUTHOR: Malvika Sharan <malvikasharan@gmail.com>
+# AUTHOR: Malvika Sharan <malvika.sharan@uni-wuerzburg.de>
 
 PYTHON_PATH=python
 apricot_path=$1
