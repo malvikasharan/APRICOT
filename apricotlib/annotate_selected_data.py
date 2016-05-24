@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 # Description = Annotates selected queries with proteins and domain information
-# author= "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
 
 import argparse
 import os
