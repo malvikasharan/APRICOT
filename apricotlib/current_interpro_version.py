@@ -1,8 +1,5 @@
 #!/usr/bin/env python
 # Description = Checks and stores the most recent version information
-# author= "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
-# email = "malvika.sharan@uni-wuerzburg.de"
-# 2016-05-20
 
 
 from datetime import datetime as DT
