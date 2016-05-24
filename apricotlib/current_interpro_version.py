@@ -9,8 +9,8 @@ input_file = sys.argv[1]
 output_file = sys.argv[2]
 
 month_dict = {'Jan': 1, 'Feb': 2, 'Mar': 3, 'Apr': 4, 'May': 5,
-            'Jun': 6, 'Jul': 7, 'Aug': 8, 'Sep': 9, 'Oct': 10,
-            'Nov': 11, 'Dec': 12}
+              'Jun': 6, 'Jul': 7, 'Aug': 8, 'Sep': 9, 'Oct': 10,
+              'Nov': 11, 'Dec': 12}
 with open(input_file) as in_fh:
     version_link = {}
     version_list = []

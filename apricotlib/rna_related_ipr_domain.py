@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # Description = RNA related InterPro domains
 
-import argparse
 import re
 
 

@@ -3,7 +3,8 @@
 # protein gene, their xml file and all the details
 
 import os
-import argparse
+import sys
+
 try:
     from urllib.request import urlopen
 except ImportError:
@@ -16,6 +17,7 @@ except ImportError:
     sys.exit(0)
 import sys
 XML_PARSE = '{http://uniprot.org/uniprot}'
+
 
 class CollectUniprotInformation(object):
     '''collection of protein protein from gene data'''

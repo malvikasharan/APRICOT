@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # Description = selects rna related domains from cdd database
 
-import sys
 import re
 
 

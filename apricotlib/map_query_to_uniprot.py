@@ -2,7 +2,6 @@
 # Description = Collect protein ids from UniProt database for the query genes
 
 import os
-import argparse
 import csv
 import re
 from itertools import islice

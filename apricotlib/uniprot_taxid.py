@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # Description = Download the taxonomy ids related to user provided species
 
+
 def select_taxids(species, reference_taxonomy_file, selected_taxonomy_file):
     '''Selects taxonomy ids for the query species'''
     if not str(species) == 'None':
