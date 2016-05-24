@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # Description = Compiles InterProScan data from XML files to table
 
-import argparse
 import sys
 
 try:
@@ -30,8 +29,7 @@ for data in root.findall('interpro'):
     
     ipr_id = data.attrib.get('id')
     name = data.find('name').text
-    #print(ipr_id, name)
-    only_id_ipr_xml.write('%s\t%s\n'%(ipr_id, name))
+    only_id_ipr_xml.write('%s\t%s\n' % (ipr_id, name))
     
     member_list = data.findall('./member_list/*')
     external_doc = data.findall('./external_doc_list/*')

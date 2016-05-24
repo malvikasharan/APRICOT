@@ -51,9 +51,9 @@ class ComputeCompositionDistance(object):
             lambda : (defaultdict(lambda : defaultdict(float))))
         
         self._amino_acid_str = {
-            'H' : ['E', 'A', 'L', 'M', 'Q', 'K', 'R', 'H', 'Z'],
-            'E' : ['V', 'I', 'Y', 'C', 'W', 'F', 'T'],
-            'C' : ['G', 'N', 'P', 'S', 'D', 'B']
+            'H': ['E', 'A', 'L', 'M', 'Q', 'K', 'R', 'H', 'Z'],
+            'E': ['V', 'I', 'Y', 'C', 'W', 'F', 'T'],
+            'C': ['G', 'N', 'P', 'S', 'D', 'B']
         }
         #1: alpha-helix (H), 2: beta-sheet(E), 3: turns and loops(C)
         #https://en.wikibooks.org/wiki/Structural_Biochemistry/Proteins/Structures

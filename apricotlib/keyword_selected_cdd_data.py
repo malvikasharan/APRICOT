@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # Description = selects domains from cdd database
 
-import argparse
 import re
+
 
 class RnaRelatedDomainSelection(object):
     '''classification of data'''
@@ -30,11 +30,8 @@ class RnaRelatedDomainSelection(object):
         ''''''
         with open(self._interpro_mapped_cdd, 'r') as in_fh:
             for entry in in_fh:
-                ipr_id = entry.strip().split('\t')[0]
                 ipr_members = entry.strip().split('\t')[1]
-                cdd_id = entry.strip().split('\t')[2]
                 cdd_member = entry.strip().split('\t')[3]
-                domain_length = entry.strip().split('\t')[4]
                 self._mapped_cdd_members[cdd_member] = ipr_members
         self._mapped_cdd_members
     

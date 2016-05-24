@@ -1,5 +1,6 @@
 #!/usr/bin/env python
-# Description = Calculates literature based secondary structures derived from residue information
+# Description = Calculates literature based secondary structures derived
+# from residue information
 
 import os
 from collections import defaultdict

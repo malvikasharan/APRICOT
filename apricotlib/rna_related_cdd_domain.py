@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # Description = RNA related CDD domain
 
-import sys
 import re
 
 

@@ -1,6 +1,7 @@
 # APRICOT TUTORIAL
 
-This tutorial provides an easy way to test different modules of APRICOT and understand the basic usage of this pipeline.
+This tutorial provides an easy way to test different modules of
+APRICOT and understand the basic usage of this pipeline.
 
 ### Requirements:
 
@@ -46,9 +47,11 @@ record](https://zenodo.org/record/51705/files).
 ### Example analysis
 
 APRICOT can be executed by python (python3 is recommended) on
-Unix-flavors (GNU/Linux, BSD, OS X). 
+Unix-flavors (GNU/Linux, BSD, OS X).
 
-We will go through the shell script `run_example.sh` step by step. This script assumes that users have installed the software using pip. 
+We will go through the shell script `run_example.sh` step by
+step. This script assumes that users have installed the software using
+pip.
 
 **If you are using locally installed git repository**
 
@@ -108,7 +111,8 @@ donwload_files(){
 }
 ```
 
-This will create a main folder `source_files` with subfolder as shown below.
+This will create a main folder `source_files` with subfolder as shown
+below.
 
 
 ```
@@ -127,7 +131,10 @@ source_files
 
 ```
 
-2) Using the `create` subcommand from APRICOT, we will create the analysis folder and its subfolder. This generates a main folder `APRICOT_analysis` (name can be defined by users), which contains subfolders as shown below.
+2) Using the `create` subcommand from APRICOT, we will create the
+analysis folder and its subfolder. This generates a main folder
+`APRICOT_analysis` (name can be defined by users), which contains
+subfolders as shown below.
 
 ```
 apricot create APRICOT_analysis
@@ -299,7 +306,10 @@ the flag `-F` to *force* the re-analysis.
 apricot predict --analysis_path APRICOT_analysis 
 ```
 
-Please note that we are using default directory structure  for this tutorial, however, it is possible to define locations of the databases by using options `--cdd_db $CDD_PATH` and `--ipr_db $INTERPRO_PATH` for CDD and interpro respectively.
+Please note that we are using default directory structure for this
+tutorial, however, it is possible to define locations of the databases
+by using options `--cdd_db $CDD_PATH` and `--ipr_db $INTERPRO_PATH`
+for CDD and interpro respectively.
 
 In this tutorial, to avoid the use of domain databases and tools
 (avoid the prediction of domains), we provided the output files
@@ -374,7 +384,10 @@ for the domain selection.
 apricot classify --analysis_path APRICOT_analysis
 ```
 
-The list of proteins that are selected based on the domains of interest is classified when the annotations contain one of the terms. The classified files are stored in the subfolder `2_selected_domain_information` as shown below.
+The list of proteins that are selected based on the domains of
+interest is classified when the annotations contain one of the
+terms. The classified files are stored in the subfolder
+`2_selected_domain_information` as shown below.
 
 ```
 APRICOT_analysis

@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # Description = selects rna related domains from InterPro database.
 
-import argparse
 import re
 
 
@@ -38,9 +37,6 @@ class RnaRelatedIPRSelection(object):
         the extraction of common information'''
         with open(self._interpro_mapped_cdd, 'r') as in_fh:
             for entry in in_fh:
-                ipr_id = entry.split('\t')[0]
-                ipr_members = entry.split('\t')[1]
-                cdd_id = entry.split('\t')[2]
                 cdd_member = entry.split('\t')[3]
                 domain_length = entry.split('\t')[4].strip()
                 self._mapped_interpro_length[cdd_member] = domain_length

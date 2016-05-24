@@ -1,11 +1,8 @@
 #!/usr/bin/env python
 # Description = Annotates selected queries with proteins and domain information
 
-import argparse
 import os
 
-__description__ = ("Annotates selected queries with proteins and "
-                   "domain information")
 
 class SelectedProteinTable(object):
     

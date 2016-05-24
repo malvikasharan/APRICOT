@@ -11,7 +11,7 @@ try:
     from openpyxl.workbook import Workbook
 except ImportError:
     print('Python package openpyxl is missing. Please install/update.\n'
-    'Please ignore if you chose the output format as HTML')
+          'Please ignore if you chose the output format as HTML')
     
 
 def csv_to_xlsx(inpath, outpath):

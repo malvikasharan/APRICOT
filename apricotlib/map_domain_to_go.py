@@ -1,10 +1,11 @@
-#!/usr/bin/env python 
+#!/usr/bin/env python
 # Description = Maps each domains to their corresponding domains from InterPro
 
 import argparse
 import os
 
-__description__ = "Maps each domains to their corresponding domains from InterPro"
+__description__ = ("Maps each domains to their corresponding domains from "
+                   "InterPro")
 
 
 def main():
