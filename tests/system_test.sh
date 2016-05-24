@@ -133,7 +133,8 @@ set_up_analysis_folder(){
 }
 
 install_complete_db_and_tools(){
-    sh $APRICOT_PATH/shell_scripts/apricot_complete_db_tool.sh $APRICOT_PATH $DB_PATH 
+    sh ../shell_scripts/apricot_complete_db_tool.sh
+    # sh $APRICOT_PATH/shell_scripts/apricot_complete_db_tool.sh $APRICOT_PATH
 }
 
 install_minimum_required_files(){
