@@ -1,31 +1,12 @@
 #!/usr/bin/env python
 # Description = Annotates selected queries with proteins and domain information
 # author= "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
-# email = "malvika.sharan@uni-wuerzburg.de"
-# 2016-05-20
 
 import argparse
 import os
 
 __description__ = ("Annotates selected queries with proteins and "
                    "domain information")
-
-def main():
-    parser = argparse.ArgumentParser(description=__description__)
-    parser.add_argument("filtered_data_path")
-    parser.add_argument("uniprot_reference_table")
-    parser.add_argument("xml_feature_table")
-    parser.add_argument("selected_data_table")
-    args = parser.parse_args()
-
-    selected_protein_table = SelectedProteinTable(
-        args.filtered_data_path, args.uniprot_reference_table,
-        args.xml_feature_table, args.selected_data_table)
-    selected_protein_table.parse_filtered_data()
-    selected_protein_table.parse_uniprot_reference()
-    selected_protein_table.read_xml_protein_table()
-    selected_protein_table.create_selected_data_table()
-
 
 class SelectedProteinTable(object):
     
@@ -197,6 +178,3 @@ class FilteredData(object):
         self.stop = row[11]
         self.stats = row[12:]
         self.parameter = row[-1]
-
-if __name__ == "__main__":
-    main()
