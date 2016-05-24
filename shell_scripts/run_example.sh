@@ -1,5 +1,5 @@
 #!/bin/bash
-# AUTHOR: Malvika Sharan <malvikasharan@gmail.com>
+# AUTHOR: Malvika Sharan <malvika.sharan@uni-wuerzburg.de>
 
 #########################################################################
 ANALYSIS_PATH=APRICOT_analysis
