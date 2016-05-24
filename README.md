@@ -51,4 +51,4 @@ Users can choose to install all the tools and databases for a complete test. Opt
 
 ####Contact
 
-For question, troubleshooting and requests, please feel free to contact Malvika Sharan at <malvika.sharan@uni-wuerzburg.de> / <malvikasharan@gmail.com>
+For question, troubleshooting and requests, please feel free to contact Malvika Sharan at <malvika.sharan@uni-wuerzburg.de>
