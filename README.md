@@ -113,11 +113,14 @@ APRICOT
 └───├...
 `````
 
-The run script for the installation ocan be found in `run_scripts` folder of this github repository. Users need to provide the path of the APRICOT repository in the system (APRICOT) and the path where the users wish to install APRICOT related tools and files (apricot_db_and_tools). 
-With the light version, APRICOT will mainly install  BLAST executables (ftp://ftp.ncbi.nih.gov/blast/executables/blast+) and InterProScan (ftp://ftp.ebi.ac.uk/pub/software/unix/iprscan/5/) along with establishing CDD and InterPro databases locally.
+The run script for the installation can be found in `APRICOT/shell_scripts` folder of this github repository. Users need to provide the path of the APRICOT repository in the system (default name: APRICOT) and the path where the users wish to install APRICOT related tools and files (default path: source_files). 
+
+APRICOT requires to install  BLAST executables (ftp://ftp.ncbi.nih.gov/blast/executables/blast+) and InterProScan (ftp://ftp.ebi.ac.uk/pub/software/unix/iprscan/5/) along with establishing CDD and InterPro databases locally. All the required resources can be established using the script `apricot_complete_db_tool.sh`. 
+
+With `apricot_minimum_required_files.sh`, user can skip installing tools for additional annotations (PSortb and RaptorX).
 
 `````
-$ sh APRICOT/bin/apricotlib/apricot_minimum_required_files.sh APRICOT
+$ sh apricot_minimum_required_files.sh
 `````
 
 Alternatively, the BLAST executables (rpsblast, blastp, psiblast, makeblastdb) can be installed locally as directed [here](http://bioinformatics.ai.sri.com/ptools/installation-guide/released/blast.html) and CDD can be established locally (in the path apricot_db_and_tools/conserved_domain_database/Cdd) as shown below:
