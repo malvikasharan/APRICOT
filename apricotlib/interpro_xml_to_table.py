@@ -1,8 +1,5 @@
 #!/usr/bin/env python
 # Description = Compiles InterProScan data from XML files to table
-# author= "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
-# email = "malvika.sharan@uni-wuerzburg.de"
-# 2016-05-20
 
 import argparse
 import sys
