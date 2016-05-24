@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 # Description = Visualizes different output data from APRICOT analysis
-# author= "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
 
 from collections import defaultdict
 import os
