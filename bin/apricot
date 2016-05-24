@@ -25,11 +25,11 @@ from apricotlib.create_analysis_summary import CreateAnalysisSummary
 from apricotlib.apricot_visualization import BiojsVizOfApricotAnalysis
 from apricotlib.convert_csv_format import *
 
-__author__ = "Malvika Sharan <malvikasharan@gmail.com>"
-__copyright__ = "2016 by Malvika Sharan <malvikasharan@gmail.com>"
+__author__ = "Malvika Sharan <malvikasharan@uni-wuerzburg.de>"
+__copyright__ = "2016 by Malvika Sharan <malvikasharan@uni-wuerzburg.de>"
 __license__ = "ISC license"
-__email__ = "malvikasharan@gmail.com>"
-__version__ = "1.0.2"
+__email__ = "malvikasharan@uni-wuerzburg.de>"
+__version__ = "1.1"
 
 def main():
     parser = argparse.ArgumentParser()
