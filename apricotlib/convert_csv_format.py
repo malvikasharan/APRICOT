@@ -100,9 +100,3 @@ def split_str(seq, chunk, skip_tail=False):
     elif not skip_tail and seq:
         lst.extend([seq])
     return lst
-    
-if __name__ == '__main__':
-    inpath = sys.argv[1]
-    outpath = sys.argv[2]
-    csv_to_xlsx(inpath, outpath)
-    csv_to_html(inpath, outpath)
