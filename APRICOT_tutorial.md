@@ -216,7 +216,7 @@ related to tRNA-ligase therefore, it must not be identified with domains reltaed
 
 query_uids='P0A6X3,P00957'          # Option-1: UniProt identifier
 apricot query --analysis_path APRICOT_analysis --uids $query_uids
-``
+```
 
 #### Providing keyword inputs using the subcommand `keywords`
 
