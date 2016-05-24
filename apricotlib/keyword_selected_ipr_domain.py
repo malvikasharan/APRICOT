@@ -1,28 +1,8 @@
 #!/usr/bin/env python
 # Description = selects rna related domains from InterPro database.
-# author= "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
-# email = "malvika.sharan@uni-wuerzburg.de"
-# 2016-05-20
 
 import argparse
 import re
-
-
-def main():
-    parser = argparse.ArgumentParser(description=__description__)
-    parser.add_argument("keywords_file")
-    parser.add_argument("ipr_whole_data_file")
-    parser.add_argument("interpro_mapped_cdd")
-    parser.add_argument("domain_data_path")
-    args = parser.parse_args()
-
-    keyword_selected_ipr_selection = RnaRelatedIPRSelection(
-        args.keywords_file, args.ipr_whole_data_file,
-        args.interpro_mapped_cdd, args.domain_data_path)
-    keyword_selected_ipr_selection.read_keyword_file()
-    keyword_selected_ipr_selection.read_interpro_mapped_cdd_file()
-    keyword_selected_ipr_selection.read_ipr_whole_data_file()
-    keyword_selected_ipr_selection.create_keyword_selected_domain_file()
 
 
 class RnaRelatedIPRSelection(object):
@@ -137,7 +117,3 @@ class RnaRelatedIPRSelection(object):
                     self._keyword_selected_domain[domain_entry]))
                 keyword_selected_domain_file.write('%s\t%s\n' % (
                     domain_entry, keywords))
-
-if __name__ == "__main__":
-
-    main()
