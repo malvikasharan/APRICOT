@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 # Description = Merges domains files selected from CDD and InterPro
 # author= "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
-# email = "malvika.sharan@uni-wuerzburg.de"
-# 2016-05-20
 
 import os
 import sys
