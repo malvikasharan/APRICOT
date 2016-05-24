@@ -1,8 +1,5 @@
 #!/usr/bin/env python
 # Description = Filters prteins that contains domains of interest
-# author= "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
-# email = "malvika.sharan@uni-wuerzburg.de"
-# 2016-05-20
 
 import os
 
