@@ -1,6 +1,4 @@
 #!/usr/bin/env sh
-# AUTHOR: Malvika Sharan {malvikasharan@gmail.com}
-
 ## Addition shell script to run RPSBLAST against CDD
 
 DB_PATH=$1
