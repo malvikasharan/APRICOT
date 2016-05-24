@@ -1,8 +1,5 @@
 #!/usr/bin/env python
 # Description = Creates an overview for APRICOT analysis
-# author= "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
-# email = "malvika.sharan@uni-wuerzburg.de"
-# 2016-05-20
 
 import os
 from collections import defaultdict
@@ -206,6 +203,3 @@ class NonFilteredData(object):
         self.stats = row[12:-2]
         self.domain_tag = row[-1]
         self.parameter = row[-2]
-
-if __name__ == '__main__':
-    main()
