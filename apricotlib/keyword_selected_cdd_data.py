@@ -1,32 +1,8 @@
 #!/usr/bin/env python
 # Description = selects domains from cdd database
-# author= "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
-# email = "malvika.sharan@uni-wuerzburg.de"
-# 2016-05-20
 
 import argparse
 import re
-
-__description__ = "selects rna related domains from cdd database."
-
-
-def main():
-    '''all commandline arguement dclaration'''
-    parser = argparse.ArgumentParser(description=__description__)
-    parser.add_argument("keywords_file")
-    parser.add_argument("cdd_whole_data_file")
-    parser.add_argument("interpro_mapped_cdd")
-    parser.add_argument("domain_data_path")
-    args = parser.parse_args()
-
-    keyword_selected_domain_selection = RnaRelatedDomainSelection(
-        args.keywords_file, args.cdd_whole_data_file,
-        args.interpro_mapped_cdd, args.domain_data_path)
-    keyword_selected_domain_selection.read_keyword_file()
-    keyword_selected_domain_selection.read_interpro_mapped_cdd_file()
-    keyword_selected_domain_selection.read_cdd_whole_data_file()
-    keyword_selected_domain_selection.create_keyword_selected_domain_file()
-
 
 class RnaRelatedDomainSelection(object):
     '''classification of data'''
@@ -136,8 +112,3 @@ class RnaRelatedDomainSelection(object):
             for domain_entry in uniq_keyword_selected_domains:
                 keyword_selected_domain_file.write(
                     '%s\n' % str(domain_entry))
-
-if __name__ == "__main__":
-
-    main()
-
