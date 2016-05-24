@@ -1,35 +1,11 @@
 #!/usr/bin/env python
 # Description = Collect protein ids from UniProt database for the query genes
-# author= "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
-# email = "malvika.sharan@uni-wuerzburg.de"
-# 2016-05-20
 
 import os
 import argparse
 import csv
 import re
 from itertools import islice
-
-__description__ = "Collect protein ids from UniProt database for the query genes"
-
-
-def main():
-    parser = argparse.ArgumentParser(description=__description__)
-    parser.add_argument("query_path")
-    parser.add_argument("uniprot_reference_file")
-    parser.add_argument("mapped_data_path")
-    parser.add_argument("statistics_path")
-    args = parser.parse_args()
-
-    collect_uniprot_information = CollectUniprotInformation(
-                                            args.query_path,
-                                            args.uniprot_reference_file,
-                                            args.mapped_data_path,
-                                            args.statistics_path)
-    collect_uniprot_information.read_protein_file()
-    collect_uniprot_information.parse_uniprot_reference_file()
-    collect_uniprot_information.map_proteins_to_uniprot()
-    collect_uniprot_information.create_mapped_file()
 
 
 class CollectUniprotInformation(object):
@@ -118,6 +94,3 @@ class CollectUniprotInformation(object):
                       'truly mapped genes.')
                 statistics_file.close()
                 print('Proteins are mapped to the available proteins.')
-
-if __name__ == '__main__':
-    main()
