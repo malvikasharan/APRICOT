@@ -1,8 +1,5 @@
 #!/usr/bin/env python
 # Description = Prepares query protein data for analysis
-# author= "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
-# email = "malvika.sharan@uni-wuerzburg.de"
-# 2016-05-20
 
 
 def create_uid_query_file(uids, query_path):
