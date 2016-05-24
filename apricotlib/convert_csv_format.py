@@ -1,9 +1,6 @@
 #! /usr/bin/env python
 # Description = This script is designed to convert the file types.
 # tab separated files to xlsx files
-# author= "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
-# email = "malvika.sharan@uni-wuerzburg.de"
-# 2016-05-20
 
 import os
 import sys
