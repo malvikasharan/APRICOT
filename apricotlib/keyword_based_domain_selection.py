@@ -1,10 +1,8 @@
 #!/usr/bin/env python
 # Description = Select domain reference set based on user provided keywords
-# author= "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
-# email = "malvika.sharan@uni-wuerzburg.de"
-# 2016-05-20
 
 import re
+
 
 class KeywordBasedDomainSelection(object):
     def __init__(self, keywords_file,
