@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 # Description = Annotates selected queries with available information
 # author= "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
-# email = "malvika.sharan@uni-wuerzburg.de"
-# 2016-05-20
 
 import os
 
