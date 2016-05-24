@@ -1,10 +1,6 @@
 #!/usr/bin/env python
 # Description = collect protein from uniprot
-# protein gene, their xml file and all the details.pr
-# further collection of fasta files.
-# author= "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
-# email = "malvika.sharan@uni-wuerzburg.de"
-# 2016-05-20
+# protein gene, their xml file and all the details
 
 import os
 import argparse
@@ -20,26 +16,6 @@ except ImportError:
     sys.exit(0)
 import sys
 XML_PARSE = '{http://uniprot.org/uniprot}'
-
-__description__ = '''code to collect protein from uniprot
-protein gene, their xml file and all the details.pr
-further collection of fasta files.'''
-
-
-def main():
-    parser = argparse.ArgumentParser(description=__description__)
-    parser.add_argument("query_to_uid")
-    parser.add_argument("uniprot_xml_path")
-    parser.add_argument("uniprot_fasta_path")
-    parser.add_argument("uniprot_feature_table")
-    args = parser.parse_args()
-
-    collect_uniprot_information = CollectUniprotInformation(
-        args.query_to_uid, args.uniprot_xml_path,
-        args.uniprot_fasta_path, args.uniprot_feature_table)
-    collect_uniprot_information.get_uniprot_xml_and_fasta()
-    collect_uniprot_information.create_feature_table()
-
 
 class CollectUniprotInformation(object):
     '''collection of protein protein from gene data'''
@@ -374,6 +350,3 @@ class CollectUniprotInformation(object):
         prot_exist = protein.findall(XML_PARSE+'proteinExistence')
         for exist_type in prot_exist:
             return exist_type.get('type')
-    
-if __name__ == "__main__":
-    sys.exit(main())
