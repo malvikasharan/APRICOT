@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 # description = "Identifies keyword selected domains from InterPro database."
 # author= "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
-# email = "malvika.sharan@uni-wuerzburg.de"
-# 2016-05-20
 
 import os
 import sys
