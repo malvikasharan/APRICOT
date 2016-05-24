@@ -85,8 +85,7 @@ Contact
 -------
 
 For question, troubleshooting and requests, please feel free to contact
-Malvika Sharan at malvika.sharan@uni-wuerzburg.de /
-malvikasharan@gmail.com
+Malvika Sharan at malvika.sharan@uni-wuerzburg.de
 
 .. _APRICOT: http://malvikasharan.github.io/APRICOT/
 .. _here: https://github.com/malvikasharan/APRICOT/blob/master/LICENSE.md
