@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 # Description = Classify protein data predicted with domain of interest into subclass
-# author= "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
 
 import re
 
