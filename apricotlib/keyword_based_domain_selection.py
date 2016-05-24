@@ -51,22 +51,25 @@ class KeywordBasedDomainSelection(object):
             if '. ' not in annotation:
                 if ',' in str(annotation):
                     annotation = ' '.join(str(annotation).split(','))
-                keyword_match = self._match_keys_in_annotation(keyword, annotation)
+                keyword_match = self._match_keys_in_annotation(
+                    keyword, annotation)
                 if keyword_match:
                     return True
             else:
                 for each_annotation in annotation.split('. '):
-                    keyword_match = self._match_keys_in_annotation(keyword, each_annotation)
+                    keyword_match = self._match_keys_in_annotation(
+                        keyword, each_annotation)
                     if keyword_match:
                         return True
         else:
             ref_kw_list = keyword.lower().split(' ')
-            if not '. ' in annotation:
+            if '. ' not in annotation:
                 if ',' in str(annotation):
                     annotation = ' '.join(str(annotation).split(','))
                 new_kw_list = []
                 for each_word in ref_kw_list:
-                    current_search = self._match_keys_in_annotation(each_word, annotation)
+                    current_search = self._match_keys_in_annotation(
+                        each_word, annotation)
                     if current_search:
                         new_kw_list.append(each_word)
                 keyword_match = ref_kw_list == new_kw_list
@@ -77,7 +80,8 @@ class KeywordBasedDomainSelection(object):
                     
                     new_kw_list = []
                     for each_word in ref_kw_list:
-                        current_search = self._match_keys_in_annotation(each_word, each_annotation)
+                        current_search = self._match_keys_in_annotation(
+                            each_word, each_annotation)
                         if current_search:
                             new_kw_list.append(each_word)
                     keyword_match = ref_kw_list == new_kw_list
@@ -86,7 +90,7 @@ class KeywordBasedDomainSelection(object):
         return False
     
     def _match_keys_in_annotation(self, keyw, annotation):
-        if not '#' in keyw:
+        if '#' not in keyw:
             annotation = annotation.lower().replace(
                     '_', ' ').replace('-', ' ')
             if ' ' in annotation:
@@ -96,15 +100,15 @@ class KeywordBasedDomainSelection(object):
                         return True
             else:
                 if re.findall(r"(?:\s|^)%s(?=\s|$)" %
-                              keyw.lower(), annotation):
+                    keyw.lower(), annotation):
                     return True
         else:
             keyw = keyw.replace('#', str('\w*'))
             annotation = annotation.lower().replace(
-                    '_', ' ').replace('-', ' ')
+                '_', ' ').replace('-', ' ')
             for each_annotation in list(annotation.split(' ')):
-                    if re.findall(r'%s' % keyw.lower(), each_annotation):
-                        return True
+                if re.findall(r'%s' % keyw.lower(), each_annotation):
+                    return True
             else:
                 if re.findall(r'%s' % keyw.lower(), annotation):
                     return True
@@ -127,12 +131,17 @@ class KeywordBasedDomainSelection(object):
                     short_name = entry.split('\t')[3]
                     full_name = entry.split('\t')[8]
                     for check_keyword in self._keyword_list:
-                        new_keyword = check_keyword.replace('-', ' ').replace('_', ' ')
+                        new_keyword = check_keyword.replace(
+                            '-', ' ').replace('_', ' ')
                         if ' like' in new_keyword:
-                            new_keyword = new_keyword.replace(' like', ' ').strip().replace('  ', ' ')
-                        for search_annotation in list([family_id, short_name, full_name]):
-                            if self._string_search(new_keyword, search_annotation):
-                                self._pfam_domain_dict.setdefault(check_keyword, set()).add(pfam_id)
+                            new_keyword = new_keyword.replace(
+                                ' like', ' ').strip().replace('  ', ' ')
+                        for search_annotation in list(
+                            [family_id, short_name, full_name]):
+                            if self._string_search(new_keyword, 
+                            search_annotation):
+                                self._pfam_domain_dict.setdefault(
+                                    check_keyword, set()).add(pfam_id)
             except UnicodeDecodeError:
                 pass
         return self._pfam_domain_dict
@@ -162,31 +171,43 @@ class KeywordBasedDomainSelection(object):
                 each_entry = each_entry.replace(each_entry.split('\t')[3], " ".join(
                         each_entry.split('\t')[3].split())).replace(';', ',')
                 if 'smart' in domain_id:
-                    each_entry = each_entry.replace(domain_id, 'SM'+domain_id.split('smart')[-1])
+                    each_entry = each_entry.replace(
+                        domain_id, 'SM'+domain_id.split('smart')[-1])
                     domain_id = 'SM'+domain_id.split('smart')[-1]
                 if 'pfam' in domain_id:
-                    each_entry = each_entry.replace(domain_id, 'PF'+domain_id.split('pfam')[-1])
+                    each_entry = each_entry.replace(
+                        domain_id, 'PF'+domain_id.split('pfam')[-1])
                     domain_id = 'PF'+domain_id.split('pfam')[-1]
                 if domain_id in self._mapped_cdd_members.keys():
-                    cdd_entry = "%s\t%s\t%s" % ('\t'.join(each_entry.split('\t')[0:-1]),
-                            self._mapped_cdd_members[domain_id], each_entry.split('\t')[-1])
+                    cdd_entry = "%s\t%s\t%s" % (
+                        '\t'.join(each_entry.split('\t')[0:-1]),
+                            self._mapped_cdd_members[domain_id], 
+                            each_entry.split('\t')[-1])
                 else:
-                    cdd_entry = "%s\tNA\t%s" % ('\t'.join(each_entry.split('\t')[0:-1]),
+                    cdd_entry = "%s\tNA\t%s" % (
+                        '\t'.join(each_entry.split('\t')[0:-1]),
                                                 each_entry.split('\t')[-1])
                 for check_keyword in self._keyword_list:
                     try:
                         if domain_id in self._pfam_domain_dict[check_keyword]:
-                            self._selected_cdd_entry_dict.setdefault(check_keyword, set()).add(cdd_entry.strip())
+                            self._selected_cdd_entry_dict.setdefault(
+                                check_keyword, set()).add(cdd_entry.strip())
                     except KeyError:
                         pass
                     else:
-                        new_keyword = check_keyword.replace('-', ' ').replace('_', ' ')
+                        new_keyword = check_keyword.replace(
+                            '-', ' ').replace('_', ' ')
                         if ' like' in new_keyword:
-                            new_keyword = new_keyword.replace(' like', ' ').replace('  ', ' ')
-                        for search_annotation in cdd_entry.strip().split('\t')[0:4]:
-                            if self._string_search(new_keyword, search_annotation):
-                                self._selected_cdd_entry_dict.setdefault(check_keyword, set()).add(cdd_entry.strip())
-        self.create_keyword_selected_domain_file('cdd', self._selected_cdd_entry_dict, self._cdd_domain_path)
+                            new_keyword = new_keyword.replace(
+                                ' like', ' ').replace('  ', ' ')
+                        for search_annotation in cdd_entry.strip().split(
+                            '\t')[0:4]:
+                            if self._string_search(new_keyword, 
+                            search_annotation):
+                                self._selected_cdd_entry_dict.setdefault(
+                                    check_keyword, set()).add(cdd_entry.strip())
+        self.create_keyword_selected_domain_file('cdd', 
+        self._selected_cdd_entry_dict, self._cdd_domain_path)
     
     def map_ipr_data_to_keywords(self):
         '''Parses InterPro annotation data from table'''
@@ -203,21 +224,27 @@ class KeywordBasedDomainSelection(object):
                 for check_keyword in self._keyword_list:
                     try:
                         if domain_id in self._pfam_domain_dict[check_keyword]:
-                            self._selected_ipr_entry_dict.setdefault(check_keyword, set()).add(
+                            self._selected_ipr_entry_dict.setdefault(
+                                check_keyword, set()).add(
                                 '%s\t%s' % (ipr_entry.strip(), mapped_length))
                     except KeyError:
                         pass
                     else:
-                        new_keyword = check_keyword.replace('-', ' ').replace('_', ' ')
+                        new_keyword = check_keyword.replace(
+                            '-', ' ').replace('_', ' ')
                         if ' like' in new_keyword:
-                            new_keyword = new_keyword.replace(' like', ' ').replace('  ', ' ')
+                            new_keyword = new_keyword.replace(
+                                ' like', ' ').replace('  ', ' ')
                         for search_annotation in ipr_entry.strip().split('\t')[0:4]:
                             if self._string_search(new_keyword, search_annotation):
-                                self._selected_ipr_entry_dict.setdefault(check_keyword, set()).add(
+                                self._selected_ipr_entry_dict.setdefault(
+                                    check_keyword, set()).add(
                                     '%s\t%s' % (ipr_entry.strip(), mapped_length))
-        self.create_keyword_selected_domain_file('interpro', self._selected_ipr_entry_dict, self._ipr_domain_path)
+        self.create_keyword_selected_domain_file('interpro', 
+        self._selected_ipr_entry_dict, self._ipr_domain_path)
     
-    def create_keyword_selected_domain_file(self, domain_db, selected_domain_entry_dict, domain_data_path):
+    def create_keyword_selected_domain_file(self, domain_db, 
+    selected_domain_entry_dict, domain_data_path):
         '''Creates a file with CDD or interpro derived domain of interest'''
         keyword_selected_domain_dict = {}
         for keyword in self._keyword_list:
@@ -225,12 +252,16 @@ class KeywordBasedDomainSelection(object):
                       'w') as selected_domain_file:
                 if keyword in selected_domain_entry_dict.keys():
                     for each_entry in selected_domain_entry_dict[keyword]:
-                        keyword_selected_domain_dict.setdefault(each_entry, set()).add(keyword)
+                        keyword_selected_domain_dict.setdefault(
+                            each_entry, set()).add(keyword)
                         if '#'in keyword:
                             keyword = keyword.replace('#', '')
-                        selected_domain_file.write("%s\t%s\n" % (each_entry.strip(), keyword))
+                        selected_domain_file.write("%s\t%s\n" % (
+                            each_entry.strip(), keyword))
         with open(domain_data_path+'/all_keyword_selected_'+domain_db+'_data.tab',
                   'w') as keyword_selected_domain_file:
             for domain_entry in keyword_selected_domain_dict.keys():
-                all_keywords = ', '.join(list(keyword_selected_domain_dict[domain_entry]))
-                keyword_selected_domain_file.write('%s\t%s\n' % (domain_entry.strip(), all_keywords))
+                all_keywords = ', '.join(list(keyword_selected_domain_dict[
+                    domain_entry]))
+                keyword_selected_domain_file.write('%s\t%s\n' % (
+                    domain_entry.strip(), all_keywords))
