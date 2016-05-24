@@ -1,31 +1,8 @@
 #!/usr/bin/env python
 # Description = RNA related InterPro domains
-# author= "Malvika Sharan <malvika.sharan@uni-wuerzburg.de>"
-# email = "malvika.sharan@uni-wuerzburg.de"
-# 2016-05-20
 
 import argparse
 import re
-
-__description__ = "Selects RNA related domains from InterPro database."
-
-
-def main():
-    '''all commandline arguement dclaration'''
-    parser = argparse.ArgumentParser(description=__description__)
-    parser.add_argument("keywords_file")
-    parser.add_argument("ipr_whole_data_file")
-    parser.add_argument("interpro_mapped_cdd")
-    parser.add_argument("domain_data_path")
-    args = parser.parse_args()
-
-    rna_related_ipr_selection = RnaRelatedIPRSelection(
-        args.keywords_file, args.ipr_whole_data_file,
-        args.interpro_mapped_cdd, args.domain_data_path)
-    rna_related_ipr_selection.read_keyword_file()
-    rna_related_ipr_selection.read_interpro_mapped_cdd_file()
-    rna_related_ipr_selection.read_ipr_whole_data_file()
-    rna_related_ipr_selection.create_rna_related_domain_file()
 
 
 class RnaRelatedIPRSelection(object):
@@ -121,6 +98,3 @@ class RnaRelatedIPRSelection(object):
                   'w') as rna_related_domain_file:
             for domain_entry in uniq_rna_related_domains:
                 rna_related_domain_file.write('%s\n' % str(domain_entry))
-
-if __name__ == "__main__":
-    main()
