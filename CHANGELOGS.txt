@@ -1,3 +1,6 @@
+v1.1 (2016-05-24)
+- Adding tutorial and test files.
+
 v1.0.2 (2016-05-19)
 - The current source-codes are available in GitHub(https://github.com/malvikasharan/APRICOT) pypi, updated with tutorial and examples.
   The pypi page can be accessed here: https://pypi.python.org/pypi/bio-apricot.
