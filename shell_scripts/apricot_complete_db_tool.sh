@@ -35,6 +35,7 @@ main(){
         ### Other-requirements ###
         get_pfam_domain_file
         get_blast_executables
+        get_emboss
         ontology_mapping_to_domains
         get_biojs_dependencies
         get_clustalw
@@ -268,6 +269,13 @@ get_blast_executables(){
         install $apricot_db/blast/bin/blastp $apricot_db/blast
         install $apricot_db/blast/bin/makeblastdb $apricot_db/blast
     done
+}
+
+get_emboss(){
+    wget -P $apricot_files/blast ftp://emboss.open-bio.org/pub/EMBOSS/old/6.5.0/emboss-latest.tar.gz
+    tar -xvzf $apricot_files/blast/emboss-latest.tar.gz -C $apricot_files/blast
+    ./$apricot_files/blast/EMBOSS*/configure
+    rm config.log 
 }
 
 ontology_mapping_to_domains(){
