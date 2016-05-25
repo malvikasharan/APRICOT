@@ -28,6 +28,7 @@ main(){
         
         ### Other-requirements ###
         get_blast_executables
+        get_emboss
         ontology_mapping_to_domains
         get_pfam_domain_file
 
@@ -182,6 +183,13 @@ ontology_mapping_to_domains(){
     interpro_data=$apricot_files/interpro/interpro_annotation_data/interproid.tbl
     cdd_data=$apricot_files/cdd/cdd_annotation_data/cddid.tbl
     $PYTHON_PATH $apricot_lib/map_domain_to_go.py $GO_PATH $interpro_to_go $interpro_data $cdd_data
+}
+
+get_emboss(){
+    wget -P $apricot_files/blast ftp://emboss.open-bio.org/pub/EMBOSS/old/6.5.0/emboss-latest.tar.gz
+    tar -xvzf $apricot_files/blast/emboss-latest.tar.gz -C $apricot_files/blast
+    ./$apricot_files/blast/EMBOSS*/configure
+    rm config.log 
 }
 
 main
