@@ -17,7 +17,7 @@ try:
     import numpy as np
 except ImportError:
     print('Python package numpy is missing. Please install/update.\n')
-    sys.sxit(0)
+    sys.exit(0)
 import random
 try:
     from scipy.spatial import distance
