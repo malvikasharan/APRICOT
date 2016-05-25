@@ -10,7 +10,7 @@ try:
     from Bio.Emboss.Applications import NeedleCommandline
 except ImportError:
     print('Python package Biopython is missing. Please install/update.\n')
-    sys.sxit(0)
+    sys.exit(0)
 from itertools import combinations
 
 try:
@@ -25,7 +25,7 @@ try:
     from scipy import stats
 except ImportError:
     print('Python package scipy is missing. Please install/update.\n')
-    sys.sxit(0)
+    sys.exit(0)
 
 class ComputeCompositionDistance(object):
     def __init__(self, filtered_data,
