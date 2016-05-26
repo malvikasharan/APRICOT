@@ -56,7 +56,7 @@ pip.
 **If you are using locally installed git repository**
 
 Please specifiy the the path where APRICOT modules are located (see below: APRICOT_PATH)
-and run the tool using `python $APRICOT_PATH/bin/apricot` (which would
+and run the tool using `python $APRICOT_PATH/bin/apricot` by editing `APRICOT_CALL="python3 ../bin/apricot"` (which would
 have the advantage that you can specify the Python version you would
 like to use) or `./$APRICOT_PATH/bin/apricot` command.
 
