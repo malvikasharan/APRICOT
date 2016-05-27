@@ -35,7 +35,7 @@ main(){
         ### Other-requirements ###
         get_pfam_domain_file
         get_blast_executables
-        get_emboss
+        #get_emboss
         ontology_mapping_to_domains
         get_biojs_dependencies
         get_clustalw
