@@ -5,6 +5,7 @@
 ANALYSIS_PATH=APRICOT_analysis
 APRICOT_PATH=APRICOT
 ROOT_DB_PATH=source_files
+NEEDLE_EMBOSS_PATH=source_files/reference_db_files/needle/emboss/needle
 #########################################################################
 
 
@@ -169,7 +170,8 @@ classify_filtered_result(){
 
 calculate_annotation_score(){
     apricot annoscore \
-	    --analysis_path $ANALYSIS_PATH
+	    --analysis_path $ANALYSIS_PATH \
+	    --needle_dir $NEEDLE_EMBOSS_PATH
 }
 
 create_analysis_summary(){
