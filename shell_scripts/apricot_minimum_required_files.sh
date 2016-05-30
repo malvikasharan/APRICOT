@@ -28,7 +28,6 @@ main(){
         
         ### Other-requirements ###
         get_blast_executables
-        #get_emboss
         ontology_mapping_to_domains
         get_pfam_domain_file
 
@@ -37,6 +36,10 @@ main(){
         download_uniprot_map
         download_pdb_sec_str
         sort_and_format_pdb_data
+        
+        ### EMBOSS: needle commandline ###
+        ## please skip if it is already installed ##
+        get_emboss
 }
 
 create_main_path(){
@@ -44,7 +47,7 @@ create_main_path(){
         then
             mkdir -p $apricot_files
     fi
-    for FOLDER in cdd interpro blast go_mapping pdb all_taxids pfam
+    for FOLDER in cdd interpro blast go_mapping pdb all_taxids pfam needle
     do
         if ! [ -d $apricot_files/$FOLDER ]
         then
@@ -187,9 +190,10 @@ ontology_mapping_to_domains(){
 
 get_emboss(){
     wget -P $apricot_files/blast ftp://emboss.open-bio.org/pub/EMBOSS/old/6.5.0/emboss-latest.tar.gz
-    tar -xvzf $apricot_files/blast/emboss-latest.tar.gz -C $apricot_files/blast
-    ./$apricot_files/blast/EMBOSS*/configure
-    rm config.log 
+    tar -xvzf $apricot_files/needle/emboss-latest.tar.gz -C $apricot_files/needle
+    mv $apricot_files/needle/EMBOSS*/* $apricot_files/needle
+    cd $apricot_files/needle && ./configure && make && cd -
+    echo "In order to re-install please delete (rm) config.log file from your present working directory"
 }
 
 main
