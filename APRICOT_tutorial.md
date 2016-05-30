@@ -79,6 +79,9 @@ ANALYSIS_PATH=APRICOT_analysis
 # Path where the source files and databases will be stored
 ROOT_DB_PATH=source_files
 
+# Path for EMBOSS suite with locally installed needle cline
+NEEDLE_EMBOSS_PATH=source_files/reference_db_files/needle/emboss/needle   # Default path
+
 # Path where APRICOT modules are located, by-default we use APRICOT as
 # the name of git library
 APRICOT_PATH=APRICOT
@@ -408,8 +411,15 @@ proteins. Please refer documentation to understand different sets of
 features, which have been used in APRICOT for the scoring of the
 predicted domains with respect to their reference consensus.
 
+This module require python packages: numpy and scipy, and EMBOSS suit to run 
+Needleman Wunsch pairwise-alignment analysis. If not installed, please install it 
+using the function `get_emboss`. For basic demonstration, we suggest you to skip 
+this module as the configuration and installation of EMBOSS suite takes time. However, 
+if installed already, please edit the path name `NEEDLE_EMBOSS_PATH`.
+
 ```
-apricot annoscore --analysis_path APRICOT_analysis
+NEEDLE_EMBOSS_PATH=source_files/reference_db_files/needle/emboss/needle   # Default path
+apricot annoscore --analysis_path APRICOT_analysis --needle_dir $NEEDLE_EMBOSS_PATH
 ```
 
 The files generated from this analysis are stored in the subfolder
