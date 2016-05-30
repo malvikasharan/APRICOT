@@ -30,10 +30,11 @@ except ImportError:
 class ComputeCompositionDistance(object):
     def __init__(self, filtered_data,
                  cdd_pred_files,
-                 outpath):
+                 outpath, needle_path):
         self._filtered_data = filtered_data
         self._cdd_pred_files = cdd_pred_files
         self._outpath = outpath
+        self._needle_path = needle_path
         
         self._cdd_main_entry_dict = defaultdict(lambda: defaultdict(lambda: str()))
         self._final_entry_dict = {}
@@ -298,7 +299,7 @@ class ComputeCompositionDistance(object):
                                                 query_seq, subject_seq =  self._compile_cdd_stat(
                                                     each_stat_group)
                                                 seq_distance = 0
-                                                needle_cline_seq = NeedleCommandline(asequence="asis:"+query_seq,
+                                                needle_cline_seq = NeedleCommandline(self._needle_path, asequence="asis:"+query_seq,
                                                 bsequence="asis:"+subject_seq, gapopen=0, gapextend=0, outfile="stdout")
                                                 stdout, stderr = needle_cline_seq()
                                                 for entry_seq in stdout.split('\n'):
