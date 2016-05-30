@@ -223,7 +223,10 @@ def main():
     help='Raw files obtained from CDD based domain prediction')
     get_annotation_scoring.add_argument("--outpath", "-o",
     default="output/3_annotation_scoring",
-    help="Output path for annotation scoring files (Output-3)")
+    help="Output path for annotation scoring files")
+    get_annotation_scoring.add_argument("--needle_dir", "-nd",
+    default="source_files/reference_db_files/needle/emboss/needle",
+    help="path for the locally configured EMBOSS suite")
     
     get_analysis_summary = subparsers.add_parser(
         "summary", help="Summary analysis output")
@@ -658,10 +661,11 @@ def annotation_scoring(args):
       "This might take some time, please be patient ..."
     "\n----------------------------------------------------------------\n")
     outpath = args.analysis_path + '/' + args.outpath
+    needle_path = args.needle_dir
     select_data = args.analysis_path + '/' + args.selected
     cdd_pred = args.analysis_path + '/' + args.cdd_pred
     compute_composition_distance = ComputeCompositionDistance(
-    select_data, cdd_pred, outpath)
+    select_data, cdd_pred, outpath, needle_path)
     compute_composition_distance.streamline_annotation_scoring()
 
 def analysis_summary(args):
