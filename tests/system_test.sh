@@ -115,10 +115,10 @@ main(){
     run_domain_prediction			            ### Subcommand: predict
     filter_domain_analysis			            ### Subcommand: filter
     classify_filtered_result			        ### Subcommand: classify
-    calculate_annotation_score			        ### Subcommand: annoscore
     create_analysis_summary			            ### Subcommand: summary
     output_file_formats                         ### Subcommand: format (output file conversion fro csv to HTML or xlsx)
-
+    
+    # calculate_annotation_score			    ### Subcommand: annoscore (requires EMBOSS suit to run needle cline, and python numpy, scipy)
     ###ADDITIONAL ANNOTATION###                 ### requires third party tools, which can be installed by 'install_complete_db_and_tools'###
     #calculate_additional_annotation            ## Subcommand: addanno (PsortB and -RaptorX must be installed for their respective annotation)
     #create_visualization_files                 ## Subcommand: vis
