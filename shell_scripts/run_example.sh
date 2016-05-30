@@ -119,10 +119,10 @@ downloads_files(){
     DEMO_FOLDER=$(basename $DEMO_ZIP .zip)/apricot_demo_files/
     wget $ZENODO_LINK_FOR_DEMO_DATA
     unzip ${DEMO_ZIP}
-    cp -r ${DEMO_FOLDER}/go_mapping/* $DB_PATH
+    cp -r ${DEMO_FOLDER}/go_mapping $DB_PATH
     cp -r ${DEMO_FOLDER}/interpro_annotation_data $DB_PATH/interpro
-    cp ${DEMO_FOLDER}/cdd_analysis/* $ANALYSIS_PATH/output/0_predicted_domains/cdd_analysis
-    cp ${DEMO_FOLDER}/ipr_analysis/* $ANALYSIS_PATH/output/0_predicted_domains/ipr_analysis
+    cp -r ${DEMO_FOLDER}/cdd_analysis $ANALYSIS_PATH/output/0_predicted_domains
+    cp -r ${DEMO_FOLDER}/ipr_analysis $ANALYSIS_PATH/output/0_predicted_domains
     rm -rf $DEMO_ZIP $DEMO_FOLDER $(basename $DEMO_ZIP .zip)
 
     # CDD annotation table
