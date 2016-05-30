@@ -64,6 +64,8 @@ like to use) or `./$APRICOT_PATH/bin/apricot` command.
 python $APRICOT_PATH/bin/apricot -h
 ```
 
+If you get an error message ```system_test.sh: 164: system_test.sh: ../bin/apricot: Permission denied ...`, please open the script `run_example.sh` and and edit the `APRICOT_CALL="../bin/apricot"` to `APRICOT_CALL="python3 ../bin/apricot"` (instead if python3, you can use python or define any version of python, or instead use ./).
+
 #### Defining paths
 
 Users can set the following paths:
