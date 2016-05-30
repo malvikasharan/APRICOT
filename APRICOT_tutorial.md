@@ -6,11 +6,11 @@ APRICOT and understand the basic usage of this pipeline.
 ### Requirements:
 
 1) Get the Shell script
-[run_example.sh](https://github.com/malvikasharan/APRICOT/blob/master/run_example.sh)
+[run_example.sh](https://github.com/malvikasharan/APRICOT/blob/master/shell_scripts/run_example.sh)
 from GitHub, which will assist you in following the tutorial.
 
 ```
-$ wget -N https://raw.githubusercontent.com/malvikasharan/APRICOT/master/run_example.sh
+$ wget -N https://raw.githubusercontent.com/malvikasharan/APRICOT/master/shell_scripts/run_example.sh
 ```
 
 2) Use [pip](https://pip.pypa.io/en/stable/) to install/update the package
