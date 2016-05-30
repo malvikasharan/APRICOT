@@ -93,9 +93,14 @@ main(){
     run_domain_prediction		  # subcommand predict
     filter_domain_analysis		  # subcommand filter
     classify_filtered_result		  # subcommand classify
-    calculate_annotation_score	          # subcommand annoscore
     create_analysis_summary		  # subcommand summary
     format_output			  # subcommand format
+    
+    ## The subcommand 'annoscore' requires locally configured needle from EMBOSS suite
+    ## please install it using get_emboss or skip it for basic demonstration
+    ## or, if already installed, please change the path name $NEEDLE_EMBOSS_PATH
+    # calculate_annotation_score	  # subcommand annoscore
+    # get_emboss			  # required to run annoscore
 }
 
 set_up_analysis_folder(){
@@ -183,6 +188,14 @@ format_output(){
     apricot format \
 	    --analysis_path $ANALYSIS_PATH \
 	    -HT
+}
+
+get_emboss(){
+    wget -P $apricot_files/blast ftp://emboss.open-bio.org/pub/EMBOSS/old/6.5.0/emboss-latest.tar.gz
+    tar -xvzf $apricot_files/needle/emboss-latest.tar.gz -C $apricot_files/needle
+    mv $apricot_files/needle/EMBOSS*/* $apricot_files/needle
+    cd $apricot_files/needle && ./configure && make && cd -
+    echo "In order to re-install please delete (rm) config.log file from your present working directory"
 }
 
 main
