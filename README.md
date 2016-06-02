@@ -26,13 +26,13 @@ Please read the license content [here](https://github.com/malvikasharan/APRICOT/
 
 
 ####Installation
-APRICOT can be installed with pip
+APRICOT can be installed via pip
 
 `````
 $ pip install bio-apricot
 `````
 
-The scripts for the installaton of the different componenents of APRICOT (databases, tools and flatfiles) are available on the GitHub repository. You can manually download the APRICOT repository or simply clone it.
+The scripts for the installaton of the different components of APRICOT (databases, tools and flatfiles) are available on the GitHub repository. You can manually download the APRICOT repository or simply clone it.
 
 `````
 $ git clone https://github.com/malvikasharan/APRICOT.git
