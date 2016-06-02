@@ -32,7 +32,7 @@ APRICOT can be installed via pip
 $ pip install bio-apricot
 `````
 
-The scripts for the installaton of the different components of APRICOT (databases, tools and flatfiles) are available on the GitHub repository. You can manually download the APRICOT repository or simply clone it.
+The scripts for the installaton of the different components of APRICOT (databases, tools and flat-files) are available on the GitHub repository. You can manually download the APRICOT repository or simply clone it.
 
 `````
 $ git clone https://github.com/malvikasharan/APRICOT.git
@@ -45,7 +45,7 @@ The shell script to install and run the analysis in a streamlined manner is prov
 
 We recomend you to check out the [tutorial](https://github.com/malvikasharan/APRICOT/blob/master/APRICOT_tutorial.md) that discusses each module of APRICOT in detail. 
 
-The repository contains a folder containing shell scripts called `shell_scripts`, which consists of a script [run_example.sh](https://github.com/malvikasharan/APRICOT/blob/master/shell_scripts/run_example.sh), which can be used for the demonstration of APRICOT installation including analysis with an example. 
+The repository contains a folder called `shell_scripts`, which consists of a script [run_example.sh](https://github.com/malvikasharan/APRICOT/blob/master/shell_scripts/run_example.sh). This comprises of shell commands that can be used for the demonstration of APRICOT installation including analysis with an example. 
 
 Alternatively, we have provided a test folder named [tests](https://github.com/malvikasharan/APRICOT/tree/master/tests), to allow the system testing and demonstration of basic modules without installation. The instructions and commands are provided in the shell scipt [system_test.sh](https://github.com/malvikasharan/APRICOT/blob/master/tests/system_test.sh). 
 
