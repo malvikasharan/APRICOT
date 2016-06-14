@@ -323,11 +323,13 @@ APRICOT_analysis
 ####subcommand `keywords`
 Quick help: `$ python3 APRICOT/bin/apricot keywords -h`
 
-Since APRICOT allows identification of certain protein classes like RNA-binding proteins by means of domains, one of the most essential input data, beside the query protein itself, is the terms or keywords that potentially indicates to a protein functional classes (*domain selection terms*). Such terminologies could be pfam ids, Gene Ontology terms, mesh terms or simple biological terms like 'RRM', 'ribosome' or 'polymerases'. Multi-word terms can be provided by using ‘-’ as a connector, for example, 'rna-binding' and 'rna-polymerases'. 
+Since APRICOT allows identification of certain protein classes like RNA-binding proteins by means of domains, one of the most essential input data, beside the query protein itself, is a comma-separated list of terms or keywords that potentially indicates to a protein functional classes (*domain selection terms*). Such terminologies could be any pfam id, Gene Ontology term, mesh term, simple biological terms like 'RRM' and 'ribosome', or a combination of all these types. 
 
-In order to maintain stringent selection of truly functional domains, APRICOT by-default does not allow the selection of a domain entry if the *domain selection term* occurs in its annotation with any prefix or suffix. This indicates the possibilities of omitting few relevant entries from the domain selection keywords, but it also ensures exclusion of several non-relevant domains that might get included by chance. However, users can allow prefix by using the hash symbol (#) in the beginning of a term and suffix when # is used at the end of the term. For example, by using '#RNA-binding' one can allow the inclusion of 'tRNA-binding', 'mtRNA-binding'etc, and by allowing 'RNA-bind#' one can allow varying verb forms for bind like binder, binding etc. Of course, one can allow both prefixes and suffixes (#RNA-bind#).
+Multi-word terms can be provided by using ‘-’ as a connector, for example, 'RNA-binding' and 'La-domain'. 
 
-Optionally a second set of keywords for the classification of predicted domains can be provided by using flag -cl (*result classification terms*). This list can comprise of terms associated to biological functions, enzymatic activities or specific features. For example, the predicted RNA related domain data could be divided into the classification tags of RRM, ribosome, synthetase, helicases etc. Such classification can help users tremendously in navigating through the large datasets or for the selection of representative protein for certain function conferred by the domains. When users do not provide *result classification terms*, APRICOT uses the *domain selection terms* for this purpose as well.
+In order to maintain stringent selection of truly functional domains, APRICOT by-default does not allow the selection of a domain entry if the *domain selection term* occurs in its annotation with any trailing words like prefixes or suffixes. This indicates the possibilities of omitting few relevant entries from the domain selection keywords, but it also ensures exclusion of several non-relevant domains that might get included by chance. However, users can allow prefix by using the hash symbol (#) in the beginning of a term and suffix when # is used at the end of the term. For example, by using '#RNA-binding' one can allow the inclusion of 'tRNA-binding', 'mtRNA-binding'etc, and by allowing 'RNA-bind#' one can allow varying verb forms for bind like binder, binding etc. Of course, one can allow both prefixes and suffixes (#RNA-bind#).
+
+Optionally a second set of keywords for the classification of predicted domains can be provided by using flag -cl (*result classification terms*). This list can comprise of terms associated to biological functions, enzymatic activities or specific features. For example, the predicted RNA related domain data could be divided into the classification tags of RRM, ribosome, synthetase, helicases etc. Such classification can help users tremendously in navigating the large datasets or for the selection of representative protein for certain function conferred by the domains. When users do not provide *result classification terms*, APRICOT uses the *domain selection terms* for this purpose as well.
         
 ````
 usage: apricot keywords [-h] [--classify CLASSIFY] [--kw_path KW_PATH]
@@ -358,9 +360,9 @@ Quick help: `python3 APRICOT/bin/apricot select -h`
 
 This subcommand allows the selection of reference domains based on the *domain selection terms* (in subcommand keywords). For this purpose, by-default APRICOT scans each entries of the domains in both CDD and InterPro domain consortiums for the occurance of any *domain selection term*. 
 
-It is possible to limit the selection process in only one of the consortiums by providing flags -C for CDD or -I for InterPro. For cross mapping the domains in both the consortiums, APRICOT uses domain ids from the databases (Pfam, SMART and TIGRFAM) that are shared by both the consortiums.
-
 In case of multi word terms (which are provided by using '-' as a connector), the co-occurance of the terms are considered when the words in the same sentence or same context. To ensure a more complete selection of the domains, the gene-ontology associated to the domains are also checked and selected accordingly.
+
+It is possible to limit the selection process in only one of the consortiums by providing flags -C for CDD or -I for InterPro. For cross mapping the domains in both the consortiums, APRICOT uses domain ids from the databases (Pfam, SMART and TIGRFAM) that are shared by both the consortiums.
 
 ````
 usage: apricot select [-h] [--cdd_dom] [--ipr_dom] [--dom_kw DOM_KW]
