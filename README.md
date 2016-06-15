@@ -47,7 +47,9 @@ We recomend you to check out the [tutorial](https://github.com/malvikasharan/APR
 
 The repository contains a folder called `shell_scripts`, which consists of a script [run_example.sh](https://github.com/malvikasharan/APRICOT/blob/master/shell_scripts/run_example.sh). This comprises of shell commands that can be used for the demonstration of APRICOT installation including analysis with an example. 
 
-Alternatively, we have provided a test folder named [tests](https://github.com/malvikasharan/APRICOT/tree/master/tests), to allow the system testing and demonstration of basic modules without installation. The instructions and commands are provided in the shell scipt [system_test.sh](https://github.com/malvikasharan/APRICOT/blob/master/tests/system_test.sh). 
+####For developers
+
+We have provided a test folder named [tests](https://github.com/malvikasharan/APRICOT/tree/master/tests), to allow the system testing and demonstration of basic modules without installation. The instructions and commands are provided in the shell scipt [system_test.sh](https://github.com/malvikasharan/APRICOT/blob/master/tests/system_test.sh). 
 
 Users can choose to install all the tools and databases for a complete test. Optionally, the [test datasets](https://github.com/malvikasharan/APRICOT/tree/master/tests/demo_files_small) can be used for basic testing, which does not require installation of third party tools. 
 
