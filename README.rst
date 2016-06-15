@@ -51,8 +51,11 @@ Installation
 ::
 
     $ pip install bio-apricot
+    
 
-The scripts for the installaton of the different componenents of APRICOT
+Or update the package list manually: sudo apt-get update and install the required packages (sudo apt-get install python3-matplotlib python3-numpy python3-scipy python3-biopython python3-requests python3-openpyxl).
+
+2. The scripts for the installaton of the different componenents of APRICOT
 (databases, tools and flatfiles) are available on the GitHub repository.
 You can manually download the APRICOT repository or simply clone it.
 
