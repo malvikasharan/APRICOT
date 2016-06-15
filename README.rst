@@ -46,7 +46,7 @@ Please read the license content `here`_.
 Installation
 ------------
 
-APRICOT can be installed with pip
+1. Python packages required for APRICOT can be installed with pip
 
 ::
 
