@@ -26,13 +26,13 @@ Please read the license content [here](https://github.com/malvikasharan/APRICOT/
 
 
 ####Installation
-APRICOT can be installed via pip
+1. Python modules required for executing APRICOT can be installed via pip
 
 `````
 $ pip install bio-apricot
 `````
 
-The scripts for the installaton of the different components of APRICOT (databases, tools and flat-files) are available on the GitHub repository. You can manually download the APRICOT repository or simply clone it.
+2. The scripts for the installaton of the different components of APRICOT (databases, tools and flat-files) are available on the GitHub repository. You can manually download the APRICOT repository or simply clone it.
 
 `````
 $ git clone https://github.com/malvikasharan/APRICOT.git
@@ -86,13 +86,15 @@ APRICOT is implemented in Python 3 and can be executed in Linux/Unix system. APR
 
 ##Instructions for the installation
 
-As mentioned, APRIOCT can be installed using pip.
+1. As mentioned, python modules required for APRIOCT can be installed using pip.
 
 `````
 $ pip install bio-apricot
 `````
 
-Or update the package list manually: `sudo apt-get update` and install the required packages (`sudo apt-get install python3 python3-scipy python3-numpy python3-matplotlib python3-requests`) and clone the repository.
+Or update the package list manually: `sudo apt-get update` and install the required packages (`sudo apt-get install python3-matplotlib python3-numpy python3-scipy python3-biopython python3-requests python3-openpyxl`).
+
+2. Clone the git-repository
 
 `````
 $ git clone https://github.com/malvikasharan/APRICOT.git
