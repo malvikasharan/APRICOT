@@ -13,7 +13,7 @@ from GitHub, which will assist you in following the tutorial.
 $ wget -N https://raw.githubusercontent.com/malvikasharan/APRICOT/master/shell_scripts/run_example.sh
 ```
 
-2) Use [pip](https://pip.pypa.io/en/stable/) to install/update the package
+2) Use [pip](https://pip.pypa.io/en/stable/) to install/update the python packages
 
 ```
 $ pip install bio-apricot
@@ -25,7 +25,7 @@ or
 $ pip install --user bio-apricot
 ```
 
-or use [APRICOT repository](https://github.com/malvikasharan/APRICOT/archive/master.zip) from GiHub 
+3) Download [APRICOT repository](https://github.com/malvikasharan/APRICOT/archive/master.zip) from GiHub 
 
 ```
 $ git clone https://github.com/malvikasharan/APRICOT.git
