@@ -189,7 +189,7 @@ ontology_mapping_to_domains(){
 }
 
 get_emboss(){
-    wget -P $apricot_files/blast ftp://emboss.open-bio.org/pub/EMBOSS/old/6.5.0/emboss-latest.tar.gz
+    wget -P $apricot_files/needle ftp://emboss.open-bio.org/pub/EMBOSS/old/6.5.0/emboss-latest.tar.gz
     tar -xvzf $apricot_files/needle/emboss-latest.tar.gz -C $apricot_files/needle
     mv $apricot_files/needle/EMBOSS*/* $apricot_files/needle
     cd $apricot_files/needle && ./configure && make && cd -
