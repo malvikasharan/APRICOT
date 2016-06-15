@@ -46,7 +46,7 @@ Please read the license content `here`_.
 Installation
 ------------
 
-1. Python packages required for APRICOT can be installed with pip
+Python packages required for APRICOT can be installed with pip
 
 ::
 
@@ -55,7 +55,7 @@ Installation
 
 Or update the package list manually: sudo apt-get update and install the required packages (sudo apt-get install python3-matplotlib python3-numpy python3-scipy python3-biopython python3-requests python3-openpyxl).
 
-2. The scripts for the installaton of the different componenents of APRICOT
+The scripts for the installaton of the different componenents of APRICOT
 (databases, tools and flatfiles) are available on the GitHub repository.
 You can manually download the APRICOT repository or simply clone it.
 
@@ -75,14 +75,6 @@ We recomend you to check out the `tutorial`_ that discusses each module
 of APRICOT in detail. The repository contains a shell script
 `run\_example.sh`_, which can be used for the demonstration of APRICOT
 analysis with an example.
-
-In the packages we have provided a test folder named `tests`_,
-to allow the system testing. The instructions and commands are provided
-in the shell scipt `system\_test.sh`_.
-
-Users can choose to install all the tools and databases for a complete
-test. Optionally, the `test datasets`_ can be used for basic testing,
-which does not require installation of third party tools.
 
 Contact
 -------
