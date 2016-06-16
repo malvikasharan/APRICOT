@@ -3,7 +3,7 @@
 
 #########################################################################
 PYTHON_PATH=python3
-APRICOT_CALL=$PYTHON_PATH APRICOT/bin/apricot
+APRICOT_CALL='APRICOT/bin/apricot'
 ANALYSIS_PATH=APRICOT_analysis
 APRICOT_PATH=APRICOT
 ROOT_DB_PATH=source_files
@@ -111,16 +111,16 @@ set_up_analysis_folder(){
     do
 	mkdir -p $DB_PATH/$DB_SUBPATH
     done
-    $APRICOT_CALL create $ANALYSIS_PATH
+    $PYTHON_PATH $APRICOT_CALL create $ANALYSIS_PATH
 }
 
 get_small_demo_files(){
-    cp -r demo_files_small/cdd $DB_PATH
-    cp -r demo_files_small/interpro $DB_PATH
-    cp -r demo_files_small/go_mapping $DB_PATH
-    cp -r demo_files_small/pfam $DB_PATH
-    cp -r demo_files_small/cdd_analysis $ANALYSIS_PATH/output/0_predicted_domains/
-    cp -r demo_files_small/ipr_analysis $ANALYSIS_PATH/output/0_predicted_domains/
+    cp -r APRICOT/tests/demo_files_small/cdd $DB_PATH
+    cp -r APRICOT/tests/demo_files_small/interpro $DB_PATH
+    cp -r APRICOT/tests/demo_files_small/go_mapping $DB_PATH
+    cp -r APRICOT/tests/demo_files_small/pfam $DB_PATH
+    cp -r APRICOT/tests/demo_files_small/cdd_analysis $ANALYSIS_PATH/output/0_predicted_domains/
+    cp -r APRICOT/tests/demo_files_small/ipr_analysis $ANALYSIS_PATH/output/0_predicted_domains/
 }
 
 downloads_files(){
@@ -151,52 +151,52 @@ downloads_files(){
 
 provide_input_queries(){
     # Option-1: UniProt identifiers
-    $APRICOT_CALL query \
+    $PYTHON_PATH $APRICOT_CALL query \
 	    --analysis_path $ANALYSIS_PATH \
 	    --uids $QUERY_UIDS
 }
 
 provide_domain_and_class_keywords(){
-    $APRICOT_CALL keywords \
+    $PYTHON_PATH $APRICOT_CALL keywords \
 	    --db_root $ROOT_DB_PATH \
 	    -cl $CLASS_KEYWORDS \
 	    $DOMAIN_KEYWORDS 
 }
 
 select_domains_by_keywords(){
-    $APRICOT_CALL select --db_root $ROOT_DB_PATH
+    $PYTHON_PATH $APRICOT_CALL select --db_root $ROOT_DB_PATH
 }
 
 run_domain_prediction(){
-    $APRICOT_CALL predict \
+    $PYTHON_PATH $APRICOT_CALL predict \
 	    --analysis_path $ANALYSIS_PATH
 }
 
 filter_domain_analysis(){
-    $APRICOT_CALL filter \
+    $PYTHON_PATH $APRICOT_CALL filter \
 	    --analysis_path $ANALYSIS_PATH \
 	    --similarity 24 \
 	    --coverage 39
 }
 
 classify_filtered_result(){
-    $APRICOT_CALL classify \
+    $PYTHON_PATH $APRICOT_CALL classify \
 	    --analysis_path $ANALYSIS_PATH
 }
 
 calculate_annotation_score(){
-    $APRICOT_CALL annoscore \
+    $PYTHON_PATH $APRICOT_CALL annoscore \
 	    --analysis_path $ANALYSIS_PATH \
 	    --needle_dir $NEEDLE_EMBOSS_PATH
 }
 
 create_analysis_summary(){
-    $APRICOT_CALL summary \
+    $PYTHON_PATH $APRICOT_CALL summary \
 	    --analysis_path $ANALYSIS_PATH
 }
 
 format_output(){
-    $APRICOT_CALL format \
+    $PYTHON_PATH $APRICOT_CALL format \
 	    --analysis_path $ANALYSIS_PATH \
 	    -HT
 }
