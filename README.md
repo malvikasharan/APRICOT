@@ -41,22 +41,21 @@ $ pip3 install --user openpyxl
 $ git clone https://github.com/malvikasharan/APRICOT.git
 `````
 
-3) Test it quickly (without really installing the entire software)
+3) Test each subcommands of APRICOT quickly (without really installing the entire software)
+
+The repository contains a folder called `shell_scripts`, which consists of a script [run_example.sh](https://github.com/malvikasharan/APRICOT/blob/master/shell_scripts/run_example.sh). This comprises of shell commands that can be used for the demonstration of APRICOT installation including analysis with an example. 
 
 ````
 $ cp APRICOT/shell_scripts/run_example.sh .
 $ sh run_example.sh
 ````
 
+To understand how each module of APRICOT works, We recomend you to check out the [tutorial](https://github.com/malvikasharan/APRICOT/blob/master/APRICOT_tutorial.md). 
+
+
 ####Installation
 
 Please see the documentation below for the installation instructions of the software using [Docker](https://github.com/malvikasharan/APRICOT/blob/master/Dockerfile) or [shell scripts](https://github.com/malvikasharan/APRICOT/blob/master/tests/system_test.sh).
-
-####Working example
-
-We recomend you to check out the [tutorial](https://github.com/malvikasharan/APRICOT/blob/master/APRICOT_tutorial.md) that discusses each module of APRICOT in detail. 
-
-The repository contains a folder called `shell_scripts`, which consists of a script [run_example.sh](https://github.com/malvikasharan/APRICOT/blob/master/shell_scripts/run_example.sh). This comprises of shell commands that can be used for the demonstration of APRICOT installation including analysis with an example. 
 
 ####For developers
 
