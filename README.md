@@ -31,7 +31,7 @@ APRICOT is implemented in Python as a standalone and is executable on Unix syste
 
 1) Get the required modules
 ````
-apt-get install git python3-matplotlib python3-numpy python3-scipy python3-biopython python3-requests --yes --fix-missing
+$ apt-get install git python3-matplotlib python3-numpy python3-scipy python3-biopython python3-requests --yes --fix-missing
 ````
 
 2) The git-repository for APRICOT can be [downloaded manually](https://github.com/malvikasharan/APRICOT/archive/master.zip) or locally cloned:
@@ -43,8 +43,8 @@ $ git clone https://github.com/malvikasharan/APRICOT.git
 3) Test it quickly (without really installing the entire software)
 
 ````
-cp APRICOT/shell_scripts/run_example.sh .
-sh run_example.sh
+$ cp APRICOT/shell_scripts/run_example.sh .
+$ sh run_example.sh
 ````
 
 ####Installation
