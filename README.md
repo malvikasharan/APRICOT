@@ -115,11 +115,11 @@ sh APRICOT/shell_scripts/docker_support.sh
 
 You're ready to start your job!!
 
-#####How to quickly test it?
+######How to quickly test it?
 
 ````
-cd APRICOT/tests
-sh system_test.sh
+cp APRICOT/shell_scripts/run_example.sh .
+sh run_example.sh
 ````
 
 #####2. Installation by shell-scipts
