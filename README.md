@@ -26,20 +26,13 @@ Please read the license content [here](https://github.com/malvikasharan/APRICOT/
 
 
 ####Installation
-1) Python modules required for executing APRICOT can be installed via pip
-
-`````
-$ pip install bio-apricot
-`````
-
-2) The scripts for the installaton of the different components of APRICOT (databases, tools and flat-files) are available on the GitHub repository. You can manually download the APRICOT repository or simply clone it.
+The APRICOT libraries are available on the GitHub repository. You can manually download the APRICOT repository or simply clone it.
 
 `````
 $ git clone https://github.com/malvikasharan/APRICOT.git
 `````
-The [Docker image for APRICOT](https://github.com/malvikasharan/APRICOT/blob/master/Dockerfile) will be available soon.
 
-The shell script to install and run the analysis in a streamlined manner is provided with the package, [see here](https://github.com/malvikasharan/APRICOT/blob/master/tests/system_test.sh).
+Please see the documentation for the the complete manual for the installation of the software using [Docker](https://github.com/malvikasharan/APRICOT/blob/master/Dockerfile) or [shell scripts](https://github.com/malvikasharan/APRICOT/blob/master/tests/system_test.sh).
 
 ####Working example
 
@@ -88,21 +81,47 @@ APRICOT is implemented in Python 3 and can be executed in Linux/Unix system. APR
 
 ##Instructions for the installation
 
-1) As mentioned, python modules required for APRIOCT can be installed using pip.
-
-`````
-$ pip install bio-apricot
-`````
-
-Or update the package list manually: `sudo apt-get update` and install the required packages (`sudo apt-get install python3-matplotlib python3-numpy python3-scipy python3-biopython python3-requests python3-openpyxl`).
-
-2) Clone the git-repository
+First, Clone the git-repository
 
 `````
 $ git clone https://github.com/malvikasharan/APRICOT.git
 `````
 
 or [download](https://github.com/malvikasharan/APRICOT/archive/master.zip) manually.
+
+#####1. Installation by Dockerfile
+
+######Get the Dockerfile
+````
+$ cp APRICOT/Dockerfile .
+````
+
+######Create docker image (takes roughly 1 hour to install everything)
+````
+$ docker build -t docker-apricot .
+````
+Type docker images and press RETURN to see the docker image that you created.
+
+######Run your new docker-apricot
+
+````
+docker run -t -i docker-apricot bash
+````
+######Do the final data formating
+````
+sh APRICOT/shell_scripts/docker_support.sh
+````
+
+You're ready to start your job.
+
+#####2. Installation by shell-scipts
+
+Python modules required for APRIOCT can be installed using pip.
+
+`````
+$ pip install bio-apricot
+`````
+Or update the package list manually: `sudo apt-get update` and install the required packages (`sudo apt-get install python3-matplotlib python3-numpy python3-scipy python3-biopython python3-requests python3-openpyxl`).
 
 APRICOT repository comprises of a directory tree of the following structure.
 
@@ -116,6 +135,7 @@ APRICOT
 |
 └───├apricotlib
 └───├bin
+└───├shell_scripts
 └───├...
 `````
 
