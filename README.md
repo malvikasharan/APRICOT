@@ -27,21 +27,29 @@ Please read the license content [here](https://github.com/malvikasharan/APRICOT/
 
 ####APRICOT libraries
 
-APRICOT is implemented in Python as a standalone and is executable on Unix systems. 
+APRICOT is implemented in Python as a standalone and is executable on Unix systems.
 
-1) Get the required modules (pip, git, biopython, numpy, scipy, matplotlib, requests and openpyxl) using apt-get or pip (example shown below)
+#####Working with APRICOT git-repository
+
+Please make sure that your system has pip and git installed 
+
 ````
-$ apt-get install pip git python3-matplotlib python3-numpy python3-scipy python3-biopython python3-requests --yes --fix-missing
+$ apt-get install pip git 
+````
+
+Get the required modules (biopython, numpy, scipy, matplotlib, requests and openpyxl) via apt-get or pip (example shown below)
+````
+$ apt-get install python3-matplotlib python3-numpy python3-scipy python3-biopython python3-requests --yes --fix-missing
 $ pip3 install --user openpyxl
 ````
 
-2) The git-repository for APRICOT can be [downloaded manually](https://github.com/malvikasharan/APRICOT/archive/master.zip) or locally cloned:
+The git-repository for APRICOT can be [downloaded manually](https://github.com/malvikasharan/APRICOT/archive/master.zip) or locally cloned:
 
 `````
 $ git clone https://github.com/malvikasharan/APRICOT.git
 `````
 
-3) Test each subcommands of APRICOT quickly (without really installing the entire software)
+Test each subcommands of APRICOT quickly (without really installing the entire software)
 
 The repository contains a folder called `shell_scripts`, which consists of a script [run_example.sh](https://github.com/malvikasharan/APRICOT/blob/master/shell_scripts/run_example.sh). This comprises of shell commands that can be used for the demonstration of APRICOT installation including analysis with an example. 
 
