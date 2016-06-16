@@ -24,8 +24,8 @@ def csv_to_xlsx(inpath, outpath):
                 workbook = Workbook()
                 xlsxsheet = workbook.create_sheet(0)
                 for i, row in enumerate(
-                        csv.reader(open(inpath+'/'+csv_file), delimiter="\t")):
-                    for j, col in enumerate(row):
+                        csv.reader(open(inpath+'/'+csv_file), delimiter="\t"), 1):
+                    for j, col in enumerate(row, 1):
                         xlsxsheet.cell(row=i, column=j).value = col
                 workbook.save(open(outpath+'/'+sheet_name+'.xlsx', 'wb'))
             else:
