@@ -23,7 +23,6 @@ setup(name='bio-APRICOT',
       ],
       scripts=['bin/apricot'],
       license='ISC License (ISCL)',
-      long_description=open('README.rst', encoding='utf8').read(),
       classifiers=[
           'License :: OSI Approved :: ISC License (ISCL)',
           'Operating System :: POSIX',
