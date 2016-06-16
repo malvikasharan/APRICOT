@@ -6,7 +6,7 @@ except ImportError:
     from distutils.core import setup
 
 setup(name='bio-APRICOT',
-      version='1.1.4',
+      version='1.1.3',
       description=('Sequence-based identification and characterization '
                    'of protein classes'),
       author='Malvika Sharan',
@@ -23,6 +23,7 @@ setup(name='bio-APRICOT',
       ],
       scripts=['bin/apricot'],
       license='ISC License (ISCL)',
+      long_description=open('README.rst', encoding='utf8').read(),
       classifiers=[
           'License :: OSI Approved :: ISC License (ISCL)',
           'Operating System :: POSIX',
