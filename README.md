@@ -25,14 +25,17 @@ Copyright (c) 2011-2015, Malvika Sharan, <malvika.sharan@uni-wuerzburg.de>
 Please read the license content [here](https://github.com/malvikasharan/APRICOT/blob/master/LICENSE.md).
 
 
-####Installation
-The APRICOT libraries are available on the GitHub repository. You can manually download the APRICOT repository or simply clone it.
+####APRICOT libraries
+
+The git-repository for APRICOT can be [downloaded manually](https://github.com/malvikasharan/APRICOT/archive/master.zip) or locally cloned:
 
 `````
 $ git clone https://github.com/malvikasharan/APRICOT.git
 `````
 
-Please see the documentation for the the complete manual for the installation of the software using [Docker](https://github.com/malvikasharan/APRICOT/blob/master/Dockerfile) or [shell scripts](https://github.com/malvikasharan/APRICOT/blob/master/tests/system_test.sh).
+####Installation
+
+Please see the documentation below for the installation instructions of the software using [Docker](https://github.com/malvikasharan/APRICOT/blob/master/Dockerfile) or [shell scripts](https://github.com/malvikasharan/APRICOT/blob/master/tests/system_test.sh).
 
 ####Working example
 
@@ -81,26 +84,24 @@ APRICOT is implemented in Python 3 and can be executed in Linux/Unix system. APR
 
 ##Instructions for the installation
 
-First, Clone the git-repository
-
-`````
-$ git clone https://github.com/malvikasharan/APRICOT.git
-`````
-
-or [download](https://github.com/malvikasharan/APRICOT/archive/master.zip) manually.
-
 #####1. Installation by Dockerfile
 
 ######Get the Dockerfile
+
+````
+wget -N https://raw.githubusercontent.com/malvikasharan/APRICOT/master/Dockerfile
+````
+
+Or, if you have already the downloaded/cloned the git-repository, then copy it outside the APRICOT library folder
 ````
 $ cp APRICOT/Dockerfile .
 ````
 
-######Create docker image (takes roughly 1 hour to install everything)
+######Create docker image (takes about 1 hour to install everything)
 ````
 $ docker build -t docker-apricot .
 ````
-Type docker images and press RETURN to see the docker image that you created.
+Type `docker images` and press RETURN to see the docker image that you've just created.
 
 ######Run your new docker-apricot
 
@@ -112,7 +113,8 @@ docker run -t -i docker-apricot bash
 sh APRICOT/shell_scripts/docker_support.sh
 ````
 
-You're ready to start your job.
+You're ready to start your job!!
+
 
 #####2. Installation by shell-scipts
 
@@ -122,6 +124,12 @@ Python modules required for APRIOCT can be installed using pip.
 $ pip install bio-apricot
 `````
 Or update the package list manually: `sudo apt-get update` and install the required packages (`sudo apt-get install python3-matplotlib python3-numpy python3-scipy python3-biopython python3-requests python3-openpyxl`).
+
+The git-repository for APRICOT can be [downloaded manually](https://github.com/malvikasharan/APRICOT/archive/master.zip) or locally cloned:
+
+`````
+$ git clone https://github.com/malvikasharan/APRICOT.git
+`````
 
 APRICOT repository comprises of a directory tree of the following structure.
 
