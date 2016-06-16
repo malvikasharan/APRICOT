@@ -4,7 +4,7 @@
 ## Python scripts to support docker image
 
 ## full path of APRICOT libraries
-apricot_lib=../APRICOT/apricotlib
+apricot_lib=APRICOT/apricotlib
 
 ## path for apricot source files
 apricot_files=source_files/reference_db_files
