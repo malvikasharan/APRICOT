@@ -29,7 +29,10 @@ Please read the license content [here](https://github.com/malvikasharan/APRICOT/
 
 APRICOT is implemented in Python as a standalone and is executable on Unix systems. 
 
-1) Install git and pip locally, if uninstalled on your system via `apt-get install pip git`.
+1) Get the required modules
+````
+apt-get install git python3-matplotlib python3-numpy python3-scipy python3-biopython python3-requests --yes --fix-missing
+````
 
 2) The git-repository for APRICOT can be [downloaded manually](https://github.com/malvikasharan/APRICOT/archive/master.zip) or locally cloned:
 
@@ -37,11 +40,7 @@ APRICOT is implemented in Python as a standalone and is executable on Unix syste
 $ git clone https://github.com/malvikasharan/APRICOT.git
 `````
 
-3) Get the required python modules via pip
-````
-pip3 install --user bio-apricot
-````
-4) Test it quickly (without really installing the entire software)
+3) Test it quickly (without really installing the entire software)
 
 ````
 cp APRICOT/shell_scripts/run_example.sh .
