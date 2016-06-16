@@ -7,8 +7,9 @@ apricot_lib= ../$apricot_path/apricotlib        ## provide full path where you h
 apricot_db=source_files/reference_db_files      ## apricot_db_path ##provide full path where you want to store the data
 
 main(){
-        create_db_path
+        get_python_modules
         
+        create_db_path
         ### DATABASES ###
         create_cdd_inpath
         check_and_download_cdd
@@ -40,6 +41,10 @@ main(){
         get_biojs_dependencies
         get_clustalw
 } 
+
+get_python_modules(){
+    pip3 install --user bio-apricot
+}
 
 create_db_path(){
     for FOLDER in $apricot_db/apricot_db_and_tools
