@@ -15,7 +15,7 @@ RUN apt-get install git python3-pip python3-matplotlib python3-numpy python3-sci
 
 RUN python3.5 -m pip install openpyxl=="2.3.1"
 
-RUN git clone https://github.com/malvikasharan/APRICOT.git
+#RUN git clone https://github.com/malvikasharan/APRICOT.git
 
 RUN mkdir -p source_files
 RUN mkdir -p source_files/reference_db_files
