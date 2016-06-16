@@ -87,8 +87,8 @@ CLASS_KEYWORDS='ribosom,helicase,synthetase,polymerase,transferase,nuclease,RRM,
 #######################################################################
 
 main(){
-    set_up_analysis_folder			
-    downloads_files		                
+    set_up_analysis_folder
+    get_small_demo_files		  # or download original domain annotation data using "downloads_files"
     provide_input_queries		  # subcommand query
     provide_domain_and_class_keywords	  # subcommand keywords
     select_domains_by_keywords	          # subcommand select
@@ -112,6 +112,15 @@ set_up_analysis_folder(){
 	mkdir -p $DB_PATH/$DB_SUBPATH
     done
     $APRICOT_CALL create $ANALYSIS_PATH
+}
+
+get_small_demo_files(){
+    cp -r demo_files_small/cdd $DB_PATH
+    cp -r demo_files_small/interpro $DB_PATH
+    cp -r demo_files_small/go_mapping $DB_PATH
+    cp -r demo_files_small/pfam $DB_PATH
+    cp -r demo_files_small/cdd_analysis $ANALYSIS_PATH/output/0_predicted_domains/
+    cp -r demo_files_small/ipr_analysis $ANALYSIS_PATH/output/0_predicted_domains/
 }
 
 downloads_files(){
