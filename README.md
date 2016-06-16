@@ -27,7 +27,7 @@ Please read the license content [here](https://github.com/malvikasharan/APRICOT/
 
 ####APRICOT libraries
 
-The git-repository for APRICOT can be [downloaded manually](https://github.com/malvikasharan/APRICOT/archive/master.zip) or locally cloned:
+APRICOT is implemented in Python as a standalone and is executable on Unix systems. The git-repository for APRICOT can be [downloaded manually](https://github.com/malvikasharan/APRICOT/archive/master.zip) or locally cloned:
 
 `````
 $ git clone https://github.com/malvikasharan/APRICOT.git
