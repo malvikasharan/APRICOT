@@ -11,7 +11,7 @@ ONBUILD COPY . /usr/src/app
 
 RUN apt-get update
 RUN apt-get upgrade --yes
-RUN apt-get install git python3-pip python3-matplotlib python3-numpy python3-scipy python3-biopython python3-requests --yes --fix-missing
+RUN apt-get install git nano python3-pip python3-matplotlib python3-numpy python3-scipy python3-biopython python3-requests --yes --fix-missing
 
 RUN python3.5 -m pip install openpyxl=="2.3.1"
 
