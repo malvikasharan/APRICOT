@@ -32,6 +32,16 @@ The git-repository for APRICOT can be [downloaded manually](https://github.com/m
 `````
 $ git clone https://github.com/malvikasharan/APRICOT.git
 `````
+Get the required python modules via pip
+````
+pip3 install --user bio-apricot
+````
+Test it quickly (without really installing the entire software)
+
+````
+cp APRICOT/shell_scripts/run_example.sh .
+sh run_example.sh
+````
 
 ####Installation
 
@@ -114,13 +124,6 @@ sh APRICOT/shell_scripts/docker_support.sh
 ````
 
 You're ready to start your job!!
-
-######How to quickly test it?
-
-````
-cp APRICOT/shell_scripts/run_example.sh .
-sh run_example.sh
-````
 
 #####2. Installation by shell-scipts
 
