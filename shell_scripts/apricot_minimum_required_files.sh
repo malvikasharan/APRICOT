@@ -15,6 +15,7 @@ apricot_lib=../$APRICOT_PATH/apricotlib
 apricot_files=source_files/reference_db_files
 
 main(){
+        get_python_modules
         create_main_path
         
         ### CDD-MODULES ###
@@ -40,6 +41,10 @@ main(){
         ### EMBOSS: needle commandline ###
         ## please skip if it is already installed ##
         get_emboss
+}
+
+get_python_modules(){
+    pip3 install --user bio-apricot
 }
 
 create_main_path(){
