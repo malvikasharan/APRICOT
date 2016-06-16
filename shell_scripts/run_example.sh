@@ -2,6 +2,8 @@
 # AUTHOR: Malvika Sharan <malvika.sharan@uni-wuerzburg.de>
 
 #########################################################################
+PYTHON_PATH=python3
+APRICOT_CALL=$PYTHON_PATH APRICOT/bin/apricot
 ANALYSIS_PATH=APRICOT_analysis
 APRICOT_PATH=APRICOT
 ROOT_DB_PATH=source_files
@@ -109,7 +111,7 @@ set_up_analysis_folder(){
     do
 	mkdir -p $DB_PATH/$DB_SUBPATH
     done
-    apricot create $ANALYSIS_PATH
+    $APRICOT_CALL create $ANALYSIS_PATH
 }
 
 downloads_files(){
@@ -140,52 +142,52 @@ downloads_files(){
 
 provide_input_queries(){
     # Option-1: UniProt identifiers
-    apricot query \
+    $APRICOT_CALL query \
 	    --analysis_path $ANALYSIS_PATH \
 	    --uids $QUERY_UIDS
 }
 
 provide_domain_and_class_keywords(){
-    apricot keywords \
+    $APRICOT_CALL keywords \
 	    --db_root $ROOT_DB_PATH \
 	    -cl $CLASS_KEYWORDS \
 	    $DOMAIN_KEYWORDS 
 }
 
 select_domains_by_keywords(){
-    apricot select --db_root $ROOT_DB_PATH
+    $APRICOT_CALL select --db_root $ROOT_DB_PATH
 }
 
 run_domain_prediction(){
-    apricot predict \
+    $APRICOT_CALL predict \
 	    --analysis_path $ANALYSIS_PATH
 }
 
 filter_domain_analysis(){
-    apricot filter \
+    $APRICOT_CALL filter \
 	    --analysis_path $ANALYSIS_PATH \
 	    --similarity 24 \
 	    --coverage 39
 }
 
 classify_filtered_result(){
-    apricot classify \
+    $APRICOT_CALL classify \
 	    --analysis_path $ANALYSIS_PATH
 }
 
 calculate_annotation_score(){
-    apricot annoscore \
+    $APRICOT_CALL annoscore \
 	    --analysis_path $ANALYSIS_PATH \
 	    --needle_dir $NEEDLE_EMBOSS_PATH
 }
 
 create_analysis_summary(){
-    apricot summary \
+    $APRICOT_CALL summary \
 	    --analysis_path $ANALYSIS_PATH
 }
 
 format_output(){
-    apricot format \
+    $APRICOT_CALL format \
 	    --analysis_path $ANALYSIS_PATH \
 	    -HT
 }
