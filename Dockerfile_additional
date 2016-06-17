@@ -1,7 +1,27 @@
-## FROM ubuntu
-## MAINTAINER Malvika Sharan <smalvika.sharan@uni-wuerzburg.de>
+## please add the following lines at the end of your Dockerfile to allow additional annotation by APRICOT
+## APRICOT requires RaptorX and Psortb to execute the subcommand `addanno`
 
-# Please add the docker commands to allow additional annotation by APRICOT using Psortb and raptorX
+# RUN mkdir -p source_files
+# RUN mkdir -p source_files/reference_db_files
+# 
+
+### These lines are for the creating docker image for RaptorX and Psortb
+### RaptorX requires nr database, please uncomment the field below to install it locally
+
+## Get RaptorX
+RUN mkdir -p source_files/reference_db_files/raptorx
+RUN git clone https://github.com/Indicator/RaptorX-SS8.git source_files/reference_db_files/raptorx/raptorx-ss3-ss8
+
+### If you do not have locally installed nr database, please install it to run RaptorX, takes about 1.5 hours
+# RUN mkdir -p source_files/reference_db_files/nr
+# RUN wget -c -P source_files/reference_db_files/nr ftp://ftp.ncbi.nih.gov/blast/db/FASTA/nr.gz
+# RUN gunzip source_files/reference_db_files/nr/nr.gz
+# RUN source_files/reference_db_files/blast/makeblastdb -in source_files/reference_db_files/nr/nr -dbtype prot
+
+FROM ubuntu
+MAINTAINER Malvika Sharan <smalvika.sharan@uni-wuerzburg.de>
+ENV DEBIAN_FRONTEND noninteractive
+
 
 # Psortb
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
@@ -76,15 +96,6 @@ CMD ["/opt/run.sh"]
 
 # copy psort to global execute
 RUN cp /usr/local/psortb/bin/psort /usr/local/bin
-
-## install nr database for RaptorX
-# RUN mkdir source_files/reference_db_files/nr
-RUN wget -c -P $apricot_db/nr ftp://ftp.ncbi.nih.gov/blast/db/FASTA/nr.gz
-RUN gunzip $apricot_db/nr/nr.gz
-RUN source_files/reference_db_files/blast/makeblastdb -in source_files/reference_db_files/nr/nr -dbtype prot
-
-## install RaptorX
-RUN git clone https://github.com/Indicator/RaptorX-SS8.git source_files/reference_db_files/raptorx/raptorx-ss3-ss8
 
 WORKDIR /tools
 
