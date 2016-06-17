@@ -63,7 +63,7 @@ Here is a quick way to check how different modules work (without really installi
 The repository contains a folder called `shell_scripts`, which consists of a script [run_example.sh](https://github.com/malvikasharan/APRICOT/blob/master/shell_scripts/run_example.sh). This comprises of shell commands that can be used for the demonstration of APRICOT installation including analysis with an example. 
 
 ````
-$ cp APRICOT/shell_scripts/run_example.sh .
+$ wget -N https://raw.githubusercontent.com/malvikasharan/APRICOT/master/shell_scripts/run_example.sh
 $ sh run_example.sh
 ````
 
