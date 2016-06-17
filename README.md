@@ -42,9 +42,11 @@ Then install APRICOT via pip:
 $ pip3 install bio-apricot 
 ````
 
+This will globally install APRICOT, which can be called via `apricot`, and the libraries are located in `usr/local/lib/python3.5/site-packages/apricotlib/`
+
 #####Get APRICOT manually
 
-Or, for manual installation, get the required modules (biopython, numpy, scipy, matplotlib, requests and openpyxl) via apt-get or pip (example shown below)
+For manual installation, get the required modules (biopython, numpy, scipy, matplotlib, requests and openpyxl) via apt-get or pip (example shown below)
 ````
 $ apt-get install python3-matplotlib python3-numpy python3-scipy python3-biopython python3-requests --yes --fix-missing
 $ pip3 install --user openpyxl
