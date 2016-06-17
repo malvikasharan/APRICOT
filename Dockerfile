@@ -8,9 +8,10 @@ RUN apt-get update
 RUN apt-get upgrade --yes
 RUN apt-get install git nano python3-pip python3-matplotlib python3-numpy python3-scipy python3-biopython python3-requests --yes --fix-missing
 
-RUN python3.5 -m pip install openpyxl=="2.3.1"
+RUN python3.5 -m pip install openpyxl=="2.3.1" 
+RUN python3.5 -m pip bio-apricot 
 
-RUN git clone https://github.com/malvikasharan/APRICOT.git
+# RUN git clone https://github.com/malvikasharan/APRICOT.git
 
 RUN mkdir -p source_files
 RUN mkdir -p source_files/reference_db_files
