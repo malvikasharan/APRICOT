@@ -1,29 +1,33 @@
-## please add the following lines at the end of your Dockerfile to allow additional annotation by APRICOT
-## APRICOT requires RaptorX and Psortb to execute the subcommand `addanno`
-
-# RUN mkdir -p source_files
-# RUN mkdir -p source_files/reference_db_files
-# 
-
-### These lines are for the creating docker image for RaptorX and Psortb
-### RaptorX requires nr database, please uncomment the field below to install it locally
-
-## Get RaptorX
-RUN mkdir -p source_files/reference_db_files/raptorx
-RUN git clone https://github.com/Indicator/RaptorX-SS8.git source_files/reference_db_files/raptorx/raptorx-ss3-ss8
-
-### If you do not have locally installed nr database, please install it to run RaptorX, takes about 1.5 hours
-# RUN mkdir -p source_files/reference_db_files/nr
-# RUN wget -c -P source_files/reference_db_files/nr ftp://ftp.ncbi.nih.gov/blast/db/FASTA/nr.gz
-# RUN gunzip source_files/reference_db_files/nr/nr.gz
-# RUN source_files/reference_db_files/blast/makeblastdb -in source_files/reference_db_files/nr/nr -dbtype prot
-
 FROM ubuntu
 MAINTAINER Malvika Sharan <smalvika.sharan@uni-wuerzburg.de>
 ENV DEBIAN_FRONTEND noninteractive
 
+FROM python:3.5
+
+RUN apt-get update
+RUN apt-get upgrade --yes
+RUN apt-get install git bioperl python3-pip --yes --fix-missing
+
+RUN mkdir -p source_files
+RUN mkdir -p source_files/reference_db_files
+
+#### Locally install nr database, please install it to run RaptorX, takes about 1.5 hours
+RUN mkdir -p source_files/reference_db_files/nr
+RUN wget -c -P source_files/reference_db_files/nr ftp://ftp.ncbi.nih.gov/blast/db/FASTA/nr.gz
+RUN gunzip source_files/reference_db_files/nr/nr.gz
+RUN source_files/reference_db_files/blast/makeblastdb -in source_files/reference_db_files/nr/nr -dbtype prot
+
+### Get RaptorX
+RUN mkdir -p source_files/reference_db_files/raptorx
+RUN git clone https://github.com/Indicator/RaptorX-SS8.git source_files/reference_db_files/raptorx/raptorx-ss3-ss8
+
+RUN perl source_files/reference_db_files/raptorx/raptorx-ss3-ss8/setup.pl \
+-home source_files/reference_db_files/raptorx/raptorx-ss3-ss8 \
+-blast source_files/reference_db_files/blast/psiblast \
+-nr source_files/reference_db_files/nr/nr
 
 # Psortb
+
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
 apt-get -y install supervisor && apt-get clean && \
 rm -rf /var/lib/apt/lists/*
@@ -76,9 +80,9 @@ ln -s ../conf-available/apache-psort.conf
 RUN wget http://www.psort.org/download/docker/Request.pm && \
 cp Request.pm /usr/share/perl5/Apache/Singleton/Request.pm
 
-RUN wget http://www.psort.org/download/docker/CGI-FastTemplate-1.09.tar.gz && \
-tar zxvf CGI-FastTemplate-1.09.tar.gz && \
-cd CGI-FastTemplate-1.09 && perl Makefile.PL && make && make install
+RUN wget http://www.psort.org/download/docker/CGI-FastTemplate-1.09.tar.gz
+RUN tar zxvf CGI-FastTemplate-1.09.tar.gz
+RUN CGI-FastTemplate-1.09 && perl Makefile.PL && make && make install
 
 RUN cd /var/www/html && \
 wget http://www.psort.org/download/docker/psort-web.tar.gz && \
