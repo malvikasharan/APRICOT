@@ -12,7 +12,7 @@ RUN python3.5 -m pip install openpyxl=="2.3.1"
 RUN python3.5 -m pip bio-apricot 
 
 # RUN git clone https://github.com/malvikasharan/APRICOT.git
-
+RUN cd /home
 RUN mkdir -p source_files
 RUN mkdir -p source_files/reference_db_files
 
