@@ -1,5 +1,5 @@
 FROM ubuntu
-MAINTAINER Malvika Sharan <smalvika.sharan@uni-wuerzburg.de>
+MAINTAINER Malvika Sharan <malvika.sharan@uni-wuerzburg.de>
 ENV DEBIAN_FRONTEND noninteractive
 
 FROM python:3.5
