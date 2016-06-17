@@ -131,14 +131,15 @@ $ cp APRICOT/Dockerfile .
 
 ######Create docker image (takes about 1 hour to install everything)
 ````
-$ docker build -t docker-apricot .
+$ docker build -t username/docker-apricot .
 ````
 Type `docker images` and press RETURN to see the docker image that you've just created.
 
 ######Run your new docker-apricot
 
 ````
-docker run -t -i docker-apricot bash
+docker run -t -i username/docker-apricot bash
+cd home
 ````
 
 You're ready to start your job!!
