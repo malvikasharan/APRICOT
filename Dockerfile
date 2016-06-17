@@ -2,6 +2,11 @@ FROM ubuntu
 MAINTAINER Malvika Sharan <malvika.sharan@uni-wuerzburg.de>
 ENV DEBIAN_FRONTEND noninteractive
 
+RUN locale-gen en_US.UTF-8  
+ENV LANG en_US.UTF-8  
+ENV LANGUAGE en_US:en  
+ENV LC_ALL en_US.UTF-8  
+
 FROM python:3.5
 
 RUN apt-get update
