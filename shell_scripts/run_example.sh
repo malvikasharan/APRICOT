@@ -2,8 +2,7 @@
 # AUTHOR: Malvika Sharan <malvika.sharan@uni-wuerzburg.de>
 
 #########################################################################
-PYTHON_PATH=python3
-APRICOT_CALL='APRICOT/bin/apricot'
+APRICOT_CALL='apricot' #'python APRICOT/bin/apricot'
 ANALYSIS_PATH=APRICOT_analysis
 APRICOT_PATH=APRICOT
 ROOT_DB_PATH=source_files
@@ -99,10 +98,9 @@ main(){
     format_output			  # subcommand format
     
     ## The subcommand 'annoscore' requires locally configured needle from EMBOSS suite
-    ## please install it using get_emboss or skip it for basic demonstration
+    ## It is installed using the Dockerfile or provided shell scripts for installation
     ## or, if already installed, please change the path name $NEEDLE_EMBOSS_PATH
     # calculate_annotation_score	  # subcommand annoscore
-    # get_emboss			  # required to run annoscore
 }
 
 set_up_analysis_folder(){
@@ -111,7 +109,7 @@ set_up_analysis_folder(){
     do
 	mkdir -p $DB_PATH/$DB_SUBPATH
     done
-    $PYTHON_PATH $APRICOT_CALL create $ANALYSIS_PATH
+    $APRICOT_CALL create $ANALYSIS_PATH
 }
 
 get_small_demo_files(){
@@ -151,62 +149,53 @@ downloads_files(){
 
 provide_input_queries(){
     # Option-1: UniProt identifiers
-    $PYTHON_PATH $APRICOT_CALL query \
+    $APRICOT_CALL query \
 	    --analysis_path $ANALYSIS_PATH \
 	    --uids $QUERY_UIDS
 }
 
 provide_domain_and_class_keywords(){
-    $PYTHON_PATH $APRICOT_CALL keywords \
+    $APRICOT_CALL keywords \
 	    --db_root $ROOT_DB_PATH \
 	    -cl $CLASS_KEYWORDS \
 	    $DOMAIN_KEYWORDS 
 }
 
 select_domains_by_keywords(){
-    $PYTHON_PATH $APRICOT_CALL select --db_root $ROOT_DB_PATH
+    $APRICOT_CALL select --db_root $ROOT_DB_PATH
 }
 
 run_domain_prediction(){
-    $PYTHON_PATH $APRICOT_CALL predict \
+    $APRICOT_CALL predict \
 	    --analysis_path $ANALYSIS_PATH
 }
 
 filter_domain_analysis(){
-    $PYTHON_PATH $APRICOT_CALL filter \
+    $APRICOT_CALL filter \
 	    --analysis_path $ANALYSIS_PATH \
 	    --similarity 24 \
 	    --coverage 39
 }
 
 classify_filtered_result(){
-    $PYTHON_PATH $APRICOT_CALL classify \
+    $APRICOT_CALL classify \
 	    --analysis_path $ANALYSIS_PATH
 }
 
 calculate_annotation_score(){
-    $PYTHON_PATH $APRICOT_CALL annoscore \
+    $APRICOT_CALL annoscore \
 	    --analysis_path $ANALYSIS_PATH \
 	    --needle_dir $NEEDLE_EMBOSS_PATH
 }
 
 create_analysis_summary(){
-    $PYTHON_PATH $APRICOT_CALL summary \
+    $APRICOT_CALL summary \
 	    --analysis_path $ANALYSIS_PATH
 }
 
 format_output(){
-    $PYTHON_PATH $APRICOT_CALL format \
+    $APRICOT_CALL format \
 	    --analysis_path $ANALYSIS_PATH \
 	    -HT
 }
-
-get_emboss(){
-    wget -P $apricot_files/blast ftp://emboss.open-bio.org/pub/EMBOSS/old/6.5.0/emboss-latest.tar.gz
-    tar -xvzf $apricot_files/needle/emboss-latest.tar.gz -C $apricot_files/needle
-    mv $apricot_files/needle/EMBOSS*/* $apricot_files/needle
-    cd $apricot_files/needle && ./configure && make && cd -
-    echo "In order to re-install please delete (rm) config.log file from your present working directory"
-}
-
 main
