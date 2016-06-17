@@ -29,15 +29,22 @@ Please read the license content [here](https://github.com/malvikasharan/APRICOT/
 
 APRICOT is implemented in Python as a standalone and is executable on Ubuntu (and other debian-based) systems.
 
-#####Working with APRICOT git-repository
-
 Please make sure that your system has pip and git installed 
 
 ````
 $ apt-get install python3-pip git 
 ````
 
-Get the required modules (biopython, numpy, scipy, matplotlib, requests and openpyxl) via apt-get or pip (example shown below)
+#####Get APRICOT via pip
+
+Then install APRICOT via pip:
+````
+$ pip3 install bio-apricot 
+````
+
+#####Get APRICOT manually
+
+Or, for manual installation, get the required modules (biopython, numpy, scipy, matplotlib, requests and openpyxl) via apt-get or pip (example shown below)
 ````
 $ apt-get install python3-matplotlib python3-numpy python3-scipy python3-biopython python3-requests --yes --fix-missing
 $ pip3 install --user openpyxl
@@ -49,7 +56,9 @@ The git-repository for APRICOT can be [downloaded manually](https://github.com/m
 $ git clone https://github.com/malvikasharan/APRICOT.git
 `````
 
-Test each subcommands of APRICOT quickly (without really installing the entire software)
+#####Quick test for each subcommands of APRICOT 
+
+Here is a quick way to check how different modules work (without really installing the entire software)
 
 The repository contains a folder called `shell_scripts`, which consists of a script [run_example.sh](https://github.com/malvikasharan/APRICOT/blob/master/shell_scripts/run_example.sh). This comprises of shell commands that can be used for the demonstration of APRICOT installation including analysis with an example. 
 
@@ -60,8 +69,7 @@ $ sh run_example.sh
 
 To understand how each module of APRICOT works, We recomend you to check out the [tutorial](https://github.com/malvikasharan/APRICOT/blob/master/APRICOT_tutorial.md). 
 
-
-####Installation
+#####Install tools and databases required to run APRICOT 
 
 Please see the documentation below for the installation instructions of the software using [Docker](https://github.com/malvikasharan/APRICOT/blob/master/Dockerfile) or [shell scripts](https://github.com/malvikasharan/APRICOT/blob/master/tests/system_test.sh).
 
