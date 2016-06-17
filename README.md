@@ -118,7 +118,7 @@ APRICOT is implemented in Python 3 and can be executed in Linux/Unix system. APR
 
 #####1. Installation by Dockerfile
 
-######Get the Dockerfile
+######Create APRICOT image using Dockerfile
 
 ````
 wget -N https://raw.githubusercontent.com/malvikasharan/APRICOT/master/Dockerfile
@@ -139,10 +139,6 @@ Type `docker images` and press RETURN to see the docker image that you've just c
 
 ````
 docker run -t -i docker-apricot bash
-````
-######Do the final data formating
-````
-sh APRICOT/shell_scripts/docker_support.sh
 ````
 
 You're ready to start your job!!
