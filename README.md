@@ -27,14 +27,14 @@ Please read the license content [here](https://github.com/malvikasharan/APRICOT/
 
 ####APRICOT software
 
-APRICOT is implemented in Python as a standalone and is executable on Unix systems.
+APRICOT is implemented in Python as a standalone and is executable on Ubuntu (and other debian-based) systems.
 
 #####Working with APRICOT git-repository
 
 Please make sure that your system has pip and git installed 
 
 ````
-$ apt-get install pip git 
+$ apt-get install python3-pip git 
 ````
 
 Get the required modules (biopython, numpy, scipy, matplotlib, requests and openpyxl) via apt-get or pip (example shown below)
