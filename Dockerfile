@@ -11,7 +11,8 @@ RUN apt-get install git nano python3-pip python3-matplotlib python3-numpy python
 RUN python3.5 -m pip install openpyxl=="2.3.1" 
 RUN python3.5 -m pip bio-apricot 
 
-# RUN git clone https://github.com/malvikasharan/APRICOT.git
+RUN git clone https://github.com/malvikasharan/APRICOT.git
+
 RUN cd /home
 RUN mkdir -p source_files
 RUN mkdir -p source_files/reference_db_files
@@ -70,3 +71,5 @@ RUN wget -P source_files/reference_db_files/needle ftp://emboss.open-bio.org/pub
 RUN tar -xvzf source_files/reference_db_files/needle/emboss-latest.tar.gz -C source_files/reference_db_files/needle
 RUN mv source_files/reference_db_files/needle/EMBOSS*/* source_files/reference_db_files/needle
 RUN cd source_files/reference_db_files/needle && ./configure && make && cd -
+
+RUN sh APRICOT/shell_scripts/docker_support.sh
