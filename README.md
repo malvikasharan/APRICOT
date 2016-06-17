@@ -69,7 +69,7 @@ $ sh run_example.sh
 
 To understand how each module of APRICOT works, We recomend you to check out the [tutorial](https://github.com/malvikasharan/APRICOT/blob/master/APRICOT_tutorial.md). 
 
-#####Install tools and databases required to run APRICOT 
+####Install tools and databases required to run APRICOT 
 
 Please see the documentation below for the installation instructions of the software using [Docker](https://github.com/malvikasharan/APRICOT/blob/master/Dockerfile) or [shell scripts](https://github.com/malvikasharan/APRICOT/blob/master/tests/system_test.sh).
 
