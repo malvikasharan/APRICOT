@@ -24,8 +24,24 @@ Copyright (c) 2011-2015, Malvika Sharan, <malvika.sharan@uni-wuerzburg.de>
 
 Please read the license content [here](https://github.com/malvikasharan/APRICOT/blob/master/LICENSE.md).
 
+####APRICOT Docker image
 
-####APRICOT software
+We recommend users to get the complete filesystem for APRICOT using [docker image](https://docs.docker.com/v1.8/userguide/dockerimages/):
+
+`docker pull malvikasharan/apricot`
+
+#####Run the container:
+````
+docker run -t -i malvikasharan/apricot bash
+````
+APRICOT is installed and can be called using command `apricot` and the libraries will be saved at `usr/local/lib/python3.5/site-packages/apricotlib/`
+
+#####Go to the `home` folder to test the software:
+````
+cd home
+````
+
+####APRICOT software (not the complete filesystem)
 
 APRICOT is implemented in Python as a standalone and is executable on Ubuntu (and other debian-based) systems.
 
@@ -57,21 +73,6 @@ The git-repository for APRICOT can be [downloaded manually](https://github.com/m
 `````
 $ git clone https://github.com/malvikasharan/APRICOT.git
 `````
-
-####APRICOT Docker image
-
-Get the complete filesystem for APRICOT using [docker image](https://docs.docker.com/v1.8/userguide/dockerimages/):
-
-`docker pull malvikasharan/apricot`
-
-#####Run the container:
-````
-docker run -t -i malvikasharan/apricot bash
-````
-APRICOT is installed and can be called using command 'apricot' and the libraries will be saved here: `usr/local/lib/python3.5/site-packages/apricotlib/`
-
-#####Go to the `home` folder to test the software:
-`cd home`
 
 #####Quick test for each subcommands of APRICOT 
 
