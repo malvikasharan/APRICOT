@@ -2,7 +2,10 @@
 # AUTHOR: Malvika Sharan <malvika.sharan@uni-wuerzburg.de>
 
 #########################################################################
-APRICOT_CALL='apricot' #'python APRICOT/bin/apricot'
+APRICOT_CALL='apricot' 	# It will work for the globally installed software.
+			# If locally installed change the path, 
+			# for e.g. /home/username/.local/bin/
+			# Or, use 'python APRICOT/bin/apricot' 
 ANALYSIS_PATH=APRICOT_analysis
 APRICOT_PATH=APRICOT
 ROOT_DB_PATH=source_files
