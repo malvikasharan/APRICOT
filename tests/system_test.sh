@@ -12,36 +12,34 @@ NEEDLE_EMBOSS_PATH=source_files/reference_db_files/needle/emboss/needle
 #########################################################################
 
 #########################################################################
-# Either use the dev version in the git repo with the default Python version
-# or install via pip (pip3 install bio-apricot)
-APRICOT_CALL="apricot"
+## Either use the dev version in the git repo with the default Python version
+## or install via pip (pip3 install bio-apricot)
+APRICOT_CALL="apricot"  # please provide correct path if locally installed
+			# for example /home/username/.local/bin
 
-# ... or set a Python version for that call ...
-# PYTHON_PATH=python3
-# APRICOT_CALL="$APRICOT_PATH/bin/apricot"    #"python3 ../bin/apricot"
-
-# ... or use the installed version of apricot
-# APRICOT_CALL="apricot"
+## ... or set a Python version (example: python3) 
+## to call the apricot from the repository ...
+# APRICOT_CALL="python3 ../bin/apricot"
 
 #########################################################################
 
 
 #########################################################################
-# FIXED PATHS for flatfiles downloaded by APRICOT
+## FIXED PATHS for flatfiles downloaded by APRICOT
 DB_PATH=$ROOT_DB_PATH/reference_db_files
 
-# Path for domain databases
+## Path for domain databases
 CDD_PATH=$DB_PATH/cdd/Cdd
 INTERPRO_PATH=$DB_PATH/interpro/interproscan
 #########################################################################
 
 
 #########################################################################
-# External tool's path for additional annotation: PLEASE ADAPT THIS
-# PATH
+## External tool's path for additional annotation: PLEASE ADAPT THIS
+## PATH
 raptorx_tool_path=$DB_PATH/raptorx
-# run_raptorx-ss3.pl 
-# ss8 script is for 8 state and ss3 script is for 3 state structure prediction
+## run_raptorx-ss3.pl 
+## ss8 script is for 8 state and ss3 script is for 3 state structure prediction
 raptorx_perl_script=raptorx-ss3-ss8/bin/run_raptorx-ss8.pl
 raptorx_path=$raptorx_tool_path/$raptorx_perl_script
 
@@ -52,47 +50,47 @@ export PSORT_PFTOOLS=/opt/biotools/pftools
 
 
 #########################################################################
-# *OPTIONAL*. Provide species name to retrieve taxonomy IDS for given
-# species
+## *OPTIONAL*. Provide species name to retrieve taxonomy IDS for given
+## species
 species='coli'
 #########################################################################
 
 
 #######################################################################
-# Input-1, option 1: provide comma separated list of UniProt ids
-#
-# * P0A6X3 (positive test) is Hfq protein that contains sm and RRM/RNP
-#   like domain
-# * P00957 (negative test) is alaS protein is a tRNA-ligase, hence
-#   will not be selected by RRM, KH or DEAD domains
+## Input-1, option 1: provide comma separated list of UniProt ids
+##
+## * P0A6X3 (positive test) is Hfq protein that contains sm and RRM/RNP
+##   like domain
+## * P00957 (negative test) is alaS protein is a tRNA-ligase, hence
+##   will not be selected by RRM, KH or DEAD domains
 QUERY_UIDS='P0A6X3,P00957'
 #######################################################################
 
 
 ######################################################################
-# Not used in the demonstration file
+## Not used in the demonstration file
 
-# Input-1, option 2: provide comma separated list of gene ids or gene
-# name
+## Input-1, option 2: provide comma separated list of gene ids or gene
+## name
 query_geneids=''
 
-# Input-1, option 3: users can pick a taxonomy id from option 1a
-# (source_files/selected_taxonomy_ids.txt), or directly provide it
-# when the taxonomy id is known
+## Input-1, option 3: users can pick a taxonomy id from option 1a
+## (source_files/selected_taxonomy_ids.txt), or directly provide it
+## when the taxonomy id is known
 tax_id=''
 
-# Input-1, option 4: provide absolute path of for query fasta sequence
-# default fasta path
-# $ANALYSIS_PATH/input/mapped_query_annotation/fasta_path_mapped_query
+## Input-1, option 4: provide absolute path of for query fasta sequence
+## default fasta path
+## $ANALYSIS_PATH/input/mapped_query_annotation/fasta_path_mapped_query
 FASTA_PATH=$ANALYSIS_PATH/input/mapped_query_annotation/fasta_path_mapped_query
     
-# Input-2: Keywords, *REQUIRED* for domain selection and *OPTIONAL*
-# for classification This can be altered by the users in the
-# demonstration file as well
+## Input-2: Keywords, *REQUIRED* for domain selection and *OPTIONAL*
+## for classification This can be altered by the users in the
+## demonstration file as well
 domain_kw='RRM,KH,DEAD'
 
-# *REQUIRED* Input-2, comma separated list of keywords for domain
-# *selection
+## *REQUIRED* Input-2, comma separated list of keywords for domain
+## *selection
 class_kw='ribosom,helicase,synthetase,polymerase,transferase,nuclease,RRM,RNP'
 ######################################################################
     
@@ -108,7 +106,6 @@ main(){
     
     ## install_minimum_required_files           ## doesn't install Psortb and Raptorx
     ## install_raptorx                          ## installs RaptorX and required nr database
-                                                
     
     ### Test APRICOT without installing databases and the third-party tools
     ## this test is only for query uids: P0A6X3,P00957
@@ -118,16 +115,16 @@ main(){
     ### This step could be skipped if using uniprot ids as queries
     # retrieve_taxonomy_id_list                 ## select a taxonomy id from the list genetrated by using $species
                                                 ## for full list look at $FIXED_DB_FILES/all_taxids/speclist.txt
-    provide_input_queries			            ### Subcommand: query
-    provide_domain_and_class_keywords		    ### Subcommand: keywords
-    select_domains_by_keywords			        ### Subcommand: select
-    run_domain_prediction			            ### Subcommand: predict
-    filter_domain_analysis			            ### Subcommand: filter
-    classify_filtered_result			        ### Subcommand: classify
-    create_analysis_summary			            ### Subcommand: summary
+    provide_input_queries			### Subcommand: query
+    provide_domain_and_class_keywords		### Subcommand: keywords
+    select_domains_by_keywords			### Subcommand: select
+    run_domain_prediction			### Subcommand: predict
+    filter_domain_analysis			### Subcommand: filter
+    classify_filtered_result			### Subcommand: classify
+    create_analysis_summary			### Subcommand: summary
     output_file_formats                         ### Subcommand: format (output file conversion fro csv to HTML or xlsx)
     
-    # calculate_annotation_score			    ### Subcommand: annoscore (requires EMBOSS suit to run needle cline, and python numpy, scipy)
+    # calculate_annotation_score		### Subcommand: annoscore (requires EMBOSS suit to run needle cline, and python numpy, scipy)
     ###ADDITIONAL ANNOTATION###                 ### requires third party tools, which can be installed by 'install_complete_db_and_tools'###
     #calculate_additional_annotation            ## Subcommand: addanno (PsortB and -RaptorX must be installed for their respective annotation)
     #create_visualization_files                 ## Subcommand: vis
