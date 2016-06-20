@@ -53,6 +53,11 @@ We will go through the shell script `run_example.sh` step by
 step. This script assumes that users have installed the software using
 pip.
 
+Check the subcommands:
+```
+apricot -h
+```
+
 **If you are using locally installed git repository**
 
 Please specifiy the the path where APRICOT modules are located (see below: APRICOT_PATH)
