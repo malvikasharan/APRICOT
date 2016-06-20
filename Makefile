@@ -35,6 +35,12 @@ readme_clean:
 
 pylint:
 	pylint bin/apricot apricotlib/* tests/*
+	
+docker_build:
+	docker build -t malvikasharan/apricot .
+	
+docker_run:
+	docker run -t -i malvikasharan/apricot bash
 
 new_release:
 	@echo "* Create/checkout a release branch"
