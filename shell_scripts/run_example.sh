@@ -4,10 +4,11 @@
 #########################################################################
 APRICOT_CALL='apricot' 	# It will work for the globally installed software.
 			# If locally installed change the path, 
-			# for e.g. /home/username/.local/bin/
+			# for e.g. /home/username/local/bin/
 			# Or, use 'python APRICOT/bin/apricot' 
 ANALYSIS_PATH=APRICOT_analysis
 APRICOT_PATH=APRICOT
+APRICOT_LIB_PATH=APRICOT/apricotlib
 ROOT_DB_PATH=source_files
 NEEDLE_EMBOSS_PATH=source_files/reference_db_files/needle/emboss/needle
 #########################################################################
