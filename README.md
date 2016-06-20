@@ -62,7 +62,7 @@ Please see the detailed documentation below for the alternative installation ins
 
 #####Quick test for each subcommands of APRICOT 
 
-Here is a quick way to check how different modules work (without really installing the entire software)
+Here is a quick way to check how different modules work (without really installing the complete filesystem).
 
 The repository contains a shell script [shell_scripts/run_example.sh](https://github.com/malvikasharan/APRICOT/blob/master/shell_scripts/run_example.sh) with shell commands that can be used for the demonstration of APRICOT installation including analysis with an example. 
 
