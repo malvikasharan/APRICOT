@@ -7,6 +7,7 @@
 ANALYSIS_PATH=APRICOT_analysis
 APRICOT_PATH=APRICOT
 ROOT_DB_PATH=source_files
+SHELL_SCRIPTS=../shell_scripts
 NEEDLE_EMBOSS_PATH=source_files/reference_db_files/needle/emboss/needle
 #########################################################################
 
@@ -106,7 +107,7 @@ main(){
     ## Instructions to install psortb: http://www.psort.org/downloads/INSTALL.html
     
     ## install_minimum_required_files           ## doesn't install Psortb and Raptorx
-    ## install_raptorx.sh                       ## installs RaptorX and required nr database
+    ## install_raptorx                          ## installs RaptorX and required nr database
                                                 
     
     ### Test APRICOT without installing databases and the third-party tools
@@ -141,13 +142,16 @@ set_up_analysis_folder(){
 }
 
 install_complete_db_and_tools(){
-    sh ../shell_scripts/apricot_complete_db_tool.sh
+    sh $shell_path/apricot_complete_db_tool.sh
     # sh $APRICOT_PATH/shell_scripts/apricot_complete_db_tool.sh $APRICOT_PATH
 }
 
 install_minimum_required_files(){
-    sh ../shell_scripts/apricot_minimum_required_files.sh
-    # sh $APRICOT_PATH/shell_scripts/apricot_minimum_required_files.sh $APRICOT_PATH
+    sh $SHELL_SCRIPTS/apricot_minimum_required_files.sh
+}
+
+install_raptorx(){
+    sh $SHELL_SCRIPTS/install_raptorx.sh
 }
 
 work_with_test_files (){
