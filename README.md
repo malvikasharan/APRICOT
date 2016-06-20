@@ -88,18 +88,19 @@ In that case, when calling the software (also edit the path when using the shell
 ####APRICOT Docker image
 
 We recommend users to get the complete filesystem for APRICOT using [docker image](https://docs.docker.com/v1.8/userguide/dockerimages/):
-
-`docker pull malvikasharan/apricot`
+````
+$ docker pull malvikasharan/apricot
+````
 
 #####Run the container:
 ````
-docker run -t -i malvikasharan/apricot bash
+$ docker run -t -i malvikasharan/apricot bash
 ````
 APRICOT is installed and can be called using command `apricot` and the libraries will be saved at `usr/local/lib/python3.5/site-packages/apricotlib/`
 
 #####Go to the `home` folder to test the software:
 ````
-cd home
+$ cd home
 ````
 
 ####For the developers
@@ -107,8 +108,8 @@ cd home
 We have provided a test folder named [tests](https://github.com/malvikasharan/APRICOT/tree/master/tests), to allow the system testing and demonstration of basic modules without installation. The instructions and commands are provided in the shell scipt [system_test.sh](https://github.com/malvikasharan/APRICOT/blob/master/tests/system_test.sh). 
 
 ````
-cd APRICOT/test
-sh system_test.sh
+$ cd APRICOT/test
+$ sh system_test.sh
 ````
 By default, this script generates a main analysis folder `APRICOT_analysis` and several sub-directories. To understand each components of the software and generated results, We recomend you to check out the [tutorial](https://github.com/malvikasharan/APRICOT/blob/master/APRICOT_tutorial.md). 
 
@@ -152,13 +153,13 @@ According to the [Docker home page](https://www.docker.com/what-docker):
 
 As stated above, the [Docker image for APRICOT](https://hub.docker.com/r/malvikasharan/apricot/) can be pulled using Docker Pull Command:
 ````
-docker pull malvikasharan/apricot
+$ docker pull malvikasharan/apricot
 ````
 
 Optionally you can create APRICOT image using Dockerfile provided in the repository
 
 ````
-wget -N https://raw.githubusercontent.com/malvikasharan/APRICOT/master/Dockerfile
+$ wget -N https://raw.githubusercontent.com/malvikasharan/APRICOT/master/Dockerfile
 $ docker build -t imagename .
 ````
 Type `docker images` and press RETURN to see the docker image that you've just created.
@@ -168,8 +169,8 @@ Type `docker images` and press RETURN to see the docker image that you've just c
 Please replace malvikasharan/apricot with your locally built Docker image's name.
 
 ````
-docker run -t -i malvikasharan/apricot bash
-cd home
+$ docker run -t -i malvikasharan/apricot bash
+$ cd home
 ````
 
 #####2. Installation by shell-scipts
@@ -205,13 +206,16 @@ APRICOT
 
 The run script for the installation can be found in `APRICOT/shell_scripts` folder of this github repository. Users need to provide the path of the APRICOT repository in the system (default name: APRICOT) and the path where the users wish to install APRICOT related tools and files (default path: source_files). 
 
-APRICOT requires to install  BLAST executables (ftp://ftp.ncbi.nih.gov/blast/executables/blast+) and InterProScan (ftp://ftp.ebi.ac.uk/pub/software/unix/iprscan/5/) along with establishing CDD and InterPro databases locally. All the required resources can be established using the script `apricot_complete_db_tool.sh`. 
+APRICOT requires to install  BLAST executables (ftp://ftp.ncbi.nih.gov/blast/executables/blast+) and InterProScan (ftp://ftp.ebi.ac.uk/pub/software/unix/iprscan/5/) along with establishing CDD and InterPro databases locally. 
 
-With `apricot_minimum_required_files.sh`, user can skip installing tools for additional annotations (PSortb and RaptorX).
+All the required resources can be established using the script `APRICOT/shell_scriptsapricot_minimum_required_files.sh`. 
 
 `````
 $ sh apricot_minimum_required_files.sh
 `````
+
+To carry out additional annotation by RaptorX and Psortb, users can install these tools individually. RaptorX can be installed using `APRICOT/shell_scripts/install_raptorx.py`. The instructions for the installation of Psortb in given in its homepage: ttp://www.psort.org/downloads/INSTALL.html.
+
 
 Alternatively, the BLAST executables (rpsblast, blastp, psiblast, makeblastdb) can be installed locally as directed [here](http://bioinformatics.ai.sri.com/ptools/installation-guide/released/blast.html) and CDD can be established locally (in the path apricot_db_and_tools/conserved_domain_database/Cdd) as shown below:
 
