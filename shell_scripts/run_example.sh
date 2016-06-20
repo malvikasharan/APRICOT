@@ -109,27 +109,33 @@ main(){
 
 set_up_analysis_folder(){
     mkdir -p $ROOT_DB_PATH $APRICOT_PATH $ANALYSIS_PATH $APRICOT_LIBRARY
-    for DB_SUBPATH in cdd go_mapping interpro pfam
+    for DB_SUBPATH1 in cdd go_mapping interpro pfam
     do
-	mkdir -p $DB_PATH/$DB_SUBPATH
+	mkdir -p $DB_PATH/$DB_SUBPATH1
     done
+    for DB_SUBPATH2 in cdd/cdd_annotation_data interpro/interpro_annotation_data \
+    			source_files/domain_data
+    do
+	mkdir -p $DB_PATH/$DB_SUBPATH2
+    done
+    
     $APRICOT_CALL create $ANALYSIS_PATH
 }
 
 get_small_demo_files(){
-    if [ -f APRICOT/tests/demo_files_small/cdd/cdd_annotation_data/cddid.tbl ]
+    if [ -f $DB_PATH/cdd/cdd_annotation_data/cddid.tbl ]
     then
     	cp APRICOT/tests/demo_files_small/cdd $DB_PATH
     fi
-    if [ -f APRICOT/tests/demo_files_small/interpro/interpro_annotation_data/interproid.tbl ]
+    if [ -f $DB_PATH/interpro/interpro_annotation_data/interproid.tbl ]
     then
         cp -r APRICOT/tests/demo_files_small/interpro $DB_PATH
     fi
-    if [ -f APRICOT/tests/demo_files_small/go_mapping/mapped_cdd_to_go.csv ]
+    if [ -f $DB_PATH/go_mapping/mapped_cdd_to_go.csv ]
     then
         cp -r APRICOT/tests/demo_files_small/go_mapping $DB_PATH
     fi
-    if [ -f APRICOT/tests/demo_files_small/pfam/pfamA.txt ]
+    if [ -f $DB_PATH/pfam/pfamA.txt ]
     then
         cp -r APRICOT/tests/demo_files_small/pfam $DB_PATH
     fi
