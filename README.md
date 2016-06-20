@@ -37,12 +37,12 @@ $ apt-get install python3-pip git
 
 #####Get APRICOT via pip
 
-Then install APRICOT via pip:
+Then install APRICOT via pip (NOTE: this doesn't install the required tools and datasets):
 ````
 $ pip3 install bio-apricot 
 ````
 
-This will globally install APRICOT, which can be called via `apricot`, and the libraries are located in `usr/local/lib/python3.5/site-packages/apricotlib/`
+This will globally install APRICOT, which can be called via the command `apricot`, and the libraries from apricotlib will be saved.
 
 #####Get APRICOT manually
 
@@ -57,6 +57,23 @@ The git-repository for APRICOT can be [downloaded manually](https://github.com/m
 `````
 $ git clone https://github.com/malvikasharan/APRICOT.git
 `````
+
+####APRICOT Docker image
+
+Get Docker container for APRICOT here: https://hub.docker.com/r/malvikasharan/apricot
+
+#####Get the complete filesystem for APRICOT using [docker image](https://docs.docker.com/v1.8/userguide/dockerimages/):
+
+`docker pull malvikasharan/apricot`
+
+#####Run the container:
+````
+docker run -t -i malvikasharan/apricot bash
+````
+APRICOT is installed and can be called using command 'apricot' and the libraries will be saved here: `usr/local/lib/python3.5/site-packages/apricotlib/`
+
+#####Go to the `home` folder to test the software:
+`cd home`
 
 #####Quick test for each subcommands of APRICOT 
 
@@ -116,21 +133,20 @@ APRICOT is implemented in Python 3 and can be executed in Linux/Unix system. APR
 
 ##Instructions for the installation
 
-#####1. Installation by Dockerfile
+#####1. Docker image
 
-######Create APRICOT image using Dockerfile
+######What is docker?
+
+As stated in the home page https://www.docker.com/what-docker:
+"Docker containers wrap up a piece of software in a complete filesystem that contains everything it needs to run: code, runtime, system tools, system libraries – anything you can install on a server. This guarantees that it will always run the same, regardless of the environment it is running in."
+
+The Docker image for APRICOT is available at: https://hub.docker.com/r/malvikasharan/apricot/, which can be pulled using Docker Pull Command:
+`docker pull malvikasharan/apricot`
+
+Optionally you can create APRICOT image using Dockerfile provided in the repository
 
 ````
 wget -N https://raw.githubusercontent.com/malvikasharan/APRICOT/master/Dockerfile
-````
-
-Or, if you have already the downloaded/cloned the git-repository, then copy it outside the APRICOT library folder
-````
-$ cp APRICOT/Dockerfile .
-````
-
-######Create docker image (takes about 1 hour to install everything)
-````
 $ docker build -t username/docker-apricot .
 ````
 Type `docker images` and press RETURN to see the docker image that you've just created.
@@ -141,8 +157,6 @@ Type `docker images` and press RETURN to see the docker image that you've just c
 docker run -t -i username/docker-apricot bash
 cd home
 ````
-
-You're ready to start your job!!
 
 #####2. Installation by shell-scipts
 
