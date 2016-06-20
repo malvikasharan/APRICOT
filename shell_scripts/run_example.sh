@@ -104,7 +104,8 @@ main(){
     ## The subcommand 'annoscore' requires locally configured needle from EMBOSS suite
     ## It is installed using the Dockerfile or provided shell scripts for installation
     ## or, if already installed, please change the path name $NEEDLE_EMBOSS_PATH
-    calculate_annotation_score	  # subcommand annoscore
+    
+    # calculate_annotation_score	  # subcommand annoscore
 }
 
 set_up_analysis_folder(){
