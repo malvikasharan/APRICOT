@@ -24,23 +24,6 @@ Copyright (c) 2011-2015, Malvika Sharan, <malvika.sharan@uni-wuerzburg.de>
 
 Please read the license content [here](https://github.com/malvikasharan/APRICOT/blob/master/LICENSE.md).
 
-####APRICOT Docker image
-
-We recommend users to get the complete filesystem for APRICOT using [docker image](https://docs.docker.com/v1.8/userguide/dockerimages/):
-
-`docker pull malvikasharan/apricot`
-
-#####Run the container:
-````
-docker run -t -i malvikasharan/apricot bash
-````
-APRICOT is installed and can be called using command `apricot` and the libraries will be saved at `usr/local/lib/python3.5/site-packages/apricotlib/`
-
-#####Go to the `home` folder to test the software:
-````
-cd home
-````
-
 ####APRICOT software (not the complete filesystem)
 
 APRICOT is implemented in Python as a standalone and is executable on Ubuntu (and other debian-based) systems.
@@ -62,7 +45,8 @@ This will globally install APRICOT, which can be called via the command `apricot
 
 #####Get APRICOT manually
 
-For manual installation, get the required modules (biopython, numpy, scipy, matplotlib, requests and openpyxl) via apt-get or pip (example shown below)
+APRICOT is implemented in Python 3 and can be executed in Linux/Unix system. APRICOT requires few third party packages, namely [Biopython](http://biopython.org/wiki/Main_Page), [BLAST executables](https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE_TYPE=BlastDocs&DOC_TYPE=Download), [interproscan](https://www.ebi.ac.uk/interpro/interproscan.html), python libraries like [Matplotlib](http://matplotlib.org/), [requests](https://pypi.python.org/pypi/requests), openpyxl and few other optional tools that are mentioned below.
+
 ````
 $ apt-get install python3-matplotlib python3-numpy python3-scipy python3-biopython python3-requests --yes --fix-missing
 $ pip3 install --user openpyxl
@@ -80,7 +64,9 @@ Please see the detailed documentation below for the alternative installation ins
 
 Here is a quick way to check how different modules work (without really installing the entire software)
 
-The repository contains a folder called `shell_scripts`, which consists of a script [run_example.sh](https://github.com/malvikasharan/APRICOT/blob/master/shell_scripts/run_example.sh). This comprises of shell commands that can be used for the demonstration of APRICOT installation including analysis with an example. 
+The repository contains a shell script [shell_scripts/run_example.sh](https://github.com/malvikasharan/APRICOT/blob/master/shell_scripts/run_example.sh) with shell commands that can be used for the demonstration of APRICOT installation including analysis with an example. 
+
+It uses [test datasets](https://github.com/malvikasharan/APRICOT/tree/master/tests/demo_files_small) for basic testing, which does not require installation of third party tools.
 
 ````
 $ wget -N https://raw.githubusercontent.com/malvikasharan/APRICOT/master/shell_scripts/run_example.sh
@@ -89,11 +75,32 @@ $ sh run_example.sh
 
 To understand how each module of APRICOT works, We recomend you to check out the [tutorial](https://github.com/malvikasharan/APRICOT/blob/master/APRICOT_tutorial.md). 
 
+
+####APRICOT Docker image
+
+We recommend users to get the complete filesystem for APRICOT using [docker image](https://docs.docker.com/v1.8/userguide/dockerimages/):
+
+`docker pull malvikasharan/apricot`
+
+#####Run the container:
+````
+docker run -t -i malvikasharan/apricot bash
+````
+APRICOT is installed and can be called using command `apricot` and the libraries will be saved at `usr/local/lib/python3.5/site-packages/apricotlib/`
+
+#####Go to the `home` folder to test the software:
+````
+cd home
+````
+
 ####For developers
 
 We have provided a test folder named [tests](https://github.com/malvikasharan/APRICOT/tree/master/tests), to allow the system testing and demonstration of basic modules without installation. The instructions and commands are provided in the shell scipt [system_test.sh](https://github.com/malvikasharan/APRICOT/blob/master/tests/system_test.sh). 
 
-Users can choose to install all the tools and databases for a complete test. Optionally, the [test datasets](https://github.com/malvikasharan/APRICOT/tree/master/tests/demo_files_small) can be used for basic testing, which does not require installation of third party tools. 
+````
+cd APRICOT/test
+sh system_test.sh
+````
 
 ####Contact
 
@@ -126,19 +133,19 @@ For each analysis step, APRICOT generates results in tablular manner, in additio
 
 ####Tool Requirements
 
-APRICOT is implemented in Python 3 and can be executed in Linux/Unix system. APRICOT requires few third party packages, namely [Biopython](http://biopython.org/wiki/Main_Page), [BLAST executables](https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE_TYPE=BlastDocs&DOC_TYPE=Download), [interproscan](https://www.ebi.ac.uk/interpro/interproscan.html), python libraries like [Matplotlib](http://matplotlib.org/), [requests](https://pypi.python.org/pypi/requests), openpyxl and few other optional tools that are mentioned below.
-
-##Instructions for the installation
+##Instructions for the installation of complete filesystem 
 
 #####1. Docker image
 
 ######What is docker?
 
-As stated in the home page https://www.docker.com/what-docker:
+According to the [Docker home page](https://www.docker.com/what-docker):
 "Docker containers wrap up a piece of software in a complete filesystem that contains everything it needs to run: code, runtime, system tools, system libraries – anything you can install on a server. This guarantees that it will always run the same, regardless of the environment it is running in."
 
-The Docker image for APRICOT is available at: https://hub.docker.com/r/malvikasharan/apricot/, which can be pulled using Docker Pull Command:
-`docker pull malvikasharan/apricot`
+As stated above, the [Docker image for APRICOT](https://hub.docker.com/r/malvikasharan/apricot/) can be pulled using Docker Pull Command:
+````
+docker pull malvikasharan/apricot
+````
 
 Optionally you can create APRICOT image using Dockerfile provided in the repository
 
