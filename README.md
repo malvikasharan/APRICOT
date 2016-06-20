@@ -43,19 +43,6 @@ $ pip3 install bio-apricot
 
 This will globally install APRICOT, which can be called via the command `apricot`, and the libraries from apricotlib will be saved.
 
-When using `--user` flag for installation:
-
-````
-$ pip3 install --user bio-apricot
-````
-
-Please check the paths for the executable and the libraries:
-
-Hint:
-executable location will be: /home/username/.local/bin/
-and the library location will be: /home/username/.local/lib/python3.5/site-packages/apricotlib/
-
-In that case, when calling the software (also edit the path when using the shell scripts provided in the git repository), please use the complete path name rather than using `apricot`, which will look for a globally installed software.
 
 #####Get APRICOT manually
 
@@ -88,6 +75,15 @@ $ sh run_example.sh
 ````
 
 By default, this script generates a main analysis folder `APRICOT_analysis` and several sub-directories. To understand each components of the software and generated results, We recomend you to check out the [tutorial](https://github.com/malvikasharan/APRICOT/blob/master/APRICOT_tutorial.md). 
+
+When using `--user` flag for a local installation `$ pip3 install --user bio-apricot`, please check the paths for the executable and the libraries.
+
+Hint:
+
+Executable location will be: /home/username/.local/bin/
+and the library location will be: /home/username/.local/lib/python3.5/site-packages/apricotlib/
+
+In that case, when calling the software (also edit the path when using the shell script run_example.sh and system_test.sh), please use the complete path name rather than using `apricot`, which will look for a globally installed software.
 
 ####APRICOT Docker image
 
