@@ -101,10 +101,12 @@ main(){
 
     ### Install databases and third-party tools required by APRICOT
     ### Docker image can be pulled: docker pull malvikasharan/apricot
-    ### Optionally install all the third-party tools for additional annotation
-    ### using functions: install_minimum_required_files (doesn't install Psortb and Raptorx)
-    ### or install_complete_db_and_tools (installs complete filesystem)
-
+    ### Optionally install all the third-party tools using following functions:
+    
+    ## install_minimum_required_files           ## doesn't install Psortb and Raptorx
+    ## install_raptorx.sh                       ## installs RaptorX and required nr database
+    ## install_psortb.sh                        ## installs Psortb
+    
     ### Test APRICOT without installing databases and the third-party tools
     ## this test is only for query uids: P0A6X3,P00957
     ## additional annotation is not allowed with this option
