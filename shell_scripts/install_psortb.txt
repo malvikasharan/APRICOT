@@ -1,0 +1,2 @@
+If you want to manually install Psortb, please follow the instructions for the installation of PsortB here:
+http://www.psort.org/downloads/INSTALL.html
