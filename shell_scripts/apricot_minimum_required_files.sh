@@ -3,6 +3,7 @@
 
 ## This installation will skip the third party tools for additional annotations
 # Tools that are skipped: PsortB, RaptorX, Biojs, openpyxl
+# It assumes that User's environment has Java installed, it is required to run InterProScan
 
 PYTHON_PATH=python
 
@@ -165,7 +166,7 @@ get_pfam_domain_file(){
 }
 
 get_blast_executables(){
-    wget -c -P $apricot_files/blast ftp://ftp.ncbi.nih.gov/blast/executables/blast+/2.2.28/*x64-linux*
+    wget -c -P $apricot_files/blast ftp://ftp.ncbi.nih.gov/blast/executables/blast+/2.4.0/*x64-linux*
     tar -xvzf $apricot_files/blast/*x64-linux* -C $apricot_files/blast
     rm -rf $apricot_files/blast/*x64-linux*.gz
     for exepath in $(ls $apricot_files/blast)
