@@ -123,24 +123,38 @@ set_up_analysis_folder(){
 }
 
 get_small_demo_files(){
+    # CDD data
     if ! [ -f $DB_PATH/cdd/cdd_annotation_data/cddid.tbl ]
     then
     	cp APRICOT/tests/demo_files_small/cdd/cdd_annotation_data/cddid.tbl \
     	$DB_PATH/cdd/cdd_annotation_data
     fi
+    
+    # InterPro data
     if ! [ -f $DB_PATH/interpro/interpro_annotation_data/interproid.tbl ]
     then
         cp APRICOT/tests/demo_files_small/interpro/interpro_annotation_data/interproid.tbl \
          $DB_PATH/interpro/interpro_annotation_data/
     fi
+    if ! [ -f $DB_PATH/interpro/interpro_annotation_data/mapped_interpro_to_cdd_length.csv ]
+    then
+        cp APRICOT/tests/demo_files_small/interpro/interpro_annotation_data/mapped_interpro_to_cdd_length.csv \
+         $DB_PATH/interpro/interpro_annotation_data/
+    fi
+    
+    # GO data
     if ! [ -f $DB_PATH/go_mapping/mapped_cdd_to_go.csv ]
     then
         cp -r APRICOT/tests/demo_files_small/go_mapping $DB_PATH
     fi
+    
+    # Pfam data
     if ! [ -f $DB_PATH/pfam/pfamA.txt ]
     then
         cp -r APRICOT/tests/demo_files_small/pfam $DB_PATH
     fi
+    
+    # Domain prediction, demo files
     cp -r APRICOT/tests/demo_files_small/cdd_analysis $ANALYSIS_PATH/output/0_predicted_domains/
     cp -r APRICOT/tests/demo_files_small/ipr_analysis $ANALYSIS_PATH/output/0_predicted_domains/
 }
@@ -152,16 +166,19 @@ downloads_files(){
     DEMO_FOLDER=$(basename $DEMO_ZIP .zip)/apricot_demo_files/
     wget $ZENODO_LINK_FOR_DEMO_DATA
     unzip ${DEMO_ZIP}
-    if [ -f APRICOT/tests/demo_files_small/go_mapping/mapped_cdd_to_go.csv ]
+    
+    # InterPro data
+    if ! [ -f $DB_PATH/interpro/interpro_annotation_data/interproid.tbl ]
     then
-    	cp -r ${DEMO_FOLDER}/go_mapping $DB_PATH
+        cp -r ${DEMO_FOLDER}/interpro/interpro_annotation_data/interproid.tbl $DB_PATH/interpro/interpro_annotation_data
     fi
-    if [ -f APRICOT/tests/demo_files_small/interpro/interpro_annotation_data/interproid.tbl ]
+    if ! [ -f $DB_PATH/interpro/interpro_annotation_data/mapped_interpro_to_cdd_length.csv ]
     then
-        cp -r ${DEMO_FOLDER}/interpro_annotation_data $DB_PATH/interpro
+        cp -r ${DEMO_FOLDER}/interpro/interpro_annotation_data/mapped_interpro_to_cdd_length.csv $DB_PATH/interpro/interpro_annotation_data
     fi
+    
     # CDD annotation table
-     if [ -f APRICOT/tests/demo_files_small/cdd/cdd_annotation_data/cddid.tbl ]
+     if ! [ -f  $DB_PATH/cdd/cdd_annotation_data/cddid.tbl ]
     then
 	wget -c \
 	    -P $DB_PATH/cdd/cdd_annotation_data \
@@ -169,14 +186,22 @@ downloads_files(){
 	gunzip $DB_PATH/cdd/cdd_annotation_data/*
     fi
     
+    # GO data
+    if ! [ -f $DB_PATH/go_mapping/mapped_cdd_to_go.csv ]
+    then
+    	cp -r ${DEMO_FOLDER}/go_mapping/mapped_cdd_to_go.csv $DB_PATH/go_mapping
+    fi
+    
     # PfamA annotation table
-    if [ -f APRICOT/tests/demo_files_small/pfam/pfamA.txt ]
+    if ! [ -f $DB_PATH/pfam/pfamA.txt ]
     then
         wget -c \
             -P $DB_PATH/pfam \
             ftp://ftp.ebi.ac.uk/pub/databases/Pfam/releases/$PFAM_RELEASE/database_files/pfamA.txt.gz
         gunzip $DB_PATH/pfam/pfamA.txt.gz
     fi
+    
+    # Domain prediction, demo files
     cp -r ${DEMO_FOLDER}/cdd_analysis $ANALYSIS_PATH/output/0_predicted_domains
     cp -r ${DEMO_FOLDER}/ipr_analysis $ANALYSIS_PATH/output/0_predicted_domains
     rm -rf $DEMO_ZIP $DEMO_FOLDER $(basename $DEMO_ZIP .zip)
