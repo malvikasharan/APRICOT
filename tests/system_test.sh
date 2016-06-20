@@ -1,6 +1,7 @@
 #!/bin/bash
 # AUTHOR: Malvika Sharan <malvikasharan@gmail.com>
 
+## Assumes that users have Java installed, it is required to run InterproScan
 
 #########################################################################
 ANALYSIS_PATH=APRICOT_analysis
@@ -9,11 +10,10 @@ ROOT_DB_PATH=source_files
 NEEDLE_EMBOSS_PATH=source_files/reference_db_files/needle/emboss/needle
 #########################################################################
 
-
 #########################################################################
-# Either use the dev version in the git repo with the defaul Python
-# version
-APRICOT_CALL="../bin/apricot"
+# Either use the dev version in the git repo with the default Python version
+# or install via pip (pip3 install bio-apricot)
+APRICOT_CALL="apricot"
 
 # ... or set a Python version for that call ...
 # PYTHON_PATH=python3
@@ -100,7 +100,10 @@ main(){
     set_up_analysis_folder			            ### Set up analysis folders for APRICOT analysis
 
     ### Install databases and third-party tools required by APRICOT
-    # install_minimum_required_files            ### Optionally use 'install_complete_db_and_tools', that will install all the third-party tools for additional annotation
+    ### Docker image can be pulled: docker pull malvikasharan/apricot
+    ### Optionally install all the third-party tools for additional annotation
+    ### using functions: install_minimum_required_files (doesn't install Psortb and Raptorx)
+    ### or install_complete_db_and_tools (installs complete filesystem)
 
     ### Test APRICOT without installing databases and the third-party tools
     ## this test is only for query uids: P0A6X3,P00957
