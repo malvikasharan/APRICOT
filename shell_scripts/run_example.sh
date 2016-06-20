@@ -113,10 +113,22 @@ set_up_analysis_folder(){
 }
 
 get_small_demo_files(){
-    cp -r APRICOT/tests/demo_files_small/cdd $DB_PATH
-    cp -r APRICOT/tests/demo_files_small/interpro $DB_PATH
-    cp -r APRICOT/tests/demo_files_small/go_mapping $DB_PATH
-    cp -r APRICOT/tests/demo_files_small/pfam $DB_PATH
+    if [ -f APRICOT/tests/demo_files_small/cdd/cdd_annotation_data/cddid.tbl ]
+    then
+    	cp APRICOT/tests/demo_files_small/cdd $DB_PATH
+    fi
+    if [ -f APRICOT/tests/demo_files_small/interpro/interpro_annotation_data/interproid.tbl ]
+    then
+        cp -r APRICOT/tests/demo_files_small/interpro $DB_PATH
+    fi
+    if [ -f APRICOT/tests/demo_files_small/go_mapping/mapped_cdd_to_go.csv ]
+    then
+        cp -r APRICOT/tests/demo_files_small/go_mapping $DB_PATH
+    fi
+    if [ -f APRICOT/tests/demo_files_small/pfam/pfamA.txt ]
+    then
+        cp -r APRICOT/tests/demo_files_small/pfam $DB_PATH
+    fi
     cp -r APRICOT/tests/demo_files_small/cdd_analysis $ANALYSIS_PATH/output/0_predicted_domains/
     cp -r APRICOT/tests/demo_files_small/ipr_analysis $ANALYSIS_PATH/output/0_predicted_domains/
 }
@@ -128,23 +140,34 @@ downloads_files(){
     DEMO_FOLDER=$(basename $DEMO_ZIP .zip)/apricot_demo_files/
     wget $ZENODO_LINK_FOR_DEMO_DATA
     unzip ${DEMO_ZIP}
-    cp -r ${DEMO_FOLDER}/go_mapping $DB_PATH
-    cp -r ${DEMO_FOLDER}/interpro_annotation_data $DB_PATH/interpro
+    if [ -f APRICOT/tests/demo_files_small/go_mapping/mapped_cdd_to_go.csv ]
+    then
+    	cp -r ${DEMO_FOLDER}/go_mapping $DB_PATH
+    fi
+    if [ -f APRICOT/tests/demo_files_small/interpro/interpro_annotation_data/interproid.tbl ]
+    then
+        cp -r ${DEMO_FOLDER}/interpro_annotation_data $DB_PATH/interpro
+    fi
+    # CDD annotation table
+     if [ -f APRICOT/tests/demo_files_small/cdd/cdd_annotation_data/cddid.tbl ]
+    then
+	wget -c \
+	    -P $DB_PATH/cdd/cdd_annotation_data \
+	    ftp://ftp.ncbi.nih.gov/pub/mmdb/cdd/cddid.tbl.gz
+	gunzip $DB_PATH/cdd/cdd_annotation_data/*
+    fi
+    
+    # PfamA annotation table
+    if [ -f APRICOT/tests/demo_files_small/pfam/pfamA.txt ]
+    then
+        wget -c \
+            -P $DB_PATH/pfam \
+            ftp://ftp.ebi.ac.uk/pub/databases/Pfam/releases/$PFAM_RELEASE/database_files/pfamA.txt.gz
+        gunzip $DB_PATH/pfam/pfamA.txt.gz
+    fi
     cp -r ${DEMO_FOLDER}/cdd_analysis $ANALYSIS_PATH/output/0_predicted_domains
     cp -r ${DEMO_FOLDER}/ipr_analysis $ANALYSIS_PATH/output/0_predicted_domains
     rm -rf $DEMO_ZIP $DEMO_FOLDER $(basename $DEMO_ZIP .zip)
-
-    # CDD annotation table
-    wget -c \
-	 -P $DB_PATH/cdd/cdd_annotation_data \
-	 ftp://ftp.ncbi.nih.gov/pub/mmdb/cdd/cddid.tbl.gz
-    gunzip $DB_PATH/cdd/cdd_annotation_data/*
-    
-    # PfamA annotation table
-    wget -c \
-	 -P $DB_PATH/pfam \
-	 ftp://ftp.ebi.ac.uk/pub/databases/Pfam/releases/$PFAM_RELEASE/database_files/pfamA.txt.gz
-    gunzip $DB_PATH/pfam/pfamA.txt.gz
 }
 
 provide_input_queries(){
