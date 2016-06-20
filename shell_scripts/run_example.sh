@@ -124,11 +124,13 @@ set_up_analysis_folder(){
 get_small_demo_files(){
     if ! [ -f $DB_PATH/cdd/cdd_annotation_data/cddid.tbl ]
     then
-    	cp APRICOT/tests/demo_files_small/cdd $DB_PATH
+    	cp APRICOT/tests/demo_files_small/cdd/cdd_annotation_data/cddid.tbl \
+    	$DB_PATH/cdd/cdd_annotation_data
     fi
     if ! [ -f $DB_PATH/interpro/interpro_annotation_data/interproid.tbl ]
     then
-        cp -r APRICOT/tests/demo_files_small/interpro $DB_PATH
+        cp APRICOT/tests/demo_files_small/interpro/interpro_annotation_data/interproid.tbl \
+         $DB_PATH/interpro/interpro_annotation_data/
     fi
     if ! [ -f $DB_PATH/go_mapping/mapped_cdd_to_go.csv ]
     then
