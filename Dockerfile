@@ -47,10 +47,10 @@ RUN gunzip home/source_files/reference_db_files/interpro/interpro_annotation_dat
 
 # Get and install BLAST modules
 RUN mkdir home/source_files/reference_db_files/blast
-RUN wget -c -P home/source_files/reference_db_files/blast ftp://ftp.ncbi.nih.gov/blast/executables/blast+/2.2.28/ncbi-blast-2.2.28+-x64-linux.tar.gz
-RUN tar -xvzf home/source_files/reference_db_files/blast/ncbi-blast-2.2.28+-x64-linux.tar.gz -C home/source_files/reference_db_files/blast
-RUN cp -r home/source_files/reference_db_files/blast/ncbi-blast-2.2.28+/* home/source_files/reference_db_files/blast
-RUN rm -rf home/source_files/reference_db_files/blast/ncbi-blast-2.2.28+-x64-linux.gz
+RUN wget -c -P home/source_files/reference_db_files/blast ftp://ftp.ncbi.nih.gov/blast/executables/LATEST/ncbi-blast-2.4.0+-src.tar.gz
+RUN tar -xvzf home/source_files/reference_db_files/blast/ncbi-blast-2.4.0+-src.tar.gz -C home/source_files/reference_db_files/blast
+RUN cp -r home/source_files/reference_db_files/blast/ncbi-blast-2.4.0+/* home/source_files/reference_db_files/blast
+RUN rm -rf home/source_files/reference_db_files/blast/ncbi-blast-2.4.0+-x64-linux.gz
 RUN install home/source_files/reference_db_files/blast/bin/psiblast home/source_files/reference_db_files/blast
 RUN install home/source_files/reference_db_files/blast/bin/blastp home/source_files/reference_db_files/blast
 RUN install home/source_files/reference_db_files/blast/bin/makeblastdb home/source_files/reference_db_files/blast
@@ -91,7 +91,7 @@ RUN CD home && sh APRICOT/shell_scripts/docker_support.sh
 
 # Remove tar files
 RUN rm -rf \
-home/source_files/reference_db_files/blast/ncbi-blast-2.2.28+-x64-linux.tar.gz \
+home/source_files/reference_db_files/blast/ncbi-blast-2.4.0+-src.tar.gz \
 home/source_files/reference_db_files/interpro/interproscan-5.19-58.0-64-bit.tar.gz \
 home/source_files/reference_db_files/needle/emboss-latest.tar.gz \
 home/source_files/reference_db_files/cdd/Cdd/*.gz
