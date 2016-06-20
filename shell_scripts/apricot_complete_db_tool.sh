@@ -1,5 +1,6 @@
 #!/bin/bash
 # AUTHOR: Malvika Sharan <malvika.sharan@uni-wuerzburg.de>
+# It assumes that user's environment has Java installed, it is required to run interproscan
 
 PYTHON_PATH=python
 apricot_path=$1
@@ -258,7 +259,7 @@ get_pfam_domain_file(){
 }
 
 get_blast_executables(){
-    wget -c -P $apricot_db/blast ftp://ftp.ncbi.nih.gov/blast/executables/blast+/2.2.28/*x64-linux*
+    wget -c -P $apricot_db/blast ftp://ftp.ncbi.nih.gov/blast/executables/blast+/2.4.0/*x64-linux*
     tar -xvzf $apricot_db/blast/*x64-linux* -C $apricot_db/blast
     rm -rf $apricot_db/blast/*x64-linux*.gz
     for exepath in $(ls $apricot_db/blast)
