@@ -73,8 +73,7 @@ $ wget -N https://raw.githubusercontent.com/malvikasharan/APRICOT/master/shell_s
 $ sh run_example.sh
 ````
 
-To understand how each module of APRICOT works, We recomend you to check out the [tutorial](https://github.com/malvikasharan/APRICOT/blob/master/APRICOT_tutorial.md). 
-
+By default, this script generates a main analysis folder `APRICOT_analysis` and several sub-directories. To understand each components of the software and generated results, We recomend you to check out the [tutorial](https://github.com/malvikasharan/APRICOT/blob/master/APRICOT_tutorial.md). 
 
 ####APRICOT Docker image
 
@@ -93,7 +92,7 @@ APRICOT is installed and can be called using command `apricot` and the libraries
 cd home
 ````
 
-####For developers
+####For the developers
 
 We have provided a test folder named [tests](https://github.com/malvikasharan/APRICOT/tree/master/tests), to allow the system testing and demonstration of basic modules without installation. The instructions and commands are provided in the shell scipt [system_test.sh](https://github.com/malvikasharan/APRICOT/blob/master/tests/system_test.sh). 
 
@@ -101,6 +100,7 @@ We have provided a test folder named [tests](https://github.com/malvikasharan/AP
 cd APRICOT/test
 sh system_test.sh
 ````
+By default, this script generates a main analysis folder `APRICOT_analysis` and several sub-directories. To understand each components of the software and generated results, We recomend you to check out the [tutorial](https://github.com/malvikasharan/APRICOT/blob/master/APRICOT_tutorial.md). 
 
 ####Contact
 
@@ -131,9 +131,7 @@ For each analysis step, APRICOT generates results in tablular manner, in additio
 
 ###Detailed documentation
 
-####Tool Requirements
-
-##Instructions for the installation of complete filesystem 
+####Instructions for the installation of complete filesystem 
 
 #####1. Docker image
 
@@ -151,14 +149,16 @@ Optionally you can create APRICOT image using Dockerfile provided in the reposit
 
 ````
 wget -N https://raw.githubusercontent.com/malvikasharan/APRICOT/master/Dockerfile
-$ docker build -t username/docker-apricot .
+$ docker build -t imagename .
 ````
 Type `docker images` and press RETURN to see the docker image that you've just created.
 
-######Run your new docker-apricot
+######Run the docker-apricot
+
+Please replace malvikasharan/apricot with your locally built Docker image's name.
 
 ````
-docker run -t -i username/docker-apricot bash
+docker run -t -i malvikasharan/apricot bash
 cd home
 ````
 
