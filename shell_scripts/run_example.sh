@@ -113,8 +113,7 @@ set_up_analysis_folder(){
     do
 	mkdir -p $DB_PATH/$DB_SUBPATH1
     done
-    for DB_SUBPATH2 in cdd/cdd_annotation_data interpro/interpro_annotation_data \
-    			source_files/domain_data
+    for DB_SUBPATH2 in cdd/cdd_annotation_data interpro/interpro_annotation_data source_files/domain_data
     do
 	mkdir -p $DB_PATH/$DB_SUBPATH2
     done
@@ -123,19 +122,19 @@ set_up_analysis_folder(){
 }
 
 get_small_demo_files(){
-    if [ -f $DB_PATH/cdd/cdd_annotation_data/cddid.tbl ]
+    if ! [ -f $DB_PATH/cdd/cdd_annotation_data/cddid.tbl ]
     then
     	cp APRICOT/tests/demo_files_small/cdd $DB_PATH
     fi
-    if [ -f $DB_PATH/interpro/interpro_annotation_data/interproid.tbl ]
+    if ! [ -f $DB_PATH/interpro/interpro_annotation_data/interproid.tbl ]
     then
         cp -r APRICOT/tests/demo_files_small/interpro $DB_PATH
     fi
-    if [ -f $DB_PATH/go_mapping/mapped_cdd_to_go.csv ]
+    if ! [ -f $DB_PATH/go_mapping/mapped_cdd_to_go.csv ]
     then
         cp -r APRICOT/tests/demo_files_small/go_mapping $DB_PATH
     fi
-    if [ -f $DB_PATH/pfam/pfamA.txt ]
+    if ! [ -f $DB_PATH/pfam/pfamA.txt ]
     then
         cp -r APRICOT/tests/demo_files_small/pfam $DB_PATH
     fi
