@@ -43,13 +43,27 @@ $ pip3 install bio-apricot
 
 This will globally install APRICOT, which can be called via the command `apricot`, and the libraries from apricotlib will be saved.
 
+When using `--user` flag for installation:
+
+````
+$ pip3 install --user bio-apricot
+````
+
+Please check the paths for the executable and the libraries:
+
+Hint:
+executable location will be: /home/username/.local/bin/
+and the library location will be: /home/username/.local/lib/python3.5/site-packages/apricotlib/
+
+In that case, when calling the software (also edit the path when using the shell scripts provided in the git repository), please use the complete path name rather than using `apricot`, which will look for a globally installed software.
+
 #####Get APRICOT manually
 
 APRICOT is implemented in Python 3 and can be executed in Linux/Unix system. APRICOT requires few third party packages, namely [Biopython](http://biopython.org/wiki/Main_Page), [BLAST executables](https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE_TYPE=BlastDocs&DOC_TYPE=Download), [interproscan](https://www.ebi.ac.uk/interpro/interproscan.html), python libraries like [Matplotlib](http://matplotlib.org/), [requests](https://pypi.python.org/pypi/requests), openpyxl and few other optional tools that are mentioned below.
 
 ````
 $ apt-get install python3-matplotlib python3-numpy python3-scipy python3-biopython python3-requests --yes --fix-missing
-$ pip3 install --user openpyxl
+$ pip3 install openpyxl
 ````
 
 The git-repository for APRICOT can be [downloaded manually](https://github.com/malvikasharan/APRICOT/archive/master.zip) or locally cloned:
