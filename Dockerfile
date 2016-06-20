@@ -13,7 +13,6 @@ RUN apt-get update
 RUN apt-get upgrade --yes
 RUN apt-get install git nano python3-pip bioperl --yes --fix-missing
 
-RUN python3.5 -m pip install openpyxl=="2.3.1" 
 RUN python3.5 -m pip install bio-apricot 
 
 RUN CD /home && git clone https://github.com/malvikasharan/APRICOT.git
