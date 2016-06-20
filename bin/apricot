@@ -137,8 +137,10 @@ def main():
     default=False, action="store_true",
     help="force flag for the current analysis, removes already existing predictions")
     domain_analysis_parser.add_argument("--cdd_db", "-cdb",
+    default='source_files/reference_db_files/cdd/Cdd', 
     help="Provide absolute path of CDD databases based on the chosen method")
     domain_analysis_parser.add_argument("--ipr_db", "-idb",
+    default='source_files/reference_db_files/interpro/interproscan', 
     help="Provide absolute path of InterPro databases based on the chosen method")
     domain_analysis_parser.add_argument("--outpath", "-o",
     default='output/0_predicted_domains',
@@ -526,7 +528,7 @@ def cdd_based_pred(fasta_path, outpath, cdd_db):
         else:
             print("CDD based domain prediction for file %s..." % filename)
             cdd_process = subprocess.Popen(
-                ["rpsblast -i %s/%s -d %s/Cdd -o %s/%s.txt" % (
+                ["rpsblast -query %s/%s -db %s/Cdd -out %s/%s.txt" % (
                 fasta_path, fasta, cdd_db, outpath, filename)], shell=True).wait()
             
 def force_cdd_based_pred(fasta_path, outpath, cdd_db):
@@ -537,7 +539,7 @@ def force_cdd_based_pred(fasta_path, outpath, cdd_db):
             os.remove(outpath + '/' + filename + '.txt')
         print("CDD based domain prediction for file %s..." % filename)
         cdd_process = subprocess.Popen(
-            ["rpsblast -i %s/%s -d %s/Cdd -o %s/%s.txt" % (
+            ["rpsblast -query %s/%s -db %s/Cdd -out %s/%s.txt" % (
             fasta_path, fasta, cdd_db, outpath, filename)], shell=True).wait()
             
 def ipr_based_pred(fasta_path, outpath, ipr_db):
