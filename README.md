@@ -60,9 +60,7 @@ $ git clone https://github.com/malvikasharan/APRICOT.git
 
 ####APRICOT Docker image
 
-Get Docker container for APRICOT here: https://hub.docker.com/r/malvikasharan/apricot
-
-#####Get the complete filesystem for APRICOT using [docker image](https://docs.docker.com/v1.8/userguide/dockerimages/):
+Get the complete filesystem for APRICOT using [docker image](https://docs.docker.com/v1.8/userguide/dockerimages/):
 
 `docker pull malvikasharan/apricot`
 
