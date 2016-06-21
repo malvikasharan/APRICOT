@@ -259,7 +259,10 @@ class FilterPredictedDomains(object):
                     'Expect = ')[1].strip()
                 if expect.startswith('e'):
                     expect = float(expect.replace('e', '1e'))
-                parameter_dict["evalue"] = float(expect)
+                try:
+                    parameter_dict["evalue"] = float(expect)
+                except ValueError:
+                    parameter_dict["evalue"] = 0
                 parameter_dict["bit"] = score
             if 'Identities = ' in each_stat_data:
                 identities = each_stat_data.split(
