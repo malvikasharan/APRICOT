@@ -281,7 +281,8 @@ class FilterPredictedDomains(object):
                     positives = each_stat_data.split(
                         'Positives = ')[1].strip()
                     parameter_dict["similarity_value"] = positives
-            if 'Query:' in each_stat_data:
+            if 'Query' in each_stat_data:
+                each_stat_data = ' '.join(each_stat_data.split())
                 start_list.append(each_stat_data.split(' ')[1])
                 stop_list.append(each_stat_data.split(' ')[-1].strip())
         start = start_list[0]
