@@ -15,7 +15,7 @@ RUN apt-get install git nano python3-pip bioperl --yes --fix-missing
 
 RUN python3.5 -m pip install bio-apricot 
 
-RUN CD /home && git clone https://github.com/malvikasharan/APRICOT.git
+RUN cd /home && git clone https://github.com/malvikasharan/APRICOT.git
 
 RUN mkdir -p /home/source_files
 RUN mkdir -p /home/source_files/reference_db_files
@@ -90,7 +90,7 @@ RUN mv /home/source_files/reference_db_files/needle/EMBOSS*/* /home/source_files
 RUN cd /home/source_files/reference_db_files/needle && ./configure && make && cd -
 
 # Format flat files
-RUN CD /home && sh APRICOT/shell_scripts/docker_support.sh
+RUN cd /home && sh APRICOT/shell_scripts/docker_support.sh
 
 # Remove tar files
 RUN rm -rf \
