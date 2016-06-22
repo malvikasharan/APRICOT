@@ -44,6 +44,10 @@ RUN wget -c -P /home/source_files/reference_db_files/interpro/interpro_annotatio
 RUN wget -c -P /home/source_files/reference_db_files/interpro/interpro_annotation_data ftp://ftp.ebi.ac.uk/pub/databases/interpro/58.0/interpro.xml.gz
 RUN gunzip /home/source_files/reference_db_files/interpro/interpro_annotation_data/interpro.xml.gz
 
+RUN rm source_files/reference_db_files/interpro/interproscan/bin/prosite/pfsearch_wrapper.py
+RUN wget -c -P source_files/reference_db_files/interpro/interproscan/bin/prosite/ \
+https://raw.githubusercontent.com/malvikasharan/interproscan/master/core/jms-implementation/support-mini-x86-32/bin/prosite/pfsearch_wrapper.py
+
 # Get and install BLAST modules
 RUN mkdir /home/source_files/reference_db_files/blast
 RUN wget -c -P /home/source_files/reference_db_files/blast ftp://ftp.ncbi.nih.gov/blast/executables/LATEST/ncbi-blast-2.4.0+-x64-linux.tar.gz
