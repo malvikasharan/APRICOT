@@ -257,6 +257,8 @@ class FilterPredictedDomains(object):
                 score = each_stat_data.split(',')[0]
                 expect = each_stat_data.split(
                     'Expect = ')[1].strip()
+                if ', ' in expect:
+                    expect = expect.split(', ')[0]
                 if expect.startswith('e'):
                     expect = float(expect.replace('e', '1e'))
                 try:
@@ -283,8 +285,8 @@ class FilterPredictedDomains(object):
                     parameter_dict["similarity_value"] = positives
             if 'Query' in each_stat_data:
                 each_stat_data = ' '.join(each_stat_data.split())
-                start_list.append(each_stat_data.split(' ')[1])
-                stop_list.append(each_stat_data.split(' ')[-1].strip())
+                start_list.append(' '.join(each_stat_data.split()).split(' ')[1])
+                stop_list.append(' '.join(each_stat_data.strip().split())split(' ')[-1])
         start = start_list[0]
         stop = stop_list[-1]
         parameter_dict["start"] = start
