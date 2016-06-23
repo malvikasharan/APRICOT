@@ -11,7 +11,7 @@ FROM python:3.5
 
 RUN apt-get update
 RUN apt-get upgrade --yes
-RUN apt-get install git nano python3-pip bioperl --yes --fix-missing
+RUN apt-get install git nano python3-pip --yes --fix-missing
 
 RUN python3.5 -m pip install bio-apricot 
 
