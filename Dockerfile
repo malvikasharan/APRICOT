@@ -5,7 +5,7 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN locale-gen en_US.UTF-8  
 ENV LANG en_US.UTF-8  
 ENV LANGUAGE en_US:en  
-ENV LC_ALL en_US.UTF-8  
+ENV LC_ALL en_US.UTF-8
 
 FROM python:3.5
 
@@ -19,7 +19,6 @@ RUN cd /home && git clone https://github.com/malvikasharan/APRICOT.git
 
 RUN mkdir -p /home/source_files
 RUN mkdir -p /home/source_files/reference_db_files
-
 
 # Create root folders
 RUN mkdir /home/source_files/reference_db_files/cdd
@@ -37,7 +36,7 @@ RUN mkdir /home/source_files/reference_db_files/interpro
 RUN mkdir /home/source_files/reference_db_files/interpro/interproscan
 RUN mkdir /home/source_files/reference_db_files/interpro/interpro_annotation_data
 RUN wget -c -P /home/source_files/reference_db_files/interpro ftp://ftp.ebi.ac.uk/pub/software/unix/iprscan/5/5.19-58.0/interproscan-5.19-58.0-64-bit.tar.gz
-RUN tar -xvzf /home/source_files/reference_db_files/interpro/interproscan-5.19-58.0-64-bit.tar.gz -C /home/source_files/reference_db_files/interpro
+RUN tar xvf /home/source_files/reference_db_files/interpro/interproscan-5.19-58.0-64-bit.tar.gz -C /home/source_files/reference_db_files/interpro
 RUN mv /home/source_files/reference_db_files/interpro/interproscan-*/* /home/source_files/reference_db_files/interpro/interproscan
 RUN wget -O - ftp://ftp.ebi.ac.uk/pub/databases/interpro/ > /home/source_files/reference_db_files/interpro/ipr_flatfile.html
 RUN wget -c -P /home/source_files/reference_db_files/interpro/interpro_annotation_data ftp://ftp.ebi.ac.uk/pub/databases/interpro/58.0/interpro2go
@@ -104,44 +103,38 @@ RUN rm -rf \
 /home/source_files/reference_db_files/needle/emboss-latest.tar.gz \
 /home/source_files/reference_db_files/cdd/Cdd/*.gz
 
-##install Java-8
-## Directly taken from https://github.com/docker-library/openjdk/blob/a3f06bcbc86d16912a309cf4538a00caf9a6100c/7-jdk/Dockerfile
+## install Java-8
+# Oracle Java 8 for Debian jessie
+#
+# URL: https://github.com/William-Yeh/docker-java8
+#
+# Reference:  http://www.webupd8.org/2014/03/how-to-install-oracle-java-8-in-debian.html
+#
+# Version     0.2
+#
+
+# pull base image
+
+# add webupd8 repository
+RUN \
+    echo "===> add webupd8 repository..."  && \
+    echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main" | tee /etc/apt/sources.list.d/webupd8team-java.list  && \
+    echo "deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main" | tee -a /etc/apt/sources.list.d/webupd8team-java.list  && \
+    apt-key adv --keyserver keyserver.ubuntu.com --recv-keys EEA14886  && \
+    apt-get update  && \
+    \
+    \
+    echo "===> install Java"  && \
+    echo debconf shared/accepted-oracle-license-v1-1 select true | debconf-set-selections  && \
+    echo debconf shared/accepted-oracle-license-v1-1 seen true | debconf-set-selections  && \
+    DEBIAN_FRONTEND=noninteractive  apt-get install -y --force-yes oracle-java8-installer oracle-java8-set-default  && \
+    \
+    \
+    echo "===> clean up..."  && \
+    rm -rf /var/cache/oracle-jdk8-installer  && \
+    apt-get clean  && \
+    rm -rf /var/lib/apt/lists/*
 
 
-FROM buildpack-deps:jessie-scm
-
-# A few problems with compiling Java from source:
-#  1. Oracle.  Licensing prevents us from redistributing the official JDK.
-#  2. Compiling OpenJDK also requires the JDK to be installed, and it gets
-#       really hairy.
-
-RUN apt-get update && apt-get install -y --no-install-recommends \
-		bzip2 \
-		unzip \
-		xz-utils \
-	&& rm -rf /var/lib/apt/lists/*
-
-# Default to UTF-8 file.encoding
-ENV LANG C.UTF-8
-
-# add a simple script that can auto-detect the appropriate JAVA_HOME value
-# based on whether the JDK or only the JRE is installed
-RUN { \
-		echo '#!/bin/sh'; \
-		echo 'set -e'; \
-		echo; \
-		echo 'dirname "$(dirname "$(readlink -f "$(which javac || which java)")")"'; \
-	} > /usr/local/bin/docker-java-home \
-	&& chmod +x /usr/local/bin/docker-java-home
-
-ENV JAVA_HOME /usr/lib/jvm/java-7-openjdk-amd64
-
-ENV JAVA_VERSION 7u101
-ENV JAVA_DEBIAN_VERSION 7u101-2.6.6-2~deb8u1
-
-RUN set -x \
-	&& apt-get update \
-	&& apt-get install -y \
-		openjdk-7-jdk="$JAVA_DEBIAN_VERSION" \
-	&& rm -rf /var/lib/apt/lists/* \
-	&& [ "$JAVA_HOME" = "$(docker-java-home)" ]
+# define default command
+CMD ["java"]
