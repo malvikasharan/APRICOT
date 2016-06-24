@@ -91,7 +91,7 @@ RUN wget -P /home/source_files/reference_db_files/needle ftp://emboss.open-bio.o
 RUN tar -xvzf /home/source_files/reference_db_files/needle/emboss-latest.tar.gz -C /home/source_files/reference_db_files/needle
 RUN mv /home/source_files/reference_db_files/needle/EMBOSS*/* /home/source_files/reference_db_files/needle
 RUN cd /home/source_files/reference_db_files/needle && ./configure && make && cd -
-RUN cp source_files/reference_db_files/needle/emboss/needle /usr/local/bin/
+RUN cp /home/source_files/reference_db_files/needle/emboss/needle /usr/local/bin/
 
 # Format flat files
 RUN cd /home && sh APRICOT/shell_scripts/docker_support.sh
