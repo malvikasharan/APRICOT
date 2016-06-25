@@ -114,10 +114,12 @@ class FilterPredictedDomains(object):
                             if individual_rps_result.startswith('|CDD|'):
                                 cdd_main = self._compile_cdd_main(
                                     individual_rps_result)
-                            if 'Length = ' in individual_rps_result:
+                            if individual_rps_result.startswith("Length"):
+                                if " = " in individual_rps_result:
+                                    individual_rps_result = individual_rps_result.replace(" = ", "=")
                                 try:
                                     length = individual_rps_result.split(
-                                        'Length = ')[1].strip()
+                                        'Length=')[1].strip()
                                 except:
                                     length = self._domain_length[
                                         cdd_main.split('\t')[1]]
