@@ -1,7 +1,13 @@
-v1.1.3 (2016-06-15)
+v1.1.7 (2016-06-25)
+- Pushed docker image on the hub, script update for the subcommand filter. 
+
+v1.1.6 (2016-06-22)
+- Updated Dockerfile.
+
+v1.1.5 (2016-06-15)
 - Updated Dockerfile and fixed run_example.sh bugs
 
-v1.1.3 (2016-06-15)
+v1.1.4 (2016-06-15)
 - Added Dockerfile
 
 v1.1.3 (2016-06-15)
