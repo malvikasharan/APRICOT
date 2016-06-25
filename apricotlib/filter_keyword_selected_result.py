@@ -118,7 +118,7 @@ class FilterPredictedDomains(object):
                                 if individual_rps_result.startswith("Length"):
                                     if " = " in individual_rps_result:
                                         individual_rps_result = individual_rps_result.replace(" = ", "=")
-                                        length = individual_rps_result.split(
+                                    length = individual_rps_result.split(
                                         'Length=')[1].strip()
                             except:
                                 length = self._domain_length[
