@@ -7,10 +7,14 @@ APRICOT and understand the basic usage of this pipeline.
 
 1) Get the Shell script
 [run_example.sh](https://github.com/malvikasharan/APRICOT/blob/master/shell_scripts/run_example.sh)
-from GitHub, which will assist you in following the tutorial.
+from GitHub, which will assist you in following the tutorial. Use wget or curl to download the script.
 
 ```
 $ wget -N https://raw.githubusercontent.com/malvikasharan/APRICOT/master/shell_scripts/run_example.sh
+```
+OR
+```
+$ wget -O https://raw.githubusercontent.com/malvikasharan/APRICOT/master/shell_scripts/run_example.sh
 ```
 
 2) Use [pip](https://pip.pypa.io/en/stable/) to install/update the python packages
