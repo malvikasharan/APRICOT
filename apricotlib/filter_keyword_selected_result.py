@@ -115,7 +115,7 @@ class FilterPredictedDomains(object):
                                 cdd_main = self._compile_cdd_main(
                                     individual_rps_result)
                             try:
-                                if individual_rps_result.startswith("Length"):
+                                if "Length =" in individual_rps_result or "Length=" in individual_rps_result:
                                     if " = " in individual_rps_result:
                                         individual_rps_result = individual_rps_result.replace(" = ", "=")
                                     length = individual_rps_result.split(
