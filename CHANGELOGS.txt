@@ -1,3 +1,9 @@
+v1.1.9 (2016-08-02)
+- update for monthly release 
+
+v1.1.8 (2016-07-21)
+- update in CDD output format, introduced specific changes in filter.
+
 v1.1.7 (2016-06-25)
 - Pushed docker image on the hub, script update for the subcommand filter. 
 
