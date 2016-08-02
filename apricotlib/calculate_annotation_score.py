@@ -568,7 +568,7 @@ class ComputeCompositionDistance(object):
                     gaps = 'Gaps=None'
                     positives = 'Positives='+each_stat_data.split(
                         'Positives = ')[1].strip()
-                       if 'Query' in each_stat_data:
+            if 'Query' in each_stat_data:
                 each_stat_data = ' '.join(each_stat_data.split())
                 start_list.append(' '.join(each_stat_data.split()).split(' ')[1])
                 stop_list.append(' '.join(each_stat_data.strip().split()).split(' ')[-1])
