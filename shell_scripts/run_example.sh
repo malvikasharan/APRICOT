@@ -72,14 +72,14 @@ FASTA_PATH=''
 # *REQUIRED* for domain selection
 # *OPTIONAL* for classification
 # This can be altered by the users in the demonstration file as well
-DOMAIN_KEYWORDS='RRM,KH,DEAD'
+DOMAIN_KEYWORDS='RRM,KH'
 ######################################################################
 
 
 #######################################################################
 # Input-2, comma separated list of keywords for domain selection
 # *REQUIRED* 
-CLASS_KEYWORDS='ribosom,helicase,synthetase,polymerase,transferase,nuclease,RRM,RNP'
+CLASS_KEYWORDS='ribosom,helicase,nuclease,RRM,RNP'
 #######################################################################
 
 
@@ -114,7 +114,7 @@ set_up_analysis_folder(){
     do
 	mkdir -p $DB_PATH/$DB_SUBPATH1
     done
-    for DB_SUBPATH2 in cdd/cdd_annotation_data interpro/interpro_annotation_data domain_data
+    for DB_SUBPATH2 in cdd/cdd_annotation_data interpro/interpro_annotation_data
     do
 	mkdir -p $DB_PATH/$DB_SUBPATH2
     done
