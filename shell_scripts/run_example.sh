@@ -114,7 +114,7 @@ set_up_analysis_folder(){
     do
 	mkdir -p $DB_PATH/$DB_SUBPATH1
     done
-    for DB_SUBPATH2 in cdd/cdd_annotation_data interpro/interpro_annotation_data source_files/domain_data
+    for DB_SUBPATH2 in cdd/cdd_annotation_data interpro/interpro_annotation_data domain_data
     do
 	mkdir -p $DB_PATH/$DB_SUBPATH2
     done
