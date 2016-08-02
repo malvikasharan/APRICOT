@@ -568,9 +568,10 @@ class ComputeCompositionDistance(object):
                     gaps = 'Gaps=None'
                     positives = 'Positives='+each_stat_data.split(
                         'Positives = ')[1].strip()
-            if 'Query:' in each_stat_data:
-                start_list.append(each_stat_data.split(' ')[1])
-                stop_list.append(each_stat_data.split(' ')[-1].strip())
+                       if 'Query' in each_stat_data:
+                each_stat_data = ' '.join(each_stat_data.split())
+                start_list.append(' '.join(each_stat_data.split()).split(' ')[1])
+                stop_list.append(' '.join(each_stat_data.strip().split()).split(' ')[-1])
         start = start_list[0]
         stop = stop_list[-1]
         location = "%s\t%s" % (start, stop)
@@ -580,14 +581,16 @@ class ComputeCompositionDistance(object):
         query_seq = []
         subject_seq = []
         for each_stat_data in each_stat_group.split('\n'):
-            if 'Query:' in each_stat_data:
+            if 'Query' in each_stat_data:
+                each_stat_data = ' '.join(each_stat_data.split())
                 query_seq.append(' '.join(
                     each_stat_data.strip().split()).split(' ')[2])
-            if 'Sbjct:' in each_stat_data:
+            if 'Sbjct' in each_stat_data:
+                each_stat_data = ' '.join(each_stat_data.split())
                 subject_seq.append(' '.join(
                     each_stat_data.strip().split()).split(' ')[2])
         return ''.join(query_seq), ''.join(subject_seq)
-    
+        
     def _compute_properties(self, aa_list):
         ''''''
         prot_mass = 0
