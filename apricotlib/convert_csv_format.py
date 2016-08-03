@@ -16,7 +16,7 @@ except ImportError:
 
 def csv_to_xlsx(inpath, outpath):
     '''Converts table to excel'''
-    allowed_format_list = ['csv', 'tab', 'tsv']
+    allowed_format_list = ['csv', 'tab']
     for csv_file in os.listdir(inpath):
         if os.path.isfile(inpath+'/'+csv_file):
             if csv_file.split('.')[1] in allowed_format_list:
@@ -38,7 +38,7 @@ def csv_to_xlsx(inpath, outpath):
             
 def csv_to_html(inpath, outpath):
     '''Convert table to HTML, line break 13-16'''
-    allowed_format_list = ['csv', 'tab', 'tsv']
+    allowed_format_list = ['csv', 'tab']
     for csv_file in os.listdir(inpath):
         if os.path.isfile(inpath+'/'+csv_file):
             if csv_file.split('.')[1] in allowed_format_list:
