@@ -11,13 +11,16 @@ APRICOT_PATH=APRICOT
 APRICOT_LIB_PATH=APRICOT/apricotlib
 ROOT_DB_PATH=source_files
 NEEDLE_EMBOSS_PATH=source_files/reference_db_files/needle/emboss/needle
-#########################################################################
-
-
-#########################################################################
-# Download parameters
-ZENODO_LINK_FOR_DEMO_DATA=https://zenodo.org/record/51705/files/APRICOT-1.0-demo_files-MS.zip
 PFAM_RELEASE=Pfam30.0
+#########################################################################
+
+
+#########################################################################
+# Download mimic datasets for demonstation 
+# Option-1
+DEMO_FILES=APRICOT/tests/demo_files_small
+# Option-2
+ZENODO_LINK_FOR_DEMO_DATA=https://zenodo.org/record/51705/files/APRICOT-1.0-demo_files-MS.zip
 #########################################################################
 
 
@@ -126,37 +129,37 @@ get_small_demo_files(){
     # CDD data
     if ! [ -f $DB_PATH/cdd/cdd_annotation_data/cddid.tbl ]
     then
-    	cp APRICOT/tests/demo_files_small/cdd/cdd_annotation_data/cddid.tbl \
+    	cp $DEMO_FILES/cdd/cdd_annotation_data/cddid.tbl \
     	$DB_PATH/cdd/cdd_annotation_data
     fi
     
     # InterPro data
     if ! [ -f $DB_PATH/interpro/interpro_annotation_data/interproid.tbl ]
     then
-        cp APRICOT/tests/demo_files_small/interpro/interpro_annotation_data/interproid.tbl \
+        cp $DEMO_FILES/interpro/interpro_annotation_data/interproid.tbl \
          $DB_PATH/interpro/interpro_annotation_data/
     fi
     if ! [ -f $DB_PATH/interpro/interpro_annotation_data/mapped_interpro_to_cdd_length.csv ]
     then
-        cp APRICOT/tests/demo_files_small/interpro/interpro_annotation_data/mapped_interpro_to_cdd_length.csv \
+        cp $DEMO_FILES/interpro/interpro_annotation_data/mapped_interpro_to_cdd_length.csv \
          $DB_PATH/interpro/interpro_annotation_data/
     fi
     
     # GO data
     if ! [ -f $DB_PATH/go_mapping/mapped_cdd_to_go.csv ]
     then
-        cp -r APRICOT/tests/demo_files_small/go_mapping $DB_PATH
+        cp -r $DEMO_FILES/go_mapping $DB_PATH
     fi
     
     # Pfam data
     if ! [ -f $DB_PATH/pfam/pfamA.txt ]
     then
-        cp -r APRICOT/tests/demo_files_small/pfam $DB_PATH
+        cp -r $DEMO_FILES/pfam $DB_PATH
     fi
     
     # Domain prediction, demo files
-    cp -r APRICOT/tests/demo_files_small/cdd_analysis $ANALYSIS_PATH/output/0_predicted_domains/
-    cp -r APRICOT/tests/demo_files_small/ipr_analysis $ANALYSIS_PATH/output/0_predicted_domains/
+    cp -r $DEMO_FILES/cdd_analysis $ANALYSIS_PATH/output/0_predicted_domains/
+    cp -r $DEMO_FILES/ipr_analysis $ANALYSIS_PATH/output/0_predicted_domains/
 }
 
 downloads_files(){
