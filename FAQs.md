@@ -19,7 +19,7 @@
 
 - Please check the documentation or this [video tutorial](https://www.youtube.com/watch?v=V7uT1kgEYjI&index=9&list=PLVJHJxaTACqPD0Y1Ty6Qvi5SfaeWDfrMo) for the usage of these subcommand.
 
-- The complete list of software can be seen [here])(https://github.com/malvikasharan/APRICOT/blob/master/shell_scripts/software_dependencies.md), alternatively see the Dockerfile.
+- The complete list of software can be seen [here](https://github.com/malvikasharan/APRICOT/blob/master/software_dependencies.md), alternatively see the Dockerfile.
 
 3) What are the options to give query proteins for the analysis?
 
