@@ -12,9 +12,9 @@
 
 -[bio-apricot](https://pypi.python.org/pypi/bio-apricot)
 
--[Latest CDD database](ftp://ftp.ncbi.nih.gov/pub/mmdb/cdd/little_endian/)
+-Latest CDD database: ftp://ftp.ncbi.nih.gov/pub/mmdb/cdd/little_endian/)
 
--[Latest InterPro databases and InterProScan](ftp://ftp.ebi.ac.uk/pub/databases/interpro) 
+-Latest InterPro databases and InterProScan: ftp://ftp.ebi.ac.uk/pub/databases/interpro) 
 
 -InterProScan requires [pfsearch wrapper](http://web.expasy.org/pftools/#Downloads) and [Java 8](https://wiki.ubuntuusers.de/Java/Installation/Oracle_Java/Java_8/) or above
 
