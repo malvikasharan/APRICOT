@@ -8,6 +8,8 @@
 
 -Basic Linux programs (git, pip, apt-get, Python 3)
 
+-Python dependencies: numpy, scipy, matplotlib, openpyxl, request, biopython
+
 -bio-apricot software
 
 -CDD database
