@@ -14,7 +14,7 @@
 
 -InterPro databases
 
--InterProScan tool (requires pfsearch wrapper and Java 8 or above))
+-InterProScan tool (requires pfsearch wrapper and Java 8 or above)
 
 -BLAST executables (psiblast, rpsblast, blastp, makeblastdb)
 
@@ -25,3 +25,7 @@
 -Taxonomy data
 
 -'needle' from EMBOSS software
+
+-Psortb for localization prediction (only for the subcomand addanno)
+
+-RaptoX for secondary structure presiction (only for the subcomand addanno)
