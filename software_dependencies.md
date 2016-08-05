@@ -7,12 +7,21 @@
 ##Resources requirements of APRICOT 
 
 -Basic Linux programs (git, pip, apt-get, Python 3)
+
 -bio-apricot software
+
 -CDD database
+
 -InterPro databases
+
 -InterProScan tool (requires pfsearch wrapper and Java 8 or above))
+
 -BLAST executables (psiblast, rpsblast, blastp, makeblastdb)
+
 -Gene Ontology
+
 -PDB proteins sequence, secondary-structure and PDB to InterPro mapping files
+
 -Taxonomy data
+
 -'needle' from EMBOSS software
