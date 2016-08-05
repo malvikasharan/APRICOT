@@ -5,11 +5,11 @@
 
 ![alt tag](https://github.com/malvikasharan/APRICOT/blob/master/APRICOT_logo.png)
 
-Frequently asked questions
+##Frequently asked questions
 
 1) I installed APRICOT using pip and I am trying to test the software using the script run_example.sh. Why does it shows me error messages about the missing files?
 
-- APRICOT software contains the library and scripts to run the analysis, however it requires databases and tools to run the analysis. Although you o not need to install these resources to run an example (for testing purpose), but you still need a set of data to mimic these data sources. You can get these mimic datasets in the [gitHub repository](https://github.com/malvikasharan/APRICOT/tree/master/tests/demo_files_small) or download it from [Zenodo](https://zenodo.org/record/51705/files/APRICOT-1.0-demo_files-MS.zip). 
+- APRICOT software contains the library and scripts to run the analysis, however it requires databases and tools to run the analysis. Although you do not need to install these resources to run an example (for testing purpose), but you still need a set of data to mimic these data sources. You can get these example datasets in the [gitHub repository](https://github.com/malvikasharan/APRICOT/tree/master/tests/demo_files_small) or download it from [Zenodo](https://zenodo.org/record/51705/files/APRICOT-1.0-demo_files-MS.zip). 
 
 - The path for these files can be defined in the script run_example.sh using the variable `$DEMO_FILES`.
 
