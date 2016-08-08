@@ -10,7 +10,7 @@
 
 -Python dependencies: [numpy](http://docs.scipy.org/doc/numpy/user/install.html), [scipy](https://www.scipy.org/install.html), [matplotlib](http://matplotlib.org/users/installing.html), [openpyxl](https://pypi.python.org/pypi/openpyxl), [requests](http://docs.python-requests.org/en/master/user/install/), [biopython](http://biopython.org/DIST/docs/install/Installation.html)
 
--[bio-apricot](https://pypi.python.org/pypi/bio-apricot)
+-APRICOT software from PyPI: [bio-apricot](https://pypi.python.org/pypi/bio-apricot)
 
 -Latest CDD database: ftp://ftp.ncbi.nih.gov/pub/mmdb/cdd/little_endian/)
 
@@ -18,7 +18,7 @@
 
 -InterProScan requires [pfsearch wrapper](http://web.expasy.org/pftools/#Downloads) and [Java 8](https://wiki.ubuntuusers.de/Java/Installation/Oracle_Java/Java_8/) or above
 
--[BLAST executables](ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/): Latest (psiblast, rpsblast, blastp, makeblastdb)
+-BLAST executables (from: ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/) (psiblast, rpsblast, blastp, makeblastdb)
 
 -[Gene Ontology (go.obo)](http://geneontology.org/page/download-ontology)
 
