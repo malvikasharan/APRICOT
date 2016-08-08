@@ -18,7 +18,7 @@
 
 -InterProScan requires [pfsearch wrapper](http://web.expasy.org/pftools/#Downloads) and [Java 8](https://wiki.ubuntuusers.de/Java/Installation/Oracle_Java/Java_8/) or above
 
--[Latest BLAST executables](ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/) (psiblast, rpsblast, blastp, makeblastdb)
+-[BLAST executables](ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/): Latest (psiblast, rpsblast, blastp, makeblastdb)
 
 -[Gene Ontology (go.obo)](http://geneontology.org/page/download-ontology)
 
@@ -30,4 +30,4 @@
 
 -[Psortb](https://github.com/brinkmanlab/psortb-docker) for localization prediction (only for the subcomand addanno)
 
--[RaptoX](https://github.com/Indicator/RaptorX-SS8.git) for secondary structure presiction (only for the subcomand addanno)
+-[RaptorX](https://github.com/Indicator/RaptorX-SS8.git) for secondary structure presiction (only for the subcomand addanno)
