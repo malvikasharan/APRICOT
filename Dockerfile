@@ -54,16 +54,10 @@ RUN \
 
 ## install Java-8
 # Oracle Java 8 for Debian jessie
-#
 # URL: https://github.com/William-Yeh/docker-java8
-#
 # Reference:  http://www.webupd8.org/2014/03/how-to-install-oracle-java-8-in-debian.html
-#
 # Version     0.2
-#
-
 # pull base image
-
 # add webupd8 repository
 RUN \
     echo "===> add webupd8 repository..."  && \
