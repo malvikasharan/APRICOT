@@ -42,7 +42,7 @@ get_cdd_and_interpro(){
 }
 
 # Get Gene Ontology, PDB files, pdb2uniprot files,Taxonomy files, pfam annotation data
-(){
+get_go_pdb_tax(){
     wget -P /home/source_files/reference_db_files/go_mapping http://www.geneontology.org/ontology/go.obo && \
     wget -c -P /home/source_files/reference_db_files/pdb/pdb_secstr http://www.rcsb.org/pdb/files/ss.txt && \
     wget -P /home/source_files/reference_db_files/pdb/pdb2uniprot http://www.uniprot.org/docs/pdbtosp.txt && \
