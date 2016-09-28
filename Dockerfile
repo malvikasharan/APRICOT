@@ -11,7 +11,7 @@ FROM python:3.5
 
 # Get basic required packages and create root folders
 RUN apt-get update --yes && apt-get install wget git nano python3-pip --yes --fix-missing && \
-    python3.5 -m pip install bio-apricot && cd /home && \
+    python3.5 -m pip install bio-apricot && cd /home && git clone https://github.com/malvikasharan/APRICOT.git && \
     mkdir -p /home/source_files \
     /home/source_files/reference_db_files \
     /home/source_files/reference_db_files/cdd \
@@ -50,9 +50,13 @@ RUN wget -c -P /home/source_files/reference_db_files/blast ftp://ftp.ncbi.nih.go
     rm -rf /home/source_files/reference_db_files/needle/emboss-latest.tar.gz \
     /home/source_files/reference_db_files/blast/ncbi-blast-*+-x64-linux.tar.gz \
     /home/source_files/reference_db_files/blast/ncbi-blast-*+ \
-    /home/source_files/reference_db_files/blast/bin/*
+    /home/source_files/reference_db_files/blast/bin/* \
+    /usr/local/python3.4 \
+    /usr/local/python2.7 \
+    /usr/local/lib/python3.4 \
+    /usr/local/lib/python2.7
 
-## install Java-8
+## install Java-8\
 # Oracle Java 8 for Debian jessie
 # URL: https://github.com/William-Yeh/docker-java8
 # Reference:  http://www.webupd8.org/2014/03/how-to-install-oracle-java-8-in-debian.html
