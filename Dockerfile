@@ -10,8 +10,8 @@ ENV LC_ALL en_US.UTF-8
 FROM python:3.5
 
 # Get basic required packages and create root folders
-RUN apt-get update && apt-get upgrade --yes && apt-get install wget git nano python3-pip --yes --fix-missing && \
-    python3.5 -m pip install bio-apricot && cd /home && git clone https://github.com/malvikasharan/APRICOT.git && \
+RUN apt-get update --yes && apt-get install wget git nano python3-pip --yes --fix-missing && \
+    python3.5 -m pip install bio-apricot && cd /home && \
     mkdir -p /home/source_files \
     /home/source_files/reference_db_files \
     /home/source_files/reference_db_files/cdd \
@@ -41,22 +41,23 @@ RUN wget -c -P /home/source_files/reference_db_files/blast ftp://ftp.ncbi.nih.go
     cp /home/source_files/reference_db_files/blast/bin/rpsblast /usr/local/bin && \
     cp /home/source_files/reference_db_files/blast/bin/makeblastdb /usr/local/bin && \
     cp /home/source_files/reference_db_files/blast/bin/psiblast /usr/local/bin && \
-    cp /home/source_files/reference_db_files/blast/bin/blastp /usr/local/bin
-# Get EMBOSS needle
-RUN \
+    cp /home/source_files/reference_db_files/blast/bin/blastp /usr/local/bin && \
     wget -P /home/source_files/reference_db_files/needle ftp://emboss.open-bio.org/pub/EMBOSS/old/6.5.0/emboss-latest.tar.gz && \
     tar -xvzf /home/source_files/reference_db_files/needle/emboss-latest.tar.gz -C /home/source_files/reference_db_files/needle && \
     mv /home/source_files/reference_db_files/needle/EMBOSS*/* /home/source_files/reference_db_files/needle && \
     cd /home/source_files/reference_db_files/needle && ./configure && make && cd - && \
     cp /home/source_files/reference_db_files/needle/emboss/needle /usr/local/bin/ && \
     rm -rf /home/source_files/reference_db_files/needle/emboss-latest.tar.gz \
-
+    /home/source_files/reference_db_files/blast/ncbi-blast-*+-x64-linux.tar.gz \
+    /home/source_files/reference_db_files/blast/ncbi-blast-*+ \
+    /home/source_files/reference_db_files/blast/bin/*
 
 ## install Java-8
 # Oracle Java 8 for Debian jessie
 # URL: https://github.com/William-Yeh/docker-java8
 # Reference:  http://www.webupd8.org/2014/03/how-to-install-oracle-java-8-in-debian.html
 # Version     0.2
+
 # pull base image
 # add webupd8 repository
 RUN \
@@ -78,13 +79,8 @@ RUN \
     apt-get clean  && \
     rm -rf /var/lib/apt/lists/*
 
-
 # define default command
 CMD ["java"]
-
-RUN rm -rf /home/source_files/reference_db_files/blast/ncbi-blast-*+-x64-linux.tar.gz \
-    /home/source_files/reference_db_files/blast/ncbi-blast-*+ \
-
 
 # Removed the installation of DB and supporting files from the main Dockerfile to reduce the docker image size tremendously.
 
