@@ -10,16 +10,11 @@ apricot_lib=APRICOT/apricotlib
 apricot_files=source_files/reference_db_files
 
 main(){
-        get_apricot
         get_cdd_and_interpro
         get_go_pdb_tax
         format_interpro_table
         ontology_mapping_to_domains
         sort_and_format_pdb_data
-}
-
-get_apricot(){
-    cd /home && git clone https://github.com/malvikasharan/APRICOT.git
 }
 
 get_cdd_and_interpro(){
