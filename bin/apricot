@@ -227,7 +227,7 @@ def main():
     default="output/3_annotation_scoring",
     help="Output path for annotation scoring files")
     get_annotation_scoring.add_argument("--needle_dir", "-nd",
-    default="source_files/reference_db_files/needle/emboss/needle",
+    default="source_files/reference_db_files/emboss/needle",
     help="path for the locally configured EMBOSS suite")
     
     get_analysis_summary = subparsers.add_parser(
