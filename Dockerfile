@@ -46,16 +46,18 @@ RUN wget -c -P /home/source_files/reference_db_files/blast ftp://ftp.ncbi.nih.go
     tar -xvzf /home/source_files/reference_db_files/needle/emboss-latest.tar.gz -C /home/source_files/reference_db_files/needle && \
     mv /home/source_files/reference_db_files/needle/EMBOSS*/* /home/source_files/reference_db_files/needle && \
     cd /home/source_files/reference_db_files/needle && ./configure && make && cd - && \
-    cp /home/source_files/reference_db_files/needle/emboss/needle /usr/local/bin/ && \
-    rm -rf /home/source_files/reference_db_files/needle/emboss-latest.tar.gz \
+    mv /home/source_files/reference_db_files/needle/emboss /home/source_files/reference_db_files \
+    rm -rf /home/source_files/reference_db_files/needle \
     /home/source_files/reference_db_files/blast/ncbi-blast-*+-x64-linux.tar.gz \
     /home/source_files/reference_db_files/blast/ncbi-blast-*+ \
     /home/source_files/reference_db_files/blast/bin/* \
     /usr/local/python3.4 \
     /usr/local/python2.7 \
     /usr/local/lib/python3.4 \
-    /usr/local/lib/python2.7
-
+    /usr/local/lib/python2.7 \
+    /usr/lib/python2.7 \
+    /usr/lib/python3.4
+    
 ## install Java-8\
 # Oracle Java 8 for Debian jessie
 # URL: https://github.com/William-Yeh/docker-java8
