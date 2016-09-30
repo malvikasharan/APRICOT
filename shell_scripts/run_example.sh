@@ -10,7 +10,7 @@ ANALYSIS_PATH=APRICOT_analysis
 APRICOT_PATH=APRICOT
 APRICOT_LIB_PATH=APRICOT/apricotlib
 ROOT_DB_PATH=source_files
-NEEDLE_EMBOSS_PATH=source_files/reference_db_files/needle/emboss/needle
+NEEDLE_EMBOSS_PATH=source_files/reference_db_files/emboss/needle
 PFAM_RELEASE=Pfam30.0
 #########################################################################
 
