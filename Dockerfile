@@ -60,7 +60,11 @@ RUN wget -c -P /home/source_files/reference_db_files/blast ftp://ftp.ncbi.nih.go
     /usr/local/lib/python3.4 \
     /usr/local/lib/python2.7 \
     /usr/lib/python2.7 \
-    /usr/lib/python3.4
+    /usr/lib/python3.4 \
+    usr/bin/*python3.4* \
+    usr/bin/*python2.7* \
+    etc/python3.4 \
+    etc/python2.7 \
     
 ## install Java-8\
 # Oracle Java 8 for Debian jessie
