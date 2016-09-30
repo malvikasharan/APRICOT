@@ -47,9 +47,9 @@ RUN wget -c -P /home/source_files/reference_db_files/blast ftp://ftp.ncbi.nih.go
     tar -xvzf /home/source_files/reference_db_files/complete_emboss/emboss-latest.tar.gz -C /home/source_files/reference_db_files/complete_emboss && \
     mv /home/source_files/reference_db_files/complete_emboss/EMBOSS*/* /home/source_files/reference_db_files/complete_emboss && \
     cd /home/source_files/reference_db_files/complete_emboss && ./configure && make && cd - && \
-    mv /home/source_files/reference_db_files/complete_emboss/emboss /home/source_files/reference_db_files/needle \
-    mv /home/source_files/reference_db_files/complete_emboss/plplot /home/source_files/reference_db_files/needle \
-    mv /home/source_files/reference_db_files/complete_emboss/ajax /home/source_files/reference_db_files/needle \
+    mv /home/source_files/reference_db_files/complete_emboss/emboss /home/source_files/reference_db_files/needle && \
+    mv /home/source_files/reference_db_files/complete_emboss/plplot /home/source_files/reference_db_files/needle && \
+    mv /home/source_files/reference_db_files/complete_emboss/ajax /home/source_files/reference_db_files/needle && \
     mv /home/source_files/reference_db_files/complete_emboss/nucleus /home/source_files/reference_db_files/needle && \
     rm -rf /home/source_files/reference_db_files/complete_emboss \
     /home/source_files/reference_db_files/blast/ncbi-blast-*+-x64-linux.tar.gz \
