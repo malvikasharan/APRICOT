@@ -28,6 +28,7 @@ RUN apt-get update --yes && apt-get install wget git nano python3-pip --yes --fi
     /home/source_files/reference_db_files/all_taxids \
     /home/source_files/reference_db_files/pfam \
     /home/source_files/reference_db_files/needle \
+    /home/source_files/reference_db_files/complete_emboss \
     /home/source_files/reference_db_files/blast
 
 ## Get and install BLAST modules
@@ -42,12 +43,15 @@ RUN wget -c -P /home/source_files/reference_db_files/blast ftp://ftp.ncbi.nih.go
     cp /home/source_files/reference_db_files/blast/bin/makeblastdb /usr/local/bin && \
     cp /home/source_files/reference_db_files/blast/bin/psiblast /usr/local/bin && \
     cp /home/source_files/reference_db_files/blast/bin/blastp /usr/local/bin && \
-    wget -P /home/source_files/reference_db_files/needle ftp://emboss.open-bio.org/pub/EMBOSS/old/6.5.0/emboss-latest.tar.gz && \
-    tar -xvzf /home/source_files/reference_db_files/needle/emboss-latest.tar.gz -C /home/source_files/reference_db_files/needle && \
-    mv /home/source_files/reference_db_files/needle/EMBOSS*/* /home/source_files/reference_db_files/needle && \
-    cd /home/source_files/reference_db_files/needle && ./configure && make && cd - && \
-    mv /home/source_files/reference_db_files/needle/emboss /home/source_files/reference_db_files \
-    rm -rf /home/source_files/reference_db_files/needle \
+    wget -P /home/source_files/reference_db_files/complete_emboss ftp://emboss.open-bio.org/pub/EMBOSS/old/6.5.0/emboss-latest.tar.gz && \
+    tar -xvzf /home/source_files/reference_db_files/complete_emboss/emboss-latest.tar.gz -C /home/source_files/reference_db_files/complete_emboss && \
+    mv /home/source_files/reference_db_files/complete_emboss/EMBOSS*/* /home/source_files/reference_db_files/complete_emboss && \
+    cd /home/source_files/reference_db_files/complete_emboss && ./configure && make && cd - && \
+    mv /home/source_files/reference_db_files/complete_emboss/emboss /home/source_files/reference_db_files/needle \
+    mv /home/source_files/reference_db_files/complete_emboss/plplot /home/source_files/reference_db_files/needle \
+    mv /home/source_files/reference_db_files/complete_emboss/ajax /home/source_files/reference_db_files/needle \
+    mv /home/source_files/reference_db_files/complete_emboss/nucleus /home/source_files/reference_db_files/needle && \
+    rm -rf /home/source_files/reference_db_files/complete_emboss \
     /home/source_files/reference_db_files/blast/ncbi-blast-*+-x64-linux.tar.gz \
     /home/source_files/reference_db_files/blast/ncbi-blast-*+ \
     /home/source_files/reference_db_files/blast/bin/* \
