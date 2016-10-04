@@ -46,7 +46,7 @@ RUN wget -c -P /home/source_files/reference_db_files/blast ftp://ftp.ncbi.nih.go
     tar -xvzf /home/source_files/reference_db_files/needle/emboss-latest.tar.gz -C /home/source_files/reference_db_files/needle && \
     mv /home/source_files/reference_db_files/needle/EMBOSS*/* /home/source_files/reference_db_files/needle && \
     cd /home/source_files/reference_db_files/needle && ./configure && make && cd - && \
-    /home/source_files/reference_db_files/blast/ncbi-blast-*+-x64-linux.tar.gz \
+    rm -rf /home/source_files/reference_db_files/blast/ncbi-blast-*+-x64-linux.tar.gz \
     /home/source_files/reference_db_files/blast/ncbi-blast-*+ \
     /home/source_files/reference_db_files/blast/bin/* \
     /usr/local/python3.4 \
