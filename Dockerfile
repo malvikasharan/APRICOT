@@ -28,6 +28,7 @@ RUN apt-get update --yes && apt-get install wget git nano python3-pip --yes --fi
     /home/source_files/reference_db_files/all_taxids \
     /home/source_files/reference_db_files/pfam \
     /home/source_files/reference_db_files/needle \
+    /home/source_files/reference_db_files/temp_needle \
     /home/source_files/reference_db_files/blast
 
 ## Get and install BLAST modules
@@ -47,7 +48,14 @@ RUN wget -c -P /home/source_files/reference_db_files/blast ftp://ftp.ncbi.nih.go
     mv /home/source_files/reference_db_files/needle/EMBOSS*/* /home/source_files/reference_db_files/needle && \
     cd /home/source_files/reference_db_files/needle && ./configure && make && cd - && \
     cp /home/source_files/reference_db_files/needle/emboss/needle /usr/local/bin && \
-    rm -rf /home/source_files/reference_db_files/blast/ncbi-blast-*+-x64-linux.tar.gz \
+    mv /home/source_files/reference_db_files/needle/* /home/source_files/reference_db_files/temp_needle && \
+    mv /home/source_files/reference_db_files/temp_needle/ajax /home/source_files/reference_db_files/needle && \
+    mv /home/source_files/reference_db_files/temp_needle/emboss /home/source_files/reference_db_files/needle && \
+    mv /home/source_files/reference_db_files/temp_needle/nucleus /home/source_files/reference_db_files/needle && \
+    mv /home/source_files/reference_db_files/temp_needle/plplot /home/source_files/reference_db_files/needle && \
+    mv /home/source_files/reference_db_files/temp_needle/scripts /home/source_files/reference_db_files/needle && \
+    rm -rf /home/source_files/reference_db_files/temp_needle \
+    /home/source_files/reference_db_files/blast/ncbi-blast-*+-x64-linux.tar.gz \
     /home/source_files/reference_db_files/blast/ncbi-blast-*+ \
     /home/source_files/reference_db_files/blast/bin/* \
     /usr/local/python3.4 \
