@@ -18,31 +18,31 @@ main(){
 }
 
 get_cdd_and_interpro(){
-    wget -c -P /home/source_files/reference_db_files/cdd/Cdd ftp://ftp.ncbi.nih.gov/pub/mmdb/cdd/little_endian/*.gz && \
-    for folders in /home/source_files/reference_db_files/cdd/Cdd/*.gz; do tar xvf $folders -C /home/source_files/reference_db_files/cdd/Cdd; done && \
-    wget -c -P /home/source_files/reference_db_files/cdd/cdd_annotation_data ftp://ftp.ncbi.nih.gov/pub/mmdb/cdd/cddid.tbl.gz && \
-    gunzip /home/source_files/reference_db_files/cdd/cdd_annotation_data/* && \
-    wget -c -P /home/source_files/reference_db_files/interpro ftp://ftp.ebi.ac.uk/pub/software/unix/iprscan/5/5.20-59.0/interproscan-5.20-59.0-64-bit.tar.gz && \
-    tar xvf /home/source_files/reference_db_files/interpro/interproscan-5.20-59.0-64-bit.tar.gz -C /home/source_files/reference_db_files/interpro && \
-    mv /home/source_files/reference_db_files/interpro/interproscan-*/* /home/source_files/reference_db_files/interpro/interproscan && \
-    wget -O - ftp://ftp.ebi.ac.uk/pub/databases/interpro/ > /home/source_files/reference_db_files/interpro/ipr_flatfile.html && \
-    wget -c -P /home/source_files/reference_db_files/interpro/interpro_annotation_data ftp://ftp.ebi.ac.uk/pub/databases/interpro/59.0/interpro2go && \
-    wget -c -P /home/source_files/reference_db_files/interpro/interpro_annotation_data ftp://ftp.ebi.ac.uk/pub/databases/interpro/59.0/interpro.xml.gz && \
-    gunzip /home/source_files/reference_db_files/interpro/interpro_annotation_data/interpro.xml.gz && \
-    rm /home/source_files/reference_db_files/interpro/interproscan/bin/prosite/pfsearch_wrapper.py && \
+    wget -c -P /home/source_files/reference_db_files/cdd/Cdd ftp://ftp.ncbi.nih.gov/pub/mmdb/cdd/little_endian/*.gz
+    for folders in /home/source_files/reference_db_files/cdd/Cdd/*.gz; do tar xvf $folders -C /home/source_files/reference_db_files/cdd/Cdd; done
+    wget -c -P /home/source_files/reference_db_files/cdd/cdd_annotation_data ftp://ftp.ncbi.nih.gov/pub/mmdb/cdd/cddid.tbl.gz
+    gunzip /home/source_files/reference_db_files/cdd/cdd_annotation_data/*
+    wget -c -P /home/source_files/reference_db_files/interpro ftp://ftp.ebi.ac.uk/pub/software/unix/iprscan/5/5.20-59.0/interproscan-5.20-59.0-64-bit.tar.gz
+    tar xvf /home/source_files/reference_db_files/interpro/interproscan-5.20-59.0-64-bit.tar.gz -C /home/source_files/reference_db_files/interpro
+    mv /home/source_files/reference_db_files/interpro/interproscan-*/* /home/source_files/reference_db_files/interpro/interproscan
+    wget -O - ftp://ftp.ebi.ac.uk/pub/databases/interpro/ > /home/source_files/reference_db_files/interpro/ipr_flatfile.html
+    wget -c -P /home/source_files/reference_db_files/interpro/interpro_annotation_data ftp://ftp.ebi.ac.uk/pub/databases/interpro/59.0/interpro2go
+    wget -c -P /home/source_files/reference_db_files/interpro/interpro_annotation_data ftp://ftp.ebi.ac.uk/pub/databases/interpro/59.0/interpro.xml.gz
+    gunzip /home/source_files/reference_db_files/interpro/interpro_annotation_data/interpro.xml.gz
+    rm /home/source_files/reference_db_files/interpro/interproscan/bin/prosite/pfsearch_wrapper.py
     wget -c -P /home/source_files/reference_db_files/interpro/interproscan/bin/prosite/ \
-    https://raw.githubusercontent.com/malvikasharan/interproscan/master/core/jms-implementation/support-mini-x86-32/bin/prosite/pfsearch_wrapper.py && \
+    https://raw.githubusercontent.com/malvikasharan/interproscan/master/core/jms-implementation/support-mini-x86-32/bin/prosite/pfsearch_wrapper.py
     rm -rf /home/source_files/reference_db_files/interpro/interproscan-5.20-59.0-64-bit.tar.gz \
     /home/source_files/reference_db_files/cdd/Cdd/*.gz
 }
 
 # Get Gene Ontology, PDB files, pdb2uniprot files,Taxonomy files, pfam annotation data
 get_go_pdb_tax(){
-    wget -P /home/source_files/reference_db_files/go_mapping http://www.geneontology.org/ontology/go.obo && \
-    wget -c -P /home/source_files/reference_db_files/pdb/pdb_secstr http://www.rcsb.org/pdb/files/ss.txt && \
-    wget -P /home/source_files/reference_db_files/pdb/pdb2uniprot http://www.uniprot.org/docs/pdbtosp.txt && \
-    wget -c -P /home/source_files/reference_db_files/all_taxids http://www.uniprot.org/docs/speclist.txt && \
-    wget -c -P /home/source_files/reference_db_files/pfam ftp://ftp.ebi.ac.uk/pub/databases/Pfam/releases/Pfam30.0/database_files/pfamA.txt.gz && \
+    wget -P /home/source_files/reference_db_files/go_mapping http://www.geneontology.org/ontology/go.obo
+    wget -c -P /home/source_files/reference_db_files/pdb/pdb_secstr http://www.rcsb.org/pdb/files/ss.txt
+    wget -P /home/source_files/reference_db_files/pdb/pdb2uniprot http://www.uniprot.org/docs/pdbtosp.txt
+    wget -c -P /home/source_files/reference_db_files/all_taxids http://www.uniprot.org/docs/speclist.txt
+    wget -c -P /home/source_files/reference_db_files/pfam ftp://ftp.ebi.ac.uk/pub/databases/Pfam/releases/Pfam30.0/database_files/pfamA.txt.gz
     gunzip /home/source_files/reference_db_files/pfam/pfamA.txt.gz
 }
 
