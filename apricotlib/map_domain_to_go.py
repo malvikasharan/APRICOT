@@ -116,10 +116,15 @@ class MapDomainToGo(object):
                                 ipr, self._interpro_domain_dict[ipr],
                                 ','.join(go_list)))
                         else:
-                            map_out_fh.write("%s\t%s\t%s\n" % (
+                            try:
+                                map_out_fh.write("%s\t%s\t%s\n" % (
                                 ipr, self._interpro_domain_dict[ipr],
                                 self._go_info_dict[
                                     self._interpro_go_dict[ipr][0]]))
+                            except:
+                                map_out_fh.write("%s\t%s\t%s\n" % (
+                                ipr, self._interpro_domain_dict[ipr],
+                                'No description'))
                     else:
                         unmap_out_fh.write("%s\t%s\n" % (
                             ipr, self._interpro_domain_dict[ipr]))
