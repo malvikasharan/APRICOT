@@ -22,17 +22,17 @@ get_cdd_and_interpro(){
     for folders in /home/source_files/reference_db_files/cdd/Cdd/*.gz; do tar xvf $folders -C /home/source_files/reference_db_files/cdd/Cdd; done && \
     wget -c -P /home/source_files/reference_db_files/cdd/cdd_annotation_data ftp://ftp.ncbi.nih.gov/pub/mmdb/cdd/cddid.tbl.gz && \
     gunzip /home/source_files/reference_db_files/cdd/cdd_annotation_data/* && \
-    wget -c -P /home/source_files/reference_db_files/interpro ftp://ftp.ebi.ac.uk/pub/software/unix/iprscan/5/5.19-58.0/interproscan-5.19-58.0-64-bit.tar.gz && \
-    tar xvf /home/source_files/reference_db_files/interpro/interproscan-5.19-58.0-64-bit.tar.gz -C /home/source_files/reference_db_files/interpro && \
+    wget -c -P /home/source_files/reference_db_files/interpro ftp://ftp.ebi.ac.uk/pub/software/unix/iprscan/5/5.20-59.0/interproscan-5.20-59.0-64-bit.tar.gz && \
+    tar xvf /home/source_files/reference_db_files/interpro/interproscan-5.20-59.0-64-bit.tar.gz -C /home/source_files/reference_db_files/interpro && \
     mv /home/source_files/reference_db_files/interpro/interproscan-*/* /home/source_files/reference_db_files/interpro/interproscan && \
     wget -O - ftp://ftp.ebi.ac.uk/pub/databases/interpro/ > /home/source_files/reference_db_files/interpro/ipr_flatfile.html && \
-    wget -c -P /home/source_files/reference_db_files/interpro/interpro_annotation_data ftp://ftp.ebi.ac.uk/pub/databases/interpro/58.0/interpro2go && \
-    wget -c -P /home/source_files/reference_db_files/interpro/interpro_annotation_data ftp://ftp.ebi.ac.uk/pub/databases/interpro/58.0/interpro.xml.gz && \
+    wget -c -P /home/source_files/reference_db_files/interpro/interpro_annotation_data ftp://ftp.ebi.ac.uk/pub/databases/interpro/59.0/interpro2go && \
+    wget -c -P /home/source_files/reference_db_files/interpro/interpro_annotation_data ftp://ftp.ebi.ac.uk/pub/databases/interpro/59.0/interpro.xml.gz && \
     gunzip /home/source_files/reference_db_files/interpro/interpro_annotation_data/interpro.xml.gz && \
     rm /home/source_files/reference_db_files/interpro/interproscan/bin/prosite/pfsearch_wrapper.py && \
     wget -c -P /home/source_files/reference_db_files/interpro/interproscan/bin/prosite/ \
     https://raw.githubusercontent.com/malvikasharan/interproscan/master/core/jms-implementation/support-mini-x86-32/bin/prosite/pfsearch_wrapper.py && \
-    rm -rf /home/source_files/reference_db_files/interpro/interproscan-5.19-58.0-64-bit.tar.gz \
+    rm -rf /home/source_files/reference_db_files/interpro/interproscan-5.20-59.0-64-bit.tar.gz \
     /home/source_files/reference_db_files/cdd/Cdd/*.gz
 }
 
