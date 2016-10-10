@@ -1,4 +1,7 @@
 v1.1.9 (2016-08-02)
+- Minute updates. Dockerfile changed significantly.
+
+v1.1.9 (2016-08-02)
 - update for monthly release 
 
 v1.1.8 (2016-07-21)
