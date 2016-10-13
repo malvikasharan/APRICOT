@@ -10,7 +10,7 @@
 
 APRICOT comprises of distinct model designed to carry out specific task.
 
-Each subcommand requires the path to the analysis folder ('APRICOT_analysis' by deafult). Different subcommands can be quickly viewed by running `-h` for help option (e.g. apricot -h or python3 APRICOT/bin/apricot -h).
+Each subcommand requires the path to the analysis folder ('APRICOT_analysis' by deafult). Different subcommands can be quickly viewed by running `-h` for help option (e.g. `apricot -h` or `python3 APRICOT/bin/apricot -h`).
 
 ``````
 usage: apricot [-h] [--version]
