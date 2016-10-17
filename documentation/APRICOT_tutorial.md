@@ -22,7 +22,7 @@ $ wget -N https://raw.githubusercontent.com/malvikasharan/APRICOT/master/shell_s
 ```
 OR
 ```
-$ wget -O https://raw.githubusercontent.com/malvikasharan/APRICOT/master/shell_scripts/run_example.sh
+$ curl -O https://raw.githubusercontent.com/malvikasharan/APRICOT/master/shell_scripts/run_example.sh
 ```
 
 2) Use [pip](https://pip.pypa.io/en/stable/) to install/update the python packages
@@ -53,16 +53,16 @@ executable. These requirements have been discussed in detail in the
 [documentation](https://github.com/malvikasharan/APRICOT/blob/master/README.md).
 We will **NOT** install these for the tutorial, instead we have
 provided pre-processed files that should allow you to test the
-functionality of the tool. The files are avaialable at: [Zenodo
+functionality of the tool. The test files are avaialable at: [Zenodo
 record](https://zenodo.org/record/51705/files).
 
 ### Example analysis
 
-APRICOT can be executed by python (python3 is recommended) on
+APRICOT can be executed by python (python3 or up) on
 Unix-flavors (GNU/Linux, BSD, OS X).
 
-We will go through the shell script `run_example.sh` step by
-step. This script assumes that users have installed the software using
+We will go through the shell script [`run_example.sh`](https://github.com/malvikasharan/APRICOT/blob/master/shell_scripts/run_example.sh) step by
+step. This script assumes that users have installed the software globally using
 pip.
 
 Check the subcommands:
@@ -81,7 +81,7 @@ like to use) or `./$APRICOT_PATH/bin/apricot` command.
 python $APRICOT_PATH/bin/apricot -h
 ```
 
-If you get an error message ```system_test.sh: 164: system_test.sh: ../bin/apricot: Permission denied ...`, please open the script `run_example.sh` and and edit the `APRICOT_CALL="../bin/apricot"` to `APRICOT_CALL="python3 ../bin/apricot"` (instead if python3, you can use python or define any version of python, or instead use ./).
+If you get an error message ```system_test.sh: 164: system_test.sh: ../bin/apricot: Permission denied ...`, please open the script `run_example.sh` and and edit the `APRICOT_CALL="../bin/apricot"` to `APRICOT_CALL="python3 ../bin/apricot"` (instead of python3, you can use python or define any version of python, or instead use ./).
 
 #### Defining paths
 
