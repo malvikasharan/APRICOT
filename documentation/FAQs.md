@@ -31,4 +31,4 @@
 
 - Terms containing multiple keywords can be provided using a hyphen (-) and "#" can be used before or after the term as a wild-card.  Please see the documentation for other specific detail.
 
-####Do you have a specific question? Please submit it here, we will address it as soon as possible.
+####Do you have any specific question? Please submit it here, we will address it as soon as possible.
