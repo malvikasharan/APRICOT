@@ -5,17 +5,16 @@
 ![alt tag](https://github.com/malvikasharan/APRICOT/blob/master/APRICOT_logo.png)
 
 ##Resources requirements of APRICOT 
-
-1. Basic Linux programs ([pip](https://pip.pypa.io/en/stable/installing/) or [apt-get](https://wiki.ubuntuusers.de/apt/apt-get/), [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), [Python 3](https://www.python.org/downloads/))
-2. Python dependencies: [numpy](http://docs.scipy.org/doc/numpy/user/install.html), [scipy](https://www.scipy.org/install.html), [matplotlib](http://matplotlib.org/users/installing.html), [openpyxl](https://pypi.python.org/pypi/openpyxl), [requests](http://docs.python-requests.org/en/master/user/install/), [biopython](http://biopython.org/DIST/docs/install/Installation.html)
-3. APRICOT software from PyPI: [bio-apricot](https://pypi.python.org/pypi/bio-apricot)
-4. Latest CDD database: ftp://ftp.ncbi.nih.gov/pub/mmdb/cdd/little_endian/
-5. Latest InterPro databases and InterProScan: ftp://ftp.ebi.ac.uk/pub/databases/interpro
-6. InterProScan requires [pfsearch wrapper](http://web.expasy.org/pftools/#Downloads) and [Java 8](https://wiki.ubuntuusers.de/Java/Installation/Oracle_Java/Java_8/) or above
-7. BLAST executables (from: ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/) (psiblast, rpsblast, blastp, makeblastdb)
-8. [Gene Ontology (go.obo)](http://geneontology.org/page/download-ontology)
-9. PDB files: [proteins sequence and secondary-structure](http://www.rcsb.org/pdb/files/ss.txt) and [PDB to InterPro mapping ](http://www.uniprot.org/docs/pdbtosp.txt)
-10. [Taxonomy data](http://www.uniprot.org/docs/speclist.txt)
-11. [needle](http://emboss.sourceforge.net/download/) from EMBOSS software
-12. [Psortb](https://github.com/brinkmanlab/psortb-docker) for localization prediction (only for the subcomand addanno)
-13. [RaptorX](https://github.com/Indicator/RaptorX-SS8.git) for secondary structure presiction (only for the subcomand addanno)
+  - Basic Linux programs ([pip](https://pip.pypa.io/en/stable/installing/) or [apt-get](https://wiki.ubuntuusers.de/apt/apt-get/), [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), [Python 3](https://www.python.org/downloads/))
+  - Python dependencies: [numpy](http://docs.scipy.org/doc/numpy/user/install.html), [scipy](https://www.scipy.org/install.html), [matplotlib](http://matplotlib.org/users/installing.html), [openpyxl](https://pypi.python.org/pypi/openpyxl), [requests](http://docs.python-requests.org/en/master/user/install/), [biopython](http://biopython.org/DIST/docs/install/Installation.html)
+  - APRICOT software from PyPI: [bio-apricot](https://pypi.python.org/pypi/bio-apricot)
+  - Latest CDD database: ftp://ftp.ncbi.nih.gov/pub/mmdb/cdd/little_endian/
+  - Latest InterPro databases and InterProScan: ftp://ftp.ebi.ac.uk/pub/databases/interpro
+  - InterProScan requires [pfsearch wrapper](http://web.expasy.org/pftools/#Downloads) and [Java 8](https://wiki.ubuntuusers.de/Java/Installation/Oracle_Java/Java_8/) or above
+  - BLAST executables (from: ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/) (psiblast, rpsblast, blastp, makeblastdb)
+  - [Gene Ontology (go.obo)](http://geneontology.org/page/download-ontology)
+  - PDB files: [proteins sequence and secondary-structure](http://www.rcsb.org/pdb/files/ss.txt) and [PDB to InterPro mapping ](http://www.uniprot.org/docs/pdbtosp.txt)
+  - [Taxonomy data](http://www.uniprot.org/docs/speclist.txt)
+  - [needle](http://emboss.sourceforge.net/download/) from EMBOSS software
+  - [Psortb](https://github.com/brinkmanlab/psortb-docker) for localization prediction (only for the subcomand addanno)
+  - [RaptorX](https://github.com/Indicator/RaptorX-SS8.git) for secondary structure presiction (only for the subcomand addanno)
