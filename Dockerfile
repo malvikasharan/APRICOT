@@ -105,3 +105,5 @@ CMD ["java"]
 ## Databases (CDD, InterPro), InterProScan and annotation files
 ## Supporting files: Gene Ontology, PDB files, pdb2uniprot files,Taxonomy files, pfam annotation data
 
+## RUN cd /home && sh APRICOT/shell_scripts/docker_support.sh
+
