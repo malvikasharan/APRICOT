@@ -15,6 +15,7 @@ main(){
         get_python_scripts
         get_cdd_and_interpro
         get_go_pdb_tax
+        get_blast
         format_interpro_table
         ontology_mapping_to_domains
         sort_and_format_pdb_data
@@ -85,6 +86,17 @@ get_go_pdb_tax(){
     wget -c -P $ROOT/source_files/reference_db_files/all_taxids http://www.uniprot.org/docs/speclist.txt
     wget -c -P $ROOT/source_files/reference_db_files/pfam ftp://ftp.ebi.ac.uk/pub/databases/Pfam/releases/Pfam30.0/database_files/pfamA.txt.gz
     gunzip $ROOT/source_files/reference_db_files/pfam/pfamA.txt.gz
+}
+
+get_blast(){
+    wget -c -P $ROOT/source_files/reference_db_files/blast ftp://ftp.ncbi.nih.gov/blast/executables/LATEST/ncbi-blast-*+-x64-linux.tar.gz && \
+    tar -xvzf $ROOT/source_files/reference_db_files/blast/ncbi-blast-*+-x64-linux.tar.gz -C /home/source_files/reference_db_files/blast && \
+    mv $ROOT/source_files/reference_db_files/blast/ncbi-blast-*+/* /home/source_files/reference_db_files/blast && \
+    install /home/source_files/reference_db_files/blast/bin/makeblastdb /home/source_files/reference_db_files/blast && \
+    cp $ROOT/source_files/reference_db_files/blast/bin/makeblastdb /usr/local/bin && \
+    rm -rf /home/source_files/reference_db_files/blast/ncbi-blast-*+-x64-linux.tar.gz \
+    /home/source_files/reference_db_files/blast/ncbi-blast-*+ \
+    /home/source_files/reference_db_files/blast/bin/*
 }
 
 format_interpro_table(){
