@@ -4,11 +4,11 @@
 ## Python scripts to support docker image
 
 ## full path of APRICOT libraries
-PATH=/home
-apricot_lib=$PATH/source_files/scripts
+ROOT=/home  # inside docker container use the path 'home' 
+apricot_lib=$ROOT/source_files/scripts
 
 ## path for apricot source files
-apricot_files=$PATH/source_files/reference_db_files
+apricot_files=$ROOT/source_files/reference_db_files
 
 main(){
         create_datapath
@@ -22,24 +22,24 @@ main(){
 
 create_datapath(){
     for paths in $apricot_lib \
-    $PATH/source_files \
-    $PATH/source_files/reference_db_files \
-    $PATH/source_files/reference_db_files/cdd \
-    $PATH/source_files/reference_db_files/cdd/Cdd \
-    $PATH/source_files/reference_db_files/cdd/cdd_annotation_data \
-    $PATH/source_files/reference_db_files/interpro \
-    $PATH/source_files/reference_db_files/interpro/interproscan \
-    $PATH/source_files/reference_db_files/interpro/interpro_annotation_data \
-    $PATH/source_files/reference_db_files/go_mapping \
-    $PATH/source_files/reference_db_files/pdb \
-    $PATH/source_files/reference_db_files/pdb/pdb_sequence \
-    $PATH/source_files/reference_db_files/pdb/pdb_secstr \
-    $PATH/source_files/reference_db_files/pdb/pdb2uniprot \
-    $PATH/source_files/reference_db_files/all_taxids \
-    $PATH/source_files/reference_db_files/pfam \
-    $PATH/source_files/reference_db_files/needle \
-    $PATH/source_files/reference_db_files/temp_needle \
-    $PATH/source_files/reference_db_files/blast
+    $ROOT/source_files \
+    $ROOT/source_files/reference_db_files \
+    $ROOT/source_files/reference_db_files/cdd \
+    $ROOT/source_files/reference_db_files/cdd/Cdd \
+    $ROOT/source_files/reference_db_files/cdd/cdd_annotation_data \
+    $ROOT/source_files/reference_db_files/interpro \
+    $ROOT/source_files/reference_db_files/interpro/interproscan \
+    $ROOT/source_files/reference_db_files/interpro/interpro_annotation_data \
+    $ROOT/source_files/reference_db_files/go_mapping \
+    $ROOT/source_files/reference_db_files/pdb \
+    $ROOT/source_files/reference_db_files/pdb/pdb_sequence \
+    $ROOT/source_files/reference_db_files/pdb/pdb_secstr \
+    $ROOT/source_files/reference_db_files/pdb/pdb2uniprot \
+    $ROOT/source_files/reference_db_files/all_taxids \
+    $ROOT/source_files/reference_db_files/pfam \
+    $ROOT/source_files/reference_db_files/needle \
+    $ROOT/source_files/reference_db_files/temp_needle \
+    $ROOT/source_files/reference_db_files/blast
     do
         if [ ! -d $paths ]
         then
@@ -53,38 +53,38 @@ get_python_scripts(){
     do
         if ! [ -f $apricot_lib/$files ]
         then
-            wget -N -c -P $apricotlib https://raw.githubusercontent.com/malvikasharan/APRICOT/master/apricotlib/$files
+            wget -N -c -P $apricot_lib https://raw.githubusercontent.com/malvikasharan/APRICOT/master/apricotlib/$files
         fi
     done
 }
 
 get_cdd_and_interpro(){
-    wget -c -P $PATH/source_files/reference_db_files/cdd/Cdd ftp://ftp.ncbi.nih.gov/pub/mmdb/cdd/little_endian/*.gz
-    for folders in $PATH/source_files/reference_db_files/cdd/Cdd/*.gz; do tar xvf $folders -C $PATH/source_files/reference_db_files/cdd/Cdd; done
-    wget -c -P $PATH/source_files/reference_db_files/cdd/cdd_annotation_data ftp://ftp.ncbi.nih.gov/pub/mmdb/cdd/cddid.tbl.gz
-    gunzip $PATH/source_files/reference_db_files/cdd/cdd_annotation_data/*
-    wget -c -P $PATH/source_files/reference_db_files/interpro ftp://ftp.ebi.ac.uk/pub/software/unix/iprscan/5/5.20-59.0/interproscan-5.20-59.0-64-bit.tar.gz
-    tar xvf $PATH/source_files/reference_db_files/interpro/interproscan-5.20-59.0-64-bit.tar.gz -C $PATH/source_files/reference_db_files/interpro
-    mv $PATH/source_files/reference_db_files/interpro/interproscan-*/* $PATH/source_files/reference_db_files/interpro/interproscan
-    wget -O - ftp://ftp.ebi.ac.uk/pub/databases/interpro/ > $PATH/source_files/reference_db_files/interpro/ipr_flatfile.html
-    wget -c -P $PATH/source_files/reference_db_files/interpro/interpro_annotation_data ftp://ftp.ebi.ac.uk/pub/databases/interpro/59.0/interpro2go
-    wget -c -P $PATH/source_files/reference_db_files/interpro/interpro_annotation_data ftp://ftp.ebi.ac.uk/pub/databases/interpro/59.0/interpro.xml.gz
-    gunzip $PATH/source_files/reference_db_files/interpro/interpro_annotation_data/interpro.xml.gz
-    rm $PATH/source_files/reference_db_files/interpro/interproscan/bin/prosite/pfsearch_wrapper.py
-    wget -c -P $PATH/source_files/reference_db_files/interpro/interproscan/bin/prosite/ \
+    wget -c -P $ROOT/source_files/reference_db_files/cdd/Cdd ftp://ftp.ncbi.nih.gov/pub/mmdb/cdd/little_endian/*.gz
+    for folders in $ROOT/source_files/reference_db_files/cdd/Cdd/*.gz; do tar xvf $folders -C $ROOT/source_files/reference_db_files/cdd/Cdd; done
+    wget -c -P $ROOT/source_files/reference_db_files/cdd/cdd_annotation_data ftp://ftp.ncbi.nih.gov/pub/mmdb/cdd/cddid.tbl.gz
+    gunzip $ROOT/source_files/reference_db_files/cdd/cdd_annotation_data/*
+    wget -c -P $ROOT/source_files/reference_db_files/interpro ftp://ftp.ebi.ac.uk/pub/software/unix/iprscan/5/5.20-59.0/interproscan-5.20-59.0-64-bit.tar.gz
+    tar xvf $ROOT/source_files/reference_db_files/interpro/interproscan-5.20-59.0-64-bit.tar.gz -C $ROOT/source_files/reference_db_files/interpro
+    mv $ROOT/source_files/reference_db_files/interpro/interproscan-*/* $ROOT/source_files/reference_db_files/interpro/interproscan
+    wget -O - ftp://ftp.ebi.ac.uk/pub/databases/interpro/ > $ROOT/source_files/reference_db_files/interpro/ipr_flatfile.html
+    wget -c -P $ROOT/source_files/reference_db_files/interpro/interpro_annotation_data ftp://ftp.ebi.ac.uk/pub/databases/interpro/59.0/interpro2go
+    wget -c -P $ROOT/source_files/reference_db_files/interpro/interpro_annotation_data ftp://ftp.ebi.ac.uk/pub/databases/interpro/59.0/interpro.xml.gz
+    gunzip $ROOT/source_files/reference_db_files/interpro/interpro_annotation_data/interpro.xml.gz
+    rm $ROOT/source_files/reference_db_files/interpro/interproscan/bin/prosite/pfsearch_wrapper.py
+    wget -c -P $ROOT/source_files/reference_db_files/interpro/interproscan/bin/prosite/ \
     https://raw.githubusercontent.com/malvikasharan/interproscan/master/core/jms-implementation/support-mini-x86-32/bin/prosite/pfsearch_wrapper.py
-    rm -rf $PATH/source_files/reference_db_files/interpro/interproscan-5.20-59.0-64-bit.tar.gz \
-    $PATH/source_files/reference_db_files/cdd/Cdd/*.gz
+    rm -rf $ROOT/source_files/reference_db_files/interpro/interproscan-5.20-59.0-64-bit.tar.gz \
+    $ROOT/source_files/reference_db_files/cdd/Cdd/*.gz
 }
 
 # Get Gene Ontology, PDB files, pdb2uniprot files,Taxonomy files, pfam annotation data
 get_go_pdb_tax(){
-    wget -P $PATH/source_files/reference_db_files/go_mapping http://www.geneontology.org/ontology/go.obo
-    wget -c -P $PATH/source_files/reference_db_files/pdb/pdb_secstr http://www.rcsb.org/pdb/files/ss.txt
-    wget -P $PATH/source_files/reference_db_files/pdb/pdb2uniprot http://www.uniprot.org/docs/pdbtosp.txt
-    wget -c -P $PATH/source_files/reference_db_files/all_taxids http://www.uniprot.org/docs/speclist.txt
-    wget -c -P $PATH/source_files/reference_db_files/pfam ftp://ftp.ebi.ac.uk/pub/databases/Pfam/releases/Pfam30.0/database_files/pfamA.txt.gz
-    gunzip $PATH/source_files/reference_db_files/pfam/pfamA.txt.gz
+    wget -P $ROOT/source_files/reference_db_files/go_mapping http://www.geneontology.org/ontology/go.obo
+    wget -c -P $ROOT/source_files/reference_db_files/pdb/pdb_secstr http://www.rcsb.org/pdb/files/ss.txt
+    wget -P $ROOT/source_files/reference_db_files/pdb/pdb2uniprot http://www.uniprot.org/docs/pdbtosp.txt
+    wget -c -P $ROOT/source_files/reference_db_files/all_taxids http://www.uniprot.org/docs/speclist.txt
+    wget -c -P $ROOT/source_files/reference_db_files/pfam ftp://ftp.ebi.ac.uk/pub/databases/Pfam/releases/Pfam30.0/database_files/pfamA.txt.gz
+    gunzip $ROOT/source_files/reference_db_files/pfam/pfamA.txt.gz
 }
 
 format_interpro_table(){
