@@ -1,10 +1,11 @@
-#!/bin/bash
-#AUTHOR: Malvika Sharan <malvika.sharan@uni-wuerzburg.de>
+#!/bin/sh
 
+#AUTHOR: Malvika Sharan <malvika.sharan@uni-wuerzburg.de>
 ## Python scripts to support docker image
 
-## full path of APRICOT libraries
-ROOT=/home  # inside docker container use the path 'home' 
+## NOTE: provide full path where the database required to run APRICOT will be installed
+ROOT=/home  ## When installing inside the docker contaniner, please use the path `/home`
+
 apricot_lib=$ROOT/source_files/scripts
 
 ## path for apricot source files
@@ -22,8 +23,9 @@ main(){
 }
 
 create_datapath(){
-    for paths in $apricot_lib \
+    for paths in \
     $ROOT/source_files \
+    $apricot_lib \
     $ROOT/source_files/reference_db_files \
     $ROOT/source_files/reference_db_files/cdd \
     $ROOT/source_files/reference_db_files/cdd/Cdd \
@@ -44,7 +46,7 @@ create_datapath(){
     do
         if [ ! -d $paths ]
         then
-            mkdir -p $paths
+            mkdir $paths
         fi
     done
 }
@@ -54,7 +56,7 @@ get_python_scripts(){
     do
         if ! [ -f $apricot_lib/$files ]
         then
-            wget -N -c -P $apricot_lib https://raw.githubusercontent.com/malvikasharan/APRICOT/master/apricotlib/$files
+           wget -N -c -P $apricot_lib 'https://raw.githubusercontent.com/malvikasharan/APRICOT/master/apricotlib'/$files
         fi
     done
 }
@@ -75,7 +77,7 @@ get_cdd_and_interpro(){
     wget -c -P $ROOT/source_files/reference_db_files/interpro/interproscan/bin/prosite/ \
     https://raw.githubusercontent.com/malvikasharan/interproscan/master/core/jms-implementation/support-mini-x86-32/bin/prosite/pfsearch_wrapper.py
     rm -rf $ROOT/source_files/reference_db_files/interpro/interproscan-5.20-59.0-64-bit.tar.gz \
-    $ROOT/source_files/reference_db_files/cdd/Cdd/*.gz
+    $PATH/source_files/reference_db_files/cdd/Cdd/*.gz
 }
 
 # Get Gene Ontology, PDB files, pdb2uniprot files,Taxonomy files, pfam annotation data
@@ -90,13 +92,12 @@ get_go_pdb_tax(){
 
 get_blast(){
     wget -c -P $ROOT/source_files/reference_db_files/blast ftp://ftp.ncbi.nih.gov/blast/executables/LATEST/ncbi-blast-*+-x64-linux.tar.gz && \
-    tar -xvzf $ROOT/source_files/reference_db_files/blast/ncbi-blast-*+-x64-linux.tar.gz -C /home/source_files/reference_db_files/blast && \
-    mv $ROOT/source_files/reference_db_files/blast/ncbi-blast-*+/* /home/source_files/reference_db_files/blast && \
-    install /home/source_files/reference_db_files/blast/bin/makeblastdb /home/source_files/reference_db_files/blast && \
-    cp $ROOT/source_files/reference_db_files/blast/bin/makeblastdb /usr/local/bin && \
-    rm -rf /home/source_files/reference_db_files/blast/ncbi-blast-*+-x64-linux.tar.gz \
-    /home/source_files/reference_db_files/blast/ncbi-blast-*+ \
-    /home/source_files/reference_db_files/blast/bin/*
+    tar -xvzf $ROOT/source_files/reference_db_files/blast/ncbi-blast-*+-x64-linux.tar.gz -C $ROOT/source_files/reference_db_files/blast && \
+    mv $ROOT/source_files/reference_db_files/blast/ncbi-blast-*+/* $ROOT/source_files/reference_db_files/blast && \
+    install $ROOT/source_files/reference_db_files/blast/bin/makeblastdb $ROOT/source_files/reference_db_files/blast && \
+    rm -rf $ROOT/source_files/reference_db_files/blast/ncbi-blast-*+-x64-linux.tar.gz \
+    $ROOT/source_files/reference_db_files/blast/ncbi-blast-*+ \
+    $ROOT/source_files/reference_db_files/blast/bin/*
 }
 
 format_interpro_table(){
