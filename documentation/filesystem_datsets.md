@@ -17,11 +17,16 @@ This can be carried out by using the sheel script [docker_support.sh](https://ra
 source_files
     └───├domain_data            # Location for the files containing keywords for domain selection and subsequently selected domains
     |
+    └───├emboss                 # EMBOSS package containing needle software
+    |
     └───├reference_db_files
+            └───├all_taxid                      # Taxonomy ids for the reference of proteome analysis
+            └───├blast                          # BLAST package containing required executables
             └───├cdd                            # Cdd related reference files
             |   └───├Cdd                        # Cdd database (Not required for the tutorial)
             |   └───├cdd_annotation_data        # Cdd related annotation file
-            └───├pfam
+            └───├pdb                            # All pdb structures as a reference for the tertiary structures
+            └───├pfam                           # Pfam annotation data
             └───├interpro                       # InterPro related reference files
             |   └───├interproscan               # Interpro database and InterProScan related tools (Not required for the tutorial)
             |   └───├interpro_annotation_data   # interPro related annotation files
