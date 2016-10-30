@@ -17,13 +17,9 @@ The tool is designed and developed by Malvika Sharan in the lab of Prof. Dr. Jö
 
 The source codes of APRICOT are available via git https://github.com/malvikasharan/APRICOT and pypi https://pypi.python.org/pypi/bio-apricot.
 
-####License
-
 APRICOT is open source software and is available under the ISC license.
 
 Copyright (c) 2011-2015, Malvika Sharan, <malvika.sharan@uni-wuerzburg.de>
-
-Please read the license content [here](https://github.com/malvikasharan/APRICOT/blob/master/LICENSE.md).
 
 ###APRICOT software 
 
