@@ -111,7 +111,7 @@ We have provided a test folder named [tests](https://github.com/malvikasharan/AP
 $ cd APRICOT/test
 $ sh system_test.sh
 ````
-By default, this script generates a main analysis folder `APRICOT_analysis` and several sub-directories. To understand each components of the software and generated results, We recomend you to check out the [tutorial](https://github.com/malvikasharan/APRICOT/blob/master/APRICOT_tutorial.md). 
+By default, this script generates a main analysis folder `APRICOT_analysis` and several sub-directories. To understand each components of the software and generated results, We recomend you to check out the [tutorial](https://github.com/malvikasharan/APRICOT/blob/master/documentation/APRICOT_tutorial.md). 
 
 ####Documentation
 
