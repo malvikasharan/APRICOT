@@ -7,7 +7,7 @@
 
 ####APRICOT Docker image
 
-We recommend users to use APRICOT [docker image](https://docs.docker.com/v1.8/userguide/dockerimages/) which comprises of all the tool dependencies and allows a frictionfree functionalities of the software.
+We recommend users to use APRICOT [Docker image](https://docs.docker.com/v1.8/userguide/dockerimages/) which comprises of all the tool dependencies and allows a frictionfree functionalities of the software.
 
 Use the follwing command to pull th image toyour local system (the [Docker](https://docs.docker.com/engine/installation/) must be installed):
 
@@ -52,7 +52,7 @@ This script will create a directory `source_files` with all the required dataset
 
 When the script is used for fetching the datasets inside the Docker container (in the home folder), APRICOT can be simply run to carry out analysis.
 
-When the script is used to create a local dataset, use th following command to mount the directory `source_file` into the docker container:
+When the script is used to create a local dataset, use th following command to mount the directory `source_file` into the Docker container:
 
 ```
 $ docker run -it -v /$FULL_PWD/source_files/:/home/source_files malvikasharan/apricot bash
