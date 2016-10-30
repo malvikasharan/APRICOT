@@ -42,7 +42,9 @@ create_datapath(){
     $ROOT/source_files/reference_db_files/all_taxids \
     $ROOT/source_files/reference_db_files/pfam \
     $ROOT/source_files/reference_db_files/blast
-    mkdir -P $paths
+    do
+        mkdir -P $paths
+    done
 }
 
 get_python_scripts(){
