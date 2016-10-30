@@ -24,8 +24,9 @@ $ pip3 install bio-apricot
 
 This will globally install APRICOT, which can be called via the command `apricot`, and the libraries from apricotlib will be saved.
 
+###OR
 
-#####Get APRICOT manually
+####Get APRICOT manually
 
 APRICOT is implemented in Python3 and can be executed in Linux/Unix system. APRICOT requires few third party packages, namely [Biopython](http://biopython.org/wiki/Main_Page), [BLAST executables](https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE_TYPE=BlastDocs&DOC_TYPE=Download), [interproscan](https://www.ebi.ac.uk/interpro/interproscan.html), python libraries like [Matplotlib](http://matplotlib.org/), [requests](https://pypi.python.org/pypi/requests), openpyxl and few other optional tools that are mentioned below.
 
@@ -42,11 +43,11 @@ $ git clone https://github.com/malvikasharan/APRICOT.git
 
 Please see the detailed documentation for the alternative installation instructions of the software using [Docker](https://github.com/malvikasharan/APRICOT/blob/master/Dockerfile) or [shell scripts](https://github.com/malvikasharan/APRICOT/blob/master/tests/system_test.sh).
 
-#####Quick test for each subcommands of APRICOT 
+###Test if the software is correctly installed
 
-Here is a quick way to check how different modules work (without really installing the complete filesystem).
+Here is a quick way to check if the software works in your system (without really installing the complete filesystem).
 
-The repository contains a shell script [shell_scripts/run_example.sh](https://github.com/malvikasharan/APRICOT/blob/master/shell_scripts/run_example.sh) with shell commands that can be used for the demonstration of APRICOT installation including analysis with an example. 
+The repository contains a shell script [shell_scripts/run_example.sh](https://github.com/malvikasharan/APRICOT/blob/master/shell_scripts/run_example.sh) that can be used for the demonstration of APRICOT installation including analysis with an example. 
 
 It uses [test datasets](https://github.com/malvikasharan/APRICOT/tree/master/tests/demo_files_small) for basic testing, which does not require installation of third party tools.
 
@@ -55,13 +56,15 @@ $ wget -N https://raw.githubusercontent.com/malvikasharan/APRICOT/master/shell_s
 $ sh run_example.sh
 ````
 
-By default, this script generates a main analysis folder `APRICOT_analysis` and several sub-directories. To understand each components of the software and generated results, We recomend you to check out the [tutorial](https://github.com/malvikasharan/APRICOT/blob/master/APRICOT_tutorial.md). 
-
-When using `--user` flag for a local installation `$ pip3 install --user bio-apricot`, please check the paths for the executable and the libraries.
+By default, this script generates a main analysis folder `APRICOT_analysis` and several sub-directories. To understand each components of the software and generated results, We recomend you to check out the [tutorial](https://github.com/malvikasharan/APRICOT/blob/master/documentation/APRICOT_tutorial.md). 
 
 Hint:
 
-Executable location will be: /home/username/.local/bin/
+The run scripts requires the command to run APRICOT. 
+
+When installed by pip, th executable location will be: /home/username/.local/bin/
 and the library location will be: /home/username/.local/lib/python3.5/site-packages/apricotlib/
 
 In that case, when calling the software (also edit the path when using the shell script run_example.sh and system_test.sh), please use the complete path name rather than using `apricot`, which will look for a globally installed software.
+
+When using `--user` flag for a local installation `$ pip3 install --user bio-apricot`, please check the paths for the executable and the libraries and provide them in the script.
