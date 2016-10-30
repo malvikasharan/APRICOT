@@ -90,7 +90,7 @@ APRICOT is installed and can be called using command `apricot` and the libraries
 $ cd home
 ````
 
-####Test for each subcommands of APRICOT 
+####Test if the software is successfully installed
 
 Here is a quick way to test if different modules work in your system (without really installing the complete filesystem).
 
