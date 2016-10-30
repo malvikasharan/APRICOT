@@ -54,4 +54,4 @@ $ wget -N https://raw.githubusercontent.com/malvikasharan/APRICOT/master/shell_s
 $ sh apricot_minimum_required_files.sh
 ````
 
-This script will install all the required tools and will create a directory `source_files` with all the required datasets as dicussed [here](https://github.com/malvikasharan/APRICOT/blob/master/documentation/data_requirements.md).
+This script will install all the required tools and will create a directory `source_files` with all the required datasets as dicussed [here](https://github.com/malvikasharan/APRICOT/blob/master/documentation/software_dependencies.md).
