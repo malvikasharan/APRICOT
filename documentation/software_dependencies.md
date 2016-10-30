@@ -18,3 +18,26 @@
   - [needle](http://emboss.sourceforge.net/download/) from EMBOSS software
   - [Psortb](https://github.com/brinkmanlab/psortb-docker) for localization prediction (only for the subcomand addanno)
   - [RaptorX](https://github.com/Indicator/RaptorX-SS8.git) for secondary structure presiction (only for the subcomand addanno)
+
+##Data structure for running the software
+
+The databases/datasets required to execute APRICOT software, a main data directory: `source_files`, with subfolder must be created either locally or inside the docker container using the shell script [APRICOT/shell_scripts/docker_support.sh](https://raw.githubusercontent.com/malvikasharan/APRICOT/master/shell_scripts/docker_support.sh). Please see the instructions for working with the [Docker image]().
+
+In case, users do not wish to run Docker image, the complete file system with the tool and dataset can be installed using the shell script 
+[APRICOT/shell_scripts/apricot_minimum_required_files.sh](https://raw.githubusercontent.com/malvikasharan/APRICOT/master/shell_scripts/apricot_minimum_required_files.sh). Please see the instructions for [local installation](https://github.com/malvikasharan/APRICOT/blob/master/documentation/local_installation.md).
+
+```
+source_files
+    └───├domain_data            # Location for the files containing keywords for domain selection and subsequently selected domains
+    |
+    └───├reference_db_files
+            └───├cdd                            # Cdd related reference files
+            |   └───├Cdd                        # Cdd database (Not required for the tutorial)
+            |   └───├cdd_annotation_data        # Cdd related annotation file
+            └───├pfam
+            └───├interpro                       # InterPro related reference files
+            |   └───├interproscan               # Interpro database and InterProScan related tools (Not required for the tutorial)
+            |   └───├interpro_annotation_data   # interPro related annotation files
+            └───├go_mapping                     # GO related data containing GO anotation for the domains obtained from CDD and InterPro 
+
+```
