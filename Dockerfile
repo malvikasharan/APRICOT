@@ -8,7 +8,7 @@ ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 
 # Get basic required packages and create root folders
-RUN apt-get update --yes && apt-get install wget git nano python3-pip --yes --fix-missing && \
+RUN apt-get update --yes && apt-get install wget git nano python3-pip build-essential --yes --fix-missing && \
     python3.5 -m pip install bio-apricot && cd /home && git clone https://github.com/malvikasharan/APRICOT.git && \
     mkdir -p \
     /home/emboss/needle \
@@ -35,8 +35,8 @@ RUN apt-get update --yes && apt-get install wget git nano python3-pip --yes --fi
     cp /home/source_files/reference_db_files/blast/bin/makeblastdb /usr/local/bin && \
     cp /home/source_files/reference_db_files/blast/bin/psiblast /usr/local/bin && \
     cp /home/source_files/reference_db_files/blast/bin/blastp /usr/local/bin && \
-    wget -P /home/emboss/needle ftp://emboss.open-bio.org/pub/EMBOSS/EMBOSS-6.6.0.tar.gz && \
-    tar -xvzf /home/emboss/needle/EMBOSS-6.6.0.tar.gz -C /home/emboss/needle && \
+    wget -P /home/emboss/needle ftp://emboss.open-bio.org/pub/EMBOSS/emboss-latest.tar.gz && \
+    tar -xvzf /home/emboss/needle/emboss-latest.tar.gz -C /home/emboss/needle && \
     mv /home/emboss/needle/EMBOSS*/* /home/emboss/needle && \
     cd /home/emboss/needle && ./configure && make && cd - && \
     cp /home/emboss/needle/emboss/needle /usr/local/bin && \
