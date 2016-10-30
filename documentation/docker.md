@@ -20,7 +20,7 @@ $ docker pull malvikasharan/apricot
 $ docker run -it malvikasharan/apricot bash
 ````
 
-APRICOT is installed and can be called using command `apricot` and the libraries will be saved at `usr/local/lib/python3.5/site-packages/apricotlib/`
+APRICOT is installed and can be called using command `apricot` and the libraries will be saved at `/usr/local/lib/python3.5/site-packages/apricotlib/`
 
 
 #####Go to the `home` folder to test the software:
