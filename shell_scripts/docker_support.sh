@@ -4,7 +4,7 @@
 ## Python scripts to support docker image
 
 ## NOTE: provide full path where the database required to run APRICOT will be installed
-ROOT=/home  ## When installing inside the docker contaniner, please use the path `/home`
+ROOT=$(pwd) #/home  ## When installing inside the docker contaniner, please use the path `/home`
 
 apricot_lib=$ROOT/source_files/scripts
 interproversion=59.0
