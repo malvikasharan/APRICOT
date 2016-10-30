@@ -21,7 +21,21 @@ APRICOT is open source software and is available under the ISC license.
 
 Copyright (c) 2011-2015, Malvika Sharan, <malvika.sharan@uni-wuerzburg.de>
 
-###APRICOT software 
+###Detailed documentations
+
+1. [Overview of the pipeline](https://github.com/malvikasharan/APRICOT/blob/master/documentation/pipeline_overview.md)
+1. [Tutorial](https://github.com/malvikasharan/APRICOT/blob/master/documentation/APRICOT_tutorial.md)
+1. [Working with docker](https://github.com/malvikasharan/APRICOT/blob/master/documentation/docker.md)
+1. [Instructions for local installation](https://github.com/malvikasharan/APRICOT/blob/master/documentation/installation.md)
+1. [Tool and data dependencies](https://github.com/malvikasharan/APRICOT/blob/master/documentation/software_dependencies.md)
+1. [Different subcommands](https://github.com/malvikasharan/APRICOT/blob/master/documentation/subcommands.md)
+1. [Frequently asked questions](https://github.com/malvikasharan/APRICOT/blob/master/documentation/FAQs.md)
+1. [Troubleshoot](https://github.com/malvikasharan/APRICOT/blob/master/documentation/troubleshooting.md)
+1. [License](https://github.com/malvikasharan/APRICOT/blob/master/LICENSE.md)
+1. [For the developers](https://github.com/malvikasharan/APRICOT/blob/master/documentation/for_the_developers.md)
+
+
+###Get APRICOT software 
 
 #####(not the complete filesystem)
 
@@ -115,20 +129,3 @@ $ sh run_example.sh
 ````
 
 By default, this script generates a main analysis folder `APRICOT_analysis` and several sub-directories. To understand each components of the software and generated results, We recomend you to check out the [tutorial](https://github.com/malvikasharan/APRICOT/blob/master/documentation/APRICOT_tutorial.md).
-
-####Documentation
-
-1. [Overview of the pipeline](https://github.com/malvikasharan/APRICOT/blob/master/documentation/pipeline_overview.md)
-1. [Tutorial](https://github.com/malvikasharan/APRICOT/blob/master/documentation/APRICOT_tutorial.md)
-1. [Working with docker](https://github.com/malvikasharan/APRICOT/blob/master/documentation/docker.md)
-1. [Instructions for local installation](https://github.com/malvikasharan/APRICOT/blob/master/documentation/installation.md)
-1. [Tool and data dependencies](https://github.com/malvikasharan/APRICOT/blob/master/documentation/software_dependencies.md)
-1. [Different subcommands](https://github.com/malvikasharan/APRICOT/blob/master/documentation/subcommands.md)
-1. [Frequently asked questions](https://github.com/malvikasharan/APRICOT/blob/master/documentation/FAQs.md)
-1. [Troubleshoot](https://github.com/malvikasharan/APRICOT/blob/master/documentation/troubleshooting.md)
-1. [License](https://github.com/malvikasharan/APRICOT/blob/master/LICENSE.md)
-1. [For the developers](https://github.com/malvikasharan/APRICOT/blob/master/documentation/for_the_developers.md)
-
-####Contact
-
-For question, troubleshooting and requests, please feel free to contact Malvika Sharan at <malvika.sharan@uni-wuerzburg.de>.
