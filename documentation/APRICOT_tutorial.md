@@ -97,7 +97,7 @@ ANALYSIS_PATH=APRICOT_analysis
 ROOT_DB_PATH=source_files
 
 # Path for EMBOSS suite with locally installed needle cline
-NEEDLE_EMBOSS_PATH=source_files/reference_db_files/needle/emboss/needle   # Default path
+NEEDLE_EMBOSS_PATH=/home/emboss/needle   # Default path
 
 # Path where APRICOT modules are located, by-default we use APRICOT as
 # the name of git library
@@ -136,16 +136,20 @@ donwload_files(){
 This will create a main folder `source_files` with subfolder as shown
 below.
 
-
 ```
 source_files
     └───├domain_data            # Location for the files containing keywords for domain selection and subsequently selected domains
     |
+    └───├emboss                 # EMBOSS package containing needle software
+    |
     └───├reference_db_files
+            └───├all_taxid                      # Taxonomy ids for the reference of proteome analysis
+            └───├blast                          # BLAST package containing required executables
             └───├cdd                            # Cdd related reference files
             |   └───├Cdd                        # Cdd database (Not required for the tutorial)
             |   └───├cdd_annotation_data        # Cdd related annotation file
-            └───├pfam
+            └───├pdb                            # All pdb structures as a reference for the tertiary structures
+            └───├pfam                           # Pfam annotation data
             └───├interpro                       # InterPro related reference files
             |   └───├interproscan               # Interpro database and InterProScan related tools (Not required for the tutorial)
             |   └───├interpro_annotation_data   # interPro related annotation files
@@ -435,7 +439,7 @@ this module as the configuration and installation of EMBOSS suite takes time. Ho
 if installed already, please edit the path name `NEEDLE_EMBOSS_PATH`.
 
 ```
-NEEDLE_EMBOSS_PATH=source_files/reference_db_files/needle/emboss/needle   # Default path
+NEEDLE_EMBOSS_PATH=/home/emboss/needle   # Default path
 apricot annoscore --analysis_path APRICOT_analysis --needle_dir $NEEDLE_EMBOSS_PATH
 ```
 
