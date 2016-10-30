@@ -63,10 +63,7 @@ You can manually download the APRICOT repository or simply clone it.
 
     $ git clone https://github.com/malvikasharan/APRICOT.git
 
-The `Docker image for APRICOT`_ will be available soon.
-
-The shell script to install and run the analysis in a streamlined manner
-is provided with the package (`see here`_).
+The `Docker image for APRICOT`_ is available on th Docker hub. Please the detailed documentation for the instructions to work with it (`see here`_).
 
 Working example
 ---------------
@@ -84,8 +81,8 @@ Malvika Sharan at malvika.sharan@uni-wuerzburg.de
 
 .. _APRICOT: http://malvikasharan.github.io/APRICOT/
 .. _here: https://github.com/malvikasharan/APRICOT/blob/master/LICENSE.md
-.. _Docker image for APRICOT: https://github.com/malvikasharan/APRICOT/blob/master/Dockerfile
-.. _see here: https://github.com/malvikasharan/APRICOT/blob/master/system_test.sh
+.. _Docker image for APRICOT: https://hub.docker.com/r/malvikasharan/apricot/
+.. _see here: https://github.com/malvikasharan/APRICOT
 .. _tutorial: https://github.com/malvikasharan/APRICOT/blob/master/APRICOT_tutorial.md
 .. _run\_example.sh: https://github.com/malvikasharan/APRICOT/blob/master/shell_scripts/run_example.sh
 .. _tests: https://github.com/malvikasharan/APRICOT/tree/master/tests
