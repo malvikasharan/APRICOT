@@ -27,10 +27,8 @@ RUN apt-get update --yes && apt-get install wget git nano python3-pip --yes --fi
     /home/source_files/reference_db_files/pdb/pdb2uniprot \
     /home/source_files/reference_db_files/all_taxids \
     /home/source_files/reference_db_files/pfam \
-    /home/source_files/reference_db_files/blast
-
-## Get and install BLAST modules
-RUN wget -c -P /home/source_files/reference_db_files/blast ftp://ftp.ncbi.nih.gov/blast/executables/LATEST/ncbi-blast-*+-x64-linux.tar.gz && \
+    /home/source_files/reference_db_files/blast \
+    && wget -c -P /home/source_files/reference_db_files/blast ftp://ftp.ncbi.nih.gov/blast/executables/LATEST/ncbi-blast-*+-x64-linux.tar.gz && \
     tar -xvzf /home/source_files/reference_db_files/blast/ncbi-blast-*+-x64-linux.tar.gz -C /home/source_files/reference_db_files/blast && \
     mv /home/source_files/reference_db_files/blast/ncbi-blast-*+/* /home/source_files/reference_db_files/blast && \
     install /home/source_files/reference_db_files/blast/bin/psiblast /home/source_files/reference_db_files/blast && \
@@ -44,7 +42,7 @@ RUN wget -c -P /home/source_files/reference_db_files/blast ftp://ftp.ncbi.nih.go
     wget -P /home/emboss/needle ftp://emboss.open-bio.org/pub/EMBOSS/old/6.5.0/emboss-latest.tar.gz && \
     tar -xvzf /home/emboss/needle/emboss-latest.tar.gz -C /home/emboss/needle && \
     mv /home/emboss/needle/EMBOSS*/* /home/emboss/needle && \
-    cd /home/emboss/needle && rm config.cache && make clean && ./configure && make && cd - && \
+    cd /home/emboss/needle && ./configure && make && cd - && \
     cp /home/emboss/needle/emboss/needle /usr/local/bin && \
     mv /home/emboss/needle/* /home/emboss/temp_needle && \
     mv /home/emboss/temp_needle/ajax /home/emboss/needle && \
