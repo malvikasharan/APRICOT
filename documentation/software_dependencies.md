@@ -4,7 +4,7 @@
 
 ![alt tag](https://github.com/malvikasharan/APRICOT/blob/master/APRICOT_logo.png)
 
-##Resources requirements of APRICOT 
+## Resources requirements of APRICOT 
   - Basic Linux programs ([pip](https://pip.pypa.io/en/stable/installing/) or [apt-get](https://wiki.ubuntuusers.de/apt/apt-get/), [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), [Python 3](https://www.python.org/downloads/))
   - Python dependencies: [numpy](http://docs.scipy.org/doc/numpy/user/install.html), [scipy](https://www.scipy.org/install.html), [matplotlib](http://matplotlib.org/users/installing.html), [openpyxl](https://pypi.python.org/pypi/openpyxl), [requests](http://docs.python-requests.org/en/master/user/install/), [biopython](http://biopython.org/DIST/docs/install/Installation.html)
   - APRICOT software from PyPI: [bio-apricot](https://pypi.python.org/pypi/bio-apricot)
@@ -19,7 +19,7 @@
   - [Psortb](https://github.com/brinkmanlab/psortb-docker) for localization prediction (only for the subcomand addanno)
   - [RaptorX](https://github.com/Indicator/RaptorX-SS8.git) for secondary structure presiction (only for the subcomand addanno)
 
-####The database requirement and and how they need to be structured are explained [here](https://github.com/malvikasharan/APRICOT/blob/master/documentation/database_dependencies.md) in details.
+#### The database requirement and and how they need to be structured are explained [here](https://github.com/malvikasharan/APRICOT/blob/master/documentation/database_dependencies.md) in details.
 
 Please see the instructions for working with the [Docker image](https://github.com/malvikasharan/APRICOT/blob/master/documentation/docker.md).
 

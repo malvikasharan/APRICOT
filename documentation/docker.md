@@ -5,7 +5,7 @@
 
 ![alt tag](https://github.com/malvikasharan/APRICOT/blob/master/APRICOT_logo.png)
 
-####APRICOT Docker image
+#### APRICOT Docker image
 
 We recommend users to use APRICOT [Docker image](https://docs.docker.com/v1.8/userguide/dockerimages/) which comprises of all the tool dependencies and allows a frictionfree functionalities of the software.
 
@@ -15,7 +15,7 @@ Use the follwing command to pull th image toyour local system (the [Docker](http
 $ docker pull malvikasharan/apricot
 ````
 
-#####Run the container:
+##### Run the container:
 ````
 $ docker run -it malvikasharan/apricot bash
 ````
@@ -23,7 +23,7 @@ $ docker run -it malvikasharan/apricot bash
 APRICOT is installed and can be called using command `apricot` and the libraries will be saved at `/usr/local/lib/python3.5/site-packages/apricotlib/`
 
 
-#####Go to the `home` folder to test the software:
+##### Go to the `home` folder to test the software:
 
 ````
 $ cd home
@@ -37,7 +37,7 @@ $ cp APRICOT/shell_scripts/run_example.sh .
 $ sh run_example.sh
 ````
 
-####Database requirements for the software
+#### Database requirements for the software
 
 An additional step for fetching the databases is required to carry out analysis by the software.
 
@@ -63,7 +63,7 @@ $ sh run_example.sh
 
 This will ensure that users would not have to get the dataset every time a new Docker container for APRICOT is created. Moreover, this will keep the size of the container small by not having to install the large databases inside the container.
 
-####Docker image with all depencies
+#### Docker image with all depencies
 
 To avoid the extra step for the installation of the databases locally (or inside the Docker container), an optional Docker image containing all dependencies can be used.
 
