@@ -43,28 +43,15 @@ $ git clone https://github.com/malvikasharan/APRICOT.git
 
 Please see the detailed documentation for the alternative installation instructions of the software using [Docker](https://github.com/malvikasharan/APRICOT/blob/master/Dockerfile) or [shell scripts](https://github.com/malvikasharan/APRICOT/blob/master/tests/system_test.sh).
 
-###Test if the software is correctly installed
+####Third party requirements for the software
 
-Here is a quick way to check if the software works in your system (without really installing the complete filesystem).
+An additional step for the installation of the third party tools and the databases, which are required to carry out analysis by the software.
 
-The repository contains a shell script [shell_scripts/run_example.sh](https://github.com/malvikasharan/APRICOT/blob/master/shell_scripts/run_example.sh) that can be used for the demonstration of APRICOT installation including analysis with an example. 
-
-It uses [test datasets](https://github.com/malvikasharan/APRICOT/tree/master/tests/demo_files_small) for basic testing, which does not require installation of third party tools.
+The shell script: [APRICOT/shell_scripts/apricot_minimum_required_files.sh](https://raw.githubusercontent.com/malvikasharan/APRICOT/master/shell_scripts/apricot_minimum_required_files.sh), can be installed locally that could be used for multiple analysis.
 
 ````
-$ wget -N https://raw.githubusercontent.com/malvikasharan/APRICOT/master/shell_scripts/run_example.sh
-$ sh run_example.sh
+$ wget -N https://raw.githubusercontent.com/malvikasharan/APRICOT/master/shell_scripts/apricot_minimum_required_files.sh
+$ sh apricot_minimum_required_files.sh
 ````
 
-By default, this script generates a main analysis folder `APRICOT_analysis` and several sub-directories. To understand each components of the software and generated results, We recomend you to check out the [tutorial](https://github.com/malvikasharan/APRICOT/blob/master/documentation/APRICOT_tutorial.md). 
-
-Hint:
-
-The run scripts requires the command to run APRICOT. 
-
-When installed by pip, th executable location will be: /home/username/.local/bin/
-and the library location will be: /home/username/.local/lib/python3.5/site-packages/apricotlib/
-
-In that case, when calling the software (also edit the path when using the shell script run_example.sh and system_test.sh), please use the complete path name rather than using `apricot`, which will look for a globally installed software.
-
-When using `--user` flag for a local installation `$ pip3 install --user bio-apricot`, please check the paths for the executable and the libraries and provide them in the script.
+This script will install all the required tools and will create a directory `source_files` with all the required datasets as dicussed [here](https://github.com/malvikasharan/APRICOT/blob/master/documentation/data_requirements.md).
