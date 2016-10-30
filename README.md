@@ -25,7 +25,7 @@ Copyright (c) 2011-2015, Malvika Sharan, <malvika.sharan@uni-wuerzburg.de>
 
 Please read the license content [here](https://github.com/malvikasharan/APRICOT/blob/master/LICENSE.md).
 
-####APRICOT software 
+###APRICOT software 
 
 #####(not the complete filesystem)
 
