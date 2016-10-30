@@ -8,7 +8,7 @@ ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 
 # Get basic required packages and create root folders
-RUN apt-get update --yes && apt-get install wget git nano python3-pip build-essential --yes --fix-missing && \
+RUN apt-get update --yes && apt-get install wget git nano python3-pip build-essential libx11-dev --yes --fix-missing && \
     python3.5 -m pip install bio-apricot && cd /home && git clone https://github.com/malvikasharan/APRICOT.git && \
     mkdir -p \
     /home/emboss/needle \
