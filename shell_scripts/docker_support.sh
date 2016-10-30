@@ -24,7 +24,6 @@ main(){
 
 create_datapath(){
     for paths in \
-    $ROOT/source_files \
     $apricot_lib \
     $ROOT/source_files/reference_db_files \
     $ROOT/source_files/reference_db_files/cdd \
@@ -40,15 +39,8 @@ create_datapath(){
     $ROOT/source_files/reference_db_files/pdb/pdb2uniprot \
     $ROOT/source_files/reference_db_files/all_taxids \
     $ROOT/source_files/reference_db_files/pfam \
-    $ROOT/source_files/reference_db_files/needle \
-    $ROOT/source_files/reference_db_files/temp_needle \
     $ROOT/source_files/reference_db_files/blast
-    do
-        if [ ! -d $paths ]
-        then
-            mkdir $paths
-        fi
-    done
+    mkdir -P $paths
 }
 
 get_python_scripts(){
