@@ -7,6 +7,8 @@
 ROOT=/home  ## When installing inside the docker contaniner, please use the path `/home`
 
 apricot_lib=$ROOT/source_files/scripts
+interproversion=59.0
+interproscanversion=5.20-$interproversion
 
 ## path for apricot source files
 apricot_files=$ROOT/source_files/reference_db_files
@@ -58,17 +60,17 @@ get_cdd_and_interpro(){
     for folders in $ROOT/source_files/reference_db_files/cdd/Cdd/*.gz; do tar xvf $folders -C $ROOT/source_files/reference_db_files/cdd/Cdd; done
     wget -c -P $ROOT/source_files/reference_db_files/cdd/cdd_annotation_data ftp://ftp.ncbi.nih.gov/pub/mmdb/cdd/cddid.tbl.gz
     gunzip $ROOT/source_files/reference_db_files/cdd/cdd_annotation_data/*
-    wget -c -P $ROOT/source_files/reference_db_files/interpro ftp://ftp.ebi.ac.uk/pub/software/unix/iprscan/5/5.20-59.0/interproscan-5.20-59.0-64-bit.tar.gz
-    tar xvf $ROOT/source_files/reference_db_files/interpro/interproscan-5.20-59.0-64-bit.tar.gz -C $ROOT/source_files/reference_db_files/interpro
+    wget -c -P $ROOT/source_files/reference_db_files/interpro ftp://ftp.ebi.ac.uk/pub/software/unix/iprscan/5/$interproscanversion/interproscan-$interproscanversion-64-bit.tar.gz
+    tar xvf $ROOT/source_files/reference_db_files/interpro/interproscan-$interproscanversion-64-bit.tar.gz -C $ROOT/source_files/reference_db_files/interpro
     mv $ROOT/source_files/reference_db_files/interpro/interproscan-*/* $ROOT/source_files/reference_db_files/interpro/interproscan
     wget -O - ftp://ftp.ebi.ac.uk/pub/databases/interpro/ > $ROOT/source_files/reference_db_files/interpro/ipr_flatfile.html
-    wget -c -P $ROOT/source_files/reference_db_files/interpro/interpro_annotation_data ftp://ftp.ebi.ac.uk/pub/databases/interpro/59.0/interpro2go
-    wget -c -P $ROOT/source_files/reference_db_files/interpro/interpro_annotation_data ftp://ftp.ebi.ac.uk/pub/databases/interpro/59.0/interpro.xml.gz
+    wget -c -P $ROOT/source_files/reference_db_files/interpro/interpro_annotation_data ftp://ftp.ebi.ac.uk/pub/databases/interpro/$interproversion/interpro2go
+    wget -c -P $ROOT/source_files/reference_db_files/interpro/interpro_annotation_data ftp://ftp.ebi.ac.uk/pub/databases/interpro/$interproversion/interpro.xml.gz
     gunzip $ROOT/source_files/reference_db_files/interpro/interpro_annotation_data/interpro.xml.gz
     rm $ROOT/source_files/reference_db_files/interpro/interproscan/bin/prosite/pfsearch_wrapper.py
     wget -c -P $ROOT/source_files/reference_db_files/interpro/interproscan/bin/prosite/ \
     https://raw.githubusercontent.com/malvikasharan/interproscan/master/core/jms-implementation/support-mini-x86-32/bin/prosite/pfsearch_wrapper.py
-    rm -rf $ROOT/source_files/reference_db_files/interpro/interproscan-5.20-59.0-64-bit.tar.gz \
+    rm -rf $ROOT/source_files/reference_db_files/interpro/interproscan-$interproscanversion-64-bit.tar.gz \
     $PATH/source_files/reference_db_files/cdd/Cdd/*.gz
 }
 
