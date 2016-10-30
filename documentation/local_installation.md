@@ -41,7 +41,7 @@ The git-repository for APRICOT can be [downloaded manually](https://github.com/m
 $ git clone https://github.com/malvikasharan/APRICOT.git
 `````
 
-Please see the detailed documentation for the alternative installation instructions of the software using [Docker](https://github.com/malvikasharan/APRICOT/blob/master/Dockerfile) or [shell scripts](https://github.com/malvikasharan/APRICOT/blob/master/tests/system_test.sh).
+Please see the detailed documentation for the alternative installation instructions of the software using [Docker](https://github.com/malvikasharan/APRICOT/blob/master/Dockerfile) or [shell script](https://github.com/malvikasharan/APRICOT/blob/master/tests/system_test.sh) provided in the repository.
 
 ####Third party requirements for the software
 
