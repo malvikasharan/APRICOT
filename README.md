@@ -25,7 +25,9 @@ Copyright (c) 2011-2015, Malvika Sharan, <malvika.sharan@uni-wuerzburg.de>
 
 Please read the license content [here](https://github.com/malvikasharan/APRICOT/blob/master/LICENSE.md).
 
-####APRICOT software (not the complete filesystem)
+####APRICOT software 
+
+#####(not the complete filesystem)
 
 APRICOT is implemented in Python as a standalone and is executable on Ubuntu (and other debian-based) systems.
 
