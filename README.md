@@ -29,11 +29,11 @@ Copyright (c) 2011-2015, Malvika Sharan, <malvika.sharan@uni-wuerzburg.de>
 1. [Instructions for local installation](https://github.com/malvikasharan/APRICOT/blob/master/documentation/installation.md)
 1. [Tool and data dependencies](https://github.com/malvikasharan/APRICOT/blob/master/documentation/software_dependencies.md)
 1. [Different subcommands](https://github.com/malvikasharan/APRICOT/blob/master/documentation/subcommands.md)
-1. [Frequently asked questions](https://github.com/malvikasharan/APRICOT/blob/master/documentation/FAQs.md)
+1. [For the developers](https://github.com/malvikasharan/APRICOT/blob/master/documentation/for_the_developers.md)
 1. [Troubleshoot](https://github.com/malvikasharan/APRICOT/blob/master/documentation/troubleshooting.md)
+1. [Frequently asked questions](https://github.com/malvikasharan/APRICOT/blob/master/documentation/FAQs.md)
 1. [License](https://github.com/malvikasharan/APRICOT/blob/master/LICENSE.md)
 1. [Changelogs](https://github.com/malvikasharan/APRICOT/blob/master/CHANGELOGS.txt)
-1. [For the developers](https://github.com/malvikasharan/APRICOT/blob/master/documentation/for_the_developers.md)
 1. [Contact](https://github.com/malvikasharan/APRICOT/blob/master/documentation/contact.md)
 
 
