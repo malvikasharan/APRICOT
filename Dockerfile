@@ -39,7 +39,7 @@ RUN apt-get update --yes && apt-get install wget git nano python3-pip --yes --fi
     cp /home/source_files/reference_db_files/blast/bin/makeblastdb /usr/local/bin && \
     cp /home/source_files/reference_db_files/blast/bin/psiblast /usr/local/bin && \
     cp /home/source_files/reference_db_files/blast/bin/blastp /usr/local/bin && \
-    wget -P /home/emboss/needle ftp://emboss.open-bio.org/pub/EMBOSS/old/6.5.0/emboss-latest.tar.gz && \
+    wget -P /home/emboss/needle ftp://emboss.open-bio.org/pub/EMBOSS/EMBOSS-6.6.0.tar.gz && \
     tar -xvzf /home/emboss/needle/emboss-latest.tar.gz -C /home/emboss/needle && \
     mv /home/emboss/needle/EMBOSS*/* /home/emboss/needle && \
     cd /home/emboss/needle && ./configure && make && cd - && \
