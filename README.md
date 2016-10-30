@@ -46,6 +46,8 @@ $ pip3 install bio-apricot
 
 This will globally install APRICOT, which can be called via the command `apricot`, and the libraries from apricotlib will be saved.
 
+####OR
+
 #####Get APRICOT manually
 
 APRICOT is implemented in Python 3 and can be executed in Linux/Unix system. APRICOT requires few third party packages, namely [Biopython](http://biopython.org/wiki/Main_Page), [BLAST executables](https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE_TYPE=BlastDocs&DOC_TYPE=Download), [interproscan](https://www.ebi.ac.uk/interpro/interproscan.html), python libraries like [Matplotlib](http://matplotlib.org/), [requests](https://pypi.python.org/pypi/requests), openpyxl and few other optional tools that are mentioned below.
