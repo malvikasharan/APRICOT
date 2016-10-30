@@ -64,7 +64,7 @@ repository or simply clone it.
 
     $ git clone https://github.com/malvikasharan/APRICOT.git
 
-The `Docker image for APRICOT`_ is available on Docker hub. Please read the detailed documentation for the instructions to work with it (`see here`_).
+The `Docker image for APRICOT`_ is available on Docker hub. Please read the detailed `documentation`_ for the instructions.
 
 Working example
 ---------------
@@ -83,7 +83,7 @@ Malvika Sharan at malvika.sharan@uni-wuerzburg.de
 .. _APRICOT: http://malvikasharan.github.io/APRICOT/
 .. _here: https://github.com/malvikasharan/APRICOT/blob/master/LICENSE.md
 .. _Docker image for APRICOT: https://hub.docker.com/r/malvikasharan/apricot/
-.. _see here: https://github.com/malvikasharan/APRICOT
+.. _documentation: https://github.com/malvikasharan/APRICOT
 .. _tutorial: https://github.com/malvikasharan/APRICOT/blob/master/APRICOT_tutorial.md
 .. _run\_example.sh: https://github.com/malvikasharan/APRICOT/blob/master/shell_scripts/run_example.sh
 .. _tests: https://github.com/malvikasharan/APRICOT/tree/master/tests
