@@ -30,6 +30,13 @@ $ cd home
 $ apricot
 ````
 
+Try a test run:
+
+````
+$ cp APRICOT/shell_scripts/run_example.sh
+$ sh run_example.sh
+````
+
 ####Database requirements for the software
 
 An additional step for fetching the databases is required to carry out analysis by the software.
@@ -47,9 +54,15 @@ When the script is used for fetching the datasets inside the Docker container (i
 
 When the script is used to create a local dataset, use th following command to mount the directory `source_file` into the docker container:
 
-`$ docker run -it -v /$FULL_PWD/source_files/:/home/source_files malvikasharan/apricot bash`
+```
+$ docker run -it -v /$FULL_PWD/source_files/:/home/source_files malvikasharan/apricot bash
+$ cd home
+$ apricot
+```
 
 This will ensure that users would not have to get the dataset every time a new Docker container for APRICOT is created. Moreover, this will keep the size of the container small by not having to install the large databases inside the container.
+
+you can try a test run using the shell script run_example.sh as described above.
 
 ####Docker with complete filsystem
 
