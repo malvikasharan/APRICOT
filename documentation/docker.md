@@ -33,7 +33,7 @@ $ apricot
 Try a test run:
 
 ````
-$ cp APRICOT/shell_scripts/run_example.sh
+$ cp APRICOT/shell_scripts/run_example.sh .
 $ sh run_example.sh
 ````
 
@@ -57,7 +57,7 @@ When the script is used to create a local dataset, use th following command to m
 ```
 $ docker run -it -v /$FULL_PWD/source_files/:/home/source_files malvikasharan/apricot bash
 $ cd home
-$ cp APRICOT/shell_scripts/run_example.sh
+$ cp APRICOT/shell_scripts/run_example.sh .
 $ sh run_example.sh
 ```
 
@@ -71,7 +71,7 @@ To avoid the extra step for the installation of the databases locally (or inside
 $ docker pull malvikasharan/apricot_with_dependencies
 $ docker run -it malvikasharan/apricot_with_dependencies bash
 $ cd home
-$ cp APRICOT/shell_scripts/run_example.sh
+$ cp APRICOT/shell_scripts/run_example.sh .
 $ sh run_example.sh
 ````
 
