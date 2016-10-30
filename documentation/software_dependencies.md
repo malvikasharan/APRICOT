@@ -21,10 +21,11 @@
 
 ##Data structure for running the software
 
-The databases/datasets required to execute APRICOT software, a main data directory: `source_files`, with subfolder must be created either locally or inside the docker container using the shell script [APRICOT/shell_scripts/docker_support.sh](https://raw.githubusercontent.com/malvikasharan/APRICOT/master/shell_scripts/docker_support.sh). Please see the instructions for working with the [Docker image]().
+The docker image can be used to carry out the analysis by APRICOT which comprise of the the main software and the required tools.
 
-In case, users do not wish to run Docker image, the complete file system with the tool and dataset can be installed using the shell script 
-[APRICOT/shell_scripts/apricot_minimum_required_files.sh](https://raw.githubusercontent.com/malvikasharan/APRICOT/master/shell_scripts/apricot_minimum_required_files.sh). Please see the instructions for [local installation](https://github.com/malvikasharan/APRICOT/blob/master/documentation/local_installation.md).
+Additionally users are required to establish a repository containing all the databases/datasets in a directory `source_files`. 
+
+This can be carried out by using the sheel script [docker_support.sh](https://raw.githubusercontent.com/malvikasharan/APRICOT/master/shell_scripts/docker_support.sh) either locally or inside the docker container, which creates the directory with subfolders as illustrated below.
 
 ```
 source_files
@@ -41,3 +42,8 @@ source_files
             └───├go_mapping                     # GO related data containing GO anotation for the domains obtained from CDD and InterPro 
 
 ```
+Please see the instructions for working with the [Docker image](https://github.com/malvikasharan/APRICOT/blob/master/documentation/docker.md).
+
+In case, users do not wish to run Docker image, the complete file system with the tool and dataset can be installed using the shell script 
+[APRICOT/shell_scripts/apricot_minimum_required_files.sh](https://raw.githubusercontent.com/malvikasharan/APRICOT/master/shell_scripts/apricot_minimum_required_files.sh). Please see the instructions for [local installation](https://github.com/malvikasharan/APRICOT/blob/master/documentation/local_installation.md).
+
