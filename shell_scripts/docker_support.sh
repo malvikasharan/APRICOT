@@ -43,7 +43,7 @@ create_datapath(){
     $ROOT/source_files/reference_db_files/pfam \
     $ROOT/source_files/reference_db_files/blast
     do
-        mkdir -P $paths
+        mkdir -p $paths
     done
 }
 
