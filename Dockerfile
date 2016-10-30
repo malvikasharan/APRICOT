@@ -44,7 +44,7 @@ RUN wget -c -P /home/source_files/reference_db_files/blast ftp://ftp.ncbi.nih.go
     wget -P /home/emboss/needle ftp://emboss.open-bio.org/pub/EMBOSS/old/6.5.0/emboss-latest.tar.gz && \
     tar -xvzf /home/emboss/needle/emboss-latest.tar.gz -C /home/emboss/needle && \
     mv /home/emboss/needle/EMBOSS*/* /home/emboss/needle && \
-    cd /home/emboss/needle && ./configure && make && cd - && \
+    cd /home/emboss/needle && rm config.cache && make clean && ./configure && make && cd - && \
     cp /home/emboss/needle/emboss/needle /usr/local/bin && \
     mv /home/emboss/needle/* /home/emboss/temp_needle && \
     mv /home/emboss/temp_needle/ajax /home/emboss/needle && \
