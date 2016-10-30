@@ -10,18 +10,14 @@ ENV LC_ALL en_US.UTF-8
 # Get basic required packages and create root folders
 RUN apt-get update --yes && apt-get install wget git nano python3-pip --yes --fix-missing && \
     python3.5 -m pip install bio-apricot && cd /home && git clone https://github.com/malvikasharan/APRICOT.git && \
-    mkdir -p /home/source_files \
+    mkdir -p \
     /home/emboss/needle \
     /home/emboss/temp_needle \
-    /home/source_files/reference_db_files \
-    /home/source_files/reference_db_files/cdd \
     /home/source_files/reference_db_files/cdd/Cdd \
     /home/source_files/reference_db_files/cdd/cdd_annotation_data \
-    /home/source_files/reference_db_files/interpro \
     /home/source_files/reference_db_files/interpro/interproscan \
     /home/source_files/reference_db_files/interpro/interpro_annotation_data \
     /home/source_files/reference_db_files/go_mapping \
-    /home/source_files/reference_db_files/pdb \
     /home/source_files/reference_db_files/pdb/pdb_sequence \
     /home/source_files/reference_db_files/pdb/pdb_secstr \
     /home/source_files/reference_db_files/pdb/pdb2uniprot \
@@ -40,7 +36,7 @@ RUN apt-get update --yes && apt-get install wget git nano python3-pip --yes --fi
     cp /home/source_files/reference_db_files/blast/bin/psiblast /usr/local/bin && \
     cp /home/source_files/reference_db_files/blast/bin/blastp /usr/local/bin && \
     wget -P /home/emboss/needle ftp://emboss.open-bio.org/pub/EMBOSS/EMBOSS-6.6.0.tar.gz && \
-    tar -xvzf /home/emboss/needle/emboss-latest.tar.gz -C /home/emboss/needle && \
+    tar -xvzf /home/emboss/needle/EMBOSS-6.6.0.tar.gz -C /home/emboss/needle && \
     mv /home/emboss/needle/EMBOSS*/* /home/emboss/needle && \
     cd /home/emboss/needle && ./configure && make && cd - && \
     cp /home/emboss/needle/emboss/needle /usr/local/bin && \
