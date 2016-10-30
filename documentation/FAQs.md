@@ -9,17 +9,17 @@
 
 **1) I installed APRICOT using pip and I am trying to test the software using the script run_example.sh. Why does it shows me error messages about the missing files?**
 
-- APRICOT software contains the library and scripts to run the analysis, however it requires databases and tools to run the analysis. Although you do not need to install these resources to run an example (for testing purpose), but you still need a set of data to mimic these data sources. You can get these example datasets in the [gitHub repository](https://github.com/malvikasharan/APRICOT/tree/master/tests/demo_files_small) or download it from [Zenodo](https://zenodo.org/record/51705/files/APRICOT-1.0-demo_files-MS.zip). 
+- APRICOT contains the library and scripts to run the analysis, however it requires additionally databases and tools to run the analysis. Although you do not need to install these resources to run an example (for testing purpose), you still need a set of data to mimic these data sources. You can get these example datasets in the [git repository](https://github.com/malvikasharan/APRICOT/tree/master/tests/demo_files_small) or download it from [Zenodo](https://zenodo.org/record/51705/files/APRICOT-1.0-demo_files-MS.zip). 
 
 - The path for these files can be defined in the script run_example.sh using the variable `$DEMO_FILES`.
 
 **2) I installed APRICOT using pip and I am trying to test the software using the script run_example.sh. Why can't I run the subcommand `annoscore` and `addanno`?**
 
-- The subcommand `annoscore` requires the tool `needle` from the EMBOSS pakage and `addanno` uses Psortb and RaptorX. Hence,in order to run these subcommands of APRICOT a complete file-system (tool and database dependencies of the software) is required, which is supplied through APRICOT's Docker image. Alternatively see the script [apricot_minimum_required_files.sh](https://github.com/malvikasharan/APRICOT/blob/master/shell_scripts/apricot_minimum_required_files.sh) for manual installation.
+- The subcommand `annoscore` requires the tool `needle` from the EMBOSS pakage and `addanno` uses Psortb and RaptorX. Hence, in order to run these subcommands of APRICOT a complete file-system (tool and database dependencies of the software) is required, which is supplied through APRICOT's Docker image. Alternatively see the script [apricot_minimum_required_files.sh](https://github.com/malvikasharan/APRICOT/blob/master/shell_scripts/apricot_minimum_required_files.sh) for manual installation.
 
 - Please check the documentation or this [video tutorial](https://www.youtube.com/watch?v=V7uT1kgEYjI&index=9&list=PLVJHJxaTACqPD0Y1Ty6Qvi5SfaeWDfrMo) for the usage of these subcommand.
 
-- The complete list of software can be seen [here](https://github.com/malvikasharan/APRICOT/blob/master/software_dependencies.md), alternatively see the Dockerfile.
+- The complete list of software requirements can be seen [here](https://github.com/malvikasharan/APRICOT/blob/master/software_dependencies.md), alternatively see the Dockerfile.
 
 **3) What are the options to give query proteins for the analysis?**
 
