@@ -19,29 +19,8 @@
   - [Psortb](https://github.com/brinkmanlab/psortb-docker) for localization prediction (only for the subcomand addanno)
   - [RaptorX](https://github.com/Indicator/RaptorX-SS8.git) for secondary structure presiction (only for the subcomand addanno)
 
-##Data structure for running the software
+The filesystem and its structure is explained [here](https://github.com/malvikasharan/APRICOT/blob/master/documentation/filesystem_datsets.md) in details.
 
-The docker image can be used to carry out the analysis by APRICOT which comprise of the the main software and the required tools.
-
-Additionally users are required to establish a repository containing all the databases/datasets in a directory `source_files`. 
-
-This can be carried out by using the sheel script [docker_support.sh](https://raw.githubusercontent.com/malvikasharan/APRICOT/master/shell_scripts/docker_support.sh) either locally or inside the docker container, which creates the directory with subfolders as illustrated below.
-
-```
-source_files
-    └───├domain_data            # Location for the files containing keywords for domain selection and subsequently selected domains
-    |
-    └───├reference_db_files
-            └───├cdd                            # Cdd related reference files
-            |   └───├Cdd                        # Cdd database (Not required for the tutorial)
-            |   └───├cdd_annotation_data        # Cdd related annotation file
-            └───├pfam
-            └───├interpro                       # InterPro related reference files
-            |   └───├interproscan               # Interpro database and InterProScan related tools (Not required for the tutorial)
-            |   └───├interpro_annotation_data   # interPro related annotation files
-            └───├go_mapping                     # GO related data containing GO anotation for the domains obtained from CDD and InterPro 
-
-```
 Please see the instructions for working with the [Docker image](https://github.com/malvikasharan/APRICOT/blob/master/documentation/docker.md).
 
 In case, users do not wish to run Docker image, the complete file system with the tool and dataset can be installed using the shell script 
