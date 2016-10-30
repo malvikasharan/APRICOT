@@ -7,10 +7,17 @@
 
 ####APRICOT Docker image
 
-We recommend users to get the complete filesystem for APRICOT using [docker image](https://docs.docker.com/v1.8/userguide/dockerimages/):
+We recommend users to use APRICOT [docker image](https://docs.docker.com/v1.8/userguide/dockerimages/) which comprises of all the tool dependencies and allows a frictionfree functionalities of the software.
+
+Use the follwing command to pull th image toyour local system (the [docker](https://docs.docker.com/engine/installation/) must be installed):
+
 ````
 $ docker pull malvikasharan/apricot
 ````
+
+####Database requirements for the software
+
+This docker image requires an additional step for fetching the databases required to run the software.
 
 #####Run the container:
 ````
@@ -22,3 +29,7 @@ APRICOT is installed and can be called using command `apricot` and the libraries
 ````
 $ cd home
 ````
+
+####Docker with complete filsystem
+
+
