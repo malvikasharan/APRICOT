@@ -49,26 +49,17 @@ get_python_modules(){
 }
 
 create_main_path(){
-    if ! [ -d $apricot_files ]
-        then
-            mkdir -p $apricot_files
-    fi
-    for FOLDER in cdd interpro blast go_mapping pdb all_taxids pfam needle
+    mkdir -p $apricot_files
+    for FOLDER in cdd interpro blast go_mapping pdb all_taxids pfam
     do
-        if ! [ -d $apricot_files/$FOLDER ]
-        then
-            mkdir -p $apricot_files/$FOLDER
-        fi
+        mkdir -p $apricot_files/$FOLDER
     done
 }
 
 create_cdd_inpath(){
     for FOLDER in cdd_annotation_data Cdd
     do
-        if ! [ -d $apricot_files/cdd/$FOLDER ]
-        then
-            mkdir -p $apricot_files/cdd/$FOLDER
-        fi
+        mkdir -p $apricot_files/cdd/$FOLDER
     done
 }
 
@@ -95,10 +86,7 @@ check_and_download_cdd(){
 create_interpro_inpath(){
     for FOLDER in interpro_annotation_data interproscan
     do
-        if ! [ -d $apricot_files/interpro/$FOLDER ]
-        then
-            mkdir -p $apricot_files/interpro/$FOLDER
-        fi
+        mkdir -p $apricot_files/interpro/$FOLDER
     done
 }
 
@@ -136,10 +124,7 @@ uniprot_species_to_taxid(){
 create_pdb_inpath(){
     for FOLDER in pdb_sequence pdb_secstr pdb2uniprot
     do
-        if ! [ -d $apricot_files/pdb/$FOLDER ]
-        then
-            mkdir -p $apricot_files/pdb/$FOLDER
-        fi
+        mkdir -p $apricot_files/pdb/$FOLDER
     done
 }
 
@@ -195,10 +180,11 @@ ontology_mapping_to_domains(){
 }
 
 get_emboss(){
-    wget -P $apricot_files/needle ftp://emboss.open-bio.org/pub/EMBOSS/old/6.5.0/emboss-latest.tar.gz
-    tar -xvzf $apricot_files/needle/emboss-latest.tar.gz -C $apricot_files/needle
-    mv $apricot_files/needle/EMBOSS*/* $apricot_files/needle
-    cd $apricot_files/needle && ./configure && make && cd -
+    mkdir -p emboss/needle
+    wget -P emboss/needle ftp://emboss.open-bio.org/pub/EMBOSS/old/6.5.0/emboss-latest.tar.gz
+    tar -xvzf emboss/needle/emboss-latest.tar.gz -C emboss/needle
+    mv emboss/needle/EMBOSS*/* emboss/needle
+    cd emboss/needle && ./configure && make && cd -
     echo "In order to re-install please delete (rm) config.log file from your present working directory"
 }
 
