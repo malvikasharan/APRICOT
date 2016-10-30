@@ -11,6 +11,8 @@ ENV LC_ALL en_US.UTF-8
 RUN apt-get update --yes && apt-get install wget git nano python3-pip --yes --fix-missing && \
     python3.5 -m pip install bio-apricot && cd /home && git clone https://github.com/malvikasharan/APRICOT.git && \
     mkdir -p /home/source_files \
+    /home/emboss/needle \
+    /home/emboss/temp_needle \
     /home/source_files/reference_db_files \
     /home/source_files/reference_db_files/cdd \
     /home/source_files/reference_db_files/cdd/Cdd \
@@ -25,8 +27,6 @@ RUN apt-get update --yes && apt-get install wget git nano python3-pip --yes --fi
     /home/source_files/reference_db_files/pdb/pdb2uniprot \
     /home/source_files/reference_db_files/all_taxids \
     /home/source_files/reference_db_files/pfam \
-    /home/source_files/reference_db_files/needle \
-    /home/source_files/reference_db_files/temp_needle \
     /home/source_files/reference_db_files/blast
 
 ## Get and install BLAST modules
@@ -41,18 +41,18 @@ RUN wget -c -P /home/source_files/reference_db_files/blast ftp://ftp.ncbi.nih.go
     cp /home/source_files/reference_db_files/blast/bin/makeblastdb /usr/local/bin && \
     cp /home/source_files/reference_db_files/blast/bin/psiblast /usr/local/bin && \
     cp /home/source_files/reference_db_files/blast/bin/blastp /usr/local/bin && \
-    wget -P /home/source_files/reference_db_files/needle ftp://emboss.open-bio.org/pub/EMBOSS/old/6.5.0/emboss-latest.tar.gz && \
-    tar -xvzf /home/source_files/reference_db_files/needle/emboss-latest.tar.gz -C /home/source_files/reference_db_files/needle && \
-    mv /home/source_files/reference_db_files/needle/EMBOSS*/* /home/source_files/reference_db_files/needle && \
-    cd /home/source_files/reference_db_files/needle && ./configure && make && cd - && \
-    cp /home/source_files/reference_db_files/needle/emboss/needle /usr/local/bin && \
-    mv /home/source_files/reference_db_files/needle/* /home/source_files/reference_db_files/temp_needle && \
-    mv /home/source_files/reference_db_files/temp_needle/ajax /home/source_files/reference_db_files/needle && \
-    mv /home/source_files/reference_db_files/temp_needle/emboss /home/source_files/reference_db_files/needle && \
-    mv /home/source_files/reference_db_files/temp_needle/nucleus /home/source_files/reference_db_files/needle && \
-    mv /home/source_files/reference_db_files/temp_needle/plplot /home/source_files/reference_db_files/needle && \
-    mv /home/source_files/reference_db_files/temp_needle/scripts /home/source_files/reference_db_files/needle && \
-    rm -rf /home/source_files/reference_db_files/temp_needle \
+    wget -P /home/emboss/needle ftp://emboss.open-bio.org/pub/EMBOSS/old/6.5.0/emboss-latest.tar.gz && \
+    tar -xvzf /home/emboss/needle/emboss-latest.tar.gz -C /home/emboss/needle && \
+    mv /home/emboss/needle/EMBOSS*/* /home/emboss/needle && \
+    cd /home/emboss/needle && ./configure && make && cd - && \
+    cp /home/emboss/needle/emboss/needle /usr/local/bin && \
+    mv /home/emboss/needle/* /home/emboss/temp_needle && \
+    mv /home/emboss/temp_needle/ajax /home/emboss/needle && \
+    mv /home/emboss/temp_needle/emboss /home/emboss/needle && \
+    mv /home/emboss/temp_needle/nucleus /home/emboss/needle && \
+    mv /home/emboss/temp_needle/plplot /home/emboss/needle && \
+    mv /home/emboss/temp_needle/scripts /home/emboss/needle && \
+    rm -rf /home/emboss/temp_needle \
     /home/source_files/reference_db_files/blast/ncbi-blast-*+-x64-linux.tar.gz \
     /home/source_files/reference_db_files/blast/ncbi-blast-*+ \
     /home/source_files/reference_db_files/blast/bin/* \
