@@ -57,12 +57,11 @@ When the script is used to create a local dataset, use th following command to m
 ```
 $ docker run -it -v /$FULL_PWD/source_files/:/home/source_files malvikasharan/apricot bash
 $ cd home
-$ apricot
+$ cp APRICOT/shell_scripts/run_example.sh
+$ sh run_example.sh
 ```
 
 This will ensure that users would not have to get the dataset every time a new Docker container for APRICOT is created. Moreover, this will keep the size of the container small by not having to install the large databases inside the container.
-
-you can try a test run using the shell script run_example.sh as described above.
 
 ####Docker with complete filsystem
 
@@ -71,6 +70,9 @@ To avoid the extra step for the installation of the databases locally (or inside
 ````
 $ docker pull malvikasharan/apricot_with_dependencies
 $ docker run -it malvikasharan/apricot_with_dependencies bash
+$ cd home
+$ cp APRICOT/shell_scripts/run_example.sh
+$ sh run_example.sh
 ````
 
 
