@@ -31,66 +31,83 @@ Please read the license content [here](https://github.com/malvikasharan/APRICOT/
 
 APRICOT is implemented in Python as a standalone and is executable on Ubuntu (and other debian-based) systems.
 
-Please make sure that your system has pip and git installed 
-
-````
-$ apt-get install python3-pip git 
-````
-
-#####Get APRICOT via pip
-
-Then install APRICOT via pip (NOTE: this doesn't install the complete filesystem):
-````
-$ pip3 install bio-apricot 
-````
-
-This will globally install APRICOT, which can be called via the command `apricot`, and the libraries from apricotlib will be saved.
-
-####OR
-
-#####Get APRICOT manually
-
-APRICOT is implemented in Python 3 and can be executed in Linux/Unix system. APRICOT requires few third party packages, namely [Biopython](http://biopython.org/wiki/Main_Page), [BLAST executables](https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE_TYPE=BlastDocs&DOC_TYPE=Download), [interproscan](https://www.ebi.ac.uk/interpro/interproscan.html), python libraries like [Matplotlib](http://matplotlib.org/), [requests](https://pypi.python.org/pypi/requests), openpyxl and few other optional tools that are mentioned below.
-
-````
-$ apt-get install python3-matplotlib python3-numpy python3-scipy python3-biopython python3-requests --yes --fix-missing
-$ pip3 install openpyxl
-````
-
-The git-repository for APRICOT can be [downloaded manually](https://github.com/malvikasharan/APRICOT/archive/master.zip) or locally cloned:
-
-`````
-$ git clone https://github.com/malvikasharan/APRICOT.git
-`````
-
-Hint:
-
-Executable location will be: /home/username/.local/bin/
-and the library location will be: /home/username/.local/lib/python3.5/site-packages/apricotlib/
-
-In that case, when calling the software (also edit the path when using the shell script run_example.sh and system_test.sh), please use the complete path name rather than using `apricot`, which will look for a globally installed software.
-
-When using `--user` flag for a local installation `$ pip3 install --user bio-apricot`, please check the paths for the executable and the libraries.
-
 ####APRICOT Docker image
 
-We recommend users to get the complete tool requirements for APRICOT using [docker image](https://docs.docker.com/v1.8/userguide/dockerimages/):
+We recommend users to install Docker software in their system to use the [docker images](https://docs.docker.com/v1.8/userguide/dockerimages/). 
+
+In order to work with the Docker image for APRICOT, please follow these directions:
+
+1. Get Docker image
+
+The image can be acquired by simply using this command:
+
 ````
 $ docker pull malvikasharan/apricot
 ````
 
-#####Run the container:
+2. Run the Docker container
+
 ````
 $ docker run -it malvikasharan/apricot bash
 ````
+
 APRICOT is installed and can be called using command `apricot` and the libraries will be saved at `usr/local/lib/python3.5/site-packages/apricotlib/`
 
 #####Go to the `home` folder to test the software (instructions below):
 ````
 $ cd home
 ````
+###OR
 
-####Test if the software is successfully installed
+####Locally install the software using pip
+
+In order to work with locally installed software, follow these instructions.
+
+1. Make sure that your system has pip and git installed 
+
+````
+$ apt-get install python3-pip git 
+````
+
+2. Then install APRICOT via pip (NOTE: this doesn't install the complete filesystem):
+
+````
+$ pip3 install bio-apricot 
+````
+
+This will globally install APRICOT, which can be called via the command `apricot`, and the libraries from apricotlib will be saved.
+
+###OR
+
+####Get APRICOT manually
+
+APRICOT is implemented in Python3 and can be executed in Linux/Unix system. APRICOT requires few third party packages, namely [Biopython](http://biopython.org/wiki/Main_Page), [BLAST executables](https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE_TYPE=BlastDocs&DOC_TYPE=Download), [interproscan](https://www.ebi.ac.uk/interpro/interproscan.html), python libraries like [Matplotlib](http://matplotlib.org/), [requests](https://pypi.python.org/pypi/requests), openpyxl and other required tools.
+
+Follow these instructions to manually establish the software locally.
+
+1. Get the python dependencies
+
+````
+$ apt-get install python3-matplotlib python3-numpy python3-scipy python3-biopython python3-requests --yes --fix-missing
+$ pip3 install openpyxl
+````
+
+2. Get the repository for APRICOT from git either by clicking [here](https://github.com/malvikasharan/APRICOT/archive/master.zip) or locally cloned by using the following command:
+
+`````
+$ git clone https://github.com/malvikasharan/APRICOT.git
+`````
+
+###Hint:
+
+When installed locally, the location of the executable will be: /home/username/.local/bin/
+and the library location will be: /home/username/.local/lib/python3.5/site-packages/apricotlib/
+
+In that case, when calling the software (also edit the path when using the shell script run_example.sh and system_test.sh), please use the complete path name rather than using `apricot`, which will look for a globally installed software.
+
+When using `--user` flag for a local installation `$ pip3 install --user bio-apricot`, please check the paths for the executable and the libraries.
+
+###Test if the software is successfully installed
 
 Here is a quick way to test if different modules work in your system (without really installing the complete filesystem).
 
