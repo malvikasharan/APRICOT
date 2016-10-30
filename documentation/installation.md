@@ -65,38 +65,3 @@ Executable location will be: /home/username/.local/bin/
 and the library location will be: /home/username/.local/lib/python3.5/site-packages/apricotlib/
 
 In that case, when calling the software (also edit the path when using the shell script run_example.sh and system_test.sh), please use the complete path name rather than using `apricot`, which will look for a globally installed software.
-
-####APRICOT Docker image
-
-We recommend users to get the complete filesystem for APRICOT using [docker image](https://docs.docker.com/v1.8/userguide/dockerimages/):
-````
-$ docker pull malvikasharan/apricot
-````
-
-#####Run the container:
-````
-$ docker run -it malvikasharan/apricot bash
-````
-APRICOT is installed and can be called using command `apricot` and the libraries will be saved at `usr/local/lib/python3.5/site-packages/apricotlib/`
-
-#####Go to the `home` folder to test the software:
-````
-$ cd home
-````
-
-####For the developers
-
-A test folder, [tests](https://github.com/malvikasharan/APRICOT/tree/master/tests), exists in the repository to allow the system testing and demonstration of basic modules without installation. The instructions and commands are provided in the shell scipt [system_test.sh](https://github.com/malvikasharan/APRICOT/blob/master/tests/system_test.sh). 
-
-````
-$ cd APRICOT/test
-$ sh system_test.sh
-````
-By default, this script generates a main analysis folder `APRICOT_analysis` and several sub-directories. To understand each components of the software and generated results, We recomend you to check out the [tutorial](https://github.com/malvikasharan/APRICOT/blob/master/APRICOT_tutorial.md). 
-
-###Versions/Change log
-Please check the current version [here](https://github.com/malvikasharan/APRICOT/blob/master/CHANGELOGS.txt).
-
-####Contact
-For question, troubleshooting and requests, please feel free to contact Malvika Sharan at <malvika.sharan@uni-wuerzburg.de>.
-
