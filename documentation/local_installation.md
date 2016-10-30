@@ -5,7 +5,8 @@
 
 ![alt tag](https://github.com/malvikasharan/APRICOT/blob/master/APRICOT_logo.png)
 
-#### Installing APRICOT
+
+### Installing APRICOT via `pip` from PyPI
 
 APRICOT is implemented in Python as a standalone and is executable on Ubuntu (and other debian-based) systems.
 
@@ -15,8 +16,6 @@ Please make sure that your system has pip and git installed
 $ apt-get install python3-pip git 
 ````
 
-##### Get APRICOT via pip
-
 Then install APRICOT via pip (NOTE: this doesn't install the required tools and datasets):
 ````
 $ pip3 install bio-apricot 
@@ -24,11 +23,9 @@ $ pip3 install bio-apricot
 
 This will globally install APRICOT, which can be called via the command `apricot`, and the libraries from apricotlib will be saved.
 
-### OR
+#### Install APRICOT via GitHub
 
-#### Get APRICOT manually
-
-APRICOT is implemented in Python3 and can be executed in Linux/Unix system. APRICOT requires few third party packages, namely [Biopython](http://biopython.org/wiki/Main_Page), [BLAST executables](https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE_TYPE=BlastDocs&DOC_TYPE=Download), [interproscan](https://www.ebi.ac.uk/interpro/interproscan.html), python libraries like [Matplotlib](http://matplotlib.org/), [requests](https://pypi.python.org/pypi/requests), openpyxl and few other optional tools that are mentioned below.
+APRICOT is implemented in Python3 and can be executed in Linux/Unix systems. APRICOT requires few third party packages, namely [Biopython](http://biopython.org/wiki/Main_Page), [BLAST executables](https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE_TYPE=BlastDocs&DOC_TYPE=Download), [interproscan](https://www.ebi.ac.uk/interpro/interproscan.html), python libraries like [Matplotlib](http://matplotlib.org/), [requests](https://pypi.python.org/pypi/requests), openpyxl and few other optional tools that are mentioned below.
 
 ````
 $ apt-get install python3-matplotlib python3-numpy python3-scipy python3-biopython python3-requests --yes --fix-missing
