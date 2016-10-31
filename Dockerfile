@@ -8,7 +8,7 @@ ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 
 # Get basic required packages and create root folders
-RUN apt-get update --yes && apt-get install wget git nano python3-pip build-essential libx11-dev oracle-java7-installer --yes --fix-missing && apt-get clean \
+RUN apt-get update --yes && apt-get install wget git nano python3-pip build-essential libx11-dev --yes --fix-missing \
     python3.5 -m pip install bio-apricot && cd /home && git clone https://github.com/malvikasharan/APRICOT.git && \
     mkdir -p \
     /home/emboss/needle \
@@ -60,6 +60,22 @@ RUN apt-get update --yes && apt-get install wget git nano python3-pip build-esse
     usr/bin/*python2.7* \
     etc/python3.4 \
     etc/python2.7
+
+## install Java-8\
+# Oracle Java 8 for Debian jessie
+# URL: https://github.com/William-Yeh/docker-java8
+# Reference:  http://www.webupd8.org/2014/03/how-to-install-oracle-java-8-in-debian.html
+# Version     0.2
+
+# pull base image
+# add webupd8 repository
+
+RUN add-apt-repository ppa:webupd8team/java -y && \
+echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections && \
+apt-get install -y oracle-java7-installer
+
+# define default command
+CMD ["java"]
 
 # Removed the installation of DB and supporting files from the main Dockerfile to reduce the docker image size tremendously.
 
