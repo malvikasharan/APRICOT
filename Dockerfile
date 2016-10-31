@@ -11,8 +11,8 @@ ENV LC_ALL en_US.UTF-8
 RUN apt-get update --yes && apt-get install wget git nano python3-pip build-essential libx11-dev --yes --fix-missing && \
     python3.5 -m pip install bio-apricot && cd /home && git clone https://github.com/malvikasharan/APRICOT.git && \
     mkdir -p \
-    /home/tools/emboss/needle \
-    /home/tools/emboss/temp_needle \
+    /home/emboss/needle \
+    /home/emboss/temp_needle \
     /home/source_files/reference_db_files/blast \
     /home/source_files/reference_db_files/cdd/Cdd \
     /home/source_files/reference_db_files/cdd/cdd_annotation_data \
