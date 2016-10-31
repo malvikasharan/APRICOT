@@ -13,7 +13,7 @@ RUN apt-get update --yes && apt-get install wget git nano python3-pip build-esse
     mkdir -p \
     /home/tools/emboss/needle \
     /home/tools/emboss/temp_needle \
-    /home/tools/blast \
+    /home/source_files/reference_db_files/blast \
     /home/source_files/reference_db_files/cdd/Cdd \
     /home/source_files/reference_db_files/cdd/cdd_annotation_data \
     /home/source_files/reference_db_files/interpro/interproscan \
@@ -24,17 +24,17 @@ RUN apt-get update --yes && apt-get install wget git nano python3-pip build-esse
     /home/source_files/reference_db_files/pdb/pdb2uniprot \
     /home/source_files/reference_db_files/all_taxids \
     /home/source_files/reference_db_files/pfam \
-    && wget -c -P /home/tools/blast ftp://ftp.ncbi.nih.gov/blast/executables/LATEST/ncbi-blast-*+-x64-linux.tar.gz && \
-    tar -xvzf /home/tools/blast/ncbi-blast-*+-x64-linux.tar.gz -C /home/tools/blast && \
-    mv /home/tools/blast/ncbi-blast-*+/* /home/tools/blast && \
-    install /home/tools/blast/bin/psiblast /home/tools/blast && \
-    install /home/tools/blast/bin/rpsblast /home/tools/blast && \
-    install /home/tools/blast/bin/blastp /home/tools/blast && \
-    install /home/tools/blast/bin/makeblastdb /home/tools/blast && \
-    cp /home/tools/blast/bin/rpsblast /usr/local/bin && \
-    cp /home/tools/blast/bin/makeblastdb /usr/local/bin && \
-    cp /home/tools/blast/bin/psiblast /usr/local/bin && \
-    cp /home/tools/blast/bin/blastp /usr/local/bin && \
+    && wget -c -P /home/source_files/reference_db_files/blast ftp://ftp.ncbi.nih.gov/blast/executables/LATEST/ncbi-blast-*+-x64-linux.tar.gz && \
+    tar -xvzf /home/source_files/reference_db_files/blast/ncbi-blast-*+-x64-linux.tar.gz -C /home/source_files/reference_db_files/blast && \
+    mv /home/source_files/reference_db_files/blast/ncbi-blast-*+/* /home/source_files/reference_db_files/blast && \
+    install /home/source_files/reference_db_files/blast/bin/psiblast /home/source_files/reference_db_files/blast && \
+    install /home/source_files/reference_db_files/blast/bin/rpsblast /home/source_files/reference_db_files/blast && \
+    install /home/source_files/reference_db_files/blast/bin/blastp /home/source_files/reference_db_files/blast && \
+    install /home/source_files/reference_db_files/blast/bin/makeblastdb /home/source_files/reference_db_files/blast && \
+    cp /home/source_files/reference_db_files/blast/bin/rpsblast /usr/local/bin && \
+    cp /home/source_files/reference_db_files/blast/bin/makeblastdb /usr/local/bin && \
+    cp /home/source_files/reference_db_files/blast/bin/psiblast /usr/local/bin && \
+    cp /home/source_files/reference_db_files/blast/bin/blastp /usr/local/bin && \
     wget -P /home/emboss/needle ftp://emboss.open-bio.org/pub/EMBOSS/emboss-latest.tar.gz && \
     tar -xvzf /home/emboss/needle/emboss-latest.tar.gz -C /home/emboss/needle && \
     mv /home/emboss/needle/EMBOSS*/* /home/emboss/needle && \
@@ -47,9 +47,9 @@ RUN apt-get update --yes && apt-get install wget git nano python3-pip build-esse
     mv /home/emboss/temp_needle/plplot /home/emboss/needle && \
     mv /home/emboss/temp_needle/scripts /home/emboss/needle && \
     rm -rf /home/emboss/temp_needle \
-    /home/tools/blast/ncbi-blast-*+-x64-linux.tar.gz \
-    /home/tools/blast/ncbi-blast-*+ \
-    /home/tools/blast/bin/* \
+    /home/source_files/reference_db_files/blast/ncbi-blast-*+-x64-linux.tar.gz \
+    /home/source_files/reference_db_files/blast/ncbi-blast-*+ \
+    /home/source_files/reference_db_files/blast/bin/* \
     /usr/local/python3.4 \
     /usr/local/python2.7 \
     /usr/local/lib/python3.4 \
