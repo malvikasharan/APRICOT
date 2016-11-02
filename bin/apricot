@@ -551,9 +551,6 @@ def ipr_based_pred(fasta_path, outpath, ipr_db):
             ipr_process = subprocess.Popen(
                 ["bash %s/interproscan.sh -i %s/%s -b %s/%s -f tsv -dp -goterms" %
                  (ipr_db, fasta_path, fasta, outpath, filename)], shell=True).wait()
-            print("NOTE: The current version of InterProScan runs on Java-7 as of 2015")
-            print("If you have have Java-8 or up you can change the Java path in the interproscan.sh configuration file.")
-            print("for example: JAVA=$(type -p /usr/lib/jvm/java-7-openjdk-amd64/jre/bin/java)")
             
 def force_ipr_based_pred(fasta_path, outpath, ipr_db):
     for fasta in os.listdir(fasta_path):
