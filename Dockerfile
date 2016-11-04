@@ -62,33 +62,13 @@ RUN apt-get update --yes && apt-get install wget git nano python3-pip --yes --fi
     etc/python2.7
 
 ## install Java-8\
-# Copyright 2015 Robert Van Voorhees
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-
-# From https://github.com/tifayuki/docker-image-java/blob/master/7/Dockerfile
-# Which was found from https://github.com/Netflix-Skunkworks/zerotodocker
-# Then modified for a Fedora environment rather than Ubuntu
-# Then further modified from https://github.com/dockerfile/java/blob/master/openjdk-6-jdk/Dockerfile
-
-#
 # Oracle Java 8 Dockerfile
 #
 # https://github.com/dockerfile/java
 # https://github.com/dockerfile/java/tree/master/oracle-java8
 # Pull base image.
-FROM dockerfile/ubuntu
 
+FROM dockerfile/ubuntu
 # Install Java.
 RUN \
   echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | debconf-set-selections && \
@@ -97,17 +77,12 @@ RUN \
   apt-get install -y oracle-java8-installer && \
   rm -rf /var/lib/apt/lists/* && \
   rm -rf /var/cache/oracle-jdk8-installer
-
-
 # Define working directory.
 WORKDIR /data
-
 # Define commonly used JAVA_HOME variable
 ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
-
 # Define default command.
 CMD ["bash"]
-
 # Removed the installation of DB and supporting files from the main Dockerfile to reduce the docker image size tremendously.
 
 ## The following actions will now be executed inside the docker image using the command: `cd /home && sh APRICOT/shell_scripts/docker_support.sh` 
