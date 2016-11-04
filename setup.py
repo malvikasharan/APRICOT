@@ -6,7 +6,7 @@ except ImportError:
     from distutils.core import setup
 
 setup(name='bio-APRICOT',
-      version='1.2.0',
+      version='1.2.1',
       description=('Sequence-based identification and characterization '
                    'of protein classes'),
       author='Malvika Sharan',
