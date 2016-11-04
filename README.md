@@ -19,7 +19,7 @@ The source codes of APRICOT are available via git https://github.com/malvikashar
 
 APRICOT is open source software and is available under the ISC license.
 
-Copyright (c) 2011-2015, Malvika Sharan, <malvika.sharan@uni-wuerzburg.de>
+Copyright (c) 2011-2016, Malvika Sharan, <malvika.sharan@uni-wuerzburg.de>
 
 ###Detailed documentations
 
