@@ -53,17 +53,18 @@ Python packages required for APRICOT can be installed with pip
     $ pip install bio-apricot
     
 
-Or update the package list manually: sudo apt-get update and install the required packages (sudo apt-get install python3-matplotlib python3-numpy python3-scipy python3-biopython python3-requests python3-openpyxl).
+Or update the package list manually: `sudo apt-get update` and install the required packages (`sudo apt-get install python3-matplotlib python3-numpy python3-scipy python3-biopython python3-requests python3-openpyxl`).
 
-The scripts for the installaton of the different componenents of APRICOT
-(databases, tools and flatfiles) are available on the GitHub repository.
-You can manually download the APRICOT repository or simply clone it.
+The scripts for the installaton of the different componenents of
+APRICOT (databases, tools and flatfiles) are available in the git
+repository on GitHub.  You can manually download the APRICOT
+repository or simply clone it.
 
 ::
 
     $ git clone https://github.com/malvikasharan/APRICOT.git
 
-The `Docker image for APRICOT`_ is available on th Docker hub. Please the detailed documentation for the instructions to work with it (`see here`_).
+The `Docker image for APRICOT`_ is available on Docker hub. Please read the detailed `documentation`_ for the instructions.
 
 Working example
 ---------------
@@ -82,7 +83,7 @@ Malvika Sharan at malvika.sharan@uni-wuerzburg.de
 .. _APRICOT: http://malvikasharan.github.io/APRICOT/
 .. _here: https://github.com/malvikasharan/APRICOT/blob/master/LICENSE.md
 .. _Docker image for APRICOT: https://hub.docker.com/r/malvikasharan/apricot/
-.. _see here: https://github.com/malvikasharan/APRICOT
+.. _documentation: https://github.com/malvikasharan/APRICOT
 .. _tutorial: https://github.com/malvikasharan/APRICOT/blob/master/APRICOT_tutorial.md
 .. _run\_example.sh: https://github.com/malvikasharan/APRICOT/blob/master/shell_scripts/run_example.sh
 .. _tests: https://github.com/malvikasharan/APRICOT/tree/master/tests

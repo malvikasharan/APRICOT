@@ -5,7 +5,7 @@
 
 ![alt tag](https://github.com/malvikasharan/APRICOT/blob/master/APRICOT_logo.png)
 
-##Data structure for running the software
+## Databases for running the software
 
 The docker image can be used to carry out the analysis by APRICOT which comprise of the the main software and the required tools.
 
