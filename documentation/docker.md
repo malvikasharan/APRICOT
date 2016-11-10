@@ -63,7 +63,7 @@ $ sh run_example.sh
 
 This will ensure that users would not have to get the dataset every time a new Docker container for APRICOT is created. Moreover, this will keep the size of the container small by not having to install the large databases inside the container.
 
-#### Docker image with all depencies
+#### Docker image with all dependencies
 
 To avoid the extra step for the installation of the databases locally (or inside the Docker container), an optional Docker image containing all dependencies can be used.
 
