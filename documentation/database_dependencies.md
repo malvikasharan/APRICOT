@@ -14,6 +14,11 @@ Additionally users are required to establish a repository containing all the dat
 This can be carried out by using the sheel script [docker_support.sh](https://raw.githubusercontent.com/malvikasharan/APRICOT/master/shell_scripts/docker_support.sh) either locally or inside the docker container, which creates the directory with subfolders as illustrated below.
 
 ```
+$ wget https://raw.githubusercontent.com/malvikasharan/APRICOT/master/shell_scripts/docker_support.sh
+$ sh docker_support.sh
+```
+
+```
 source_files
     └───├domain_data            # Location for the files containing keywords for domain selection and subsequently selected domains
     |
