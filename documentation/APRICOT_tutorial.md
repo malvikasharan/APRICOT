@@ -18,7 +18,7 @@ APRICOT and understand the basic usage of this pipeline.
 from GitHub, which will assist you in following the tutorial. Use wget or curl to download the script.
 
 ```
-$ wget -N https://raw.githubusercontent.com/malvikasharan/APRICOT/master/shell_scripts/run_example.sh
+$ wget https://raw.githubusercontent.com/malvikasharan/APRICOT/master/shell_scripts/run_example.sh
 ```
 OR
 ```
