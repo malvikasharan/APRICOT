@@ -51,19 +51,20 @@ In order to work with the Docker image for APRICOT, please follow these directio
 
 1. Get Docker image
 
-The image can be acquired by simply using this command:
+  The image can be acquired by simply using this command:
 
-````
-$ docker pull malvikasharan/apricot
-````
+  ````
+  $ docker pull malvikasharan/apricot
+  ````
 
 2. Run the Docker container
 
-````
-$ docker run -it malvikasharan/apricot bash
-````
+  ````
+  $ docker run -it malvikasharan/apricot bash
+  ````
 
-APRICOT is installed and can be called using command `apricot` and the libraries will be saved at `usr/local/lib/python3.5/site-packages/apricotlib/`
+APRICOT is installed and can be called using command `apricot`.
+The libraries will be saved at `usr/local/lib/python3.5/site-packages/apricotlib/`
 
 #####Go to the `home` folder to test the software (instructions below):
 ````
