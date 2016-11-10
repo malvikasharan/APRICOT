@@ -19,7 +19,7 @@
   - [Psortb](https://github.com/brinkmanlab/psortb-docker) for localization prediction (only for the subcomand addanno)
   - [RaptorX](https://github.com/Indicator/RaptorX-SS8.git) for secondary structure presiction (only for the subcomand addanno)
 
-#### The database requirement and and how they need to be structured are explained [here](https://github.com/malvikasharan/APRICOT/blob/master/documentation/database_dependencies.md) in details.
+#### Click [here](https://github.com/malvikasharan/APRICOT/blob/master/documentation/database_dependencies.md), to see the explanation of the database requirement and their structure.
 
 Please see the instructions for working with the [Docker image](https://github.com/malvikasharan/APRICOT/blob/master/documentation/docker.md).
 
