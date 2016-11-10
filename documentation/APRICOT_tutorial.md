@@ -25,7 +25,13 @@ OR
 $ curl -O https://raw.githubusercontent.com/malvikasharan/APRICOT/master/shell_scripts/run_example.sh
 ```
 
-2) Use [pip](https://pip.pypa.io/en/stable/) to install/update the python packages
+2) Download [APRICOT repository](https://github.com/malvikasharan/APRICOT/archive/master.zip) from GiHub 
+
+```
+$ git clone https://github.com/malvikasharan/APRICOT.git
+```
+
+3) Use [pip](https://pip.pypa.io/en/stable/) to install/update the python packages
 
 ```
 $ pip install bio-apricot
@@ -37,11 +43,9 @@ or
 $ pip install --user bio-apricot
 ```
 
-3) Download [APRICOT repository](https://github.com/malvikasharan/APRICOT/archive/master.zip) from GiHub 
+or
 
-```
-$ git clone https://github.com/malvikasharan/APRICOT.git
-```
+Use the script from the git repo using python3: `APRICOT/bin/apricot`
 
 #### Not required for this tutorial
 
@@ -69,6 +73,8 @@ Check the subcommands:
 ```
 apricot -h
 ```
+
+or
 
 **If you are using locally installed git repository**
 
