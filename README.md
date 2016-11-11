@@ -39,8 +39,6 @@ Copyright (c) 2011-2016, Malvika Sharan, <malvika.sharan@uni-wuerzburg.de>
 
 ###Get APRICOT software 
 
-#####(not the complete filesystem)
-
 APRICOT is implemented in Python as a standalone and is executable on Ubuntu (and other debian-based) systems.
 
 ####APRICOT Docker image
