@@ -53,24 +53,61 @@ In order to work with the Docker image for APRICOT, please follow these directio
 
   The image can be acquired by simply using this command:
 
-  ````
+  ```
   $ docker pull malvikasharan/apricot
-  ````
+  ```
 
-2. Run the Docker container
+2. Test the Docker container by running the basic software
 
-  ````
+  ```
   $ docker run -it malvikasharan/apricot bash
-  ````
-
-APRICOT is installed and can be called using command `apricot`.
-The libraries will be saved at `usr/local/lib/python3.5/site-packages/apricotlib/`
+  ```
 
 #####Go to the `home` folder to test the software (instructions below):
-````
+  ```
+  $ cd home
+  $ apricot -h
+  ```
+
+3. Test if the software is successfully installed
+
+Here is a quick way to test if different modules work in your system (without really installing the complete filesystem).
+
+The repository contains a shell script [APRICOT/shell_scripts/run_example.sh](https://github.com/malvikasharan/APRICOT/blob/master/shell_scripts/run_example.sh) with shell commands that can be used for the demonstration of APRICOT installation including analysis with an example. 
+
+  ```
+  $ wget -N https://raw.githubusercontent.com/malvikasharan/APRICOT/master/shell_scripts/run_example.sh
+  $ sh run_example.sh
+  ```
+
+By default, this script generates a main analysis folder `APRICOT_analysis` and several sub-directories. To understand each components of the software and generated results, We recomend you to check out the [tutorial](https://github.com/malvikasharan/APRICOT/blob/master/documentation/APRICOT_tutorial.md).
+
+4. Test APRICOT with complete filesystem (required for running your queries)
+
+Users are required a directory `source_files` containing all the [required files](https://github.com/malvikasharan/APRICOT/blob/master/documentation/database_dependencies.md), which can be downloaded in the local system or inside the docker container (in the `home` folder) as shown below:
+
+  ```
+  $ wget https://data.imib-zinf.net/APRICOT-supporting_dataset.zip --no-check-certificate
+  $ unzip APRICOT-supporting_dataset.zip
+  ```
+
+Alternatively these files can be installed/downloaded using the script docker_support.sh provided in the git repository of APRICOT.
+
+  ```
+  $ wget https://raw.githubusercontent.com/malvikasharan/APRICOT/master/shell_scripts/docker_support.sh
+  $ sh docker_support.sh
+  ```
+
+When the `source_files` is installed in the `home`folder of the container, APRICOT can be used as shown in the point 2 and 3, but if the files are established in the local system, use the following command to mount the directory `source_file` into the Docker container:
+
+```
+$ docker run -it -v /{$FULL_PATH_SOURCE_FILES}/source_files/:/home/source_files malvikasharan/apricot bash
 $ cd home
-````
-###OR
+$ cp APRICOT/shell_scripts/run_example.sh .
+$ sh run_example.sh
+```
+
+###Alternative ways to install APRICOT
 
 ####Locally install the software using pip
 
@@ -119,16 +156,3 @@ and the library location will be: /home/username/.local/lib/python3.5/site-packa
 In that case, when calling the software (also edit the path when using the shell script run_example.sh and system_test.sh), please use the complete path name rather than using `apricot`, which will look for a globally installed software.
 
 When using `--user` flag for a local installation `$ pip3 install --user bio-apricot`, please check the paths for the executable and the libraries.
-
-###Test if the software is successfully installed
-
-Here is a quick way to test if different modules work in your system (without really installing the complete filesystem).
-
-The repository contains a shell script [APRICOT/shell_scripts/run_example.sh](https://github.com/malvikasharan/APRICOT/blob/master/shell_scripts/run_example.sh) with shell commands that can be used for the demonstration of APRICOT installation including analysis with an example. 
-
-````
-$ wget -N https://raw.githubusercontent.com/malvikasharan/APRICOT/master/shell_scripts/run_example.sh
-$ sh run_example.sh
-````
-
-By default, this script generates a main analysis folder `APRICOT_analysis` and several sub-directories. To understand each components of the software and generated results, We recomend you to check out the [tutorial](https://github.com/malvikasharan/APRICOT/blob/master/documentation/APRICOT_tutorial.md).
