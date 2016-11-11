@@ -63,17 +63,16 @@ In order to work with the Docker image for APRICOT, please follow these directio
   $ docker run -it malvikasharan/apricot bash
   ```
 
+**3. Test if the software is successfully installed**
+
+  Here is a quick way to test if different modules work in your system (without really installing the complete filesystem).
+   
   **Go to the `home` folder to test the software**
   ```
   $ cd home
   $ apricot -h
   ```
-
-**3. Test if the software is successfully installed**
-
-  Here is a quick way to test if different modules work in your system (without really installing the complete filesystem).
-
-  The repository contains a shell script [APRICOT/shell_scripts/run_example.sh](https://github.com/malvikasharan/APRICOT/blob/master/shell_scripts/run_example.sh) with shell commands that can be used for the demonstration of APRICOT installation including analysis with an example. 
+  The git repository contains a shell script [APRICOT/shell_scripts/run_example.sh](https://github.com/malvikasharan/APRICOT/blob/master/shell_scripts/run_example.sh) with shell commands that can be used for the demonstration of APRICOT installation including analysis with an example. 
 
   ```
   $ wget -N https://raw.githubusercontent.com/malvikasharan/APRICOT/master/shell_scripts/run_example.sh
@@ -116,18 +115,18 @@ In order to work with locally installed software, follow these instructions.
 
 1. Make sure that your system has pip and git installed 
 
-````
-$ apt-get install python3-pip git 
-````
+  ````
+  $ apt-get install python3-pip git 
+  ````
 
 2. Then install APRICOT via pip (NOTE: this doesn't install the complete filesystem):
 
-````
-$ pip3 install bio-apricot 
-````
+  ````
+  $ pip3 install bio-apricot 
+  ````
 
-This will globally install APRICOT, which can be called via the command `apricot`, and the libraries from apricotlib will be saved.
-
+  This will globally install APRICOT, which can be called via the command `apricot`, and the libraries from apricotlib will be saved.
+  Follow the points 3 & 4 to execute the software as shown above.
 ###OR
 
 ####Get APRICOT manually
@@ -138,16 +137,17 @@ Follow these instructions to manually establish the software locally.
 
 1. Get the python dependencies
 
-````
-$ apt-get install python3-matplotlib python3-numpy python3-scipy python3-biopython python3-requests --yes --fix-missing
-$ pip3 install openpyxl
-````
+  ````
+  $ apt-get install python3-matplotlib python3-numpy python3-scipy python3-biopython python3-requests --yes --fix-missing
+  $ pip3 install openpyxl
+  ````
 
 2. Get the repository for APRICOT from git either by clicking [here](https://github.com/malvikasharan/APRICOT/archive/master.zip) or locally cloned by using the following command:
 
-`````
-$ git clone https://github.com/malvikasharan/APRICOT.git
-`````
+  ```
+  $ git clone https://github.com/malvikasharan/APRICOT.git
+  ```  
+  Follow the points 3 & 4 to execute the software as shown above.
 
 ###Hint:
 
