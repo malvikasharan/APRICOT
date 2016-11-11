@@ -49,7 +49,7 @@ We recommend users to install Docker software in their system to use the [docker
 
 In order to work with the Docker image for APRICOT, please follow these directions:
 
-1. Get Docker image
+**1. Get Docker image**
 
   The image can be acquired by simply using this command:
 
@@ -57,7 +57,7 @@ In order to work with the Docker image for APRICOT, please follow these directio
   $ docker pull malvikasharan/apricot
   ```
 
-2. Test the Docker container by running the basic software
+**2. Test the Docker container by running the basic software**
 
   ```
   $ docker run -it malvikasharan/apricot bash
@@ -69,7 +69,7 @@ In order to work with the Docker image for APRICOT, please follow these directio
   $ apricot -h
   ```
 
-3. Test if the software is successfully installed
+**3. Test if the software is successfully installed**
 
   Here is a quick way to test if different modules work in your system (without really installing the complete filesystem).
 
@@ -82,9 +82,9 @@ In order to work with the Docker image for APRICOT, please follow these directio
 
   By default, this script generates a main analysis folder `APRICOT_analysis` and several sub-directories. To understand each components of the software and generated results, We recomend you to check out the [tutorial](https://github.com/malvikasharan/APRICOT/blob/master/documentation/APRICOT_tutorial.md).
 
-4. Test APRICOT with complete filesystem (required for running your queries)
+**4. Test APRICOT with complete filesystem (required for running your queries)**
 
-Users are required to establish a directory `source_files` containing all the [required files](https://github.com/malvikasharan/APRICOT/blob/master/documentation/database_dependencies.md), which can be downloaded in the local system or inside the docker container (in the `home` folder) as shown below:
+  Users are required to establish a directory `source_files` containing all the [required files](https://github.com/malvikasharan/APRICOT/blob/master/documentation/database_dependencies.md), which can be downloaded in the local system or inside the docker container (in the `home` folder) as shown below:
 
   ```
   $ wget https://data.imib-zinf.net/APRICOT-supporting_dataset.zip --no-check-certificate
@@ -106,7 +106,7 @@ Users are required to establish a directory `source_files` containing all the [r
   $ cp APRICOT/shell_scripts/run_example.sh .
   $ sh run_example.sh
   ```
-For further details, please check the [Tutorial](https://github.com/malvikasharan/APRICOT/blob/master/documentation/APRICOT_tutorial.md) and [Tools and data dependencies](https://github.com/malvikasharan/APRICOT/blob/master/documentation/software_dependencies.md)
+  For further details, please check the [Tutorial](https://github.com/malvikasharan/APRICOT/blob/master/documentation/APRICOT_tutorial.md) and [Tools and data dependencies](https://github.com/malvikasharan/APRICOT/blob/master/documentation/software_dependencies.md)
 
 ###Alternative ways to install APRICOT
 
