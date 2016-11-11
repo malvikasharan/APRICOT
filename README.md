@@ -63,7 +63,7 @@ In order to work with the Docker image for APRICOT, please follow these directio
   $ docker run -it malvikasharan/apricot bash
   ```
 
-  #####Go to the `home` folder to test the software (instructions below):
+  ##### Go to the `home` folder to test the software (instructions below):
   ```
   $ cd home
   $ apricot -h
