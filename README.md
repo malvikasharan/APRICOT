@@ -54,33 +54,36 @@ In order to work with the Docker image for APRICOT, please follow these directio
   ```
   $ docker pull malvikasharan/apricot
   ```
-  **Test run the Docker container**
 
+**2. Create the Docker container for testing the software**
+  
   ```
   $ docker run -it malvikasharan/apricot bash
   ```
-
-**2. Test if the software is successfully installed**
-
+  
   Here is a quick way to test if different modules work in your system (without really installing the complete filesystem).
-   
-  **Go to the `home` folder**
+  
+  **Run the analysis in the `home` folder**
+  
   ```
   $ cd home
   $ apricot -h
   ```
-  The git repository contains a shell script [APRICOT/shell_scripts/run_example.sh](https://github.com/malvikasharan/APRICOT/blob/master/shell_scripts/run_example.sh) with shell commands that can be used for the demonstration of APRICOT installation including analysis with an example. 
+  
+   **Run test/example analysis**
+  
+   The git repository contains a shell script [APRICOT/shell_scripts/run_example.sh](https://github.com/malvikasharan/APRICOT/blob/master/shell_scripts/run_example.sh) with shell commands that can be used for the demonstration of APRICOT installation including analysis with an example. 
 
   ```
-  $ wget -N https://raw.githubusercontent.com/malvikasharan/APRICOT/master/shell_scripts/run_example.sh
+  $ wget https://raw.githubusercontent.com/malvikasharan/APRICOT/master/shell_scripts/run_example.sh
   $ sh run_example.sh
   ```
-
+  
   By default, this script generates a main analysis folder `APRICOT_analysis` and several sub-directories. To understand each components of the software and generated results, We recomend you to check out the [tutorial](https://github.com/malvikasharan/APRICOT/blob/master/documentation/APRICOT_tutorial.md).
 
-**3. Test APRICOT with complete filesystem (required for running your queries)**
+**3. Get the supporting data required for running your queries**
 
-  Users are required to establish a directory `source_files` containing all the [required files](https://github.com/malvikasharan/APRICOT/blob/master/documentation/database_dependencies.md), which can be downloaded in the local system or inside the docker container (in the `home` folder) as shown below:
+  Users are required to establish a directory `source_files` containing all the [required files](https://github.com/malvikasharan/APRICOT/blob/master/documentation/database_dependencies.md), which can be set-up as shown below inside the docker container (in the `home` folder) or in the local system (in that case exit the Docker container by `exit`):
 
   ```
   $ wget https://data.imib-zinf.net/APRICOT-supporting_dataset.zip --no-check-certificate
@@ -94,12 +97,18 @@ In order to work with the Docker image for APRICOT, please follow these directio
   $ sh docker_support.sh
   ```
 
-  When the `source_files` is installed in the `home`folder of the container, APRICOT can be used as shown in the point 2 and 3, but if the files are established in the local system, use the following command to mount the directory `source_file` into the Docker container:
+**4. Using the supporting data from the local system (Recommended)**
+    
+  When the directory `source_files` is set-up in the local system, use the following command to mount the directory `source_file` into the Docker container (provide full path for $FULL_PATH_SOURCE_FILES):
 
   ```
   $ docker run -it -v /{$FULL_PATH_SOURCE_FILES}/source_files/:/home/source_files malvikasharan/apricot bash
   $ cd home
-  $ cp APRICOT/shell_scripts/run_example.sh .
+  ```
+  
+**5. Carry out analysis by APRICOT**
+  ```
+  $ wget -N https://raw.githubusercontent.com/malvikasharan/APRICOT/master/shell_scripts/run_example.sh
   $ sh run_example.sh
   ```
   For further details, please check the [Tutorial](https://github.com/malvikasharan/APRICOT/blob/master/documentation/APRICOT_tutorial.md) and [Tools and data dependencies](https://github.com/malvikasharan/APRICOT/blob/master/documentation/software_dependencies.md)
@@ -123,7 +132,7 @@ In order to work with locally installed software, follow these instructions.
   ````
 
   This will globally install APRICOT, which can be called via the command `apricot`, and the libraries from apricotlib will be saved.
-  Follow the points 2 & 3 to execute the software as shown above.
+  Follow the above listed points 3 & 5 to execute the software as shown above.
 ###OR
 
 ####Get APRICOT manually
@@ -144,7 +153,7 @@ Follow these instructions to manually establish the software locally.
   ```
   $ git clone https://github.com/malvikasharan/APRICOT.git
   ```  
-  Follow the points 2 & 3 to execute the software as shown above.
+  Follow the above listed points 3 & 5 to execute the software as shown above.
 
 ###Hint:
 
