@@ -54,18 +54,17 @@ In order to work with the Docker image for APRICOT, please follow these directio
   ```
   $ docker pull malvikasharan/apricot
   ```
-
-**2. Test the Docker container by running the basic software**
+  **Test run the Docker container**
 
   ```
   $ docker run -it malvikasharan/apricot bash
   ```
 
-**3. Test if the software is successfully installed**
+**2. Test if the software is successfully installed**
 
   Here is a quick way to test if different modules work in your system (without really installing the complete filesystem).
    
-  **Go to the `home` folder to test the software**
+  **Go to the `home` folder**
   ```
   $ cd home
   $ apricot -h
@@ -79,7 +78,7 @@ In order to work with the Docker image for APRICOT, please follow these directio
 
   By default, this script generates a main analysis folder `APRICOT_analysis` and several sub-directories. To understand each components of the software and generated results, We recomend you to check out the [tutorial](https://github.com/malvikasharan/APRICOT/blob/master/documentation/APRICOT_tutorial.md).
 
-**4. Test APRICOT with complete filesystem (required for running your queries)**
+**3. Test APRICOT with complete filesystem (required for running your queries)**
 
   Users are required to establish a directory `source_files` containing all the [required files](https://github.com/malvikasharan/APRICOT/blob/master/documentation/database_dependencies.md), which can be downloaded in the local system or inside the docker container (in the `home` folder) as shown below:
 
@@ -124,7 +123,7 @@ In order to work with locally installed software, follow these instructions.
   ````
 
   This will globally install APRICOT, which can be called via the command `apricot`, and the libraries from apricotlib will be saved.
-  Follow the points 3 & 4 to execute the software as shown above.
+  Follow the points 2 & 3 to execute the software as shown above.
 ###OR
 
 ####Get APRICOT manually
@@ -145,7 +144,7 @@ Follow these instructions to manually establish the software locally.
   ```
   $ git clone https://github.com/malvikasharan/APRICOT.git
   ```  
-  Follow the points 3 & 4 to execute the software as shown above.
+  Follow the points 2 & 3 to execute the software as shown above.
 
 ###Hint:
 
