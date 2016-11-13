@@ -52,7 +52,9 @@ This script will create a directory `source_files` with all the required dataset
 
 When the script is used for fetching the datasets inside the Docker container (in the home folder), APRICOT can be simply run to carry out analysis.
 
-When the script is used to create a local dataset, use th following command to mount the directory `source_file` into the Docker container:
+When the script is used to create a local dataset, use th following
+command to mount the directory `source_file` into the Docker container
+(set or replace `$FULL_PWD` by the path on the hosting system):
 
 ```
 $ docker run -it -v /$FULL_PWD/source_files/:/home/source_files malvikasharan/apricot bash
