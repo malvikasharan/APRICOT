@@ -9,7 +9,7 @@
 
 We recommend users to use APRICOT [Docker image](https://docs.docker.com/v1.8/userguide/dockerimages/) which comprises of all the tool dependencies and allows a frictionfree functionalities of the software.
 
-Use the follwing command to pull th image toyour local system (the [Docker](https://docs.docker.com/engine/installation/) must be installed):
+Use the follwing command to pull the image to your local system (the [Docker](https://docs.docker.com/engine/installation/) must be installed):
 
 ````
 $ docker pull malvikasharan/apricot
@@ -44,7 +44,7 @@ An additional step for fetching the databases is required to carry out analysis 
 The shell script: [APRICOT/shell_scripts/docker_support.sh](https://raw.githubusercontent.com/malvikasharan/APRICOT/master/shell_scripts/docker_support.sh), can be run inside a new Docker container or can be installed locally that could be used inside (multiple) Docker containers.
 
 ````
-$ wget -N https://raw.githubusercontent.com/malvikasharan/APRICOT/master/shell_scripts/docker_support.sh
+$ wget https://raw.githubusercontent.com/malvikasharan/APRICOT/master/shell_scripts/docker_support.sh
 $ sh docker_support.sh
 ````
 
@@ -52,7 +52,9 @@ This script will create a directory `source_files` with all the required dataset
 
 When the script is used for fetching the datasets inside the Docker container (in the home folder), APRICOT can be simply run to carry out analysis.
 
-When the script is used to create a local dataset, use th following command to mount the directory `source_file` into the Docker container:
+When the script is used to create a local dataset, use th following
+command to mount the directory `source_file` into the Docker container
+(set or replace `$FULL_PWD` by the path on the hosting system):
 
 ```
 $ docker run -it -v /$FULL_PWD/source_files/:/home/source_files malvikasharan/apricot bash
@@ -74,5 +76,3 @@ $ cd home
 $ cp APRICOT/shell_scripts/run_example.sh .
 $ sh run_example.sh
 ````
-
-
