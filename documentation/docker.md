@@ -9,7 +9,7 @@
 
 We recommend users to use APRICOT [Docker image](https://docs.docker.com/v1.8/userguide/dockerimages/) which comprises of all the tool dependencies and allows a frictionfree functionalities of the software.
 
-Use the follwing command to pull th image toyour local system (the [Docker](https://docs.docker.com/engine/installation/) must be installed):
+Use the follwing command to pull the image to your local system (the [Docker](https://docs.docker.com/engine/installation/) must be installed):
 
 ````
 $ docker pull malvikasharan/apricot
@@ -74,5 +74,3 @@ $ cd home
 $ cp APRICOT/shell_scripts/run_example.sh .
 $ sh run_example.sh
 ````
-
-
