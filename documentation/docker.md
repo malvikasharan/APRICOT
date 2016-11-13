@@ -44,7 +44,7 @@ An additional step for fetching the databases is required to carry out analysis 
 The shell script: [APRICOT/shell_scripts/docker_support.sh](https://raw.githubusercontent.com/malvikasharan/APRICOT/master/shell_scripts/docker_support.sh), can be run inside a new Docker container or can be installed locally that could be used inside (multiple) Docker containers.
 
 ````
-$ wget -N https://raw.githubusercontent.com/malvikasharan/APRICOT/master/shell_scripts/docker_support.sh
+$ wget https://raw.githubusercontent.com/malvikasharan/APRICOT/master/shell_scripts/docker_support.sh
 $ sh docker_support.sh
 ````
 
