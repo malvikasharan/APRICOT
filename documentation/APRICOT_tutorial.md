@@ -13,9 +13,14 @@ APRICOT and understand the basic usage of this pipeline.
 
 ### Requirements:
 
-1) Get the Shell script
-[run_example.sh](https://github.com/malvikasharan/APRICOT/blob/master/shell_scripts/run_example.sh)
-from GitHub, which will assist you in following the tutorial. Use wget or curl to download the script.
+1) Get APRICOT software
+
+The software can be used via [Docker container](https://github.com/malvikasharan/APRICOT/blob/master/documentation/docker.md), or can be installed locally as explained [here](https://github.com/malvikasharan/APRICOT/blob/master/documentation/local_installation.md).
+
+2) Get the Shell script for running the software
+
+Use wget or curl to download the script [run_example.sh](https://github.com/malvikasharan/APRICOT/blob/master/shell_scripts/run_example.sh)
+inside the Docker container (when working with Docker) or locally (when using the locally installed software), which will assist you in following the tutorial.
 
 ```
 $ wget https://raw.githubusercontent.com/malvikasharan/APRICOT/master/shell_scripts/run_example.sh
@@ -25,33 +30,10 @@ OR
 $ curl -O https://raw.githubusercontent.com/malvikasharan/APRICOT/master/shell_scripts/run_example.sh
 ```
 
-2) Download [APRICOT repository](https://github.com/malvikasharan/APRICOT/archive/master.zip) from GiHub 
-
-```
-$ git clone https://github.com/malvikasharan/APRICOT.git
-```
-
-3) Use [pip](https://pip.pypa.io/en/stable/) to install/update the python packages
-
-```
-$ pip install bio-apricot
-```
-
-or
-
-```
-$ pip install --user bio-apricot
-```
-
-or
-
-Use the script from the git repo using python3: `APRICOT/bin/apricot`
-
 #### Not required for this tutorial
 
-APRICOT usually requires local databases of CDD and InterPro, along
-with the BLAST executables and InterProScan to carry out domain
-predictions. In addition, to provide additional annotation of the proteins
+APRICOT usually requires local data, as explained [here](https://github.com/malvikasharan/APRICOT/blob/master/documentation/docker.md), in order to carry out domain
+predictions. In addition, for carrying out additional annotation of the proteins
 with biological features, it uses locally installed Psort and RaptorX
 executable. These requirements have been discussed in detail in the
 [documentation](https://github.com/malvikasharan/APRICOT/blob/master/README.md).
