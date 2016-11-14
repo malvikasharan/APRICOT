@@ -39,18 +39,23 @@ $ sh run_example.sh
 
 #### Database requirements for the software
 
-An additional step for fetching the databases is required to carry out analysis by the software.
+An additional step is needed to fetch the supporting data in order to carry out analysis of your queries
 
-The shell script: [APRICOT/shell_scripts/docker_support.sh](https://raw.githubusercontent.com/malvikasharan/APRICOT/master/shell_scripts/docker_support.sh), can be run inside a new Docker container or can be installed locally that could be used inside (multiple) Docker containers.
+  Users are required to establish a directory `source_files` containing all the [required files](https://github.com/malvikasharan/APRICOT/blob/master/documentation/database_dependencies.md), which can be set-up as shown below inside the docker container (in the `home` folder) or in the local system (in that case exit the Docker container by `exit`):
 
-````
-$ wget -N https://raw.githubusercontent.com/malvikasharan/APRICOT/master/shell_scripts/docker_support.sh
-$ sh docker_support.sh
-````
+  ```
+  $ wget https://data.imib-zinf.net/APRICOT-supporting_dataset.zip --no-check-certificate
+  $ unzip APRICOT-supporting_dataset.zip
+  ```
 
-This script will create a directory `source_files` with all the required datasets as dicussed [here](https://github.com/malvikasharan/APRICOT/blob/master/documentation/data_requirements.md).
+  Alternatively, these files can be installed/downloaded using the script docker_support.sh provided in the git repository of APRICOT.
 
-When the script is used for fetching the datasets inside the Docker container (in the home folder), APRICOT can be simply run to carry out analysis.
+  ```
+  $ wget https://raw.githubusercontent.com/malvikasharan/APRICOT/master/shell_scripts/docker_support.sh
+  $ sh docker_support.sh
+  ```
+
+When the data directory is set-up inside the Docker container (in the home folder), APRICOT can be simply run to carry out analysis.
 
 When the script is used to create a local dataset, use th following command to mount the directory `source_file` into the Docker container:
 
