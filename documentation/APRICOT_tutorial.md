@@ -32,12 +32,11 @@ $ curl -O https://raw.githubusercontent.com/malvikasharan/APRICOT/master/shell_s
 
 #### Not required for this tutorial
 
-APRICOT usually requires local data, as explained [here](https://github.com/malvikasharan/APRICOT/blob/master/documentation/docker.md), in order to carry out domain
-predictions. In addition, for carrying out additional annotation of the proteins
+APRICOT requires [supporting data](https://github.com/malvikasharan/APRICOT/blob/master/documentation/docker.md) in order to carry out analysis of the user provided queries. In addition, for carrying out additional annotation of the proteins
 with biological features, it uses locally installed Psort and RaptorX
 executable. These requirements have been discussed in detail in the
-[documentation](https://github.com/malvikasharan/APRICOT/blob/master/README.md).
-We will **NOT** install these for the tutorial, instead we have
+[documentation](https://github.com/malvikasharan/APRICOT/blob/master/documentation/software_dependencies.md).
+We will **NOT** require those for this tutorial, instead we have
 provided pre-processed files that should allow you to test the
 functionality of the tool. The test files are avaialable at: [Zenodo
 record](https://zenodo.org/record/51705/files).
