@@ -43,7 +43,7 @@ APRICOT is implemented in Python as a standalone and is executable on Ubuntu (an
 
 ####APRICOT Docker image
 
-We recommend users to install Docker software in their system to use the [docker images](https://docs.docker.com/v1.8/userguide/dockerimages/). 
+We recommend users to install Docker software in their system to use the [docker images](https://hub.docker.com/r/malvikasharan/). 
 
 In order to work with the Docker image for APRICOT, please follow these directions:
 
