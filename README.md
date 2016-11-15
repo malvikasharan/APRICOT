@@ -90,7 +90,7 @@ In order to work with the Docker image for APRICOT, please follow these directio
   $ unzip APRICOT-supporting_dataset.zip
   ```
   
-  ( NOTE: If your system shows this error: "HTTPS support not compiled in.", check here for solution for [Mac](https://coolestguidesontheplanet.com/install-and-configure-wget-on-os-x/) and [Linux](https://help.directadmin.com/item.php?id=119))
+  ( NOTE: If your system shows this error: "HTTPS support not compiled in.", check here for solution for Mac[1](https://coolestguidesontheplanet.com/install-and-configure-wget-on-os-x/)/[2](https://gist.github.com/burakerdem/d8195e6e343aa55ff578) and [Linux](https://help.directadmin.com/item.php?id=119))
 
   Alternatively, these files can be installed/downloaded using the script docker_support.sh provided in the git repository of APRICOT.
 
