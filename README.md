@@ -86,11 +86,9 @@ In order to work with the Docker image for APRICOT, please follow these directio
   Users are required to establish a directory `source_files` containing all the [required files](https://github.com/malvikasharan/APRICOT/blob/master/documentation/database_dependencies.md), which can be set-up as shown below inside the docker container (in the `home` folder) or in the local system (in that case exit the Docker container by `exit`):
 
   ```
-  $ wget https://data.imib-zinf.net/APRICOT-supporting_dataset.zip --no-check-certificate
+  $ wget http://data.imib-zinf.net/APRICOT-supporting_dataset.zip
   $ unzip APRICOT-supporting_dataset.zip
   ```
-  
-  ( NOTE: If your system shows this error: "HTTPS support not compiled in.", check here for solution for Mac[1](https://coolestguidesontheplanet.com/install-and-configure-wget-on-os-x/)/[2](https://gist.github.com/burakerdem/d8195e6e343aa55ff578) and [Linux](https://help.directadmin.com/item.php?id=119))
 
   Alternatively, these files can be installed/downloaded using the script docker_support.sh provided in the git repository of APRICOT.
 
