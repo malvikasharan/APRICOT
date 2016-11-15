@@ -89,6 +89,13 @@ In order to work with the Docker image for APRICOT, please follow these directio
   $ wget http://data.imib-zinf.net/APRICOT-supporting_dataset.zip
   $ unzip APRICOT-supporting_dataset.zip
   ```
+  NOTE: The Docker container will need the installation of 'unzip', please follow the following commands for that
+  
+  ```
+  $ apt-get update
+  $ apt-get install unzip
+  $ unzip APRICOT-supporting_dataset.zip
+  ```
 
   Alternatively, these files can be installed/downloaded using the script docker_support.sh provided in the git repository of APRICOT.
 
@@ -108,7 +115,7 @@ In order to work with the Docker image for APRICOT, please follow these directio
   
 **5. Carry out analysis by APRICOT**
   ```
-  $ wget -N https://raw.githubusercontent.com/malvikasharan/APRICOT/master/shell_scripts/run_example.sh
+  $ wget https://raw.githubusercontent.com/malvikasharan/APRICOT/master/shell_scripts/run_example.sh
   $ sh run_example.sh
   ```
   For further details, please check the [Tutorial](https://github.com/malvikasharan/APRICOT/blob/master/documentation/APRICOT_tutorial.md) and [Tools and data dependencies](https://github.com/malvikasharan/APRICOT/blob/master/documentation/software_dependencies.md)
