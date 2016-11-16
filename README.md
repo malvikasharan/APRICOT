@@ -83,13 +83,13 @@ In order to work with the Docker image for APRICOT, please follow these directio
 
 **3. Get the supporting data required for running your queries**
 
-  Users are required to establish a directory `source_files` containing all the [required files](https://github.com/malvikasharan/APRICOT/blob/master/documentation/database_dependencies.md), which can be set-up as shown below inside the docker container (in the `home` folder) or in the local system (in that case exit the Docker container by `exit`):
+  Users are required to establish a directory `source_files` containing all the [required files](https://github.com/malvikasharan/APRICOT/blob/master/documentation/database_dependencies.md), which can be set-up as shown below inside the docker container (in the `home` folder) or in the local system (in that case exit the Docker container by using `exit` command):
 
   ```
   $ wget http://data.imib-zinf.net/APRICOT-supporting_dataset.zip
   $ unzip APRICOT-supporting_dataset.zip
   ```
-  NOTE: The Docker container will need the installation of 'unzip', please follow the following commands for that
+  NOTE: When using the APRICOT-supporting_dataset.zip inside the Docker container, the file can be uncompressed by using 'unzip', which should be installed using following commands:
   
   ```
   $ apt-get update
