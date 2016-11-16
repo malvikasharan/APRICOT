@@ -87,9 +87,11 @@ In order to work with the Docker image for APRICOT, please follow these directio
   
   **option-1: ...in the local system - RECOMMENDED** 
   
-  This will need to set-up once in the local system (please exit the container usng the command `exit` if already running it) and can be reused in different containers (shown in the point 4)
+  This should be set-up once in the local system (please exit the container usng the command `exit` if already running it) and can be reused in different containers (shown in the point 4)
   
   **option-2: ...inside a new Docker conatiner**
+  
+  The supporting data can be used only inside the Docker container (every Docker container will need this step)
   
   **Commands to acquire the supporting data**
   
