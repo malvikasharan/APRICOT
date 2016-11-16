@@ -89,14 +89,6 @@ In order to work with the Docker image for APRICOT, please follow these directio
   $ wget http://data.imib-zinf.net/APRICOT-supporting_dataset.zip
   $ unzip APRICOT-supporting_dataset.zip
   ```
-  NOTE: When using the APRICOT-supporting_dataset.zip inside the Docker container, the file can be uncompressed by using 'unzip', which should be installed using following commands:
-  
-  ```
-  $ apt-get update
-  $ apt-get install unzip
-  $ unzip APRICOT-supporting_dataset.zip
-  ```
-
   Alternatively, these files can be installed/downloaded using the script docker_support.sh provided in the git repository of APRICOT.
 
   ```
