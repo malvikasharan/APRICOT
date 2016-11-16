@@ -85,8 +85,8 @@ In order to work with the Docker image for APRICOT, please follow these directio
 
   Users are required to establish a directory `source_files` containing all the [required files](https://github.com/malvikasharan/APRICOT/blob/master/documentation/database_dependencies.md), which can be set-up using the commands below via two options:
   
-  OPTION-1: **...in the local system** 
-  In that case, users should exit the Docker container by using `exit` command (if already working in the container)
+  OPTION-1: **...in the local system - RECOMMENDED** 
+  This will need to set-up once in the local system (please exit the container usng the command `exit` if already running it) and can be reused in different containers (shown in the point 4)
   
   OPTION-2: **...inside a new Docker conatiner**
   ```
