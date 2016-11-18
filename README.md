@@ -123,7 +123,7 @@ In order to work with the Docker image for APRICOT, please follow these directio
 
 **4. Using the supporting data**
     
-  When the directory `source_files` is located in the local system **(Recommended)**, use the following command to mount the directory `source_file` into the Docker container (provide full path for $FULL_PATH_SOURCE_FILES):
+  When the directory `source_files` is located in the local system **(Recommended)**, use the following command to mount this directory into the Docker container (provide full path for $FULL_PATH_SOURCE_FILES):
 
   ```
   $ docker run -it -v /{$FULL_PATH_SOURCE_FILES}/source_files/:/home/source_files malvikasharan/apricot bash
