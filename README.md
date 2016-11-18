@@ -93,19 +93,19 @@ In order to work with the Docker image for APRICOT, please follow these directio
 
 **3. Get the supporting data required for running your queries**
 
-  Users are required to establish a directory `source_files` containing all the [required supporting data](https://github.com/malvikasharan/APRICOT/blob/master/documentation/database_dependencies.md), which can be setup in the local filesystem (recommended) or inside the docker container (in the home folder). See below for the details. 
+  Users are required to set a directory `source_files` containing all the [required supporting data](https://github.com/malvikasharan/APRICOT/blob/master/documentation/database_dependencies.md), which can be setup in the local filesystem (recommended) or inside the docker container (in the home folder). See below for the details. 
   
   *Be aware that the supporting data is a collection of large datasets of size: ~15 G compressed, and ~50 G uncompressed.*
   
   **option-1: In the local filesystem - RECOMMENDED** 
   
-  This should be set-up once (please exit the container using the command `exit` if already running it) and can be reused in different containers (shown in the point 4)
+  This should be setup once (please exit the container using the command `exit` if already running it) and can be reused in different containers (shown in the point 4)
   
-  This will ensure that users would not have to get the dataset every time a new Docker container for APRICOT is created. Moreover, this will keep the size of the container small by not having to install the large databases inside the container.
+  This will ensure that users would not have to get these files every time a new Docker container for APRICOT is created. Moreover, this will keep the size of the container small by not having to setup the large databases inside the container.
   
   **option-2: Inside a new Docker conatiner**
   
-  The supporting data can be used only inside the Docker container (every Docker container will need this set-up individually)
+  The supporting data can be used only inside the Docker container (every Docker container will need such setup individually)
   
   **Commands to acquire the supporting data**
   
@@ -114,21 +114,23 @@ In order to work with the Docker image for APRICOT, please follow these directio
   $ unzip APRICOT-supporting_dataset.zip
   ```
   
-  Alternatively, these files can be installed/downloaded using the script docker_support.sh provided in the git repository of APRICOT.
+  Alternatively, these files can be acquired using the script docker_support.sh provided in the git repository of APRICOT.
 
   ```
   $ cp APRICOT/shell_scripts/docker_support.sh .
   $ sh docker_support.sh
   ```
 
-**4. Using the supporting data from the local system (Recommended)**
+**4. Using the supporting data**
     
-  When the directory `source_files` is set-up in the local system, use the following command to mount the directory `source_file` into the Docker container (provide full path for $FULL_PATH_SOURCE_FILES):
+  When the directory `source_files` is located in the local system **(Recommended)**, use the following command to mount the directory `source_file` into the Docker container (provide full path for $FULL_PATH_SOURCE_FILES):
 
   ```
   $ docker run -it -v /{$FULL_PATH_SOURCE_FILES}/source_files/:/home/source_files malvikasharan/apricot bash
   $ cd home
   ```
+  
+  Skip this step when working in the Docker container already.
   
 **5. Carry out analysis by APRICOT**
   ```
