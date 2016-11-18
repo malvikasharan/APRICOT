@@ -89,6 +89,8 @@ In order to work with the Docker image for APRICOT, please follow these directio
   
   This should be set-up once in the local system (please exit the container using the command `exit` if already running it) and can be reused in different containers (shown in the point 4)
   
+  This will ensure that users would not have to get the dataset every time a new Docker container for APRICOT is created. Moreover, this will keep the size of the container small by not having to install the large databases inside the container.
+  
   **option-2: ...inside a new Docker conatiner**
   
   The supporting data can be used only inside the Docker container (every Docker container will need this set-up individually)
