@@ -157,6 +157,8 @@ In order to work with the Docker image for APRICOT, please follow these directio
   
   You can check `APRICOT_analysis_summary.csv` in the path `APRICOT_analysis/output/5_analysis_summary` file for the quick overview of the analysis.
   
+  To run analysis on new query proteins, please edit the "Input-1" part of the `run_example.sh` script, for example, provide Uniprot ids of your query proteins ($QUERY_UIDS, line number 51). To acquire domain information of different classes, please change the keyword values for "Input-2" part in the shell script ($DOMAIN_KEYWORDS, line number 78).
+  
   For further details, please check the [Tutorial](https://github.com/malvikasharan/APRICOT/blob/master/documentation/APRICOT_tutorial.md) and [Tools and data dependencies](https://github.com/malvikasharan/APRICOT/blob/master/documentation/software_dependencies.md)
 
 ###Alternative ways to install APRICOT
