@@ -5,49 +5,68 @@
 
 ![alt tag](https://github.com/malvikasharan/APRICOT/blob/master/APRICOT_logo.png)
 
-#### APRICOT Docker image
 
-We recommend users to use APRICOT [Docker image](https://docs.docker.com/v1.8/userguide/dockerimages/) which comprises of all the tool dependencies and allows a frictionfree functionalities of the software.
+####APRICOT Docker image
 
-Use the follwing command to pull th image toyour local system (the [Docker](https://docs.docker.com/engine/installation/) must be installed):
+We recommend users to [install Docker software](https://docs.docker.com/engine/installation/) in their system to use the [docker images](https://hub.docker.com/r/malvikasharan/). 
 
-````
-$ docker pull malvikasharan/apricot
-````
+In order to work with the Docker image for APRICOT, please follow these directions:
 
-##### Run the container:
-````
-$ docker run -it malvikasharan/apricot bash
-````
+**1. Get Docker image**
 
-APRICOT is installed and can be called using command `apricot` and the libraries will be saved at `/usr/local/lib/python3.5/site-packages/apricotlib/`
-
-
-##### Go to the `home` folder to test the software:
-
-````
-$ cd home
-$ apricot
-````
-
-Try a test run:
-
-````
-$ cp APRICOT/shell_scripts/run_example.sh .
-$ sh run_example.sh
-````
-
-#### Database requirements for the software
-
-An additional step is needed to fetch the supporting data in order to carry out analysis of your queries
-
-  Users are required to establish a directory `source_files` containing all the [required files](https://github.com/malvikasharan/APRICOT/blob/master/documentation/database_dependencies.md), which can be set-up as shown below inside the docker container (in the `home` folder) or in the local system (in that case exit the Docker container by `exit`):
+  The image can be acquired by simply using this command:
 
   ```
-  $ wget https://data.imib-zinf.net/APRICOT-supporting_dataset.zip --no-check-certificate
+  $ docker pull malvikasharan/apricot
+  ```
+
+**2. Create the Docker container for testing the software**
+  
+  ```
+  $ docker run -it malvikasharan/apricot bash
+  ```
+  
+  Here is a quick way to test if different modules work in your system (without really installing the complete filesystem).
+  
+  **Run the analysis in the `home` folder**
+  
+  ```
+  $ cd home
+  $ apricot -h
+  ```
+  
+   **Run test/example analysis**
+  
+   The git repository contains a shell script [APRICOT/shell_scripts/run_example.sh](https://github.com/malvikasharan/APRICOT/blob/master/shell_scripts/run_example.sh) with shell commands that can be used for the demonstration of APRICOT installation including analysis with an example. 
+
+  ```
+  $ wget https://raw.githubusercontent.com/malvikasharan/APRICOT/master/shell_scripts/run_example.sh
+  $ sh run_example.sh
+  ```
+  
+  By default, this script generates a main analysis folder `APRICOT_analysis` and several sub-directories. To understand each components of the software and generated results, We recomend you to check out the [tutorial](https://github.com/malvikasharan/APRICOT/blob/master/documentation/APRICOT_tutorial.md).
+
+**3. Get the supporting data required for running your queries**
+
+  Users are required to establish a directory `source_files` containing all the [required supporting data](https://github.com/malvikasharan/APRICOT/blob/master/documentation/database_dependencies.md) (size: 14 GB compressed), which can be set-up using one of the two options:
+  
+  **option-1: ...in the local system - RECOMMENDED** 
+  
+  This should be set-up once in the local system (please exit the container using the command `exit` if already running it) and can be reused in different containers (shown in the point 4)
+  
+  This will ensure that users would not have to get the dataset every time a new Docker container for APRICOT is created. Moreover, this will keep the size of the container small by not having to install the large databases inside the container.
+  
+  **option-2: ...inside a new Docker conatiner**
+  
+  The supporting data can be used only inside the Docker container (every Docker container will need this set-up individually)
+  
+  **Commands to acquire the supporting data**
+  
+  ```
+  $ wget http://data.imib-zinf.net/APRICOT-supporting_dataset.zip
   $ unzip APRICOT-supporting_dataset.zip
   ```
-
+  
   Alternatively, these files can be installed/downloaded using the script docker_support.sh provided in the git repository of APRICOT.
 
   ```
@@ -55,18 +74,21 @@ An additional step is needed to fetch the supporting data in order to carry out 
   $ sh docker_support.sh
   ```
 
-When the data directory is set-up inside the Docker container (in the home folder), APRICOT can be simply run to carry out analysis.
+**4. Using the supporting data from the local system (Recommended)**
+    
+  When the directory `source_files` is set-up in the local system, use the following command to mount the directory `source_file` into the Docker container (provide full path for $FULL_PATH_SOURCE_FILES):
 
-When the script is used to create a local dataset, use th following command to mount the directory `source_file` into the Docker container:
-
-```
-$ docker run -it -v /$FULL_PWD/source_files/:/home/source_files malvikasharan/apricot bash
-$ cd home
-$ cp APRICOT/shell_scripts/run_example.sh .
-$ sh run_example.sh
-```
-
-This will ensure that users would not have to get the dataset every time a new Docker container for APRICOT is created. Moreover, this will keep the size of the container small by not having to install the large databases inside the container.
+  ```
+  $ docker run -it -v /{$FULL_PATH_SOURCE_FILES}/source_files/:/home/source_files malvikasharan/apricot bash
+  $ cd home
+  ```
+  
+**5. Carry out analysis by APRICOT**
+  ```
+  $ wget https://raw.githubusercontent.com/malvikasharan/APRICOT/master/shell_scripts/run_example.sh
+  $ sh run_example.sh
+  ```
+  For further details, please check the [Tutorial](https://github.com/malvikasharan/APRICOT/blob/master/documentation/APRICOT_tutorial.md) and [Tools and data dependencies](https://github.com/malvikasharan/APRICOT/blob/master/documentation/software_dependencies.md)
 
 #### Docker image with all dependencies
 
