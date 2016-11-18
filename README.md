@@ -117,7 +117,7 @@ In order to work with the Docker image for APRICOT, please follow these directio
   Alternatively, these files can be installed/downloaded using the script docker_support.sh provided in the git repository of APRICOT.
 
   ```
-  $ wget https://raw.githubusercontent.com/malvikasharan/APRICOT/master/shell_scripts/docker_support.sh
+  $ cp APRICOT/shell_scripts/docker_support.sh .
   $ sh docker_support.sh
   ```
 
