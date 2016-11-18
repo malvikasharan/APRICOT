@@ -87,11 +87,11 @@ In order to work with the Docker image for APRICOT, please follow these directio
   
   **option-1: ...in the local system - RECOMMENDED** 
   
-  This should be set-up once in the local system (please exit the container usng the command `exit` if already running it) and can be reused in different containers (shown in the point 4)
+  This should be set-up once in the local system (please exit the container using the command `exit` if already running it) and can be reused in different containers (shown in the point 4)
   
   **option-2: ...inside a new Docker conatiner**
   
-  The supporting data can be used only inside the Docker container (every Docker container will need this step)
+  The supporting data can be used only inside the Docker container (every Docker container will need this set-up individually)
   
   **Commands to acquire the supporting data**
   
@@ -99,6 +99,7 @@ In order to work with the Docker image for APRICOT, please follow these directio
   $ wget http://data.imib-zinf.net/APRICOT-supporting_dataset.zip
   $ unzip APRICOT-supporting_dataset.zip
   ```
+  
   Alternatively, these files can be installed/downloaded using the script docker_support.sh provided in the git repository of APRICOT.
 
   ```
