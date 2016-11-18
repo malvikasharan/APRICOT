@@ -132,7 +132,7 @@ In order to work with the Docker image for APRICOT, please follow these directio
   
 **5. Carry out analysis by APRICOT**
   ```
-  $ wget https://raw.githubusercontent.com/malvikasharan/APRICOT/master/shell_scripts/run_example.sh
+  $ cp APRICOT/shell_scripts/run_example.sh .
   $ sh run_example.sh
   ```
   
