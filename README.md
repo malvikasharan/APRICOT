@@ -97,13 +97,15 @@ In order to work with the Docker image for APRICOT, please follow these directio
   
   *Be aware that the supporting data is a collection of large datasets of size: ~15 G compressed, and ~50 G uncompressed.*
   
-  **option-1: In the local filesystem - RECOMMENDED** 
+  **Options for installation**
+  
+  **1. In the local filesystem - RECOMMENDED** 
   
   This should be setup once (please exit the container using the command `exit` if already running it) and can be reused in different containers (shown in the point 4)
   
   This will ensure that users would not have to get these files every time a new Docker container for APRICOT is created. Moreover, this will keep the size of the container small by not having to setup the large databases inside the container.
   
-  **option-2: Inside a new Docker conatiner**
+  **2. Inside a new Docker conatiner**
   
   The supporting data can be used only inside the Docker container (every Docker container will need such setup individually)
   
