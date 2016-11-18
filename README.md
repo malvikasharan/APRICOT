@@ -95,15 +95,15 @@ In order to work with the Docker image for APRICOT, please follow these directio
 
   Users are required to establish a directory `source_files` containing all the [required supporting data](https://github.com/malvikasharan/APRICOT/blob/master/documentation/database_dependencies.md), which can be setup in the local filesystem (recommended) or inside the docker container (in the home folder). See below for the details. 
   
-  *-Be aware that the supporting data is a collection of large datasets of size: ~15 G compressed, and ~50 G uncompressed.-*
+  *Be aware that the supporting data is a collection of large datasets of size: ~15 G compressed, and ~50 G uncompressed.*
   
-  **option-1: ...in the local filesystem - RECOMMENDED** 
+  **option-1: In the local filesystem - RECOMMENDED** 
   
   This should be set-up once (please exit the container using the command `exit` if already running it) and can be reused in different containers (shown in the point 4)
   
   This will ensure that users would not have to get the dataset every time a new Docker container for APRICOT is created. Moreover, this will keep the size of the container small by not having to install the large databases inside the container.
   
-  **option-2: ...inside a new Docker conatiner**
+  **option-2: Inside a new Docker conatiner**
   
   The supporting data can be used only inside the Docker container (every Docker container will need this set-up individually)
   
