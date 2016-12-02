@@ -13,10 +13,10 @@ package_to_pypi:
 	@echo "Go to https://pypi.python.org/pypi/bio-apricot/"
 
 html_doc:
-	cd docs && make html && cd ..
+	cd documentation && make html && cd ..
 
 show_html_docs:
-	firefox docs/build/html/index.html &
+	firefox documentation/build/html/index.html &
 
 readme_txt:
 	pandoc --from=markdown --to=plain README.md -o README.txt
@@ -35,10 +35,10 @@ readme_clean:
 
 pylint:
 	pylint bin/apricot apricotlib/* tests/*
-	
+
 docker_build:
 	docker build -t malvikasharan/apricot .
-	
+
 docker_run:
 	docker run -t -i malvikasharan/apricot bash
 
