@@ -9,7 +9,7 @@ ENV LC_ALL en_US.UTF-8
 
 FROM python:3.5
 # Get basic required packages and create root folders
-RUN apt-get update --yes && apt-get install wget git nano python3-pip --yes --fix-missing && \
+RUN apt-get update --yes && apt-get install wget git nano python3-pip unzip --yes --fix-missing && \
     python3.5 -m pip install bio-apricot && cd /home && git clone https://github.com/malvikasharan/APRICOT.git && \
     mkdir -p \
     /home/emboss/needle \
