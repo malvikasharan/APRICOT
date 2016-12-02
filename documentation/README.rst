@@ -84,7 +84,7 @@ Malvika Sharan at malvika.sharan@uni-wuerzburg.de
 .. _here: https://github.com/malvikasharan/APRICOT/blob/master/LICENSE.md
 .. _Docker image for APRICOT: https://hub.docker.com/r/malvikasharan/apricot/
 .. _documentation: https://github.com/malvikasharan/APRICOT
-.. _tutorial: https://github.com/malvikasharan/APRICOT/blob/master/APRICOT_tutorial.md
+.. _tutorial: https://github.com/malvikasharan/APRICOT/blob/master/documentation/APRICOT_tutorial.md
 .. _run\_example.sh: https://github.com/malvikasharan/APRICOT/blob/master/shell_scripts/run_example.sh
 .. _tests: https://github.com/malvikasharan/APRICOT/tree/master/tests
 .. _system\_test.sh: https://github.com/malvikasharan/APRICOT/blob/master/tests/system_test.sh
