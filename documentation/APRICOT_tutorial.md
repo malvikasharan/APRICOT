@@ -39,7 +39,7 @@ executable. These requirements have been discussed in detail in the
 We will **NOT** require those for this tutorial, instead we have
 provided pre-processed files that should allow you to test the
 functionality of the tool. The test files are avaialable at: [Zenodo
-record](https://zenodo.org/record/51705/files).
+record](https://zenodo.org/record/51705).
 
 ### Example analysis
 
