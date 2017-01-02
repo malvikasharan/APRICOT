@@ -12,11 +12,9 @@ try:
 except ImportError:
     print('Python package openpyxl is missing. Please install/update.\n'
           'Please ignore if you chose the output format as HTML')
-    
-
 def csv_to_xlsx(inpath, outpath):
     '''Converts table to excel'''
-    allowed_format_list = ['csv', 'tab']
+    allowed_format_list = ['csv', 'tab', 'tsv']
     for csv_file in os.listdir(inpath):
         if os.path.isfile(inpath+'/'+csv_file):
             if csv_file.split('.')[1] in allowed_format_list:
@@ -29,16 +27,16 @@ def csv_to_xlsx(inpath, outpath):
                         xlsxsheet.cell(row=i, column=j).value = col
                 workbook.save(open(outpath+'/'+sheet_name+'.xlsx', 'wb'))
             else:
+                print('%s: This text file will not be converted into the excel format!' % csv_file)
                 shutil.copyfile(inpath+'/'+csv_file, outpath+'/'+csv_file)
         elif os.path.isdir(inpath+'/'+csv_file):
             if not os.path.exists(outpath+'/'+csv_file):
                 os.mkdir(outpath+'/'+csv_file)
             csv_to_xlsx(inpath+'/'+csv_file, outpath+'/'+csv_file)
 
-            
 def csv_to_html(inpath, outpath):
-    '''Convert table to HTML, line break 13-16'''
-    allowed_format_list = ['csv', 'tab']
+    '''Convert table to HTML'''
+    allowed_format_list = ['csv', 'tab', 'tsv', 'txt']
     for csv_file in os.listdir(inpath):
         if os.path.isfile(inpath+'/'+csv_file):
             if csv_file.split('.')[1] in allowed_format_list:
@@ -60,31 +58,37 @@ def csv_to_html(inpath, outpath):
                     '<h3>Source path: %s</h3>' % inpath, '<table id="subscriptionlist">\n']))
                     row_num = 0
                     table_string = ""
-                    csv_fh = csv.reader(open(inpath+'/'+csv_file), delimiter="\t")
-                    for i, row in enumerate(csv_fh):
-                        if 'annotation_scoring' in csv_file:
-                            if 'annotation_scoring_of_selected_data_filter' in csv_file:
-                                for idx in range(1, 3):
-                                    if len(list(row[idx])) > 50:
-                                        row[idx] = '<br>'.join(
-                                            split_str(row[idx], 50))
-                            else:
-                                for idx in range(13, 17):
-                                    if len(list(row[idx])) > 50:
-                                        row[idx] = '<br>'.join(
-                                            split_str(row[idx], 50))
-                        if i == 0:
-                            outfile.write("<thead>\n<tr>\n<th>")
-                            outfile.write('</th><th>'.join(row)+'\n')
-                            outfile.write("</th>\n</tr>\n</thead>\n<tbody>\n")
+                    if os.path.getsize(inpath+'/'+csv_file) > 0:
+                        if not 'RPS-BLAST' in open(inpath+'/'+csv_file, 'r').readlines()[0]:
+                            csv_fh = csv.reader(open(inpath+'/'+csv_file), delimiter="\t")
+                            for i, row in enumerate(csv_fh):
+                                if 'annotation_scoring' in csv_file:
+                                    if 'annotation_scoring_of_selected_data_filter' in csv_file:
+                                        for idx in range(1, 3):
+                                            if len(list(row[idx])) > 50:
+                                                row[idx] = '<br>'.join(
+                                                    split_str(row[idx], 50))
+                                    else:
+                                        for idx in range(13, 17):
+                                            if len(list(row[idx])) > 50:
+                                                row[idx] = '<br>'.join(
+                                                    split_str(row[idx], 50))
+                                if i == 0:
+                                    outfile.write("<thead>\n<tr>\n<th>")
+                                    outfile.write('</th><th>'.join(row)+'\n')
+                                    outfile.write("</th>\n</tr>\n</thead>\n<tbody>\n")
+                                else:
+                                    outfile.write("<tr>\n<td>")
+                                    outfile.write('</td><td>'.join(row)+'\n')
+                                    outfile.write("</td>\n</tr>\n")
                         else:
-                            outfile.write("<tr>\n<td>")
-                            outfile.write('</td><td>'.join(row)+'\n')
-                            outfile.write("</td>\n</tr>\n")
+                            outfile.write(("This file appears as RPS-BLAST original output\n") % lines)
+                            for lines in open(inpath+'/'+csv_file, 'r'):
+                                outfile.write(("<p>%s</p>\n") % lines)
                     outfile.write(
-                        '\n'.join(['</tbody>', '</table>', '</div>',
-                                   '</html>']))
+                        '\n'.join(['</tbody>', '</table>', '</div>', '</html>']))
             else:
+                print('%s: This file will not be converted into the html format!' % csv_file)
                 shutil.copyfile(inpath+'/'+csv_file, outpath+'/'+csv_file)
         elif os.path.isdir(inpath+'/'+csv_file):
             if not os.path.exists(outpath+'/'+csv_file):

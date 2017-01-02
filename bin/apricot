@@ -245,7 +245,7 @@ def main():
     default='output/1_compiled_domain_information/unfiltered_data',
     help='Directory with the unfiltered domain data from output-1 (unfiltered_data)')
     get_analysis_summary.add_argument("--outpath", '-o',
-    default='output/5_analysis_summary/APRICOT_analysis_summary.csv',
+    default='output/5_analysis_summary/APRICOT_analysis_summary.txt',
     help="Provide output path")
     
     get_additional_annotation = subparsers.add_parser(
@@ -676,7 +676,7 @@ def analysis_summary(args):
     create_analysis_summary.streamline_create_analysis_summary()
     print("\n----------------------------------------------------------------\n"
             "Please check the analysis overview: "
-            "%s/output/5_analysis_summary/APRICOT_analysis_summary.csv" % args.analysis_path)
+            "%s/output/5_analysis_summary/APRICOT_analysis_summary.txt" % args.analysis_path)
     print("\n----------------------------------------------------------------\n")
     
 def additional_annotation(args):

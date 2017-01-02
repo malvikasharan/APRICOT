@@ -50,7 +50,6 @@ class BiojsVizOfApricotAnalysis(object):
         self.parse_annotation_scoring()
         self.viz_domain_highlights()
         self.domain_highlight_script()
-        self.viz_annotation_scoring()
         self.viz_secondary_structure()
         self.sec_str_script()
         self.viz_subcellular_localization()
@@ -308,7 +307,6 @@ class BiojsVizOfApricotAnalysis(object):
                 
         print("\nPlease open the BioJS MSA tab generated in Biojs_pdb_msa_tab.html.")
         print("Import MSA files (.aln) in the BioJS MSA tab to visualize the alignment.\n")
-
 
 class AnnotationScoringColumns(object):
     '''Column information of annotation scoring file'''
