@@ -82,7 +82,7 @@ def csv_to_html(inpath, outpath):
                                     outfile.write('</td><td>'.join(row)+'\n')
                                     outfile.write("</td>\n</tr>\n")
                         else:
-                            outfile.write(("This file appears as RPS-BLAST original output\n") % lines)
+                            outfile.write("This file appears as RPS-BLAST original output\n")
                             for lines in open(inpath+'/'+csv_file, 'r'):
                                 outfile.write(("<p>%s</p>\n") % lines)
                     outfile.write(
