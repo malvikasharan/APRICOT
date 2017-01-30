@@ -3,7 +3,6 @@
 
 import os
 
-
 class SelectedProteinTable(object):
     
     def __init__(self, filtered_data_path,
@@ -94,15 +93,14 @@ class SelectedProteinTable(object):
                         filter_data = FilteredData(entry.split('\t'))
                         if filter_data.parameter == 'ParameterSelected':
                             self._entries_into_the_file(
-                                out_fh, reference_data, feature_data,
-                                filter_data)
+                                out_fh, reference_data, feature_data, filter_data)
                 else:
                     filter_data = FilteredData(
                         list(self._filter_data_dict[uid])[0].split('\t'))
                     if filter_data.parameter == 'ParameterSelected':
                         self._entries_into_the_file(
                             out_fh, reference_data, feature_data, filter_data)
-                    
+
     def _entries_into_the_file(self, out_fh,
                                reference_data, feature_data, filter_data):
         '''Creates an output with the protein features'''

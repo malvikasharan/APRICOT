@@ -300,8 +300,13 @@ class ComputeCompositionDistance(object):
                                                     each_stat_group)
                                                 seq_distance = 0
                                                 needle_cline_seq = NeedleCommandline(self._needle_path, asequence="asis:"+query_seq,
-                                                bsequence="asis:"+subject_seq, gapopen=0, gapextend=0, outfile="stdout")
-                                                stdout, stderr = needle_cline_seq()
+                                                    bsequence="asis:"+subject_seq, gapopen=0, gapextend=0, outfile="stdout")
+                                                try:
+                                                    stdout, stderr = needle_cline_seq()
+                                                except:
+                                                    print('Please install NeedleCommandline if not working inside the APRICOT Docker container,'
+                                                          'check documentation for details.\n!!!!  Exiting the subcommand "annoscore" !!!!\n')
+                                                    return()
                                                 for entry_seq in stdout.split('\n'):
                                                     if entry_seq.startswith("# Similarity: "):
                                                         seq_distance = float(entry_seq.strip().split(

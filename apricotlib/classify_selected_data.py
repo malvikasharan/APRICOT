@@ -18,14 +18,14 @@ class ProteinClassifier(object):
         self._file_header = ''
         self._classified_data = set()
         self._unclassified_data = set()
-        
+
     def streamline_protein_classification(self):
         self.parse_protein_table()
         self.parse_keyword_file()
         self.classify_data_by_keywords()
         self.create_classified_files()
         self.create_unclassified_files()
-            
+
     def parse_protein_table(self):
         '''Parses Uniprot reference table'''
         with open(self._selected_protein_table, 'r') as in_fh:

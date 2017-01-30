@@ -22,7 +22,7 @@ from apricotlib.literature_secstr import LiteratureSecstrAnalysis
 from apricotlib.psortb_localization import PsortbSubcellularLocalization
 from apricotlib.list_similar_pdbstr import PdbHomologyAnalysis
 from apricotlib.create_analysis_summary import CreateAnalysisSummary
-from apricotlib.apricot_visualization import BiojsVizOfApricotAnalysis
+from apricotlib.apricot_visualization import VizApricotAnalysis
 from apricotlib.convert_csv_format import *
 
 __author__ = "Malvika Sharan <malvikasharan@uni-wuerzburg.de>"
@@ -39,12 +39,12 @@ def main():
     subparsers = parser.add_subparsers(help="APRICOT commands - Refer documentation for detail")
     
     minimum_default_pipeline = subparsers.add_parser(  
-        "minimum_default", help="Minimum analysis using default parameters")
+        "default", help="Analysis using all the required subcommands at their default parameters")
     minimum_default_pipeline.set_defaults(func=minimum_subcommands)
     minimum_default_pipeline.add_argument("--analysis_path", "-ap",
         default='APRICOT_analysis',
         help='Creates APRICOT_analysis folder for anlysis unless other name/path is provided')
-    minimum_default_pipeline.add_argument("--uids", "-ui",
+    minimum_default_pipeline.add_argument("--uids", "-i", "-ui",
         help="Comma separated UniProt IDs")
     minimum_default_pipeline.add_argument("--taxid", "-tx",
         help="Select taxonomy id for query species")
@@ -64,14 +64,17 @@ def main():
     minimum_default_pipeline.add_argument("--force", "-F",
         default=False, action="store_true",
         help="force flag for the current analysis, removes already existing predictions")
+    minimum_default_pipeline.add_argument("--skip_select", '-skip_select',
+        default=False, action="store_true",
+        help="Skips running the subcommand 'select'")
     minimum_default_pipeline.add_argument("--classify", "-cl",
         help="Optional comma separated keyword for result classification")
     minimum_default_pipeline.add_argument("--db_root", "-dr",
         default='source_files', 
         help="Uses to get absolute path of domain annoation files, keyword selected domains")
-    minimum_default_pipeline.add_argument("--similarity", "-sim", default=30,
+    minimum_default_pipeline.add_argument("--similarity", "-sim", default=24,
         help="Percent similarity of prediction with reference")
-    minimum_default_pipeline.add_argument("--coverage", "-cov", default=40,
+    minimum_default_pipeline.add_argument("--coverage", "-cov", default=30,
         help="Percent coverage of reference domain in prediction")
     minimum_default_pipeline.add_argument("--identity", "-iden",
         help="Percent identity of prediction with reference")
@@ -85,17 +88,17 @@ def main():
         default="source_files/reference_db_files/needle/emboss/needle",
         help="path for the locally configured EMBOSS suite")
     minimum_default_pipeline.add_argument("--html", "-HT",
-        default=False, action="store_true")
+        default=True, action="store_true")
     minimum_default_pipeline.add_argument("--xlsx", "-XL",
         default=False, action="store_true")
     minimum_default_pipeline.add_argument("--fasta", "-fa",
         default=False, action="store_true",
         help="Analyze fasta sequences")
     minimum_default_pipeline.add_argument("--query_path", "-qp",
-        default='input/query_proteins',
+        default='input/query_proteins/query_to_uids.txt',
         help="Get proteome table from UniProt")
     minimum_default_pipeline.add_argument("--proteome_path", "-pp",
-        default='input/uniprot_reference_table',
+        default='input/uniprot_reference_table/query_uids_reference.tab',
         help="Get proteome table from UniProt")
     minimum_default_pipeline.add_argument("--xml_path", "-xp",
         default='input/mapped_query_annotation/xml_path_mapped_query',
@@ -104,16 +107,16 @@ def main():
         default='APRICOT_analysis/input/mapped_query_annotation/fasta_path_mapped_query',
         help="Provide absolute path of fasta files for query proteins")
     minimum_default_pipeline.add_argument("--feature_table", "-ft",
-        default='input/mapped_query_annotation/mapped_protein_xml_info_tables',
+        default='input/mapped_query_annotation/mapped_protein_xml_info_tables/query_feature_table.csv',
         help="Get proteome table from UniProt")
     minimum_default_pipeline.add_argument("--dom_kw", "-dk",
         default='source_files/domain_data/keywords_for_domain_selection.txt',
         help="Absolute path of keyword files")
     minimum_default_pipeline.add_argument("--cdd_db", "-cdb",
-        default='source_files/reference_db_files/cdd/Cdd', 
+        default='source_files/reference_db_files/cdd/Cdd',
         help="Provide absolute path of CDD databases based on the chosen method")
     minimum_default_pipeline.add_argument("--ipr_db", "-idb",
-        default='source_files/reference_db_files/interpro/interproscan', 
+        default='source_files/reference_db_files/interpro/interproscan',
         help="Provide absolute path of InterPro databases based on the chosen method")
     minimum_default_pipeline.add_argument("--predicted", "-predp",
         default='output/0_predicted_domains',
@@ -125,7 +128,7 @@ def main():
         default='source_files/reference_db_files/go_mapping/',
         help='Go mapping data from fixed database reference files')
     minimum_default_pipeline.add_argument("--pred_path", "-pred",
-        default='output/0_predicted_domains', 
+        default='output/0_predicted_domains',
         help="Raw files of domain prediction")
     minimum_default_pipeline.add_argument("--up_table", "-ref",
         default='input/uniprot_reference_table',
@@ -163,7 +166,7 @@ def main():
     minimum_default_pipeline.add_argument("--summarized", '-sum',
         default='output/5_analysis_summary/APRICOT_analysis_summary.txt',
         help="Provide output path")
-    minimum_default_pipeline.add_argument("--inpath", '-i',
+    minimum_default_pipeline.add_argument("--inpath", '-ip',
         default='APRICOT_analysis/output',
         help="Choose folder from analysis to be converted")
     minimum_default_pipeline.add_argument("--formatted", "-form",
@@ -203,7 +206,7 @@ def main():
     query_parser.add_argument("--analysis_path", "-ap",
         default='APRICOT_analysis',
         help='Main analysis path')
-    query_parser.add_argument("--uids", "-ui",
+    query_parser.add_argument("--uids", "-i",
         help="Comma separated UniProt IDs")
     query_parser.add_argument("--taxid", "-tx",
         help="Select taxonomy id for query species")
@@ -216,10 +219,10 @@ def main():
         default=False, action="store_true",
         help="Analyze fasta sequences")
     query_parser.add_argument("--query_path", "-qp",
-        default='input/query_proteins',
+        default='input/query_proteins/query_to_uids.txt',
         help="Get proteome table from UniProt")
     query_parser.add_argument("--proteome_path", "-pp",
-        default='input/uniprot_reference_table',
+        default='input/uniprot_reference_table/query_uids_reference.tab',
         help="Get proteome table from UniProt")
     query_parser.add_argument("--xml_path", "-xp",
         default='input/mapped_query_annotation/xml_path_mapped_query',
@@ -228,7 +231,7 @@ def main():
         default='APRICOT_analysis/input/mapped_query_annotation/fasta_path_mapped_query',
         help="Get proteome table from UniProt")
     query_parser.add_argument("--feature_table", "-ft",
-        default='input/mapped_query_annotation/mapped_protein_xml_info_tables',
+        default='input/mapped_query_annotation/mapped_protein_xml_info_tables/query_feature_table.csv',
         help="Get proteome table from UniProt")
     
     keyword_input_parser = subparsers.add_parser(
@@ -253,6 +256,9 @@ def main():
     domain_data_parser.add_argument("--ipr", '-I',
         default=False, action="store_true",
         help="Selects functional domains of interest from CDD")
+    domain_data_parser.add_argument("--skip_select", '-skip_select',
+        default=False, action="store_true",
+        help="Skips running the subcommand 'select'")
     domain_data_parser.add_argument("--dom_kw", "-dk",
         default='source_files/domain_data/keywords_for_domain_selection.txt',
         help="Absolute path of keyword files")
@@ -348,9 +354,13 @@ def main():
     classify_selected_output.add_argument("--class_kw", "-ck",
         default='source_files/domain_data/keywords_for_result_classification.txt',
         help="Path for keyword files")
+    classify_selected_output.add_argument("--classify", "-cl",
+        help="Optional comma separated keyword for result classification")
     classify_selected_output.add_argument("--classified", "-c",
         default="output/2_selected_domain_information/classified_data",
         help="Classification of selected data based on provided keywords")
+    classify_selected_output.add_argument("--db_root", "-dr",
+        default='source_files', help="Path for keyword files")
 
     get_annotation_scoring = subparsers.add_parser(
         "annoscore",
@@ -439,6 +449,9 @@ def main():
     visualize_analysis_result.add_argument("--add_anno", '-ad',
         default='output/4_additional_annotations',
         help="Provide path to additional annotation")
+    visualize_analysis_result.add_argument("--selected", "-sel",
+        default='output/2_selected_domain_information/combined_data/annotation_extended_for_selected.csv',
+        help='Provided selected protein table')
     visualize_analysis_result.add_argument("--domain", '-D',
         default=True, action='store_true',
         help="Visualizes predicted domains on the query by highlighting")
@@ -454,7 +467,7 @@ def main():
     visualize_analysis_result.add_argument("--msa", '-M',
         default=False, action="store_true",
         help="Visualizes Multiple Sequence Alignments of homologous sequences from PDB")
-    visualize_analysis_result.add_argument("--complete", '-C',
+    visualize_analysis_result.add_argument("--entire", '-E',
         default=False, action="store_true",
         help="Visualizes all the possible features")
     visualize_analysis_result.add_argument("--visualized", "-vi",
@@ -466,7 +479,7 @@ def main():
     create_output_files.set_defaults(func=output_format)
     create_output_files.add_argument("--analysis_path", '-ap',
         default='APRICOT_analysis', help="Provide analysis path")
-    create_output_files.add_argument("--inpath", '-i',
+    create_output_files.add_argument("--inpath", '-ip',
         default='APRICOT_analysis/output',
         help="Choose folder from analysis to be converted")
     create_output_files.add_argument("--html", "-HT",
@@ -493,8 +506,8 @@ def create_folders(args):
     print("----------------------------------------------------------------\n")
 
 def select_uniprot_taxid(args):
-    reference_taxonomy_file = args.db_path + '/all_taxids/speclist.txt'
-    selected_taxonomy_file = args.db_path + '/selected_taxonomy_ids.txt'
+    reference_taxonomy_file = os.path.join(args.db_path, 'all_taxids/speclist.txt')
+    selected_taxonomy_file = os.path.join(args.db_path, 'selected_taxonomy_ids.txt')
     if ',' in args.species:
         for each_species in args.species.split(','):
             select_taxids(each_species, reference_taxonomy_file, selected_taxonomy_file)
@@ -506,14 +519,11 @@ def select_uniprot_taxid(args):
     "\n----------------------------------------------------------------\n")
 
 def query_set(args):
-    query_path = args.analysis_path + '/' + args.query_path
-    xml_path = args.analysis_path + '/' + args.xml_path
+    xml_path = os.path.join(args.analysis_path, args.xml_path)
     fasta_path = args.fasta_path
-    feature_table = args.analysis_path + '/' + args.feature_table
-    proteome_path = args.analysis_path + '/' + args.proteome_path
-    query_file = args.analysis_path + '/' + args.query_path + '/query_to_uids.txt'
-    reference_file = proteome_path+ '/query_uids_reference.tab'
-    feature_file = feature_table+ '/query_feature_table.csv'
+    feature_file = os.path.join(args.analysis_path, args.feature_table)
+    reference_file = os.path.join(args.analysis_path, args.proteome_path)
+    query_file = os.path.join(args.analysis_path, args.query_path)
     for files in [query_file, reference_file, feature_file]:
         in_fh = open(files, 'w')
         in_fh.close()
@@ -579,7 +589,7 @@ def query_set(args):
                         out_fh.write(">%s" % entry)
 
 def keyword_input(args):
-    kw_path = args.db_root + '/domain_data'
+    kw_path = os.path.join(args.db_root, 'domain_data')
     print("\n----------------------------------------------------------------\n"
           "Keyword file path: %s" % kw_path)
     print("Keywords for domain selection: %s" % args.kw_domain)
@@ -595,50 +605,56 @@ def keyword_input(args):
     print("----------------------------------------------------------------\n")
 
 def select_domain_data(args):
-    domain_path = args.db_root + '/domain_data'
-    cdd_domain_path = domain_path + '/cdd'
-    ipr_domain_path = domain_path + '/interpro'
-    selected_domain_path = domain_path + '/all_keyword_selected_domain_data.tab'
-    
-    cdd_table = args.db_root + '/reference_db_files/cdd/cdd_annotation_data/cddid.tbl'
-    ipr_table = args.db_root + '/reference_db_files/interpro/interpro_annotation_data/interproid.tbl'
-    pfam_domain_file = args.db_root + '/reference_db_files/pfam/pfamA.txt'
-    interpro_mapped_cdd = args.db_root + '/reference_db_files/interpro/interpro_annotation_data/mapped_interpro_to_cdd_length.csv'
-    
-    if args.cdd:
-        print("\n----------------------------------------------------------------\n"
-            "Selecting domains from CDD only"
-            "\n----------------------------------------------------------------\n")
-        keyword_selected_cdd_selection = KeywordBasedDomainSelection(
-            args.dom_kw, pfam_domain_file, cdd_table, ipr_table, 
-            interpro_mapped_cdd, cdd_domain_path, ipr_domain_path)
-        keyword_selected_cdd_selection.select_cdd_domains()
-    elif args.ipr:
-        print("\n----------------------------------------------------------------\n"
-            "Selecting domains from InterPro only"
-            "\n----------------------------------------------------------------\n")
-        keyword_selected_ipr_selection = KeywordBasedDomainSelection(
-            args.dom_kw, pfam_domain_file, cdd_table, ipr_table,
-            interpro_mapped_cdd, cdd_domain_path, ipr_domain_path)
-        keyword_selected_ipr_selection.select_ipr_domains()
+    if not args.skip_select:
+        domain_path = os.path.join(args.db_root, 'domain_data')
+        cdd_domain_path = os.path.join(domain_path, 'cdd')
+        ipr_domain_path = os.path.join(domain_path, 'interpro')
+        selected_domain_path = os.path.join(domain_path, 'all_keyword_selected_domain_data.tab')
+        
+        cdd_table = os.path.join(args.db_root, 'reference_db_files/cdd/cdd_annotation_data/cddid.tbl')
+        ipr_table = os.path.join(args.db_root, 'reference_db_files/interpro/interpro_annotation_data/interproid.tbl')
+        pfam_domain_file = os.path.join(args.db_root, 'reference_db_files/pfam/pfamA.txt')
+        interpro_mapped_cdd = os.path.join(args.db_root, 'reference_db_files/interpro/interpro_annotation_data',
+                                           'mapped_interpro_to_cdd_length.csv')
+        
+        if args.cdd:
+            print("\n----------------------------------------------------------------\n"
+                "Selecting domains from CDD only"
+                "\n----------------------------------------------------------------\n")
+            keyword_selected_cdd_selection = KeywordBasedDomainSelection(
+                args.dom_kw, pfam_domain_file, cdd_table, ipr_table, 
+                interpro_mapped_cdd, cdd_domain_path, ipr_domain_path)
+            keyword_selected_cdd_selection.select_cdd_domains()
+        elif args.ipr:
+            print("\n----------------------------------------------------------------\n"
+                "Selecting domains from InterPro only"
+                "\n----------------------------------------------------------------\n")
+            keyword_selected_ipr_selection = KeywordBasedDomainSelection(
+                args.dom_kw, pfam_domain_file, cdd_table, ipr_table,
+                interpro_mapped_cdd, cdd_domain_path, ipr_domain_path)
+            keyword_selected_ipr_selection.select_ipr_domains()
+        else:
+            print("\n----------------------------------------------------------------\n"
+                  "Selecting domains from both the databases"
+                "\n----------------------------------------------------------------\n")
+            keyword_selected_cdd_selection = KeywordBasedDomainSelection(
+                args.dom_kw, pfam_domain_file, cdd_table, ipr_table,
+                interpro_mapped_cdd, cdd_domain_path, ipr_domain_path)
+            keyword_selected_cdd_selection.select_cdd_and_ipr_domains()
+        merge_domain_data(
+        cdd_domain_path + '/all_keyword_selected_cdd_data.tab',
+        ipr_domain_path + '/all_keyword_selected_interpro_data.tab',
+        selected_domain_path)
     else:
         print("\n----------------------------------------------------------------\n"
-              "Selecting domains from both the databases"
-            "\n----------------------------------------------------------------\n")
-        keyword_selected_cdd_selection = KeywordBasedDomainSelection(
-            args.dom_kw, pfam_domain_file, cdd_table, ipr_table,
-            interpro_mapped_cdd, cdd_domain_path, ipr_domain_path)
-        keyword_selected_cdd_selection.select_cdd_and_ipr_domains()
-    merge_domain_data(
-    cdd_domain_path + '/all_keyword_selected_cdd_data.tab',
-    ipr_domain_path + '/all_keyword_selected_interpro_data.tab',
-    selected_domain_path)
+              "Skip running the subcommand 'select' due to the given flag '--skip_select'"
+              "\n----------------------------------------------------------------\n")
 
 def run_domain_analysis(args):
     script_path = '/'.join(
         os.path.realpath(__file__).split('/')[0:-1]) + '/apricotlib'
-    analysis_path_cdd = args.analysis_path + '/' + args.predicted + '/cdd_analysis'
-    analysis_path_ipr = args.analysis_path + '/' + args.predicted + '/ipr_analysis'
+    analysis_path_cdd = os.path.join(args.analysis_path, args.predicted, 'cdd_analysis')
+    analysis_path_ipr = os.path.join(args.analysis_path, args.predicted, 'ipr_analysis')
     if not os.path.exists(analysis_path_cdd):
         os.mkdir(analysis_path_cdd)
     if not os.path.exists(analysis_path_ipr):
@@ -669,7 +685,7 @@ def cdd_based_pred(fasta_path, outpath, cdd_db):
         else:
             print("CDD based domain prediction for file %s..." % filename)
             cdd_process = subprocess.Popen(
-                ["rpsblast -query %s/%s -db %s/Cdd -out %s/%s.txt" % (
+                ["rpsblast -i %s/%s -d %s/Cdd -o %s/%s.txt" % (
                 fasta_path, fasta, cdd_db, outpath, filename)], shell=True).wait()
             
 def force_cdd_based_pred(fasta_path, outpath, cdd_db):
@@ -680,7 +696,7 @@ def force_cdd_based_pred(fasta_path, outpath, cdd_db):
             os.remove(outpath + '/' + filename + '.txt')
         print("CDD based domain prediction for file %s..." % filename)
         cdd_process = subprocess.Popen(
-            ["rpsblast -query %s/%s -db %s/Cdd -out %s/%s.txt" % (
+            ["rpsblast -i %s/%s -d %s/Cdd -o %s/%s.txt" % (
             fasta_path, fasta, cdd_db, outpath, filename)], shell=True).wait()
             
 def ipr_based_pred(fasta_path, outpath, ipr_db):
@@ -702,22 +718,17 @@ def force_ipr_based_pred(fasta_path, outpath, ipr_db):
         ipr_process = subprocess.Popen(
                 ["bash %s/interproscan.sh -i %s/%s -b %s/%s -f tsv -dp -goterms" %
                  (ipr_db, fasta_path, fasta, outpath, filename)], shell=True).wait()
-        print("NOTE: The current version of InterProScan runs on Java-7, \
-            If you have have Java-8 or up you can change the Java path \
-            as of (2015) in the interproscan.sh configuration file. \
-            for example: JAVA=$(type -p \
-            /usr/lib/jvm/java-7-openjdk-amd64/jre/bin/java)")
-            
+
 def filter_domain(args):
     parameter_list = []
     domain_description_file = args.domain_description_file
     go_path = args.go_path
-    uniprot_table = args.analysis_path + '/' + args.up_table #(:-2)
-    xml_info=args.analysis_path + '/' + args.xml_info #(3, 5:)
-    outpath1 = args.analysis_path + '/' + args.compile_out
-    filtered_result_path = outpath1 + '/selected_data'
-    all_prediction_output = outpath1 + '/unfiltered_data'
-    outpath2 = args.analysis_path + '/' + args.selected
+    uniprot_table = os.path.join(args.analysis_path, args.up_table) #(:-2)
+    xml_info = os.path.join(args.analysis_path, args.xml_info) #(3, 5:)
+    outpath1 = os.path.join(args.analysis_path, args.compile_out)
+    filtered_result_path = os.path.join(outpath1, 'selected_data')
+    all_prediction_output = os.path.join(outpath1, 'unfiltered_data')
+    outpath2 = os.path.join(args.analysis_path, args.selected)
     if args.similarity:
         parameter_list.append("similarity:%s" % args.similarity)
     else:
@@ -783,6 +794,11 @@ def filter_domain(args):
         selected_protein_table.streamline_selected_protein_table()
 
 def classify_output(args):
+    kw_path = args.db_root + '/domain_data'
+    if args.classify:
+        print("Keywords for classification of domain prediction: %s"
+              % args.classify)
+        keyword_class_files(kw_path, args.classify)
     print(
         "\n----------------------------------------------------------------\n"
         "Classifying selected domain data using classification keywords:\n"
@@ -896,32 +912,35 @@ def annotation_secstr_literature(fasta_path, selected_proteins, outpath):
     literature_secstr_analysis.streamline_literature_secstr_analysis()
     
 def visualize_result(args):
-    outpath = args.analysis_path + '/' + args.visualized
-    biojs_viz_of_apricot_analysis = BiojsVizOfApricotAnalysis(
+    print(args.selected)
+    viz_apricot_analysis = VizApricotAnalysis(
         args.analysis_path + '/' + args.ann_score,
-        args.analysis_path + '/' + args.add_anno, outpath)
-    biojs_viz_of_apricot_analysis.parse_annotation_scoring()
+        args.analysis_path + '/' + args.selected,
+        args.analysis_path + '/' + args.add_anno,
+        args.analysis_path + '/' + args.visualized)
+    viz_apricot_analysis.parse_annotation_scoring()
+    viz_apricot_analysis.parse_domain_data()
     if args.domain:
-        biojs_viz_of_apricot_analysis.viz_domain_highlights()
-        biojs_viz_of_apricot_analysis.domain_highlight_script()
+        viz_apricot_analysis.viz_domain_highlights()
+        viz_apricot_analysis.domain_highlight_script()
     if args.annoscore:
-        biojs_viz_of_apricot_analysis.viz_annotation_scoring()
+        viz_apricot_analysis.viz_annotation_scoring()
     if args.secstr:
-        biojs_viz_of_apricot_analysis.viz_secondary_structure()
-        biojs_viz_of_apricot_analysis.sec_str_script()
+        viz_apricot_analysis.viz_secondary_structure()
+        viz_apricot_analysis.sec_str_script()
     if args.localiz:
-        biojs_viz_of_apricot_analysis.viz_subcellular_localization()
+        viz_apricot_analysis.viz_subcellular_localization()
     if args.msa:
-        biojs_viz_of_apricot_analysis.viz_homologous_pdb_msa()
-    if args.complete:
-        biojs_viz_of_apricot_analysis.viz_all_the_visualization_files()
+        viz_apricot_analysis.viz_homologous_pdb_msa()
+    if args.entire:
+        viz_apricot_analysis.viz_all_the_visualization_files()
         
 def output_format(args):
     analysis_path = args.analysis_path
     inpath = args.inpath
-    outpath = analysis_path + '/' + args.formatted
-    html_out = outpath + '/html_files'
-    excel_out = outpath + '/excel_files'
+    outpath = os.path.join(analysis_path, args.formatted)
+    html_out = os.path.join(outpath, 'html_files')
+    excel_out = os.path.join(outpath, 'excel_files')
     if args.html:
         for folders in os.listdir(inpath):
             #if folders == '5_analysis_summary' or folders == '2_selected_domain_information':

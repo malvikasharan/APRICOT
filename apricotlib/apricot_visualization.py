@@ -17,11 +17,13 @@ except ImportError:
     sys.exit(0)
 
 
-class BiojsVizOfApricotAnalysis(object):
+class VizApricotAnalysis(object):
     def __init__(self, annotation_scoring_data,
+                 domain_file,
                  additional_annotation,
                  outpath):
         self._annotation_scoring_data = annotation_scoring_data
+        self._domain_file = domain_file
         self._additional_annotation = additional_annotation
         self._outpath = outpath
         self._sec_str = self._outpath+'/secondary_structure'
@@ -30,6 +32,7 @@ class BiojsVizOfApricotAnalysis(object):
         self._overview = self._outpath+'/overview_and_statistics'
         self._localize = self._outpath+'/subcellular_localization'
         self._annotation_data = []
+        self._domain_data = []
         self._highlight_dict = {}
         self._uid_key_dict = {}
         self._dom_rank = {}
@@ -61,61 +64,69 @@ class BiojsVizOfApricotAnalysis(object):
                 self._annotation_data.append(entry.strip())
         return self._annotation_data
     
+    def parse_domain_data(self):
+        with open(self._domain_file, 'r') as in_fh:
+            for entry in in_fh:
+                self._domain_data.append(entry.strip())
+        return self._domain_data
+    
     def viz_domain_highlights(self):
-        for entry in self._annotation_data:
+        for entry in self._domain_data:
             if not entry.startswith('Entry'):
-                anno_score = AnnotationScoringColumns(
+                domain_info = DomainDataColumns(
                     entry.strip().split('\t'))
-                prot_name = anno_score.entry_name
-                prot_end = int(anno_score.length)-1
+                prot_name = domain_info.entry_name
+                prot_end = int(domain_info.length)-1
                 prot_key = '\n'.join(
                     ["\tstart: 0,", "\tend: %s,"
                      % prot_end, '\tname: "%s",' % prot_name,
                      '\thref: "http://www.uniprot.org/uniprot/%s"'
-                     % anno_score.uid])
-                self._uid_key_dict[anno_score.uid] = prot_key
+                     % domain_info.uid])
+                self._uid_key_dict[domain_info.uid] = prot_key
+                print(domain_info.start)
                 self._location_dict[
-                    anno_score.uid][anno_score.domain_id].append(
+                    domain_info.uid][domain_info.domain_id].append(
                         '\t{start: %s, end: %s}' % (
-                            anno_score.start, anno_score.stop))
+                            domain_info.start, domain_info.stop))
                 self._dom_annotation[
-                    anno_score.domain_id] = anno_score.full_name
-                src = anno_score.resource
+                    domain_info.domain_id] = domain_info.full_name
+                src = domain_info.resource
                 if src == 'CDD':
                     self._dom_rank.setdefault(
-                        anno_score.uid+':CDD', []).append(
-                        anno_score.domain_id)
+                        domain_info.uid+':CDD', []).append(
+                        domain_info.domain_id)
                     self._highlight_dict.setdefault(
                         prot_key, []).append('\n'.join(
-                            ['\t\tstart: %s,' % anno_score.start,
-                             '\t\tend: %s,' % anno_score.stop,
+                            ['\t\tstart: %s,' % domain_info.start,
+                             '\t\tend: %s,' % domain_info.stop,
                              '\t\tdomain: {', '\t\t\tname: "%s",'
-                             % anno_score.domain_id,
+                             % domain_info.domain_id,
                              '\t\t\tid: %s,' % len(
-                                 self._dom_rank[anno_score.uid+':CDD']),
+                                 self._dom_rank[domain_info.uid+':CDD']),
                              '\t\t\tdescription: "%s"},' %
-                             anno_score.short_name,
+                             domain_info.short_name,
                              '\t\tsource: {', '\t\t\tname: "CDD",',
                              '\t\t\thref: null,', '\t\t\tid: 1}']))
                 else:
                     self._dom_rank.setdefault(
-                        anno_score.uid+':IPR', []).append(
-                        anno_score.domain_id)
+                        domain_info.uid+':IPR', []).append(
+                        domain_info.domain_id)
                     self._highlight_dict.setdefault(
                         prot_key, []).append('\n'.join(
-                            ['start: %s,' % anno_score.start,
-                             'end: %s,' % anno_score.stop,
+                            ['start: %s,' % domain_info.start,
+                             'end: %s,' % domain_info.stop,
                              'domain: {', '\t\tname: "%s",' %
-                             anno_score.domain_id,
+                             domain_info.domain_id,
                              '\t\tid: %s,' % len(
-                                 self._dom_rank[anno_score.uid+':IPR']),
-                             '\t\tdescription: "%s"},' % anno_score.short_name,
+                                 self._dom_rank[domain_info.uid+':IPR']),
+                             '\t\tdescription: "%s"},' % domain_info.short_name,
                              'source: {', '\t\tname: "InterPro",',
                              '\t\thref: null,', '\t\tid: 2}']))
         return(self._highlight_dict, self._uid_key_dict, self._location_dict, self._dom_annotation)
-                
+
     def domain_highlight_script(self):
         for uid in self._uid_key_dict.keys():
+            print(uid)
             header = '\n'.join(['<meta charset="UTF-8">'
             '<link type="text/css" rel="stylesheet" href="http://parce.li/bundle/biojs-vis-protein-viewer@0.1.4">',
             '<script src="https://wzrd.in/bundle/biojs-vis-protein-viewer@0.1.4"></script>',
@@ -134,7 +145,6 @@ class BiojsVizOfApricotAnalysis(object):
                 'pv.render();', '</script>'])
             with open(self._dom_highlight+'/%s.html' % uid, 'w') as out_fh:
                 out_fh.write('\n'.join([header, body, panel, footer]))
-                
                 
     def viz_secondary_structure(self):
         for uid in self._uid_key_dict.keys():
@@ -347,4 +357,45 @@ class AnnotationScoringColumns(object):
         self.PCC_ED = row[33]
         self.DPC_ED = row[34]
         self.TPC_ED = row[35]
-        
+
+class DomainDataColumns(object):
+    '''Column information of domain annotation file'''
+    def __init__(self, row):
+        self.uid = row[0]
+        self.entry_name = row[1]
+        self.prot_name = row[2]
+        self.species = row[3]
+        self.length = row[4]
+        self.gene_name = row[5]
+        self.locus_tag = row[6]
+        self.existance = row[7]
+        self.go = row[8]
+        self.embl_id = row[9]
+        self.pdb_id = row[10]
+        self.kegg_id = row[11]
+        self.interpro_id = row[12]
+        self.pfam_id = row[13]
+        self.pubmed_id = row[14]
+        self.resource = row[15]
+        self.resource_id = row[16]
+        self.domain_id = row[17]
+        self.short_name = row[18]
+        self.full_name = row[19]
+        self.dom_kw = row[20]
+        self.dom_go = row[21]
+        self.members = row[22]
+        self.dom_len = row[23]
+        self.start = row[24]
+        self.stop = row[25]
+        self.evalue = row[26]
+        self.bitscore = row[27]
+        self.bits = row[28]
+        self.cover_len = row[29]
+        self.cov_prcnt = row[30]
+        self.identity = row[31]
+        self.iden_prcnt = row[32]
+        self.similarity = row[33]
+        self.sim_prcnt = row[34]
+        self.gaps = row[35]
+        self.gap_prcnt = row[36]
+        self.filter_tag = row[37]
