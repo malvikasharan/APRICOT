@@ -52,7 +52,7 @@ def csv_to_html(inpath, outpath):
                     '});', '</script>', '<style type="text/CSS">',
                     'table, th, td {', '\tborder: 1px solid #E8E8E8;',
                     '\tborder-collapse: collapse;', '\tmin-width:150px;',
-                    '\ttext-align:center', '}', '</style>',
+                    '\ttext-align:left', '}', '</style>',
                     '</head>', '<div id="subscriptionsList">',
                     '<h2>Source file: %s</h2>' % csv_file,
                     '<h3>Source path: %s</h3>' % inpath, '<table id="subscriptionlist">\n']))

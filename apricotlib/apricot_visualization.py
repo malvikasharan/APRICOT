@@ -55,7 +55,6 @@ class VizApricotAnalysis(object):
         self.domain_highlight_script()
         self.viz_secondary_structure()
         self.sec_str_script()
-        self.viz_subcellular_localization()
         self.viz_homologous_pdb_msa()
         
     def parse_annotation_scoring(self):
