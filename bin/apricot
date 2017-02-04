@@ -467,7 +467,7 @@ def main():
     visualize_analysis_result.add_argument("--msa", '-M',
         default=False, action="store_true",
         help="Visualizes Multiple Sequence Alignments of homologous sequences from PDB")
-    visualize_analysis_result.add_argument("--entire", '-E',
+    visualize_analysis_result.add_argument("--complete", '-C',
         default=False, action="store_true",
         help="Visualizes all the possible features")
     visualize_analysis_result.add_argument("--visualized", "-vi",
@@ -932,7 +932,7 @@ def visualize_result(args):
         viz_apricot_analysis.viz_subcellular_localization()
     if args.msa:
         viz_apricot_analysis.viz_homologous_pdb_msa()
-    if args.entire:
+    if args.complete:
         viz_apricot_analysis.viz_all_the_visualization_files()
         
 def output_format(args):
