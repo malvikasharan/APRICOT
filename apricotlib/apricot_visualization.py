@@ -2,6 +2,9 @@
 # Description = Visualizes different output data from APRICOT analysis
 
 from collections import defaultdict
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
 import os
 import sys
 
@@ -33,6 +36,7 @@ class VizApricotAnalysis(object):
         self._localize = self._outpath+'/subcellular_localization'
         self._annotation_data = []
         self._domain_data = []
+        self._filter_viz_dict = {}
         self._highlight_dict = {}
         self._uid_key_dict = {}
         self._dom_rank = {}
@@ -53,6 +57,7 @@ class VizApricotAnalysis(object):
         self.parse_annotation_scoring()
         self.viz_domain_highlights()
         self.domain_highlight_script()
+        self.viz_annotation_scoring()
         self.viz_secondary_structure()
         self.sec_str_script()
         self.viz_homologous_pdb_msa()
@@ -62,6 +67,33 @@ class VizApricotAnalysis(object):
             for entry in in_fh:
                 self._annotation_data.append(entry.strip())
         return self._annotation_data
+    
+    def viz_annotation_scoring(self):
+        ''''''
+        for entry in self._annotation_data:
+            if not entry.startswith('Entry'):
+                self._filter_viz_dict.setdefault('filter1_list', []).append(
+                    float(entry.split('\t')[-5]))
+                self._filter_viz_dict.setdefault('filter2_list', []).append(
+                    float(entry.split('\t')[-4]))
+                self._filter_viz_dict.setdefault('filter3_list', []).append(
+                    float(entry.split('\t')[-3]))
+                self._filter_viz_dict.setdefault('filter4_list', []).append(
+                    float(entry.split('\t')[-2]))
+                self._filter_viz_dict.setdefault('bayscore_list', []).append(
+                    float(entry.split('\t')[-1]))
+        label_list = range(0, len(self._filter_viz_dict['bayscore_list']))
+        plt.plot(sorted(self._filter_viz_dict['filter1_list']), 'ro', label='Filter-1 Score')
+        plt.plot(sorted(self._filter_viz_dict['filter2_list']), 'ys', label='Filter-2 Score')
+        plt.plot(sorted(self._filter_viz_dict['filter3_list']), 'g8', label='Filter-3 Score')
+        plt.plot(sorted(self._filter_viz_dict['filter4_list']), 'mp', label='Filter-4 Score')
+        plt.plot(sorted(self._filter_viz_dict['bayscore_list']), 'b^', label='Bayesian Score')
+        plt.legend(bbox_to_anchor=(0., 1.02, 1., .102), loc=3,
+           ncol=3, mode="expand", borderaxespad=0.)
+        plt.xticks(label_list)
+        plt.xlabel('Annotation scores of selected proteins')
+        plt.ylabel('Filter/Bayesian score')
+        plt.savefig(os.path.join(self._overview, 'viz_annotation_scoring.png'))
     
     def parse_domain_data(self):
         with open(self._domain_file, 'r') as in_fh:
@@ -82,7 +114,6 @@ class VizApricotAnalysis(object):
                      '\thref: "http://www.uniprot.org/uniprot/%s"'
                      % domain_info.uid])
                 self._uid_key_dict[domain_info.uid] = prot_key
-                print(domain_info.start)
                 self._location_dict[
                     domain_info.uid][domain_info.domain_id].append(
                         '\t{start: %s, end: %s}' % (
@@ -125,7 +156,6 @@ class VizApricotAnalysis(object):
 
     def domain_highlight_script(self):
         for uid in self._uid_key_dict.keys():
-            print(uid)
             header = '\n'.join(['<meta charset="UTF-8">'
             '<link type="text/css" rel="stylesheet" href="http://parce.li/bundle/biojs-vis-protein-viewer@0.1.4">',
             '<script src="https://wzrd.in/bundle/biojs-vis-protein-viewer@0.1.4"></script>',
