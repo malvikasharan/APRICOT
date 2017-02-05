@@ -1,3 +1,6 @@
+v1.2.2 (2016-02-04)
+- update for monthly release, added subcommand 'default'
+
 v1.2.1 (2016-10-04)
 - update for monthly release
 
