@@ -912,28 +912,28 @@ def annotation_secstr_literature(fasta_path, selected_proteins, outpath):
     literature_secstr_analysis.streamline_literature_secstr_analysis()
     
 def visualize_result(args):
-    print(args.selected)
     viz_apricot_analysis = VizApricotAnalysis(
         args.analysis_path + '/' + args.ann_score,
         args.analysis_path + '/' + args.selected,
         args.analysis_path + '/' + args.add_anno,
         args.analysis_path + '/' + args.visualized)
-    viz_apricot_analysis.parse_annotation_scoring()
-    viz_apricot_analysis.parse_domain_data()
+    print("\n----------------------------------------------------------------\n"
+          "Running visualization module..."
+          "\n----------------------------------------------------------------\n")
+    viz_apricot_analysis.viz_domain_data()
     if args.domain:
-        viz_apricot_analysis.viz_domain_highlights()
-        viz_apricot_analysis.domain_highlight_script()
+        viz_apricot_analysis.domain_highlight()
     if args.annoscore:
         viz_apricot_analysis.viz_annotation_scoring()
     if args.secstr:
         viz_apricot_analysis.viz_secondary_structure()
-        viz_apricot_analysis.sec_str_script()
     if args.localiz:
         viz_apricot_analysis.viz_subcellular_localization()
     if args.msa:
         viz_apricot_analysis.viz_homologous_pdb_msa()
     if args.complete:
         viz_apricot_analysis.viz_all_the_visualization_files()
+    print("\n----------------------------------------------------------------\n")
         
 def output_format(args):
     analysis_path = args.analysis_path

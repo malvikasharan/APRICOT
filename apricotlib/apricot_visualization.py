@@ -35,7 +35,6 @@ class VizApricotAnalysis(object):
         self._overview = self._outpath+'/overview_and_statistics'
         self._localize = self._outpath+'/subcellular_localization'
         self._annotation_data = []
-        self._domain_data = []
         self._filter_viz_dict = {}
         self._highlight_dict = {}
         self._uid_key_dict = {}
@@ -54,107 +53,68 @@ class VizApricotAnalysis(object):
             "GoldenRod", "MidnightBlue", "LightPink", "Gold")
 
     def viz_all_the_visualization_files(self):
-        self.parse_annotation_scoring()
-        self.viz_domain_highlights()
-        self.domain_highlight_script()
+        self.viz_domain_data()
+        self.domain_highlight()
         self.viz_annotation_scoring()
         self.viz_secondary_structure()
-        self.sec_str_script()
+        self.viz_subcellular_localization()
         self.viz_homologous_pdb_msa()
-        
-    def parse_annotation_scoring(self):
-        with open(self._annotation_scoring_data, 'r') as in_fh:
-            for entry in in_fh:
-                self._annotation_data.append(entry.strip())
-        return self._annotation_data
     
-    def viz_annotation_scoring(self):
-        ''''''
-        for entry in self._annotation_data:
-            if not entry.startswith('Entry'):
-                self._filter_viz_dict.setdefault('filter1_list', []).append(
-                    float(entry.split('\t')[-5]))
-                self._filter_viz_dict.setdefault('filter2_list', []).append(
-                    float(entry.split('\t')[-4]))
-                self._filter_viz_dict.setdefault('filter3_list', []).append(
-                    float(entry.split('\t')[-3]))
-                self._filter_viz_dict.setdefault('filter4_list', []).append(
-                    float(entry.split('\t')[-2]))
-                self._filter_viz_dict.setdefault('bayscore_list', []).append(
-                    float(entry.split('\t')[-1]))
-        label_list = range(0, len(self._filter_viz_dict['bayscore_list']))
-        plt.plot(sorted(self._filter_viz_dict['filter1_list']), 'ro', label='Filter-1 Score')
-        plt.plot(sorted(self._filter_viz_dict['filter2_list']), 'ys', label='Filter-2 Score')
-        plt.plot(sorted(self._filter_viz_dict['filter3_list']), 'g8', label='Filter-3 Score')
-        plt.plot(sorted(self._filter_viz_dict['filter4_list']), 'mp', label='Filter-4 Score')
-        plt.plot(sorted(self._filter_viz_dict['bayscore_list']), 'b^', label='Bayesian Score')
-        plt.legend(bbox_to_anchor=(0., 1.02, 1., .102), loc=3,
-           ncol=3, mode="expand", borderaxespad=0.)
-        plt.xticks(label_list)
-        plt.xlabel('Annotation scores of selected proteins')
-        plt.ylabel('Filter/Bayesian score')
-        plt.savefig(os.path.join(self._overview, 'viz_annotation_scoring.png'))
-    
-    def parse_domain_data(self):
+    def viz_domain_data(self):
         with open(self._domain_file, 'r') as in_fh:
             for entry in in_fh:
-                self._domain_data.append(entry.strip())
-        return self._domain_data
-    
-    def viz_domain_highlights(self):
-        for entry in self._domain_data:
-            if not entry.startswith('Entry'):
-                domain_info = DomainDataColumns(
-                    entry.strip().split('\t'))
-                prot_name = domain_info.entry_name
-                prot_end = int(domain_info.length)-1
-                prot_key = '\n'.join(
-                    ["\tstart: 0,", "\tend: %s,"
-                     % prot_end, '\tname: "%s",' % prot_name,
-                     '\thref: "http://www.uniprot.org/uniprot/%s"'
-                     % domain_info.uid])
-                self._uid_key_dict[domain_info.uid] = prot_key
-                self._location_dict[
-                    domain_info.uid][domain_info.domain_id].append(
-                        '\t{start: %s, end: %s}' % (
-                            domain_info.start, domain_info.stop))
-                self._dom_annotation[
-                    domain_info.domain_id] = domain_info.full_name
-                src = domain_info.resource
-                if src == 'CDD':
-                    self._dom_rank.setdefault(
-                        domain_info.uid+':CDD', []).append(
-                        domain_info.domain_id)
-                    self._highlight_dict.setdefault(
-                        prot_key, []).append('\n'.join(
-                            ['\t\tstart: %s,' % domain_info.start,
-                             '\t\tend: %s,' % domain_info.stop,
-                             '\t\tdomain: {', '\t\t\tname: "%s",'
-                             % domain_info.domain_id,
-                             '\t\t\tid: %s,' % len(
-                                 self._dom_rank[domain_info.uid+':CDD']),
-                             '\t\t\tdescription: "%s"},' %
-                             domain_info.short_name,
-                             '\t\tsource: {', '\t\t\tname: "CDD",',
-                             '\t\t\thref: null,', '\t\t\tid: 1}']))
-                else:
-                    self._dom_rank.setdefault(
-                        domain_info.uid+':IPR', []).append(
-                        domain_info.domain_id)
-                    self._highlight_dict.setdefault(
-                        prot_key, []).append('\n'.join(
-                            ['start: %s,' % domain_info.start,
-                             'end: %s,' % domain_info.stop,
-                             'domain: {', '\t\tname: "%s",' %
-                             domain_info.domain_id,
-                             '\t\tid: %s,' % len(
-                                 self._dom_rank[domain_info.uid+':IPR']),
-                             '\t\tdescription: "%s"},' % domain_info.short_name,
-                             'source: {', '\t\tname: "InterPro",',
-                             '\t\thref: null,', '\t\tid: 2}']))
-        return(self._highlight_dict, self._uid_key_dict, self._location_dict, self._dom_annotation)
+                if not entry.startswith('Entry'):
+                    domain_info = DomainDataColumns(
+                        entry.strip().split('\t'))
+                    prot_name = domain_info.entry_name
+                    prot_end = int(domain_info.length)-1
+                    prot_key = '\n'.join(
+                        ["\tstart: 0,", "\tend: %s,"
+                         % prot_end, '\tname: "%s",' % prot_name,
+                         '\thref: "http://www.uniprot.org/uniprot/%s"'
+                         % domain_info.uid])
+                    self._uid_key_dict[domain_info.uid] = prot_key
+                    self._location_dict[
+                        domain_info.uid][domain_info.domain_id].append(
+                            '\t{start: %s, end: %s}' % (
+                                domain_info.start, domain_info.stop))
+                    self._dom_annotation[
+                        domain_info.domain_id] = domain_info.full_name
+                    src = domain_info.resource
+                    if src == 'CDD':
+                        self._dom_rank.setdefault(
+                            domain_info.uid+':CDD', []).append(
+                            domain_info.domain_id)
+                        self._highlight_dict.setdefault(
+                            prot_key, []).append('\n'.join(
+                                ['\t\tstart: %s,' % domain_info.start,
+                                 '\t\tend: %s,' % domain_info.stop,
+                                 '\t\tdomain: {', '\t\t\tname: "%s",'
+                                 % domain_info.domain_id,
+                                 '\t\t\tid: %s,' % len(
+                                     self._dom_rank[domain_info.uid+':CDD']),
+                                 '\t\t\tdescription: "%s"},' %
+                                 domain_info.short_name,
+                                 '\t\tsource: {', '\t\t\tname: "CDD",',
+                                 '\t\t\thref: null,', '\t\t\tid: 1}']))
+                    else:
+                        self._dom_rank.setdefault(
+                            domain_info.uid+':IPR', []).append(
+                            domain_info.domain_id)
+                        self._highlight_dict.setdefault(
+                            prot_key, []).append('\n'.join(
+                                ['start: %s,' % domain_info.start,
+                                 'end: %s,' % domain_info.stop,
+                                 'domain: {', '\t\tname: "%s",' %
+                                 domain_info.domain_id,
+                                 '\t\tid: %s,' % len(
+                                     self._dom_rank[domain_info.uid+':IPR']),
+                                 '\t\tdescription: "%s"},' % domain_info.short_name,
+                                 'source: {', '\t\tname: "InterPro",',
+                                 '\t\thref: null,', '\t\tid: 2}']))
+            return self._uid_key_dict, self._location_dict, self._dom_annotation, self._dom_highlight, self._highlight_dict
 
-    def domain_highlight_script(self):
+    def domain_highlight(self):
         for uid in self._uid_key_dict.keys():
             header = '\n'.join(['<meta charset="UTF-8">'
             '<link type="text/css" rel="stylesheet" href="http://parce.li/bundle/biojs-vis-protein-viewer@0.1.4">',
@@ -175,6 +135,36 @@ class VizApricotAnalysis(object):
             with open(self._dom_highlight+'/%s.html' % uid, 'w') as out_fh:
                 out_fh.write('\n'.join([header, body, panel, footer]))
                 
+    def viz_annotation_scoring(self):
+        if os.path.exists(self._annotation_scoring_data):
+            with open(self._annotation_scoring_data, 'r') as in_fh:
+                for entry in in_fh:
+                    if not entry.startswith('Entry'):
+                        self._filter_viz_dict.setdefault('filter1_list', []).append(
+                            float(entry.strip().split('\t')[-5]))
+                        self._filter_viz_dict.setdefault('filter2_list', []).append(
+                            float(entry.strip().split('\t')[-4]))
+                        self._filter_viz_dict.setdefault('filter3_list', []).append(
+                            float(entry.strip().split('\t')[-3]))
+                        self._filter_viz_dict.setdefault('filter4_list', []).append(
+                            float(entry.strip().split('\t')[-2]))
+                        self._filter_viz_dict.setdefault('bayscore_list', []).append(
+                            float(entry.strip().split('\t')[-1]))
+                label_list = range(0, len(self._filter_viz_dict['bayscore_list']))
+                plt.plot(sorted(self._filter_viz_dict['filter1_list']), 'ro', label='Filter-1 Score')
+                plt.plot(sorted(self._filter_viz_dict['filter2_list']), 'ys', label='Filter-2 Score')
+                plt.plot(sorted(self._filter_viz_dict['filter3_list']), 'g8', label='Filter-3 Score')
+                plt.plot(sorted(self._filter_viz_dict['filter4_list']), 'mp', label='Filter-4 Score')
+                plt.plot(sorted(self._filter_viz_dict['bayscore_list']), 'b^', label='Bayesian Score')
+                plt.legend(bbox_to_anchor=(0., 1.02, 1., .102), loc=3,
+                   ncol=3, mode="expand", borderaxespad=0.)
+                plt.xticks(label_list)
+                plt.xlabel('Annotation scores of selected proteins')
+                plt.ylabel('Filter/Bayesian score')
+                plt.savefig(os.path.join(self._overview, 'viz_annotation_scoring.png'))
+        else:
+            print("The data for annotation scores do not exist!")
+                
     def viz_secondary_structure(self):
         for uid in self._uid_key_dict.keys():
             if uid+'.horiz' in os.listdir(
@@ -189,7 +179,7 @@ class VizApricotAnalysis(object):
                 print("\nRaptorX/literature-based secondary structure files are unavailable.")
                 print("Exiting the current analysis.")
                 print("Please re-run the secondary structure prediction by RaptorX\n")
-                sys.exit()
+                return
             secstr_list = []
             uid_secstr_dict = {}
             sec_data_sites = []
@@ -205,7 +195,7 @@ class VizApricotAnalysis(object):
                         except IndexError:
                             print("\nRaptorX output file is incomplete. Exiting the current analysis.")
                             print("Please re-run the secondary structure prediction by RaptorX\n")
-                            sys.exit()
+                            return
             for i, pred_data in enumerate(''.join(secstr_list)):
                     uid_secstr_dict[i] = pred_data
             for j in range(len(uid_secstr_dict)-1):
@@ -221,7 +211,7 @@ class VizApricotAnalysis(object):
                 'mySequence.addHighlight({start:%s, end:%s, color:"Black", background:"%s"});'
                 %(int(sec_data_sites[-1])+1, int(list(uid_secstr_dict.keys())[-1])+1,
                   self._sec_str_color[uid_secstr_dict[j]]))
-        return self._fasta_dict, self._secstr_dict
+        self.sec_str_script()
                 
     def sec_str_script(self):
         for uid in self._fasta_dict.keys():
@@ -287,7 +277,7 @@ class VizApricotAnalysis(object):
             print("\nPsortB-based localization prediction files are unavailable.")
             print("Exiting the current analysis.")
             print("Please re-run the localization prediction by PsortB\n")
-            sys.exit()
+            return
         
     def _create_localization_heatmap(self):
         ''''''
