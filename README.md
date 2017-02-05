@@ -39,7 +39,7 @@ Copyright (c) 2011-2016, Malvika Sharan, <malvika.sharan@uni-wuerzburg.de>
 
 ###Get APRICOT software 
 
-APRICOT is implemented in Python as a standalone and is executable on Ubuntu (and other debian-based) systems.
+APRICOT is implemented in Python as a standalone and is executable on Ubuntu (and other debian-based) systems. The complete software package can be obtained from the GitHub repository (`$ git clone https://github.com/malvikasharan/APRICOT.git`), or can be conveniantly executed using the Docker image.
 
 ####APRICOT Docker image
 
@@ -69,10 +69,30 @@ In order to work with the Docker image for APRICOT, please follow these directio
   $ cd home
   $ apricot -h
   ```
+  NOTE: Follow this to ensure that the most latest APRICOT repository exists in your docker container:
+  
+  ```
+  $ cd APRICOT
+  $ git pull
+  $ cd .. # go back to the home folder
+  ```
   
    **Run test/example analysis**
+   
+  A subcommand `default` can be used to run the the software pipeline using the default parameters:
   
-   The git repository contains a shell script [APRICOT/shell_scripts/run_example.sh](https://github.com/malvikasharan/APRICOT/blob/master/shell_scripts/run_example.sh) with shell commands that can be used for the demonstration of APRICOT installation including analysis with an example. 
+  Syntax:
+  
+  ```
+  $ apricot default -i {UniProt IDs} -kw {Domain keywords}
+  ```
+  Example analysis:
+  
+  ```
+  $ apricot default -i P0A6X3,P00957 -kw 'RRM,RNP,KH'
+  ```
+  
+  Optionally, a shell script [APRICOT/shell_scripts/run_example.sh](https://github.com/malvikasharan/APRICOT/blob/master/shell_scripts/run_example.sh) available in the git repository contains can be used to call the commands to fetch demo files and run an example analysis. This script can be modified to run similar analyses by the users.
 
   Copy the script from the existing repository in the `home` folder.
   ```
@@ -135,6 +155,10 @@ In order to work with the Docker image for APRICOT, please follow these directio
   Skip this step when working in the Docker container already.
   
 **5. Carry out analysis by APRICOT**
+  ```
+  $ apricot default -i P0A6X3,P00957 -kw 'RRM,RNP,KH'
+  ```
+  OR,
   ```
   $ cp APRICOT/shell_scripts/run_example.sh .
   $ sh run_example.sh
