@@ -1,3 +1,10 @@
+|Latest Version| |License| |DOI| |image3|
+
+.. figure:: https://github.com/malvikasharan/APRICOT/blob/master/APRICOT_logo.png
+   :alt: alt tag
+
+   alt tag
+
 Summary of the pipeline
 ~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -9,6 +16,7 @@ Program inputs
 
 1) Query proteins that are subjected to characterization by domains and
    associated functional properties
+
 2) Set of terms indicating protein domains of functional relevance.
 
 Based on these inputs, APRICOT can be executed for the analysis of the

@@ -205,15 +205,15 @@ In order to work with locally installed software, follow these instructions.
 
 1. Make sure that your system has pip and git installed 
 
-  ````
+  ```
   $ apt-get install python3-pip git 
-  ````
+  ```
 
 2. Then install APRICOT via pip (NOTE: this doesn't install the complete filesystem):
 
-  ````
+  ```
   $ pip3 install bio-apricot 
-  ````
+  ```
 
   This will globally install APRICOT, which can be called via the command `apricot`, and the libraries from apricotlib will be saved.
   Follow the above listed points 3 & 5 to execute the software as shown above.
@@ -227,10 +227,10 @@ Follow these instructions to manually establish the software locally.
 
 1. Get the python dependencies
 
-  ````
+  ```
   $ apt-get install python3-matplotlib python3-numpy python3-scipy python3-biopython python3-requests --yes --fix-missing
   $ pip3 install openpyxl
-  ````
+  ```
 
 2. Get the repository for APRICOT from git either by clicking [here](https://github.com/malvikasharan/APRICOT/archive/master.zip) or locally cloned by using the following command:
 
