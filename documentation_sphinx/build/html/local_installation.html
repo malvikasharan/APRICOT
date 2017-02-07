@@ -1,0 +1,259 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Installing APRICOT via pip from PyPI &mdash; APRICOT 1.2.1 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="APRICOT 1.2.1 documentation" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> APRICOT
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <!-- Local TOC -->
+                <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Installing APRICOT via <code class="docutils literal"><span class="pre">pip</span></code> from PyPI</a><ul>
+<li><a class="reference internal" href="#install-apricot-via-github">Install APRICOT via GitHub</a></li>
+<li><a class="reference internal" href="#third-party-requirements-for-the-software">Third party requirements for the software</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">APRICOT</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Installing APRICOT via <code class="docutils literal"><span class="pre">pip</span></code> from PyPI</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/local_installation.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p><a class="reference external" href="https://pypi.python.org/pypi/bio-apricot/"><img alt="Latest Version" src="https://img.shields.io/pypi/v/bio-apricot.svg" /></a> <a class="reference external" href="https://pypi.python.org/pypi/bio-apricot/"><img alt="License" src="https://img.shields.io/pypi/l/bio-apricot.svg" /></a> <a class="reference external" href="https://zenodo.org/badge/latestdoi/21283/malvikasharan/APRICOT"><img alt="DOI" src="https://zenodo.org/badge/21283/malvikasharan/APRICOT.svg" /></a> <a class="reference external" href="https://microbadger.com/images/malvikasharan/apricot"><img alt="image3" src="https://images.microbadger.com/badges/image/malvikasharan/apricot.svg" /></a></p>
+<div class="figure" id="id1">
+<img alt="alt tag" src="https://github.com/malvikasharan/APRICOT/blob/master/APRICOT_logo.png" />
+<p class="caption"><span class="caption-text">alt tag</span></p>
+</div>
+<div class="section" id="installing-apricot-via-pip-from-pypi">
+<h1>Installing APRICOT via <code class="docutils literal"><span class="pre">pip</span></code> from PyPI<a class="headerlink" href="#installing-apricot-via-pip-from-pypi" title="Permalink to this headline">¶</a></h1>
+<p>APRICOT is implemented in Python as a standalone and is executable on
+Ubuntu (and other debian-based) systems.</p>
+<p>Please make sure that your system has pip and git installed</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ apt-get install python3-pip git
+</pre></div>
+</div>
+<p>Then install APRICOT via pip (NOTE: this doesn&#8217;t install the required
+tools and datasets):</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ pip3 install bio-apricot
+</pre></div>
+</div>
+<p>This will globally install APRICOT, which can be called via the command
+<code class="docutils literal"><span class="pre">apricot</span></code>, and the libraries from apricotlib will be saved.</p>
+<div class="section" id="install-apricot-via-github">
+<h2>Install APRICOT via GitHub<a class="headerlink" href="#install-apricot-via-github" title="Permalink to this headline">¶</a></h2>
+<p>APRICOT is implemented in Python3 and can be executed in Linux/Unix
+systems. APRICOT requires few third party packages, namely
+<a class="reference external" href="http://biopython.org/wiki/Main_Page">Biopython</a>, <a class="reference external" href="https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE_TYPE=BlastDocs&amp;DOC_TYPE=Download">BLAST
+executables</a>,
+<a class="reference external" href="https://www.ebi.ac.uk/interpro/interproscan.html">interproscan</a>,
+python libraries like <a class="reference external" href="http://matplotlib.org/">Matplotlib</a>,
+<a class="reference external" href="https://pypi.python.org/pypi/requests">requests</a>, openpyxl and few
+other optional tools that are mentioned below.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ apt-get install python3-matplotlib python3-numpy python3-scipy python3-biopython python3-requests --yes --fix-missing
+$ pip3 install openpyxl
+</pre></div>
+</div>
+<p>The git-repository for APRICOT can be <a class="reference external" href="https://github.com/malvikasharan/APRICOT/archive/master.zip">downloaded
+manually</a>
+or locally cloned:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ git clone https://github.com/malvikasharan/APRICOT.git
+</pre></div>
+</div>
+<p>Please see the detailed documentation for the alternative installation
+instructions of the software using
+<a class="reference external" href="https://github.com/malvikasharan/APRICOT/blob/master/Dockerfile">Docker</a>
+or <a class="reference external" href="https://github.com/malvikasharan/APRICOT/blob/master/tests/system_test.sh">shell
+script</a>
+provided in the repository.</p>
+</div>
+<div class="section" id="third-party-requirements-for-the-software">
+<h2>Third party requirements for the software<a class="headerlink" href="#third-party-requirements-for-the-software" title="Permalink to this headline">¶</a></h2>
+<p>An additional step for the installation of the third party tools and the
+databases, which are required to carry out analysis by the software.</p>
+<p>The shell script:
+<a class="reference external" href="https://raw.githubusercontent.com/malvikasharan/APRICOT/master/shell_scripts/apricot_minimum_required_files.sh">APRICOT/shell_scripts/apricot_minimum_required_files.sh</a>,
+can be installed locally that could be used for multiple analysis.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ wget -N https://raw.githubusercontent.com/malvikasharan/APRICOT/master/shell_scripts/apricot_minimum_required_files.sh
+$ sh apricot_minimum_required_files.sh
+</pre></div>
+</div>
+<p>This script will install all the required tools and will create a
+directory <code class="docutils literal"><span class="pre">source_files</span></code> with all the required datasets as dicussed
+<a class="reference external" href="https://github.com/malvikasharan/APRICOT/blob/master/documentation/software_dependencies.md">here</a>.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Malvika Sharan.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.2.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

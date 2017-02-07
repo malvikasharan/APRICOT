@@ -1,0 +1,956 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>APRICOT’s subcommands &mdash; APRICOT Version 1.2.2 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex/"/>
+        <link rel="search" title="Search" href="../search/"/>
+    <link rel="top" title="APRICOT Version 1.2.2 documentation" href="../"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../" class="icon icon-home"> APRICOT
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                Version 1.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <!-- Local TOC -->
+                <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">APRICOT’s subcommands</a></li>
+<li><a class="reference internal" href="#subcommand-default">subcommand <code class="docutils literal"><span class="pre">default</span></code></a></li>
+<li><a class="reference internal" href="#subcommand-create">subcommand <code class="docutils literal"><span class="pre">create</span></code></a></li>
+<li><a class="reference internal" href="#subcommand-taxid">subcommand <code class="docutils literal"><span class="pre">taxid</span></code></a></li>
+<li><a class="reference internal" href="#subcommand-query">subcommand <code class="docutils literal"><span class="pre">query</span></code></a></li>
+<li><a class="reference internal" href="#subcommand-keywords">subcommand <code class="docutils literal"><span class="pre">keywords</span></code></a></li>
+<li><a class="reference internal" href="#subcommand-select">subcommand <code class="docutils literal"><span class="pre">select</span></code></a></li>
+<li><a class="reference internal" href="#subcommand-predict">subcommand <code class="docutils literal"><span class="pre">predict</span></code></a></li>
+<li><a class="reference internal" href="#subcommand-filter">subcommand <code class="docutils literal"><span class="pre">filter</span></code></a><ul>
+<li><a class="reference internal" href="#sub-commands-for-downstream-analysis">Sub-commands for downstream analysis</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#subcommand-classify">subcommand <code class="docutils literal"><span class="pre">classify</span></code></a></li>
+<li><a class="reference internal" href="#subcommand-annoscore">subcommand <code class="docutils literal"><span class="pre">annoscore</span></code></a></li>
+<li><a class="reference internal" href="#subcommand-addanno">subcommand <code class="docutils literal"><span class="pre">addanno</span></code></a></li>
+<li><a class="reference internal" href="#subcommand-summary">subcommand <code class="docutils literal"><span class="pre">summary</span></code></a></li>
+<li><a class="reference internal" href="#subcommand-format">subcommand <code class="docutils literal"><span class="pre">format</span></code></a></li>
+<li><a class="reference internal" href="#subcommand-vis">subcommand <code class="docutils literal"><span class="pre">vis</span></code></a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../">APRICOT</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../">Docs</a> &raquo;</li>
+      
+    <li>APRICOT’s subcommands</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/subcommands.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p><a class="reference external" href="https://pypi.python.org/pypi/bio-apricot/"><img alt="Latest Version" src="https://img.shields.io/pypi/v/bio-apricot.svg" /></a> <a class="reference external" href="https://pypi.python.org/pypi/bio-apricot/"><img alt="License" src="https://img.shields.io/pypi/l/bio-apricot.svg" /></a> <a class="reference external" href="https://zenodo.org/badge/latestdoi/21283/malvikasharan/APRICOT"><img alt="DOI" src="https://zenodo.org/badge/21283/malvikasharan/APRICOT.svg" /></a> <a class="reference external" href="https://microbadger.com/images/malvikasharan/apricot"><img alt="image3" src="https://images.microbadger.com/badges/image/malvikasharan/apricot.svg" /></a></p>
+<p><a class="reference external" href="http://malvikasharan.github.io/APRICOT/"><img alt="image4" src="https://raw.githubusercontent.com/malvikasharan/APRICOT/master/APRICOT_logo.png" /></a></p>
+<div class="section" id="apricots-subcommands">
+<h1>APRICOT’s subcommands<a class="headerlink" href="#apricots-subcommands" title="Permalink to this headline">¶</a></h1>
+<p>APRICOT comprises of distinct model designed to carry out specific task.</p>
+<p>Each subcommand requires the path to the analysis folder
+(&#8216;APRICOT_analysis&#8217; by deafult). Different subcommands can be quickly
+viewed by running <code class="docutils literal"><span class="pre">-h</span></code> for help option (e.g. <code class="docutils literal"><span class="pre">apricot</span> <span class="pre">-h</span></code> or
+<code class="docutils literal"><span class="pre">python3</span> <span class="pre">APRICOT/bin/apricot</span> <span class="pre">-h</span></code>).</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">apricot</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">version</span><span class="p">]</span>
+               <span class="p">{</span><span class="n">create</span><span class="p">,</span><span class="n">taxid</span><span class="p">,</span><span class="n">query</span><span class="p">,</span><span class="n">keywords</span><span class="p">,</span><span class="n">select</span><span class="p">,</span><span class="n">predict</span><span class="p">,</span><span class="nb">filter</span><span class="p">,</span><span class="n">classify</span><span class="p">,</span><span class="n">annoscore</span><span class="p">,</span><span class="n">summary</span><span class="p">,</span><span class="n">addanno</span><span class="p">,</span><span class="n">vis</span><span class="p">,</span><span class="nb">format</span><span class="p">}</span>
+               <span class="o">...</span>
+
+<span class="n">positional</span> <span class="n">arguments</span><span class="p">:</span>
+  <span class="p">{</span><span class="n">create</span><span class="p">,</span><span class="n">taxid</span><span class="p">,</span><span class="n">query</span><span class="p">,</span><span class="n">keywords</span><span class="p">,</span><span class="n">select</span><span class="p">,</span><span class="n">predict</span><span class="p">,</span><span class="nb">filter</span><span class="p">,</span><span class="n">classify</span><span class="p">,</span><span class="n">annoscore</span><span class="p">,</span><span class="n">summary</span><span class="p">,</span><span class="n">addanno</span><span class="p">,</span><span class="n">vis</span><span class="p">,</span><span class="nb">format</span><span class="p">}</span>
+                        <span class="n">APRICOT</span> <span class="n">commands</span> <span class="o">-</span> <span class="n">Refer</span> <span class="n">documentation</span> <span class="k">for</span> <span class="n">detail</span>
+    <span class="n">default</span>             <span class="n">Analysis</span> <span class="n">using</span> <span class="nb">all</span> <span class="n">the</span> <span class="n">required</span> <span class="n">subcommands</span> <span class="n">at</span> <span class="n">their</span>
+                        <span class="n">default</span> <span class="n">parameters</span>
+    <span class="n">create</span>              <span class="n">Create</span> <span class="n">analysis</span> <span class="n">folders</span>
+    <span class="n">taxid</span>               <span class="n">Download</span> <span class="n">taxonomy</span> <span class="n">ids</span> <span class="kn">from</span> <span class="nn">UniProt</span> <span class="k">for</span> <span class="n">the</span> <span class="n">user</span>
+                        <span class="n">provided</span> <span class="n">query</span> <span class="n">species</span>
+    <span class="n">query</span>               <span class="n">Map</span> <span class="n">user</span> <span class="n">provided</span> <span class="n">comma</span> <span class="n">separated</span> <span class="n">queries</span> <span class="n">to</span> <span class="n">UniProt</span>
+                        <span class="n">ids</span>
+    <span class="n">keywords</span>            <span class="n">Save</span> <span class="n">user</span> <span class="n">provided</span> <span class="n">keywords</span> <span class="k">for</span> <span class="n">domain</span> <span class="n">selection</span>
+                        <span class="p">(</span><span class="n">required</span><span class="p">)</span> <span class="ow">and</span> <span class="n">analysis</span> <span class="n">classification</span> <span class="p">(</span><span class="o">-</span><span class="n">cl</span><span class="p">)</span>
+    <span class="n">select</span>              <span class="n">Select</span> <span class="n">functional</span> <span class="n">domains</span> <span class="n">of</span> <span class="n">interest</span> <span class="p">(</span><span class="n">specified</span> <span class="n">by</span>
+                        <span class="n">keywords</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">CDD</span> <span class="p">(</span><span class="o">-</span><span class="n">C</span><span class="p">)</span> <span class="ow">and</span> <span class="n">InterPro</span> <span class="p">(</span><span class="o">-</span><span class="n">I</span><span class="p">)</span> <span class="n">by</span> <span class="n">default</span>
+    <span class="n">predict</span>             <span class="n">Predict</span> <span class="n">functional</span> <span class="n">domains</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">queries</span> <span class="n">based</span> <span class="n">on</span> <span class="n">CDD</span>
+                        <span class="p">(</span><span class="o">-</span><span class="n">C</span><span class="p">)</span> <span class="ow">and</span> <span class="n">InterPro</span> <span class="p">(</span><span class="o">-</span><span class="n">I</span><span class="p">)</span> <span class="n">databases</span> <span class="n">by</span> <span class="n">default</span>
+    <span class="nb">filter</span>              <span class="n">Filter</span> <span class="n">queries</span> <span class="n">predicted</span> <span class="k">with</span> <span class="n">domains</span> <span class="n">of</span> <span class="n">interest</span> <span class="p">(</span><span class="ow">and</span>
+                        <span class="n">optional</span> <span class="n">parameter</span> <span class="n">thresholds</span><span class="p">)</span> <span class="ow">and</span> <span class="n">extend</span> <span class="n">their</span>
+                        <span class="n">annotations</span>
+    <span class="n">classify</span>            <span class="n">Optional</span> <span class="n">classification</span> <span class="n">of</span> <span class="n">selected</span> <span class="n">prediction</span> <span class="ow">in</span>
+                        <span class="n">smaller</span> <span class="n">groups</span> <span class="n">by</span> <span class="k">class</span> <span class="nc">keywords</span>
+    <span class="n">annoscore</span>           <span class="n">Score</span> <span class="ow">and</span> <span class="n">rank</span> <span class="n">predicted</span> <span class="n">data</span> <span class="n">by</span> <span class="s1">&#39;annotation scoring&#39;</span>
+    <span class="n">summary</span>             <span class="n">Summary</span> <span class="n">analysis</span> <span class="n">output</span>
+    <span class="n">addanno</span>             <span class="n">Optional</span> <span class="n">annotation</span> <span class="n">of</span> <span class="n">the</span> <span class="n">selected</span> <span class="n">protein</span> <span class="n">by</span> <span class="o">-</span><span class="n">PDB</span><span class="p">,</span>
+                        <span class="o">-</span><span class="n">PSORTB</span><span class="p">,</span> <span class="o">-</span><span class="n">RAPTORX</span> <span class="ow">or</span> <span class="o">-</span><span class="n">REFSS</span> <span class="p">(</span><span class="n">see</span> <span class="n">addanno</span> <span class="o">-</span><span class="n">h</span><span class="p">)</span>
+    <span class="n">vis</span>                 <span class="n">Visualize</span> <span class="n">analysis</span> <span class="n">results</span> <span class="p">(</span><span class="n">see</span> <span class="n">vis</span> <span class="o">-</span><span class="n">h</span><span class="p">)</span> <span class="k">for</span> <span class="n">detail</span>
+    <span class="nb">format</span>              <span class="n">Optional</span> <span class="n">output</span> <span class="n">file</span> <span class="nb">format</span> <span class="k">as</span> <span class="n">html</span> <span class="ow">or</span> <span class="n">excel</span>
+
+<span class="n">optional</span> <span class="n">arguments</span><span class="p">:</span>
+  <span class="o">-</span><span class="n">h</span><span class="p">,</span> <span class="o">--</span><span class="n">help</span>            <span class="n">show</span> <span class="n">this</span> <span class="n">help</span> <span class="n">message</span> <span class="ow">and</span> <span class="n">exit</span>
+  <span class="o">--</span><span class="n">version</span><span class="p">,</span> <span class="o">-</span><span class="n">v</span>         <span class="n">show</span> <span class="n">version</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="subcommand-default">
+<h1>subcommand <code class="docutils literal"><span class="pre">default</span></code><a class="headerlink" href="#subcommand-default" title="Permalink to this headline">¶</a></h1>
+<p>Quick help: <code class="docutils literal"><span class="pre">$</span> <span class="pre">apricot</span> <span class="pre">default</span> <span class="pre">-h</span></code></p>
+<p>This subcommand calls the analysis pipeline of the software using the
+default parameters. This subcommand by-default includes the subcommands
+<code class="docutils literal"><span class="pre">create</span></code>, <code class="docutils literal"><span class="pre">select</span></code>, <code class="docutils literal"><span class="pre">predict</span></code>, <code class="docutils literal"><span class="pre">filter</span></code>, <code class="docutils literal"><span class="pre">classify</span></code>,
+<code class="docutils literal"><span class="pre">annoscore</span></code>, <code class="docutils literal"><span class="pre">summary</span></code> and <code class="docutils literal"><span class="pre">format</span></code>, which have been discussed
+below in details. The two subcommands <code class="docutils literal"><span class="pre">query</span> <span class="pre">(-i)</span></code> and
+<code class="docutils literal"><span class="pre">keywords</span> <span class="pre">(-kw)</span></code>, should be used by the users to provide the query
+proteins (for example, UniProt ids) and functions of interest (for
+example, a list of RNA-binding domains &#8216;RRM,KH,RNP&#8217;) respectively.</p>
+<p>The basic syntax to call this subcommand is:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ apricot default -i {query proteins} -kw {functions of interest}
+</pre></div>
+</div>
+<p>There are several default and optional arguments few of which have been
+explained below, please check the usage for details:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">apricot</span> <span class="n">default</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="subcommand-create">
+<h1>subcommand <code class="docutils literal"><span class="pre">create</span></code><a class="headerlink" href="#subcommand-create" title="Permalink to this headline">¶</a></h1>
+<p>Quick help: <code class="docutils literal"><span class="pre">$</span> <span class="pre">apricot</span> <span class="pre">create</span> <span class="pre">-h</span></code></p>
+<p>This subcommand creates all the required directories to store input and
+output data acquired from APRICOT analysis. The main analysis folder can
+be provided by the users (default name: APRICOT_analysis).</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">apricot</span> <span class="n">create</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="n">analysis_path</span>
+
+<span class="n">positional</span> <span class="n">arguments</span><span class="p">:</span>
+  <span class="n">analysis_path</span>  <span class="n">Creates</span> <span class="n">APRICOT_analysis</span> <span class="n">folder</span> <span class="k">for</span> <span class="n">anlysis</span> <span class="n">unless</span> <span class="n">other</span>
+                 <span class="n">name</span><span class="o">/</span><span class="n">path</span> <span class="ow">is</span> <span class="n">provided</span>
+</pre></div>
+</div>
+<p>The structure and annotation of directories and the enclosing files in
+the &#8216;input&#8217; folder in the analysis directory:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>APRICOT_analysis
+    └───├input
+            └───├query_proteins
+            └───├uniprot_reference_table
+            └───├mapped_query_annotation
+</pre></div>
+</div>
+<p>The structure of directories and the enclosing files in the &#8216;output&#8217;
+folder in the analysis directory:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>APRICOT_analysis
+    └───├output
+            └───├0_predicted_domains            # Location for the output data obtained from the subcommand &#39;predict&#39;
+            └───├1_compiled_domain_information  # Location for the output data obtained from the subcommand &#39;filter&#39;
+            └───├2_selected_domain_information  # Location for the classified data obtained from the subcommand &#39;classify&#39;
+            └───├3_annotation_scoring           # Location for the output data obtained from the subcommand &#39;annoscore&#39;
+            └───├4_additional_annotations       # Location for additional annotations for the selected
+            |                                   # queries using subcommand &#39;addanno&#39;
+            └───├5_analysis_summary             # Location for the output data obtained from the subcommand &#39;summary&#39;
+            └───├format_output_data             # Location for the output data obtained from the subcommand &#39;format&#39;
+            └───├visualization_files            # Location for the output data obtained from the subcommand &#39;vis&#39;
+</pre></div>
+</div>
+</div>
+<div class="section" id="subcommand-taxid">
+<h1>subcommand <code class="docutils literal"><span class="pre">taxid</span></code><a class="headerlink" href="#subcommand-taxid" title="Permalink to this headline">¶</a></h1>
+<p>Quick help: <code class="docutils literal"><span class="pre">$</span> <span class="pre">apricot</span> <span class="pre">taxid</span> <span class="pre">-h</span></code></p>
+<p>The users can provide gene ids or protein names as queries to APRICOT,
+which is mapped against UniProt Knowledgebase in order to extract
+relevant information. Since, same gene/protein ids exist across various
+genomes/proteomes, one can limit the search of the query to a certain
+organism (rather than all the organisms in the database) by providing
+one or multiple taxonomy ids.</p>
+<p>When the taxonomy id is not known by the users, this subcommand &#8211;taxid
+can be used to extract the id by providing species name.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">apricot</span> <span class="n">taxid</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">species</span> <span class="n">SPECIES</span><span class="p">]</span> <span class="n">db_path</span>
+
+<span class="n">positional</span> <span class="n">arguments</span><span class="p">:</span>
+  <span class="n">db_path</span>
+
+<span class="n">optional</span> <span class="n">arguments</span><span class="p">:</span>
+  <span class="o">-</span><span class="n">h</span><span class="p">,</span> <span class="o">--</span><span class="n">help</span>            <span class="n">show</span> <span class="n">this</span> <span class="n">help</span> <span class="n">message</span> <span class="ow">and</span> <span class="n">exit</span>
+  <span class="o">--</span><span class="n">species</span> <span class="n">SPECIES</span><span class="p">,</span> <span class="o">-</span><span class="n">s</span> <span class="n">SPECIES</span>
+                        <span class="n">Species</span> <span class="n">name</span> <span class="p">(</span><span class="n">comma</span> <span class="n">separated</span> <span class="k">if</span> <span class="n">more</span> <span class="n">than</span> <span class="n">one</span><span class="p">)</span> <span class="k">for</span>
+                        <span class="n">taxonomy</span> <span class="nb">id</span> <span class="n">retreival</span>
+</pre></div>
+</div>
+<p>The taxonomy ids are saved in the text file taxonomy_ids.txt in the
+directory reference_db_files.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>source_files
+    └───├reference_db_files
+            |    taxonomy_ids.txt
+</pre></div>
+</div>
+</div>
+<div class="section" id="subcommand-query">
+<h1>subcommand <code class="docutils literal"><span class="pre">query</span></code><a class="headerlink" href="#subcommand-query" title="Permalink to this headline">¶</a></h1>
+<p>Quick help: <code class="docutils literal"><span class="pre">$</span> <span class="pre">apricot</span> <span class="pre">query</span> <span class="pre">-h</span></code></p>
+<p>As mentioned already, APRICOT gives multiple options to the users to
+supply queries. For example, the queries can be provided as UniProt ids
+(&#8211;uids), gene ids or protein names (&#8211;geneids), fasta sequences
+(&#8211;fasta) or only the taxonomy id (&#8211;taxid) for a complete proteome
+analysis (using flag -P).</p>
+<p>Paths for the saving the query data and their corresponding fasta files,
+xml files, annotation tables etc. can be optinally provided by the
+users.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">apricot</span> <span class="n">query</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">analysis_path</span> <span class="n">ANALYSIS_PATH</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">uids</span> <span class="n">UIDS</span><span class="p">]</span>
+                     <span class="p">[</span><span class="o">--</span><span class="n">taxid</span> <span class="n">TAXID</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">geneids</span> <span class="n">GENEIDS</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">proteome</span><span class="p">]</span>
+                     <span class="p">[</span><span class="o">--</span><span class="n">fasta</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">query_path</span> <span class="n">QUERY_PATH</span><span class="p">]</span>
+                     <span class="p">[</span><span class="o">--</span><span class="n">proteome_path</span> <span class="n">PROTEOME_PATH</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">xml_path</span> <span class="n">XML_PATH</span><span class="p">]</span>
+                     <span class="p">[</span><span class="o">--</span><span class="n">fasta_path</span> <span class="n">FASTA_PATH</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">feature_table</span> <span class="n">FEATURE_TABLE</span><span class="p">]</span>
+
+<span class="n">optional</span> <span class="n">arguments</span><span class="p">:</span>
+  <span class="o">-</span><span class="n">h</span><span class="p">,</span> <span class="o">--</span><span class="n">help</span>            <span class="n">show</span> <span class="n">this</span> <span class="n">help</span> <span class="n">message</span> <span class="ow">and</span> <span class="n">exit</span>
+  <span class="o">--</span><span class="n">analysis_path</span> <span class="n">ANALYSIS_PATH</span><span class="p">,</span> <span class="o">-</span><span class="n">ap</span> <span class="n">ANALYSIS_PATH</span>
+                        <span class="n">Main</span> <span class="n">analysis</span> <span class="n">path</span>
+  <span class="o">--</span><span class="n">uids</span> <span class="n">UIDS</span><span class="p">,</span> <span class="o">-</span><span class="n">ui</span> <span class="n">UIDS</span>
+                        <span class="n">Comma</span> <span class="n">separated</span> <span class="n">UniProt</span> <span class="n">IDs</span>
+  <span class="o">--</span><span class="n">taxid</span> <span class="n">TAXID</span><span class="p">,</span> <span class="o">-</span><span class="n">tx</span> <span class="n">TAXID</span>
+                        <span class="n">Select</span> <span class="n">taxonomy</span> <span class="nb">id</span> <span class="k">for</span> <span class="n">query</span> <span class="n">species</span>
+  <span class="o">--</span><span class="n">geneids</span> <span class="n">GENEIDS</span><span class="p">,</span> <span class="o">-</span><span class="n">gi</span> <span class="n">GENEIDS</span>
+                        <span class="n">Comma</span> <span class="n">separated</span> <span class="n">query</span> <span class="n">genes</span>
+  <span class="o">--</span><span class="n">proteome</span><span class="p">,</span> <span class="o">-</span><span class="n">P</span>        <span class="n">Analyze</span> <span class="n">entire</span> <span class="n">proteome</span>
+  <span class="o">--</span><span class="n">fasta</span><span class="p">,</span> <span class="o">-</span><span class="n">fa</span>          <span class="n">Analyze</span> <span class="n">fasta</span> <span class="n">sequences</span>
+  <span class="o">--</span><span class="n">query_path</span> <span class="n">QUERY_PATH</span><span class="p">,</span> <span class="o">-</span><span class="n">qp</span> <span class="n">QUERY_PATH</span>
+                        <span class="n">Get</span> <span class="n">proteome</span> <span class="n">table</span> <span class="kn">from</span> <span class="nn">UniProt</span>
+  <span class="o">--</span><span class="n">proteome_path</span> <span class="n">PROTEOME_PATH</span><span class="p">,</span> <span class="o">-</span><span class="n">pp</span> <span class="n">PROTEOME_PATH</span>
+                        <span class="n">Get</span> <span class="n">proteome</span> <span class="n">table</span> <span class="kn">from</span> <span class="nn">UniProt</span>
+  <span class="o">--</span><span class="n">xml_path</span> <span class="n">XML_PATH</span><span class="p">,</span> <span class="o">-</span><span class="n">o</span> <span class="n">XML_PATH</span>
+                        <span class="n">Get</span> <span class="n">proteome</span> <span class="n">table</span> <span class="kn">from</span> <span class="nn">UniProt</span>
+  <span class="o">--</span><span class="n">fasta_path</span> <span class="n">FASTA_PATH</span><span class="p">,</span> <span class="o">-</span><span class="n">fp</span> <span class="n">FASTA_PATH</span>
+                        <span class="n">Get</span> <span class="n">proteome</span> <span class="n">table</span> <span class="kn">from</span> <span class="nn">UniProt</span>
+  <span class="o">--</span><span class="n">feature_table</span> <span class="n">FEATURE_TABLE</span><span class="p">,</span> <span class="o">-</span><span class="n">ft</span> <span class="n">FEATURE_TABLE</span>
+                        <span class="n">Get</span> <span class="n">proteome</span> <span class="n">table</span> <span class="kn">from</span> <span class="nn">UniProt</span>
+</pre></div>
+</div>
+<p>APRICOT saves the user provided queries and related information
+extracted from UniProt knowledgebase (fasta files, xml files, reference
+files etc.) in the directories as described below.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>APRICOT_analysis
+    └───├input
+            └───├query_proteins
+            |   query_to_uids.txt           # User provided queries (gene ids/protein names/whole proteome set)
+            |                               # mapped to the UniProt Ids (flag --uids, --geneids)
+            └───├uniprot_reference_table
+            |   query_uids_reference.tab    # Basic annotations of the query protein IDs (flag --uids, --geneids)  set
+            |                               # or the whole proteome (flag -P) from a certain taxonomy (flag --taxid)
+            └───├mapped_query_annotation
+                    └───├fasta_path_mapped_query  # Location for protein FASTA sequences of each query
+                    |   |                         # qery fasta sequences are also saved here (flag --fasta)
+                    |   | query_id-1.fasta
+                    |   | query_id-2.fasta
+                    |   | ...
+                    |   | query_id-n.fasta
+                    |
+                    └───├xml_path_mapped_query    # Location for protein FASTA sequences of each query
+                    |   | query_id-1.xml
+                    |   | query_id-2.xml
+                    |   | ...
+                    |   | query_id-n.xml
+                    |
+                    └───├mapped_protein_xml_info_tables
+                        | query_feature_table.csv  # File containing all the features of the queries
+                                                   # obtained by parsing xml files
+</pre></div>
+</div>
+</div>
+<div class="section" id="subcommand-keywords">
+<h1>subcommand <code class="docutils literal"><span class="pre">keywords</span></code><a class="headerlink" href="#subcommand-keywords" title="Permalink to this headline">¶</a></h1>
+<p>Quick help: <code class="docutils literal"><span class="pre">$</span> <span class="pre">apricot</span> <span class="pre">keywords</span> <span class="pre">-h</span></code></p>
+<p>Since APRICOT allows identification of certain protein classes like
+RNA-binding proteins by means of domains, one of the most essential
+input data, beside the query protein itself, is a comma-separated list
+of terms or keywords that potentially indicates to a protein functional
+classes (<em>domain selection terms</em>). Such terminologies could be any pfam
+id, Gene Ontology term, mesh term, simple biological terms like &#8216;RRM&#8217;
+and &#8216;ribosome&#8217;, or a combination of all these types.</p>
+<p>Multi-word terms can be provided by using ‘-’ as a connector, for
+example, &#8216;RNA-binding&#8217; and &#8216;La-domain&#8217;.</p>
+<p>In order to maintain stringent selection of truly functional domains,
+APRICOT by-default does not allow the selection of a domain entry if the
+<em>domain selection term</em> occurs in its annotation with any trailing words
+like prefixes or suffixes. This indicates the possibilities of omitting
+few relevant entries from the domain selection keywords, but it also
+ensures exclusion of several non-relevant domains that might get
+included by chance. However, users can allow prefix by using the hash
+symbol (#) in the beginning of a term and suffix when # is used at the
+end of the term. For example, by using &#8216;#RNA-binding&#8217; one can allow the
+inclusion of &#8216;tRNA-binding&#8217;, &#8216;mtRNA-binding&#8217;etc, and by allowing
+&#8216;RNA-bind#&#8217; one can allow varying verb forms for bind like binder,
+binding etc. Of course, one can allow both prefixes and suffixes
+(#RNA-bind#).</p>
+<p>Optionally a second set of keywords for the classification of predicted
+domains can be provided by using flag -cl (<em>result classification
+terms</em>). This list can comprise of terms associated to biological
+functions, enzymatic activities or specific features. For example, the
+predicted RNA related domain data could be divided into the
+classification tags of RRM, ribosome, synthetase, helicases etc. Such
+classification can help users tremendously in navigating the large
+datasets or for the selection of representative protein for certain
+function conferred by the domains. When users do not provide <em>result
+classification terms</em>, APRICOT uses the <em>domain selection terms</em> for
+this purpose as well.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">apricot</span> <span class="n">keywords</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">classify</span> <span class="n">CLASSIFY</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">kw_path</span> <span class="n">KW_PATH</span><span class="p">]</span>
+                        <span class="n">kw_domain</span>
+
+<span class="n">positional</span> <span class="n">arguments</span><span class="p">:</span>
+  <span class="n">kw_domain</span>             <span class="n">Comma</span> <span class="n">separated</span> <span class="n">keywords</span> <span class="k">for</span> <span class="n">domain</span> <span class="n">selection</span>
+
+<span class="n">optional</span> <span class="n">arguments</span><span class="p">:</span>
+  <span class="o">-</span><span class="n">h</span><span class="p">,</span> <span class="o">--</span><span class="n">help</span>            <span class="n">show</span> <span class="n">this</span> <span class="n">help</span> <span class="n">message</span> <span class="ow">and</span> <span class="n">exit</span>
+  <span class="o">--</span><span class="n">classify</span> <span class="n">CLASSIFY</span><span class="p">,</span> <span class="o">-</span><span class="n">cl</span> <span class="n">CLASSIFY</span>
+                        <span class="n">Optional</span> <span class="n">comma</span> <span class="n">separated</span> <span class="n">keyword</span> <span class="k">for</span> <span class="n">result</span>
+                        <span class="n">classification</span>
+  <span class="o">--</span><span class="n">kw_path</span> <span class="n">KW_PATH</span><span class="p">,</span> <span class="o">-</span><span class="n">kp</span> <span class="n">KW_PATH</span>
+                        <span class="n">Path</span> <span class="k">for</span> <span class="n">keyword</span> <span class="n">files</span>
+</pre></div>
+</div>
+<p>The keywords are saved in the directory <code class="docutils literal"><span class="pre">source_files</span></code> in the
+subfolder <code class="docutils literal"><span class="pre">domain_data</span></code> shown below.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>source_files
+    └───├domain_data
+            keywords_for_domain_selection.txt         # All the terms for domain selection
+            keywords_for_result_classification.txt    # All the terms for result classification
+</pre></div>
+</div>
+</div>
+<div class="section" id="subcommand-select">
+<h1>subcommand <code class="docutils literal"><span class="pre">select</span></code><a class="headerlink" href="#subcommand-select" title="Permalink to this headline">¶</a></h1>
+<p>Quick help: <code class="docutils literal"><span class="pre">apricot</span> <span class="pre">select</span> <span class="pre">-h</span></code></p>
+<p>This subcommand allows the selection of reference domains based on the
+<em>domain selection terms</em> (in subcommand keywords). For this purpose,
+by-default APRICOT scans each entries of the domains in both CDD and
+InterPro domain consortiums for the occurance of any <em>domain selection
+term</em>.</p>
+<p>In case of multi word terms (which are provided by using &#8216;-&#8216; as a
+connector), the co-occurance of the terms are considered when the words
+in the same sentence or same context. To ensure a more complete
+selection of the domains, the gene-ontology associated to the domains
+are also checked and selected accordingly.</p>
+<p>It is possible to limit the selection process in only one of the
+consortiums by providing flags -C for CDD or -I for InterPro. For cross
+mapping the domains in both the consortiums, APRICOT uses domain ids
+from the databases (Pfam, SMART and TIGRFAM) that are shared by both the
+consortiums.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">apricot</span> <span class="n">select</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">cdd_dom</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">ipr_dom</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">dom_kw</span> <span class="n">DOM_KW</span><span class="p">]</span>
+                      <span class="p">[</span><span class="o">--</span><span class="n">cdd_table</span> <span class="n">CDD_TABLE</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">ipr_table</span> <span class="n">IPR_TABLE</span><span class="p">]</span>
+                      <span class="p">[</span><span class="o">--</span><span class="n">interpro_mapped_cdd</span> <span class="n">INTERPRO_MAPPED_CDD</span><span class="p">]</span>
+                      <span class="p">[</span><span class="o">--</span><span class="n">domain_path</span> <span class="n">DOMAIN_PATH</span><span class="p">]</span>
+                      <span class="p">[</span><span class="o">--</span><span class="n">pfam_domain_file</span> <span class="n">PFAM_DOMAIN_FILE</span><span class="p">]</span>
+
+<span class="n">optional</span> <span class="n">arguments</span><span class="p">:</span>
+  <span class="o">-</span><span class="n">h</span><span class="p">,</span> <span class="o">--</span><span class="n">help</span>            <span class="n">show</span> <span class="n">this</span> <span class="n">help</span> <span class="n">message</span> <span class="ow">and</span> <span class="n">exit</span>
+  <span class="o">--</span><span class="n">cdd_dom</span><span class="p">,</span> <span class="o">-</span><span class="n">C</span>         <span class="n">Selects</span> <span class="n">functional</span> <span class="n">domains</span> <span class="n">of</span> <span class="n">interest</span> <span class="kn">from</span> <span class="nn">CDD</span>
+  <span class="o">--</span><span class="n">ipr_dom</span><span class="p">,</span> <span class="o">-</span><span class="n">I</span>         <span class="n">Selects</span> <span class="n">functional</span> <span class="n">domains</span> <span class="n">of</span> <span class="n">interest</span> <span class="kn">from</span> <span class="nn">CDD</span>
+  <span class="o">--</span><span class="n">dom_kw</span> <span class="n">DOM_KW</span><span class="p">,</span> <span class="o">-</span><span class="n">dk</span> <span class="n">DOM_KW</span>
+                        <span class="n">Absolute</span> <span class="n">path</span> <span class="n">of</span> <span class="n">keyword</span> <span class="n">files</span>
+  <span class="o">--</span><span class="n">cdd_table</span> <span class="n">CDD_TABLE</span><span class="p">,</span> <span class="o">-</span><span class="n">cdd</span> <span class="n">CDD_TABLE</span>
+                        <span class="n">Absolute</span> <span class="n">path</span> <span class="n">of</span> <span class="n">CDD</span> <span class="n">domain</span> <span class="n">table</span>
+  <span class="o">--</span><span class="n">ipr_table</span> <span class="n">IPR_TABLE</span><span class="p">,</span> <span class="o">-</span><span class="n">ipr</span> <span class="n">IPR_TABLE</span>
+                        <span class="n">Absolute</span> <span class="n">path</span> <span class="n">of</span> <span class="n">InterPro</span> <span class="n">domain</span> <span class="n">table</span>
+  <span class="o">--</span><span class="n">interpro_mapped_cdd</span> <span class="n">INTERPRO_MAPPED_CDD</span><span class="p">,</span> <span class="o">-</span><span class="nb">map</span> <span class="n">INTERPRO_MAPPED_CDD</span>
+                        <span class="n">InterPro</span> <span class="n">domains</span> <span class="n">mapped</span> <span class="n">to</span> <span class="n">CDD</span> <span class="n">domains</span><span class="o">.</span>
+  <span class="o">--</span><span class="n">domain_path</span> <span class="n">DOMAIN_PATH</span><span class="p">,</span> <span class="o">-</span><span class="n">dp</span> <span class="n">DOMAIN_PATH</span>
+                        <span class="n">Absolute</span> <span class="n">path</span> <span class="k">for</span> <span class="n">keyword</span> <span class="n">selected</span> <span class="n">domains</span>
+  <span class="o">--</span><span class="n">pfam_domain_file</span> <span class="n">PFAM_DOMAIN_FILE</span><span class="p">,</span> <span class="o">-</span><span class="n">pf</span> <span class="n">PFAM_DOMAIN_FILE</span>
+                        <span class="n">The</span> <span class="n">domain</span> <span class="n">summary</span> <span class="kn">from</span> <span class="nn">PfamA</span>
+</pre></div>
+</div>
+<p>The domains that are selected from CDD and InterPro are stored in the
+directory domains_data in the bin folder. The selected domains are
+compiled and saved into the file
+all_keyword_selected_domain_data.tab in the domain_data.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>bin
+│   ...
+└───├domain_data
+    └───├cdd
+    └───├interpro
+    | all_keyword_selected_domain_data.tab
+</pre></div>
+</div>
+</div>
+<div class="section" id="subcommand-predict">
+<h1>subcommand <code class="docutils literal"><span class="pre">predict</span></code><a class="headerlink" href="#subcommand-predict" title="Permalink to this headline">¶</a></h1>
+<p>Quick help: <code class="docutils literal"><span class="pre">$</span> <span class="pre">apricot</span> <span class="pre">predict</span> <span class="pre">-h</span></code></p>
+<p>This subcommand is used to begin the process of domain predictions in
+the query proteins by all the possible functional domains using RPSBLAST
+against CDD and InterProScan against InetrPro. APRICOT carries out the
+domain prediction from both CDD and InterPro consortiums by default but
+users can choose to predict domains from only one of the databases by
+using the flag -C for CDD and -I for InterPro. To overwrite old
+predictions, the flag -F (for force) can be used.</p>
+<p>The run time of RPSBLAST is considerably less, therefore -C flag can be
+used to obtain a quick information of the functional domains. However,
+we recommend the default setting because the different databases
+involved in both the consortiums provide a larger scope for completeness
+of domain predictions.</p>
+<p>The execution of this subcommand is the basic requirement for the
+APRICOT analysis. The main input of this step is fasta sequences of
+query proteins. This subcommand can be executed simultabeously or even
+before running the subcommand &#8216;select&#8217;.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">apricot</span> <span class="n">predict</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">analysis_path</span> <span class="n">ANALYSIS_PATH</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">cdd</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">ipr</span><span class="p">]</span>
+                       <span class="p">[</span><span class="o">--</span><span class="n">force</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">cdd_db</span> <span class="n">CDD_DB</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">ipr_db</span> <span class="n">IPR_DB</span><span class="p">]</span>
+                       <span class="p">[</span><span class="o">--</span><span class="n">outpath</span> <span class="n">OUTPATH</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">fasta</span> <span class="n">FASTA</span><span class="p">]</span>
+
+<span class="n">optional</span> <span class="n">arguments</span><span class="p">:</span>
+  <span class="o">-</span><span class="n">h</span><span class="p">,</span> <span class="o">--</span><span class="n">help</span>            <span class="n">show</span> <span class="n">this</span> <span class="n">help</span> <span class="n">message</span> <span class="ow">and</span> <span class="n">exit</span>
+  <span class="o">--</span><span class="n">analysis_path</span> <span class="n">ANALYSIS_PATH</span><span class="p">,</span> <span class="o">-</span><span class="n">ap</span> <span class="n">ANALYSIS_PATH</span>
+                        <span class="n">Provide</span> <span class="n">output</span> <span class="n">path</span> <span class="k">for</span> <span class="n">the</span> <span class="n">analysis</span> <span class="n">result</span> <span class="n">of</span> <span class="n">the</span>
+                        <span class="n">chosen</span> <span class="n">method</span>
+  <span class="o">--</span><span class="n">cdd</span><span class="p">,</span> <span class="o">-</span><span class="n">C</span>             <span class="n">domain</span> <span class="n">prediction</span> <span class="n">based</span> <span class="n">on</span> <span class="n">CDD</span> <span class="n">only</span>
+  <span class="o">--</span><span class="n">ipr</span><span class="p">,</span> <span class="o">-</span><span class="n">I</span>             <span class="n">domain</span> <span class="n">prediction</span> <span class="n">based</span> <span class="n">on</span> <span class="n">InterProScan</span> <span class="n">only</span>
+  <span class="o">--</span><span class="n">force</span><span class="p">,</span> <span class="o">-</span><span class="n">F</span>           <span class="n">force</span> <span class="n">flag</span> <span class="k">for</span> <span class="n">the</span> <span class="n">current</span> <span class="n">analysis</span><span class="p">,</span> <span class="n">removes</span> <span class="n">already</span>
+                        <span class="n">existing</span> <span class="n">predictions</span>
+  <span class="o">--</span><span class="n">cdd_db</span> <span class="n">CDD_DB</span><span class="p">,</span> <span class="o">-</span><span class="n">cdb</span> <span class="n">CDD_DB</span>
+                        <span class="n">Provide</span> <span class="n">absolute</span> <span class="n">path</span> <span class="n">of</span> <span class="n">CDD</span> <span class="n">databases</span> <span class="n">based</span> <span class="n">on</span> <span class="n">the</span>
+                        <span class="n">chosen</span> <span class="n">method</span>
+  <span class="o">--</span><span class="n">ipr_db</span> <span class="n">IPR_DB</span><span class="p">,</span> <span class="o">-</span><span class="n">idb</span> <span class="n">IPR_DB</span>
+                        <span class="n">Provide</span> <span class="n">absolute</span> <span class="n">path</span> <span class="n">of</span> <span class="n">InterPro</span> <span class="n">databases</span> <span class="n">based</span> <span class="n">on</span>
+                        <span class="n">the</span> <span class="n">chosen</span> <span class="n">method</span>
+  <span class="o">--</span><span class="n">outpath</span> <span class="n">OUTPATH</span><span class="p">,</span> <span class="o">-</span><span class="n">o</span> <span class="n">OUTPATH</span>
+                        <span class="n">Provide</span> <span class="n">output</span> <span class="n">path</span> <span class="k">for</span> <span class="n">domain</span> <span class="n">prediction</span> <span class="n">files</span>
+  <span class="o">--</span><span class="n">fasta</span> <span class="n">FASTA</span><span class="p">,</span> <span class="o">-</span><span class="n">f</span> <span class="n">FASTA</span>
+                        <span class="n">Provide</span> <span class="n">absolute</span> <span class="n">path</span> <span class="n">of</span> <span class="n">fasta</span> <span class="n">files</span> <span class="k">for</span> <span class="n">query</span>
+                        <span class="n">proteins</span>
+</pre></div>
+</div>
+<p>The resulting files of this analysis is stored in the first analysis
+directory &#8216;0_predicted_domains&#8217; in the output folder of the main
+analysis directory. As shown below, the information of the domain
+predictions are stored as text files in the sub-folders corresponding to
+the domain consortiums. Since this subcommand is independent of the
+reference domains, these files containing information on domain
+predictions can be recycled or re-visited for the selection of different
+functional classes.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>APRICOT_analysis
+    └───├output
+            └───├0_predicted_domains # Location for the output data obtained from the subcommand &#39;predict&#39;
+                    └───├cdd_analysis  # Details of domain predicted from CDD for each query
+                    |   | query_id-1.txt
+                    |   | query_id-2.txt
+                    |   | ...
+                    |   | query_id-n.txt
+                    |
+                    └───├ipr_analysis  # Details of domain predicted from InterPro for each query
+                        | query_id-1.tsv
+                        | query_id-2.tsv
+                        | ...
+                        | query_id-n.tsv
+</pre></div>
+</div>
+</div>
+<div class="section" id="subcommand-filter">
+<h1>subcommand <code class="docutils literal"><span class="pre">filter</span></code><a class="headerlink" href="#subcommand-filter" title="Permalink to this headline">¶</a></h1>
+<p>Quick help: <code class="docutils literal"><span class="pre">$</span> <span class="pre">apricot</span> <span class="pre">filter</span> <span class="pre">-h</span></code></p>
+<p>The filtering of the predicted domains by this subcommand take place by
+using the <em>domain selection terms</em>, hence this subcommand should be
+executed after &#8216;select&#8217; and &#8216;predict&#8217; subcommands.</p>
+<p>Query proteins that consist of at least one of the selected domains are
+retained whereas the rest of the proteins are discarded from the
+downstream analysis. To limit the analysis to one of the consortiums
+only, flag -C for CDD based information and -I for InterPro based
+information can be used.</p>
+<p>The users can choose their cut-offs for the parameters by using the
+flags &#8211;similarity, &#8211;coverage, &#8211;identity, &#8211;evalue, &#8211;bit (bit score)
+and &#8211;gap. However, the default parameters for the selection of
+predicted domains are defined as &#8216;coverage &gt; 39&#8217; and &#8216;similarity &gt; 24&#8217;,
+which have been derived from a large RNA-binding positive and negative
+training sets collected from SwissProt database.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">apricot</span> <span class="nb">filter</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">analysis_path</span> <span class="n">ANALYSIS_PATH</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">cdd</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">ipr</span><span class="p">]</span>
+                      <span class="p">[</span><span class="o">--</span><span class="n">domain_description_file</span> <span class="n">DOMAIN_DESCRIPTION_FILE</span><span class="p">]</span>
+                      <span class="p">[</span><span class="o">--</span><span class="n">similarity</span> <span class="n">SIMILARITY</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">coverage</span> <span class="n">COVERAGE</span><span class="p">]</span>
+                      <span class="p">[</span><span class="o">--</span><span class="n">identity</span> <span class="n">IDENTITY</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">evalue</span> <span class="n">EVALUE</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">gap</span> <span class="n">GAP</span><span class="p">]</span>
+                      <span class="p">[</span><span class="o">--</span><span class="n">bit</span> <span class="n">BIT</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">go_path</span> <span class="n">GO_PATH</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">pred_path</span> <span class="n">PRED_PATH</span><span class="p">]</span>
+                      <span class="p">[</span><span class="o">--</span><span class="n">up_table</span> <span class="n">UP_TABLE</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">xml_info</span> <span class="n">XML_INFO</span><span class="p">]</span>
+                      <span class="p">[</span><span class="o">--</span><span class="n">compile_out</span> <span class="n">COMPILE_OUT</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">selected</span> <span class="n">SELECTED</span><span class="p">]</span>
+
+<span class="n">optional</span> <span class="n">arguments</span><span class="p">:</span>
+  <span class="o">-</span><span class="n">h</span><span class="p">,</span> <span class="o">--</span><span class="n">help</span>            <span class="n">show</span> <span class="n">this</span> <span class="n">help</span> <span class="n">message</span> <span class="ow">and</span> <span class="n">exit</span>
+  <span class="o">--</span><span class="n">analysis_path</span> <span class="n">ANALYSIS_PATH</span><span class="p">,</span> <span class="o">-</span><span class="n">ap</span> <span class="n">ANALYSIS_PATH</span>
+                        <span class="n">Provide</span> <span class="n">analysis</span> <span class="n">path</span>
+  <span class="o">--</span><span class="n">cdd</span><span class="p">,</span> <span class="o">-</span><span class="n">C</span>             <span class="n">Filter</span> <span class="n">of</span> <span class="n">domain</span> <span class="n">prediction</span> <span class="n">based</span> <span class="n">on</span> <span class="n">CDD</span> <span class="n">only</span>
+  <span class="o">--</span><span class="n">ipr</span><span class="p">,</span> <span class="o">-</span><span class="n">I</span>             <span class="n">Filter</span> <span class="n">of</span> <span class="n">domain</span> <span class="n">prediction</span> <span class="n">based</span> <span class="n">on</span> <span class="n">InterProScan</span> <span class="n">only</span>
+  <span class="o">--</span><span class="n">domain_description_file</span> <span class="n">DOMAIN_DESCRIPTION_FILE</span><span class="p">,</span> <span class="o">-</span><span class="n">d</span> <span class="n">DOMAIN_DESCRIPTION_FILE</span>
+                        <span class="n">Description</span> <span class="n">table</span> <span class="n">of</span> <span class="n">the</span> <span class="n">selected</span> <span class="n">domains</span>
+  <span class="o">--</span><span class="n">similarity</span> <span class="n">SIMILARITY</span><span class="p">,</span> <span class="o">-</span><span class="n">sim</span> <span class="n">SIMILARITY</span>
+                        <span class="n">Percent</span> <span class="n">similarity</span> <span class="n">of</span> <span class="n">prediction</span> <span class="k">with</span> <span class="n">reference</span>
+  <span class="o">--</span><span class="n">coverage</span> <span class="n">COVERAGE</span><span class="p">,</span> <span class="o">-</span><span class="n">cov</span> <span class="n">COVERAGE</span>
+                        <span class="n">Percent</span> <span class="n">coverage</span> <span class="n">of</span> <span class="n">reference</span> <span class="n">domain</span> <span class="ow">in</span> <span class="n">prediction</span>
+  <span class="o">--</span><span class="n">identity</span> <span class="n">IDENTITY</span><span class="p">,</span> <span class="o">-</span><span class="n">iden</span> <span class="n">IDENTITY</span>
+                        <span class="n">Percent</span> <span class="n">identity</span> <span class="n">of</span> <span class="n">prediction</span> <span class="k">with</span> <span class="n">reference</span>
+  <span class="o">--</span><span class="n">evalue</span> <span class="n">EVALUE</span><span class="p">,</span> <span class="o">-</span><span class="nb">eval</span> <span class="n">EVALUE</span>
+                        <span class="n">Evalue</span> <span class="n">of</span> <span class="n">the</span> <span class="n">domain</span> <span class="n">prediction</span>
+  <span class="o">--</span><span class="n">gap</span> <span class="n">GAP</span><span class="p">,</span> <span class="o">-</span><span class="n">gap</span> <span class="n">GAP</span>   <span class="n">Percent</span> <span class="n">gap</span> <span class="ow">in</span> <span class="n">predicted</span> <span class="n">domain</span>
+  <span class="o">--</span><span class="n">bit</span> <span class="n">BIT</span><span class="p">,</span> <span class="o">-</span><span class="n">bit</span> <span class="n">BIT</span>   <span class="n">Bit</span> <span class="n">score</span> <span class="ow">in</span> <span class="n">predicted</span> <span class="n">domain</span>
+  <span class="o">--</span><span class="n">go_path</span> <span class="n">GO_PATH</span><span class="p">,</span> <span class="o">-</span><span class="n">gp</span> <span class="n">GO_PATH</span>
+                        <span class="n">Go</span> <span class="n">mapping</span> <span class="n">data</span> <span class="kn">from</span> <span class="nn">fixed</span> <span class="n">database</span> <span class="n">reference</span> <span class="n">files</span>
+  <span class="o">--</span><span class="n">pred_path</span> <span class="n">PRED_PATH</span><span class="p">,</span> <span class="o">-</span><span class="n">pp</span> <span class="n">PRED_PATH</span>
+                        <span class="n">Raw</span> <span class="n">files</span> <span class="n">of</span> <span class="n">domain</span> <span class="n">prediction</span>
+  <span class="o">--</span><span class="n">up_table</span> <span class="n">UP_TABLE</span><span class="p">,</span> <span class="o">-</span><span class="n">ref</span> <span class="n">UP_TABLE</span>
+                        <span class="n">Uniprot</span> <span class="n">proteome</span> <span class="n">table</span> <span class="kn">from</span> <span class="nn">UniProt</span>
+  <span class="o">--</span><span class="n">xml_info</span> <span class="n">XML_INFO</span><span class="p">,</span> <span class="o">-</span><span class="n">feat</span> <span class="n">XML_INFO</span>
+                        <span class="n">Uniprot</span> <span class="n">proteome</span> <span class="n">table</span> <span class="kn">from</span> <span class="nn">UniProt</span>
+  <span class="o">--</span><span class="n">compile_out</span> <span class="n">COMPILE_OUT</span><span class="p">,</span> <span class="o">-</span><span class="n">co</span> <span class="n">COMPILE_OUT</span>
+                        <span class="n">Data</span> <span class="k">with</span> <span class="n">annotation</span> <span class="n">after</span> <span class="n">filtering</span>
+  <span class="o">--</span><span class="n">selected</span> <span class="n">SELECTED</span><span class="p">,</span> <span class="o">-</span><span class="n">sel</span> <span class="n">SELECTED</span>
+                        <span class="n">output</span> <span class="n">path</span> <span class="k">for</span> <span class="n">the</span> <span class="n">selected</span> <span class="n">data</span> <span class="k">with</span> <span class="n">annotations</span>
+</pre></div>
+</div>
+<p>APRICOT saves all the domain data in the directory
+&#8216;1_compiled_domain_information&#8217; of the output folder. All the
+predicted domains (independent of reference domains and parameter
+cut-offs) are saved in the sub-folder &#8216;unfiltered_data&#8217; and the
+selected data is saved in the sub-folder &#8216;selected_data&#8217; in separate
+files for different domain resources as shown below.</p>
+<p>Files in the sub-folder &#8216;selected_data&#8217; contain predicted domain entry
+based on the reference domain sets and are marked with the tags
+<em>ParameterSelected</em> when the domain predictions satisfy the defined
+parameter cut-offs (or default cut-offs) or <em>Parameter Discarded</em> when
+it does not pass the parameter filters. In those cases, when certain
+parameter is not available for the predicted domain, a tag
+<em>ParameterNotApplicable</em> is used.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>APRICOT_analysis
+    └───├output
+        └───├1_compiled_domain_information  # Location for the output data obtained from the subcommand &#39;filter&#39;
+                    └───├unfiltered_data  # Information of all the domains in the query proteins predicted.
+                    |   | cdd_unfiltered_all_prediction.csv  # CDD
+                    |   | ipr_unfiltered_all_prediction.csv  # InterPro
+                    |
+                    └───├selected_data      # Information of the selected reference domains in the query proteins
+                        | cdd_filtered.csv                   # CDD
+                        | ipr_filtered.csv                   # InterPro
+</pre></div>
+</div>
+<p>Queries, that are selected on the basis of reference domains and
+parameter cut-offs, are compiled and stored in the directory
+&#8216;2_selected_domain_information&#8217; in the sub-folder &#8216;combined_data&#8217;.
+These files contain the information of selected domains along with the
+additional annotations of the query proteins extracted from various
+resources like UniProt and Gene Ontology .</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>APRICOT_analysis
+    └───├output
+            └───├2_selected_domain_information
+                    └───├combined_data         # All the selected domain data extended
+                        |                       # with the UniProt annotation
+                        | annotation_extended_for_selected.csv
+</pre></div>
+</div>
+<div class="section" id="sub-commands-for-downstream-analysis">
+<h2>Sub-commands for downstream analysis<a class="headerlink" href="#sub-commands-for-downstream-analysis" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<div class="section" id="subcommand-classify">
+<h1>subcommand <code class="docutils literal"><span class="pre">classify</span></code><a class="headerlink" href="#subcommand-classify" title="Permalink to this headline">¶</a></h1>
+<p>Quick help: <code class="docutils literal"><span class="pre">$</span> <span class="pre">apricot</span> <span class="pre">classify</span> <span class="pre">-h</span></code></p>
+<p>This subcommand classifies the resulting domain information of the
+selected queries by using the <em>result classification terms</em> (provided in
+the subcommand &#8216;keywords&#8217;).</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">apricot</span> <span class="n">classify</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">analysis_path</span> <span class="n">ANALYSIS_PATH</span><span class="p">]</span>
+                        <span class="p">[</span><span class="o">--</span><span class="n">selected</span> <span class="n">SELECTED</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">class_kw</span> <span class="n">CLASS_KW</span><span class="p">]</span>
+                        <span class="p">[</span><span class="o">--</span><span class="n">outpath</span> <span class="n">OUTPATH</span><span class="p">]</span>
+
+<span class="n">optional</span> <span class="n">arguments</span><span class="p">:</span>
+  <span class="o">-</span><span class="n">h</span><span class="p">,</span> <span class="o">--</span><span class="n">help</span>            <span class="n">show</span> <span class="n">this</span> <span class="n">help</span> <span class="n">message</span> <span class="ow">and</span> <span class="n">exit</span>
+  <span class="o">--</span><span class="n">analysis_path</span> <span class="n">ANALYSIS_PATH</span><span class="p">,</span> <span class="o">-</span><span class="n">ap</span> <span class="n">ANALYSIS_PATH</span>
+                        <span class="n">Provide</span> <span class="n">analysis</span> <span class="n">path</span>
+  <span class="o">--</span><span class="n">selected</span> <span class="n">SELECTED</span><span class="p">,</span> <span class="o">-</span><span class="n">sel</span> <span class="n">SELECTED</span>
+                        <span class="n">Selected</span> <span class="n">data</span> <span class="n">file</span> <span class="p">(</span><span class="kn">from</span> <span class="nn">select</span><span class="p">)</span> <span class="k">with</span> <span class="n">annotations</span>
+  <span class="o">--</span><span class="n">class_kw</span> <span class="n">CLASS_KW</span><span class="p">,</span> <span class="o">-</span><span class="n">ck</span> <span class="n">CLASS_KW</span>
+                        <span class="n">Path</span> <span class="k">for</span> <span class="n">keyword</span> <span class="n">files</span>
+  <span class="o">--</span><span class="n">outpath</span> <span class="n">OUTPATH</span><span class="p">,</span> <span class="o">-</span><span class="n">o</span> <span class="n">OUTPATH</span>
+                        <span class="n">Classification</span> <span class="n">of</span> <span class="n">selected</span> <span class="n">data</span> <span class="n">based</span> <span class="n">on</span> <span class="n">provided</span>
+                        <span class="n">keywords</span>
+</pre></div>
+</div>
+<p>The classified data are stored in the folder as shown below:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>APRICOT_analysis
+    └───├output
+            └───├2_selected_domain_information
+                    └───├classified_data                            # Location for the output data obtained
+                        |                                           # from the subcommand &#39;classify&#39;
+                        | classification_key-1_selected_data.csv    # Files containing subsets of predicted data...
+                        | classification_key-2_selected_data.csv    # ... based on user provided classification keys.
+</pre></div>
+</div>
+</div>
+<div class="section" id="subcommand-annoscore">
+<h1>subcommand <code class="docutils literal"><span class="pre">annoscore</span></code><a class="headerlink" href="#subcommand-annoscore" title="Permalink to this headline">¶</a></h1>
+<p>This subcommand is executed for the annotation based scoring of the
+selcted domains in the query proteins.</p>
+<p>In order to differentiate domain predictions of low confidence from that
+of high confidence, the predicted domain sites are compared with their
+corresponding references and scored by means of methods that measure
+their similarities by means of various sequence-based features. The
+comparisons of the features between the predicted domain sites and
+reference are scored based on the principle of Bayesian probability,
+where a score closer to 1 represents a favourable scenario.</p>
+<p>There are four groups of features that are involved in the annotation
+based scoring. 1. Chemical properties 2. Needleman-Wunsch global
+alignment scores 3. Euclidean distances of protein compositions 4.
+Prediction parameters of the predicted sites</p>
+<p>Quick help: <code class="docutils literal"><span class="pre">$</span> <span class="pre">apricot</span> <span class="pre">annoscore</span> <span class="pre">-h</span></code></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">apricot</span> <span class="n">annoscore</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">analysis_path</span> <span class="n">ANALYSIS_PATH</span><span class="p">]</span>
+                         <span class="p">[</span><span class="o">--</span><span class="n">selected</span> <span class="n">SELECTED</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">cdd_pred</span> <span class="n">CDD_PRED</span><span class="p">]</span>
+                         <span class="p">[</span><span class="o">--</span><span class="n">outpath</span> <span class="n">OUTPATH</span><span class="p">]</span>
+
+<span class="n">optional</span> <span class="n">arguments</span><span class="p">:</span>
+  <span class="o">-</span><span class="n">h</span><span class="p">,</span> <span class="o">--</span><span class="n">help</span>            <span class="n">show</span> <span class="n">this</span> <span class="n">help</span> <span class="n">message</span> <span class="ow">and</span> <span class="n">exit</span>
+  <span class="o">--</span><span class="n">analysis_path</span> <span class="n">ANALYSIS_PATH</span><span class="p">,</span> <span class="o">-</span><span class="n">ap</span> <span class="n">ANALYSIS_PATH</span>
+                        <span class="n">Provide</span> <span class="n">analysis</span> <span class="n">path</span>
+  <span class="o">--</span><span class="n">selected</span> <span class="n">SELECTED</span><span class="p">,</span> <span class="o">-</span><span class="n">sel</span> <span class="n">SELECTED</span>
+                        <span class="n">Provided</span> <span class="n">selected</span> <span class="n">protein</span> <span class="n">table</span>
+  <span class="o">--</span><span class="n">cdd_pred</span> <span class="n">CDD_PRED</span><span class="p">,</span> <span class="o">-</span><span class="n">cp</span> <span class="n">CDD_PRED</span>
+                        <span class="n">Raw</span> <span class="n">files</span> <span class="n">obtained</span> <span class="kn">from</span> <span class="nn">CDD</span> <span class="n">based</span> <span class="n">domain</span> <span class="n">prediction</span>
+  <span class="o">--</span><span class="n">outpath</span> <span class="n">OUTPATH</span><span class="p">,</span> <span class="o">-</span><span class="n">o</span> <span class="n">OUTPATH</span>
+                        <span class="n">Output</span> <span class="n">path</span> <span class="k">for</span> <span class="n">annotation</span> <span class="n">scoring</span> <span class="n">files</span>
+</pre></div>
+</div>
+<p>The data with annotation scores are stored in the folder as shown below:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>APRICOT_analysis
+    └───├output
+            └───├3_annotation_scoring          # Location for the output data obtained
+                |                              # from the subcommand &#39;annoscore&#39;
+                | annotation_extended_for_selected.csv
+</pre></div>
+</div>
+</div>
+<div class="section" id="subcommand-addanno">
+<h1>subcommand <code class="docutils literal"><span class="pre">addanno</span></code><a class="headerlink" href="#subcommand-addanno" title="Permalink to this headline">¶</a></h1>
+<p>Quick help: <code class="docutils literal"><span class="pre">$</span> <span class="pre">apricot</span> <span class="pre">addanno</span> <span class="pre">-h</span></code></p>
+<p>This subcommand allows users to further annotate the query sequences
+that are selected based on the defined functional domains.</p>
+<p>Following modules can be used with their respective flags for additional
+annotations of the selected proteins:</p>
+<ol class="arabic simple">
+<li>Identification sub-cellular localization of the proteins (flag
+-psortb)</li>
+<li>Secondary structure calculation by RaptorX (flag -raptorx)</li>
+<li>Tertiary structure homologs from Protein Data Bank (flag -pdb)</li>
+<li>Gene Ontology (flag -go)</li>
+</ol>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">apricot</span> <span class="n">addanno</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">force</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">pdb</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">psortb</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">raptorx</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">refss</span><span class="p">]</span>
+                       <span class="p">[</span><span class="o">--</span><span class="n">analysis_path</span> <span class="n">ANALYSIS_PATH</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">fasta</span> <span class="n">FASTA</span><span class="p">]</span>
+                       <span class="p">[</span><span class="o">--</span><span class="n">selected</span> <span class="n">SELECTED</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">outpath</span> <span class="n">OUTPATH</span><span class="p">]</span>
+                       <span class="p">[</span><span class="o">--</span><span class="n">pdb_path</span> <span class="n">PDB_PATH</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">psortb_path</span> <span class="n">PSORTB_PATH</span><span class="p">]</span>
+                       <span class="p">[</span><span class="o">--</span><span class="n">raptorx_path</span> <span class="n">RAPTORX_PATH</span><span class="p">]</span>
+
+<span class="n">optional</span> <span class="n">arguments</span><span class="p">:</span>
+  <span class="o">-</span><span class="n">h</span><span class="p">,</span> <span class="o">--</span><span class="n">help</span>            <span class="n">show</span> <span class="n">this</span> <span class="n">help</span> <span class="n">message</span> <span class="ow">and</span> <span class="n">exit</span>
+  <span class="o">--</span><span class="n">force</span><span class="p">,</span> <span class="o">-</span><span class="n">F</span>           <span class="n">force</span> <span class="n">flag</span> <span class="k">for</span> <span class="n">the</span> <span class="n">current</span> <span class="n">analysis</span><span class="p">,</span> <span class="n">removes</span> <span class="n">already</span>
+                        <span class="n">existing</span> <span class="n">predictions</span>
+  <span class="o">--</span><span class="n">pdb</span><span class="p">,</span> <span class="o">-</span><span class="n">PDB</span>           <span class="n">Optional</span> <span class="n">annotation</span> <span class="n">of</span> <span class="n">the</span> <span class="n">selected</span> <span class="n">protein</span> <span class="n">by</span> <span class="n">PDB</span>
+                        <span class="n">structure</span> <span class="n">homolog</span>
+  <span class="o">--</span><span class="n">psortb</span><span class="p">,</span> <span class="o">-</span><span class="n">PSORTB</span>     <span class="n">Optional</span> <span class="n">annotation</span> <span class="n">of</span> <span class="n">the</span> <span class="n">selected</span> <span class="n">protein</span> <span class="n">by</span>
+                        <span class="n">localization</span> <span class="n">using</span> <span class="n">PsortB</span>
+  <span class="o">--</span><span class="n">raptorx</span><span class="p">,</span> <span class="o">-</span><span class="n">RAPTORX</span>   <span class="n">Optional</span> <span class="n">annotation</span> <span class="n">of</span> <span class="n">the</span> <span class="n">selected</span> <span class="n">protein</span> <span class="n">by</span>
+                        <span class="n">secondary</span> <span class="n">structure</span> <span class="n">using</span> <span class="n">RaptorX</span>
+  <span class="o">--</span><span class="n">refss</span><span class="p">,</span> <span class="o">-</span><span class="n">REFSS</span>       <span class="n">Optional</span> <span class="n">annotation</span> <span class="n">of</span> <span class="n">the</span> <span class="n">selected</span> <span class="n">protein</span> <span class="n">by</span>
+                        <span class="n">secondary</span> <span class="n">structure</span> <span class="n">using</span> <span class="n">literature</span> <span class="n">reference</span>
+  <span class="o">--</span><span class="n">analysis_path</span> <span class="n">ANALYSIS_PATH</span><span class="p">,</span> <span class="o">-</span><span class="n">ap</span> <span class="n">ANALYSIS_PATH</span>
+                        <span class="n">Provide</span> <span class="n">analysis</span> <span class="n">path</span>
+  <span class="o">--</span><span class="n">fasta</span> <span class="n">FASTA</span><span class="p">,</span> <span class="o">-</span><span class="n">fa</span> <span class="n">FASTA</span>
+                        <span class="n">Provide</span> <span class="n">absolute</span> <span class="n">path</span> <span class="n">of</span> <span class="n">fasta</span> <span class="n">files</span> <span class="k">for</span> <span class="n">query</span>
+                        <span class="n">proteins</span>
+  <span class="o">--</span><span class="n">selected</span> <span class="n">SELECTED</span><span class="p">,</span> <span class="o">-</span><span class="n">sel</span> <span class="n">SELECTED</span>
+                        <span class="n">Provided</span> <span class="n">selected</span> <span class="n">protein</span> <span class="n">table</span>
+  <span class="o">--</span><span class="n">outpath</span> <span class="n">OUTPATH</span><span class="p">,</span> <span class="o">-</span><span class="n">o</span> <span class="n">OUTPATH</span>
+                        <span class="n">Output</span> <span class="n">path</span> <span class="k">for</span> <span class="n">additional</span> <span class="n">annotation</span> <span class="n">data</span>
+  <span class="o">--</span><span class="n">pdb_path</span> <span class="n">PDB_PATH</span><span class="p">,</span> <span class="o">-</span><span class="n">pdb_path</span> <span class="n">PDB_PATH</span>
+                        <span class="n">Provide</span> <span class="n">absolute</span> <span class="n">path</span> <span class="n">of</span> <span class="n">APRICOT</span> <span class="n">formatted</span> <span class="n">pdb</span>
+                        <span class="n">database</span> <span class="o">~</span><span class="n">pdb</span><span class="o">/</span><span class="n">pdb_sequence</span><span class="o">/</span><span class="n">pdb_sequence</span><span class="o">.</span><span class="n">txt</span>
+  <span class="o">--</span><span class="n">psortb_path</span> <span class="n">PSORTB_PATH</span><span class="p">,</span> <span class="o">-</span><span class="n">psortb_path</span> <span class="n">PSORTB_PATH</span>
+                        <span class="n">Provide</span> <span class="n">absolute</span> <span class="n">path</span> <span class="n">of</span> <span class="n">APRICOT</span> <span class="n">installed</span> <span class="n">psortb</span>
+  <span class="o">--</span><span class="n">raptorx_path</span> <span class="n">RAPTORX_PATH</span><span class="p">,</span> <span class="o">-</span><span class="n">raptorx_path</span> <span class="n">RAPTORX_PATH</span>
+                        <span class="n">Provide</span> <span class="n">absolute</span> <span class="n">path</span> <span class="n">of</span> <span class="n">APRICOT</span> <span class="n">installed</span> <span class="n">raptorx</span>
+                        <span class="n">till</span> <span class="n">the</span> <span class="n">perl</span> <span class="n">script</span> <span class="n">run_raptorx</span><span class="o">-</span><span class="n">ss8</span><span class="o">.</span><span class="n">pl</span>
+</pre></div>
+</div>
+<p>The resulting files are stored in the directory
+4_additional_annotations in the corresponding sub-folders, as shown
+below:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>APRICOT_analysis
+    └───├output
+            └───├4_additional_annotations               # Location for additional annotations for the
+                    |                                   # selected queries using subcommand &#39;addanno&#39;
+                    └───├pdb_sequence_prediction        # PDB structure homologs of the selected
+                    |                                   # queries (flag --pdb, -PDB)
+                    └───├protein_localization           # PSORTb based localization of the selected
+                    |                                   # queries (flag --psortb, -PSORTB)
+                    └───├protein_secondary_structure    # RaptorX based structure of the selected
+                                                        # queries (flag --raptorx, -RAPTORX)
+</pre></div>
+</div>
+</div>
+<div class="section" id="subcommand-summary">
+<h1>subcommand <code class="docutils literal"><span class="pre">summary</span></code><a class="headerlink" href="#subcommand-summary" title="Permalink to this headline">¶</a></h1>
+<p>Quick help: <code class="docutils literal"><span class="pre">$</span> <span class="pre">apricot</span> <span class="pre">summary</span> <span class="pre">-h</span></code></p>
+<p>To get an overview of the analysis carried out on a set of query
+proteins, this sub command can be used. It generate information like,
+how many queries could be mapped to the UniProt IDs, how many contain
+the reference domains etc., to provide analysis overview.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">apricot</span> <span class="n">summary</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">analysis_path</span> <span class="n">ANALYSIS_PATH</span><span class="p">]</span>
+                       <span class="p">[</span><span class="o">--</span><span class="n">query_map</span> <span class="n">QUERY_MAP</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">domains</span> <span class="n">DOMAINS</span><span class="p">]</span>
+                       <span class="p">[</span><span class="o">--</span><span class="n">unfilter_path</span> <span class="n">UNFILTER_PATH</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">outpath</span> <span class="n">OUTPATH</span><span class="p">]</span>
+
+<span class="n">optional</span> <span class="n">arguments</span><span class="p">:</span>
+  <span class="o">-</span><span class="n">h</span><span class="p">,</span> <span class="o">--</span><span class="n">help</span>            <span class="n">show</span> <span class="n">this</span> <span class="n">help</span> <span class="n">message</span> <span class="ow">and</span> <span class="n">exit</span>
+  <span class="o">--</span><span class="n">analysis_path</span> <span class="n">ANALYSIS_PATH</span><span class="p">,</span> <span class="o">-</span><span class="n">ap</span> <span class="n">ANALYSIS_PATH</span>
+                        <span class="n">Provide</span> <span class="n">analysis</span> <span class="n">path</span>
+  <span class="o">--</span><span class="n">query_map</span> <span class="n">QUERY_MAP</span><span class="p">,</span> <span class="o">-</span><span class="n">q</span> <span class="n">QUERY_MAP</span>
+                        <span class="n">query_to_uids</span><span class="o">.</span><span class="n">txt</span> <span class="n">file</span> <span class="n">created</span> <span class="n">by</span> <span class="n">APRICOT</span> <span class="n">to</span> <span class="n">save</span>
+                        <span class="n">query</span> <span class="n">mapping</span> <span class="n">information</span>
+  <span class="o">--</span><span class="n">domains</span> <span class="n">DOMAINS</span><span class="p">,</span> <span class="o">-</span><span class="n">d</span> <span class="n">DOMAINS</span>
+                        <span class="n">File</span> <span class="n">containing</span> <span class="nb">all</span> <span class="n">the</span> <span class="n">keyword</span> <span class="n">selected_domains</span> <span class="n">of</span>
+                        <span class="n">interest</span>
+  <span class="o">--</span><span class="n">unfilter_path</span> <span class="n">UNFILTER_PATH</span><span class="p">,</span> <span class="o">-</span><span class="n">uf</span> <span class="n">UNFILTER_PATH</span>
+                        <span class="n">Directory</span> <span class="k">with</span> <span class="n">the</span> <span class="n">unfiltered</span> <span class="n">domain</span> <span class="n">data</span> <span class="kn">from</span>
+                        <span class="nn">output</span><span class="o">-</span><span class="mi">1</span> <span class="p">(</span><span class="n">unfiltered_data</span><span class="p">)</span>
+  <span class="o">--</span><span class="n">outpath</span> <span class="n">OUTPATH</span><span class="p">,</span> <span class="o">-</span><span class="n">o</span> <span class="n">OUTPATH</span>
+                        <span class="n">Provide</span> <span class="n">output</span> <span class="n">path</span>
+</pre></div>
+</div>
+<p>The resulting files are stored in the directory 5_analysis_summary in
+the corresponding sub-folders, as shown below:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>APRICOT_analysis
+    └───├output
+            └───├5_analysis_summary # Location for the output data obtained from the subcommand &#39;summary&#39;
+                | APRICOT_analysis_summary.csv
+</pre></div>
+</div>
+</div>
+<div class="section" id="subcommand-format">
+<h1>subcommand <code class="docutils literal"><span class="pre">format</span></code><a class="headerlink" href="#subcommand-format" title="Permalink to this headline">¶</a></h1>
+<p>Quick help: <code class="docutils literal"><span class="pre">$</span> <span class="pre">apricot</span> <span class="pre">format</span> <span class="pre">-h</span></code></p>
+<p>Formats and stores various tables in the HTML tabels (&#8211;html), excel
+files (&#8211;xlsx) or both.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">apricot</span> <span class="nb">format</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">analysis_path</span> <span class="n">ANALYSIS_PATH</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">inpath</span> <span class="n">INPATH</span><span class="p">]</span>
+                      <span class="p">[</span><span class="o">--</span><span class="n">html</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">xlsx</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">outpath</span> <span class="n">OUTPATH</span><span class="p">]</span>
+
+<span class="n">optional</span> <span class="n">arguments</span><span class="p">:</span>
+  <span class="o">-</span><span class="n">h</span><span class="p">,</span> <span class="o">--</span><span class="n">help</span>            <span class="n">show</span> <span class="n">this</span> <span class="n">help</span> <span class="n">message</span> <span class="ow">and</span> <span class="n">exit</span>
+  <span class="o">--</span><span class="n">analysis_path</span> <span class="n">ANALYSIS_PATH</span><span class="p">,</span> <span class="o">-</span><span class="n">ap</span> <span class="n">ANALYSIS_PATH</span>
+                        <span class="n">Provide</span> <span class="n">analysis</span> <span class="n">path</span>
+  <span class="o">--</span><span class="n">inpath</span> <span class="n">INPATH</span><span class="p">,</span> <span class="o">-</span><span class="n">i</span> <span class="n">INPATH</span>
+                        <span class="n">Choose</span> <span class="n">folder</span> <span class="kn">from</span> <span class="nn">analysis</span> <span class="n">to</span> <span class="n">be</span> <span class="n">converted</span>
+  <span class="o">--</span><span class="n">html</span><span class="p">,</span> <span class="o">-</span><span class="n">HT</span>
+  <span class="o">--</span><span class="n">xlsx</span><span class="p">,</span> <span class="o">-</span><span class="n">XL</span>
+  <span class="o">--</span><span class="n">outpath</span> <span class="n">OUTPATH</span><span class="p">,</span> <span class="o">-</span><span class="n">o</span> <span class="n">OUTPATH</span>
+                        <span class="n">Output</span> <span class="n">path</span> <span class="k">for</span> <span class="n">files</span> <span class="k">with</span> <span class="n">different</span> <span class="n">file</span> <span class="n">formats</span>
+</pre></div>
+</div>
+<p>The resulting files are stored in the directory format_output_data in
+the corresponding sub-folders, as shown below:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>APRICOT_analysis
+    └───├output
+            └───├format_output_data # Location for the output data obtained from the subcommand &#39;format&#39;
+                    └───├excel_files               # excel files (flag -XL)
+                    └───├html_files                # HTML files (flag -HT)
+</pre></div>
+</div>
+</div>
+<div class="section" id="subcommand-vis">
+<h1>subcommand <code class="docutils literal"><span class="pre">vis</span></code><a class="headerlink" href="#subcommand-vis" title="Permalink to this headline">¶</a></h1>
+<p>Quick help: <code class="docutils literal"><span class="pre">$</span> <span class="pre">apricot</span> <span class="pre">vis</span> <span class="pre">-h</span></code></p>
+<p>Visualize different resulting data like predicted domains sites,
+tertiary structure of selected proteins etc.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">apricot</span> <span class="n">vis</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">analysis_path</span> <span class="n">ANALYSIS_PATH</span><span class="p">]</span>
+                   <span class="p">[</span><span class="o">--</span><span class="n">ann_score</span> <span class="n">ANN_SCORE</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">add_anno</span> <span class="n">ADD_ANNO</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">domain</span><span class="p">]</span>
+                   <span class="p">[</span><span class="o">--</span><span class="n">annoscore</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">secstr</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">localiz</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">msa</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">complete</span><span class="p">]</span>
+                   <span class="p">[</span><span class="o">--</span><span class="n">outpath</span> <span class="n">OUTPATH</span><span class="p">]</span>
+
+<span class="n">optional</span> <span class="n">arguments</span><span class="p">:</span>
+  <span class="o">-</span><span class="n">h</span><span class="p">,</span> <span class="o">--</span><span class="n">help</span>            <span class="n">show</span> <span class="n">this</span> <span class="n">help</span> <span class="n">message</span> <span class="ow">and</span> <span class="n">exit</span>
+  <span class="o">--</span><span class="n">analysis_path</span> <span class="n">ANALYSIS_PATH</span><span class="p">,</span> <span class="o">-</span><span class="n">ap</span> <span class="n">ANALYSIS_PATH</span>
+                        <span class="n">Provide</span> <span class="n">analysis</span> <span class="n">path</span>
+  <span class="o">--</span><span class="n">ann_score</span> <span class="n">ANN_SCORE</span><span class="p">,</span> <span class="o">-</span><span class="n">an</span> <span class="n">ANN_SCORE</span>
+                        <span class="n">Provide</span> <span class="n">annotation</span> <span class="n">score</span> <span class="n">file</span>
+  <span class="o">--</span><span class="n">add_anno</span> <span class="n">ADD_ANNO</span><span class="p">,</span> <span class="o">-</span><span class="n">ad</span> <span class="n">ADD_ANNO</span>
+                        <span class="n">Provide</span> <span class="n">path</span> <span class="n">to</span> <span class="n">additional</span> <span class="n">annotation</span>
+  <span class="o">--</span><span class="n">domain</span><span class="p">,</span> <span class="o">-</span><span class="n">D</span>          <span class="n">Visualizes</span> <span class="n">predicted</span> <span class="n">domains</span> <span class="n">on</span> <span class="n">the</span> <span class="n">query</span> <span class="n">by</span>
+                        <span class="n">highlighting</span>
+  <span class="o">--</span><span class="n">annoscore</span><span class="p">,</span> <span class="o">-</span><span class="n">A</span>       <span class="n">Visualizes</span> <span class="n">overview</span> <span class="n">of</span> <span class="n">prediction</span> <span class="n">statistics</span>
+  <span class="o">--</span><span class="n">secstr</span><span class="p">,</span> <span class="o">-</span><span class="n">S</span>          <span class="n">Visualizes</span> <span class="n">secondary</span> <span class="n">structures</span> <span class="n">predicted</span> <span class="n">by</span> <span class="n">RaptorX</span>
+  <span class="o">--</span><span class="n">localiz</span><span class="p">,</span> <span class="o">-</span><span class="n">L</span>         <span class="n">Visualizes</span> <span class="n">subcellular</span> <span class="n">localization</span> <span class="n">predcited</span> <span class="n">by</span>
+                        <span class="n">PsortB</span>
+  <span class="o">--</span><span class="n">msa</span><span class="p">,</span> <span class="o">-</span><span class="n">M</span>             <span class="n">Visualizes</span> <span class="n">Multiple</span> <span class="n">Sequence</span> <span class="n">Alignments</span> <span class="n">of</span> <span class="n">homologous</span>
+                        <span class="n">sequences</span> <span class="kn">from</span> <span class="nn">PDB</span>
+  <span class="o">--</span><span class="n">complete</span><span class="p">,</span> <span class="o">-</span><span class="n">C</span>        <span class="n">Visualizes</span> <span class="nb">all</span> <span class="n">the</span> <span class="n">possible</span> <span class="n">features</span>
+  <span class="o">--</span><span class="n">outpath</span> <span class="n">OUTPATH</span><span class="p">,</span> <span class="o">-</span><span class="n">o</span> <span class="n">OUTPATH</span>
+                        <span class="n">Output</span> <span class="n">path</span> <span class="k">for</span> <span class="n">visualization</span> <span class="n">files</span>
+</pre></div>
+</div>
+<p>The resulting files are stored in the directory visualization_files in
+the corresponding sub-folders, as shown below:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>APRICOT_analysis
+    └───├output
+            └───├visualization_files # Location for the output data obtained from the subcommand &#39;vis&#39;
+                    └───├domain_highlighting      # Visualizing the domain sites on the protein sequences
+                    └───├homologous_pdb_msa       # Multiple sequence alignment of the structure homologs
+                    └───├overview_and_statistics  # Visualizing the overview of the selected query proteins
+                    └───├secondary_structure      # Visualizing 3-state secondary struvture of the query sequence
+                    └───├subcellular_localization # Heatmap showing the probability of different localization sites
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Malvika Sharan.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'Version 1.2.2',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

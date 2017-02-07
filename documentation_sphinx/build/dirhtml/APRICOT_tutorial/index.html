@@ -1,0 +1,678 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>APRICOT TUTORIAL &mdash; APRICOT Version 1.2.2 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex/"/>
+        <link rel="search" title="Search" href="../search/"/>
+    <link rel="top" title="APRICOT Version 1.2.2 documentation" href="../"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../" class="icon icon-home"> APRICOT
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                Version 1.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <!-- Local TOC -->
+                <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">APRICOT TUTORIAL</a><ul>
+<li><a class="reference internal" href="#requirements">Requirements:</a><ul>
+<li><a class="reference internal" href="#not-required-for-this-tutorial">Not required for this tutorial</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#example-analysis">Example analysis</a><ul>
+<li><a class="reference internal" href="#defining-paths">Defining paths</a></li>
+<li><a class="reference internal" href="#creating-analysis-folders">Creating analysis folders</a></li>
+<li><a class="reference internal" href="#fetching-required-source-files">Fetching required source files</a></li>
+<li><a class="reference internal" href="#providing-query-proteins-using-the-subcommand-query">Providing query proteins using the subcommand <code class="docutils literal"><span class="pre">query</span></code></a></li>
+<li><a class="reference internal" href="#providing-keyword-inputs-using-the-subcommand-keywords">Providing keyword inputs using the subcommand <code class="docutils literal"><span class="pre">keywords</span></code></a></li>
+<li><a class="reference internal" href="#selecting-domains-of-interest-using-the-subcommand-select">Selecting domains of interest using the subcommand <code class="docutils literal"><span class="pre">select</span></code></a></li>
+<li><a class="reference internal" href="#domain-predictions-using-the-subcommand-predict">Domain predictions using the subcommand <code class="docutils literal"><span class="pre">predict</span></code></a></li>
+<li><a class="reference internal" href="#filtering-the-predicted-domains-using-the-subcommand-filter">Filtering the predicted domains using the subcommand <code class="docutils literal"><span class="pre">filter</span></code></a></li>
+<li><a class="reference internal" href="#classify-all-the-selected-domains-from-previous-analysis-using-the-subcommand-classify">Classify all the selected domains from previous analysis using the subcommand <code class="docutils literal"><span class="pre">classify</span></code></a></li>
+<li><a class="reference internal" href="#calculating-annotation-scores-for-the-selected-domains-using-the-subcommand-annoscore">Calculating annotation scores for the selected domains using the subcommand <code class="docutils literal"><span class="pre">annoscore</span></code></a></li>
+<li><a class="reference internal" href="#generating-analysis-summary-using-the-subcommand-summary">Generating analysis summary using the subcommand: <code class="docutils literal"><span class="pre">summary</span></code></a><ul>
+<li><a class="reference internal" href="#format-output-files-using-the-subcommand-format">Format output files using the subcommand <code class="docutils literal"><span class="pre">format</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../">APRICOT</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../">Docs</a> &raquo;</li>
+      
+    <li>APRICOT TUTORIAL</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/APRICOT_tutorial.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p><a class="reference external" href="https://pypi.python.org/pypi/bio-apricot/"><img alt="Latest Version" src="https://img.shields.io/pypi/v/bio-apricot.svg" /></a> <a class="reference external" href="https://pypi.python.org/pypi/bio-apricot/"><img alt="License" src="https://img.shields.io/pypi/l/bio-apricot.svg" /></a> <a class="reference external" href="https://zenodo.org/badge/latestdoi/21283/malvikasharan/APRICOT"><img alt="DOI" src="https://zenodo.org/badge/21283/malvikasharan/APRICOT.svg" /></a> <a class="reference external" href="https://microbadger.com/images/malvikasharan/apricot"><img alt="image3" src="https://images.microbadger.com/badges/image/malvikasharan/apricot.svg" /></a></p>
+<p><a class="reference external" href="http://malvikasharan.github.io/APRICOT/"><img alt="image4" src="https://raw.githubusercontent.com/malvikasharan/APRICOT/master/APRICOT_logo.png" /></a></p>
+<div class="section" id="apricot-tutorial">
+<h1>APRICOT TUTORIAL<a class="headerlink" href="#apricot-tutorial" title="Permalink to this headline">¶</a></h1>
+<p>This tutorial provides an easy way to test different modules of APRICOT
+and understand the basic usage of this pipeline.</p>
+<div class="section" id="requirements">
+<h2>Requirements:<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Get APRICOT software</li>
+</ol>
+<p>The software can be used via <a class="reference external" href=".././docker/index.html">Docker
+container</a>,
+or can be installed locally as explained
+<a class="reference external" href=".././local_installation/index.html">here</a>.</p>
+<ol class="arabic simple" start="2">
+<li>Get the Shell script for running the software</li>
+</ol>
+<p>Use wget or curl to download the script
+<a class="reference external" href="https://github.com/malvikasharan/APRICOT/blob/master/shell_scripts/run_example.sh">run_example.sh</a>
+inside the Docker container (when working with Docker) or locally (when
+using the locally installed software), which will assist you in
+following the tutorial.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ wget https://raw.githubusercontent.com/malvikasharan/APRICOT/master/shell_scripts/run_example.sh
+</pre></div>
+</div>
+<p>OR</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ curl -O https://raw.githubusercontent.com/malvikasharan/APRICOT/master/shell_scripts/run_example.sh
+</pre></div>
+</div>
+<div class="section" id="not-required-for-this-tutorial">
+<h3>Not required for this tutorial<a class="headerlink" href="#not-required-for-this-tutorial" title="Permalink to this headline">¶</a></h3>
+<p>APRICOT requires <a class="reference external" href=".././docker/index.html">supporting
+data</a>
+in order to carry out analysis of the user provided queries. In
+addition, for carrying out additional annotation of the proteins with
+biological features, it uses locally installed Psort and RaptorX
+executable. These requirements have been discussed in detail in the
+<a class="reference external" href=".././software_dependencies/index.html">documentation</a>.
+We will <strong>NOT</strong> require those for this tutorial, instead we have
+provided pre-processed files that should allow you to test the
+functionality of the tool. The test files are avaialable at: <a class="reference external" href="https://zenodo.org/record/51705">Zenodo
+record</a>.</p>
+</div>
+</div>
+<div class="section" id="example-analysis">
+<h2>Example analysis<a class="headerlink" href="#example-analysis" title="Permalink to this headline">¶</a></h2>
+<p>APRICOT can be executed by python (python3 or up) on Unix-flavors
+(GNU/Linux, BSD, OS X).</p>
+<p>We will go through the shell script
+<a class="reference external" href="https://github.com/malvikasharan/APRICOT/blob/master/shell_scripts/run_example.sh">run_example.sh</a>
+step by step. This script assumes that users have installed the software
+globally using pip.</p>
+<p>Check the subcommands:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">apricot</span> <span class="o">-</span><span class="n">h</span>
+</pre></div>
+</div>
+<p>or</p>
+<p><strong>If you are using locally installed git repository</strong></p>
+<p>Please specifiy the the path where APRICOT modules are located (see
+below: APRICOT_PATH) and run the tool using
+<code class="docutils literal"><span class="pre">python</span> <span class="pre">$APRICOT_PATH/bin/apricot</span></code> by editing
+<code class="docutils literal"><span class="pre">APRICOT_CALL=&quot;python3</span> <span class="pre">../bin/apricot&quot;</span></code> (which would have the
+advantage that you can specify the Python version you would like to use)
+or <code class="docutils literal"><span class="pre">./$APRICOT_PATH/bin/apricot</span></code> command.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>python $APRICOT_PATH/bin/apricot -h
+</pre></div>
+</div>
+<p>If you get an error message
+<code class="docutils literal"><span class="pre">system_test.sh:</span> <span class="pre">164:</span> <span class="pre">system_test.sh:</span> <span class="pre">../bin/apricot:</span> <span class="pre">Permission</span> <span class="pre">denied</span> <span class="pre">...</span></code>,
+please open the script <code class="docutils literal"><span class="pre">run_example.sh</span></code> and and edit the
+<code class="docutils literal"><span class="pre">APRICOT_CALL=&quot;../bin/apricot&quot;</span></code> to
+<code class="docutils literal"><span class="pre">APRICOT_CALL=&quot;python3</span> <span class="pre">../bin/apricot&quot;</span></code> (instead of python3, you can
+use python or define any version of python, or instead use ./).</p>
+<div class="section" id="defining-paths">
+<h3>Defining paths<a class="headerlink" href="#defining-paths" title="Permalink to this headline">¶</a></h3>
+<p>Users can set the following paths:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">## User defined PATHS (default paths are given)</span>
+
+<span class="c1"># Path where the analysis data by APRICOT will be stored</span>
+<span class="n">ANALYSIS_PATH</span><span class="o">=</span><span class="n">APRICOT_analysis</span>
+
+<span class="c1"># Path where the source files and databases will be stored</span>
+<span class="n">ROOT_DB_PATH</span><span class="o">=</span><span class="n">source_files</span>
+
+<span class="c1"># Path for EMBOSS suite with locally installed needle cline</span>
+<span class="n">NEEDLE_EMBOSS_PATH</span><span class="o">=/</span><span class="n">home</span><span class="o">/</span><span class="n">emboss</span><span class="o">/</span><span class="n">needle</span>   <span class="c1"># Default path</span>
+
+<span class="c1"># Path where APRICOT modules are located, by-default we use APRICOT as</span>
+<span class="c1"># the name of git library</span>
+<span class="n">APRICOT_PATH</span><span class="o">=</span><span class="n">APRICOT</span>
+</pre></div>
+</div>
+<p>APRICOT stores databases and source files in these paths.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>## FIXED PATHS
+
+# Source data downloaded by APRICOT
+DB_PATH=$ROOT_DB_PATH/reference_db_files
+
+## PATHS for domain databases
+CDD_PATH=$DB_PATH/cdd/Cdd
+INTERPRO_PATH=$DB_PATH/interpro/interproscan
+</pre></div>
+</div>
+</div>
+<div class="section" id="creating-analysis-folders">
+<h3>Creating analysis folders<a class="headerlink" href="#creating-analysis-folders" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>We will create each of the paths that we defined above in the section
+above:</li>
+</ol>
+<div class="highlight-default"><div class="highlight"><pre><span></span>donwload_files(){
+   mkdir -p $ROOT_DB_PATH $APRICOT_PATH $ANALYSIS_PATH $APRICOT_LIBRARY
+   for db_subpath in cdd go_mapping interpro pfam
+   do
+       mkdir -p $DB_PATH/$db_subpath
+   done
+
+[...]
+}
+</pre></div>
+</div>
+<p>This will create a main folder <code class="docutils literal"><span class="pre">source_files</span></code> with subfolder as shown
+below.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>source_files
+    └───├domain_data            # Location for the files containing keywords for domain selection and subsequently selected domains
+    |
+    └───├emboss                 # EMBOSS package containing needle software
+    |
+    └───├reference_db_files
+            └───├all_taxid                      # Taxonomy ids for the reference of proteome analysis
+            └───├blast                          # BLAST package containing required executables
+            └───├cdd                            # Cdd related reference files
+            |   └───├Cdd                        # Cdd database (Not required for the tutorial)
+            |   └───├cdd_annotation_data        # Cdd related annotation file
+            └───├pdb                            # All pdb structures as a reference for the tertiary structures
+            └───├pfam                           # Pfam annotation data
+            └───├interpro                       # InterPro related reference files
+            |   └───├interproscan               # Interpro database and InterProScan related tools (Not required for the tutorial)
+            |   └───├interpro_annotation_data   # interPro related annotation files
+            └───├go_mapping                     # GO related data containing GO anotation for the domains obtained from CDD and InterPro
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li>Using the <code class="docutils literal"><span class="pre">create</span></code> subcommand from APRICOT, we will create the
+analysis folder and its subfolder. This generates a main folder
+<code class="docutils literal"><span class="pre">APRICOT_analysis</span></code> (name can be defined by users), which contains
+subfolders as shown below.</li>
+</ol>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">apricot</span> <span class="n">create</span> <span class="n">APRICOT_analysis</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span>APRICOT_analysis
+    └───├input                                  # Location used by subcommand &#39;query&#39; to store all the related files
+    |       └───├query_proteins                 # Location for the list of query proteins
+    |       |
+    |       └───├uniprot_reference_table        # Location for storing the reference table downloaded from UniProt
+    |       |
+    |       └───├mapped_query_annotation        # All the query proteins that are mapped to at least one UniProt annotations
+    |       |   ├fasta_path_mapped_query        # Fasta files obtained for all the query proteins, can be used for query fasta files
+    |       |   ├xml_path_mapped_query          # UniProt xml files obtained for all the query proteins
+    |
+    └───├output
+            └───├0_predicted_domains            # Location for the output data obtained from the subcommand &#39;predict&#39;
+            └───├1_compiled_domain_information  # Location for the output data obtained from the subcommand &#39;filter&#39;
+            └───├2_selected_domain_information
+            └───├3_annotation_scoring           # Location for the output data obtained from the subcommand &#39;annoscore&#39;
+            └───├4_additional_annotations       # Location for additional annotations for the selected
+            |                                   # queries using subcommand &#39;addanno&#39;
+            └───├5_analysis_summary             # Location for the output data obtained from the subcommand &#39;summary&#39;
+            └───├format_output_data             # Location for the output data obtained from the subcommand &#39;format&#39;
+            └───├visualization_files            # Location for the output data obtained from the subcommand &#39;vis&#39;
+</pre></div>
+</div>
+</div>
+<div class="section" id="fetching-required-source-files">
+<h3>Fetching required source files<a class="headerlink" href="#fetching-required-source-files" title="Permalink to this headline">¶</a></h3>
+<p>We have provided a few pre-processed files, which are available in
+<em>apricot_demo_files</em> folder (retrieved from zenodo), if it is already
+available, please comment the first three lines in the script, which
+copies these files to the APRICOT defined paths.</p>
+<p>Additionally, we will download domain annotation files from CDD and Pfam
+databases.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>complete_data_for_demo(){
+
+   ## Here DB_PATH=source_files/reference_db_files and $ANALYSIS_PATH=APRICOT_analysis
+
+    zenodo_link_for_demo_data=https://zenodo.org/record/51705/files/APRICOT-1.0-demo_files-MS.zip
+    wget $zenodo_link_for_demo_data
+    unzip APRICOT-1.0-demo_files-MS.zip
+    cp -r APRICOT-1.0-demo_files-MS/apricot_demo_files/go_mapping/* $DB_PATH
+    cp -r APRICOT-1.0-demo_files-MS/apricot_demo_files/interpro_annotation_data $DB_PATH/interpro
+    cp APRICOT-1.0-demo_files-MS/apricot_demo_files/cdd_analysis/* $ANALYSIS_PATH/output/0_predicted_domains/cdd_analysis
+    cp APRICOT-1.0-demo_files-MS/apricot_demo_files/ipr_analysis/* $ANALYSIS_PATH/output/0_predicted_domains/ipr_analysis
+
+    ## CDD annotation table
+    wget -c -P $DB_PATH/cdd/cdd_annotation_data ftp://ftp.ncbi.nih.gov/pub/mmdb/cdd/cddid.tbl.gz
+    gunzip $DB_PATH/cdd/cdd_annotation_data/*
+
+    ## PfamA annotation table
+    pfam_release=Pfam30.0
+    wget -c -P $DB_PATH/pfam ftp://ftp.ebi.ac.uk/pub/databases/Pfam/releases/$pfam_release/database_files/pfamA.txt.gz
+    gunzip $DB_PATH&#39;/pfam/pfamA.txt.gz&#39;
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="providing-query-proteins-using-the-subcommand-query">
+<h3>Providing query proteins using the subcommand <code class="docutils literal"><span class="pre">query</span></code><a class="headerlink" href="#providing-query-proteins-using-the-subcommand-query" title="Permalink to this headline">¶</a></h3>
+<p>In this analysis we will identify protein that contains RRM/RNP, which
+is a family of conserved RNA-binding domains.</p>
+<p>Users can provide query proteins using various options. Here we use the
+input option as UniProt identifiers (ID) and provide 2 query proteins:
+<code class="docutils literal"><span class="pre">P0A6X3</span></code>,<code class="docutils literal"><span class="pre">P00957</span></code>.</p>
+<p>The protein ID <code class="docutils literal"><span class="pre">P0A6X3</span></code> is used as an positive example. It represents
+the Hfq protein that contains sm and RRM/RNP like domain. The protein ID
+<code class="docutils literal"><span class="pre">P00957</span></code> is used as an negative example which represents the alaS that
+contains a domain related to tRNA-ligase therefore, it must not be
+identified with domains reltaed to RRM/RNP.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>## *REQUIRED* INPUT-1: provide comma separated list of UniProt ids##
+
+query_uids=&#39;P0A6X3,P00957&#39;          # Option-1: UniProt identifier
+apricot query --analysis_path APRICOT_analysis --uids $query_uids
+</pre></div>
+</div>
+</div>
+<div class="section" id="providing-keyword-inputs-using-the-subcommand-keywords">
+<h3>Providing keyword inputs using the subcommand <code class="docutils literal"><span class="pre">keywords</span></code><a class="headerlink" href="#providing-keyword-inputs-using-the-subcommand-keywords" title="Permalink to this headline">¶</a></h3>
+<p>There are two sets of keyword inputs: the first-set is required to
+selects domains from domain databases and the second set, which is an
+optional input, should comprise of terms that will classify our results
+accordingly.</p>
+<p>In this turtorial we are interested in identifying <code class="docutils literal"><span class="pre">RRM</span></code> containing
+protein, hence, we will use <code class="docutils literal"><span class="pre">RRM</span></code> as one of the terms. Additionally,
+we can provide other terms (for example, <code class="docutils literal"><span class="pre">KH</span></code> and <code class="docutils literal"><span class="pre">DEAD</span></code>) to see if
+there are domains associated with those terms could be identified in our
+query proteins.</p>
+<p>For the second set, we have listed few enzymes along with RRM and RNP.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>### *REQUIRED* Input-2, comma separated list of keywords for domain selection
+domain_kw=&#39;RRM,KH,DEAD&#39;
+
+### *OPTIONAL* Input-2, comma separated list of keywords for protein classification based on the predicted domains
+
+class_kw=&#39;ribosom,helicase,synthetase,polymerase,transferase,nuclease,RRM,RNP&#39;
+apricot keywords --db_root source_files $domain_kw -cl $class_kw
+</pre></div>
+</div>
+<p>These keywords are listed in the files
+<code class="docutils literal"><span class="pre">keywords_for_domain_selection.txt</span></code> and
+<code class="docutils literal"><span class="pre">keywords_for_result_classification.txt</span></code> present in the folder
+<code class="docutils literal"><span class="pre">source_files</span></code> as shown below.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>source_files
+    └───├domain_data
+            keywords_for_domain_selection.txt
+            keywords_for_result_classification.txt
+</pre></div>
+</div>
+</div>
+<div class="section" id="selecting-domains-of-interest-using-the-subcommand-select">
+<h3>Selecting domains of interest using the subcommand <code class="docutils literal"><span class="pre">select</span></code><a class="headerlink" href="#selecting-domains-of-interest-using-the-subcommand-select" title="Permalink to this headline">¶</a></h3>
+<p>APRICOT uses the keywords provided in previous section and uses them to
+select functional domains. Users can use <code class="docutils literal"><span class="pre">-C</span></code> flag to select only CDD
+related domains or <code class="docutils literal"><span class="pre">-I</span></code> flag to select only InterPro related domains.</p>
+<p>In this tutorial we will use the default option, which selects domains
+from both CDD and InterPro databases.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">apricot</span> <span class="n">select</span> <span class="o">--</span><span class="n">db_root</span> <span class="n">source_files</span>
+</pre></div>
+</div>
+<p>The selected domains are saved in these respective locations as ashown
+below.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>source_files
+    └───├domain_data
+            └───├cdd                                # Containes individual files generated for each keyword related domains
+            |    key1_related_cdd_domains.tab
+            |    key2_related_cdd_domains.tab
+            |    ...
+            └───├interpro                           # Containes individual files generated for each keyword related domains
+            |    key1_related_interpro_domains.tab
+            |    key2_related_interpro_domains.tab
+            |    ...
+                            ├all_keyword_selected_domain_data.tab   # All the keyword selected domains are mapped and combined
+</pre></div>
+</div>
+</div>
+<div class="section" id="domain-predictions-using-the-subcommand-predict">
+<h3>Domain predictions using the subcommand <code class="docutils literal"><span class="pre">predict</span></code><a class="headerlink" href="#domain-predictions-using-the-subcommand-predict" title="Permalink to this headline">¶</a></h3>
+<p>This subcommand uses one of the core modules of APRICOT, which predicts
+all the possible domains in the query domains.</p>
+<p>For this analysis, APRICOT uses both the databases by default, however
+single database can be defined by using flag <code class="docutils literal"><span class="pre">-C</span></code> or <code class="docutils literal"><span class="pre">-I</span></code> for CDD
+and InterPro respectively. In case users provide the input as fasta
+files, the <code class="docutils literal"><span class="pre">query</span></code> subcommand can be skipped and the prediction of
+domains can be carried out directly, however in that case the path for
+fasta files (FASTA_PATH) can be provided using the option
+<code class="docutils literal"><span class="pre">--fasta</span> <span class="pre">$FASTA_PATH</span></code>.</p>
+<p>APRICOT skips re-prediction of the domains when the output files are
+present for the analysis of each query proteins, however users can use
+the flag <code class="docutils literal"><span class="pre">-F</span></code> to <em>force</em> the re-analysis.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">apricot</span> <span class="n">predict</span> <span class="o">--</span><span class="n">analysis_path</span> <span class="n">APRICOT_analysis</span>
+</pre></div>
+</div>
+<p>Please note that we are using default directory structure for this
+tutorial, however, it is possible to define locations of the databases
+by using options <code class="docutils literal"><span class="pre">--cdd_db</span> <span class="pre">$CDD_PATH</span></code> and <code class="docutils literal"><span class="pre">--ipr_db</span> <span class="pre">$INTERPRO_PATH</span></code>
+for CDD and interpro respectively.</p>
+<p>In this tutorial, to avoid the use of domain databases and tools (avoid
+the prediction of domains), we provided the output files generated by
+domain prediction analysis and copied to the required subfolders as
+shown below.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>APRICOT_analysis
+    └───├output
+            └───├0_predicted_domains    # Location for storing files generated by domain prediction
+                └───├cdd_analysis       # Domains predicted for each protein using CDD datasets
+                |       P00957.txt
+                |       P0A6X3.txt
+                |
+                └───├ipr_analysis       # Domains predicted for each protein using InterPro datasets
+                        P00957.tsv
+                        P0A6X3.tsv
+</pre></div>
+</div>
+</div>
+<div class="section" id="filtering-the-predicted-domains-using-the-subcommand-filter">
+<h3>Filtering the predicted domains using the subcommand <code class="docutils literal"><span class="pre">filter</span></code><a class="headerlink" href="#filtering-the-predicted-domains-using-the-subcommand-filter" title="Permalink to this headline">¶</a></h3>
+<p>All the domains (predicted by <code class="docutils literal"><span class="pre">predict</span></code>) undergoes a filtering step in
+order to select proteins that are predicted with the domains of interest
+(selected from databases using <code class="docutils literal"><span class="pre">select</span></code>).</p>
+<p>In this tutorial we have used the default parameters (refer
+documentation) with their optimal cut-offs (<code class="docutils literal"><span class="pre">--similarity</span> <span class="pre">24</span></code> for 24 %
+minimum similarity between the reference and predicted domain and
+<code class="docutils literal"><span class="pre">--coverage</span> <span class="pre">39</span></code> for 39 % minimum domain coverage in the query
+protein), however users can provide cut-offs for different parameters
+(refer documentation).</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">apricot</span> <span class="nb">filter</span> <span class="o">--</span><span class="n">analysis_path</span> <span class="n">APRICOT_analysis</span> \
+<span class="o">--</span><span class="n">similarity</span> <span class="mi">24</span> <span class="o">--</span><span class="n">coverage</span> <span class="mi">39</span>
+</pre></div>
+</div>
+<p>The files obtained from this analysis are stored in the subfolder
+<code class="docutils literal"><span class="pre">1_compiled_domain_information</span></code> in the main analysis folder.
+Additionally, the information of the proteins obtained from uniProt are
+combined and store in the folder combined_data. These file location are
+as shown below.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>APRICOT_analysis
+    └───├output
+            └───├1_compiled_domain_information  # Formatted flat files containg domain information
+            |   └───├selected_data              # Files containing proteins that contain domains of interest with the predcited domains
+            |   |       cdd_filtered.csv        # Proteins containing CDD domains of interest
+            |   |       cdd_filtered_id.csv     # Proteins IDs containing CDD domains IDs of interest
+            |   |       ipr_filtered.csv        # Proteins containing InterPro domains of interest
+            |   |       ipr_filtered_id.csv     # Proteins IDs containing InterPro domains IDs of interest
+            |   |
+            |   └───├unfiltered_data                            # All the domains predicted in the query proteins (unfiltered)
+            |            cdd_unfiltered_all_prediction.csv
+            |            ipr_unfiltered_all_prediction.csv
+            |
+            └───├2_selected_domain_information
+                └───├combined_data                              # Annotation extended for the selected proteins
+                        annotation_extended_for_selected.csv
+</pre></div>
+</div>
+</div>
+<div class="section" id="classify-all-the-selected-domains-from-previous-analysis-using-the-subcommand-classify">
+<h3>Classify all the selected domains from previous analysis using the subcommand <code class="docutils literal"><span class="pre">classify</span></code><a class="headerlink" href="#classify-all-the-selected-domains-from-previous-analysis-using-the-subcommand-classify" title="Permalink to this headline">¶</a></h3>
+<p>All the selected proteins with their domains (selected by <code class="docutils literal"><span class="pre">filter</span></code>)
+are classified into smaller subsets to help navigating the output files.
+This classification uses the keywords provided by users, which are
+either explicitely defined (<code class="docutils literal"><span class="pre">-cl</span></code> flag in <code class="docutils literal"><span class="pre">keywords</span></code>) or are used
+for the domain selection.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">apricot</span> <span class="n">classify</span> <span class="o">--</span><span class="n">analysis_path</span> <span class="n">APRICOT_analysis</span>
+</pre></div>
+</div>
+<p>The list of proteins that are selected based on the domains of interest
+is classified when the annotations contain one of the terms. The
+classified files are stored in the subfolder
+<code class="docutils literal"><span class="pre">2_selected_domain_information</span></code> as shown below.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>APRICOT_analysis
+    └───├output
+            └───├2_selected_domain_information         # Selected data classified into smaller subsets based on the keyword input
+                └───├classified_data
+                        RNP_selected_data.csv
+                        RRM_selected_data.csv
+</pre></div>
+</div>
+</div>
+<div class="section" id="calculating-annotation-scores-for-the-selected-domains-using-the-subcommand-annoscore">
+<h3>Calculating annotation scores for the selected domains using the subcommand <code class="docutils literal"><span class="pre">annoscore</span></code><a class="headerlink" href="#calculating-annotation-scores-for-the-selected-domains-using-the-subcommand-annoscore" title="Permalink to this headline">¶</a></h3>
+<p>This subcommand uses another important module of APRICOT to calculate
+annotation-based scores for each predicted domains in the query
+proteins. Please refer documentation to understand different sets of
+features, which have been used in APRICOT for the scoring of the
+predicted domains with respect to their reference consensus.</p>
+<p>This module require python packages: numpy and scipy, and EMBOSS suit to
+run Needleman Wunsch pairwise-alignment analysis. If not installed,
+please install it using the function <code class="docutils literal"><span class="pre">get_emboss</span></code>. For basic
+demonstration, we suggest you to skip this module as the configuration
+and installation of EMBOSS suite takes time. However, if installed
+already, please edit the path name <code class="docutils literal"><span class="pre">NEEDLE_EMBOSS_PATH</span></code>.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>NEEDLE_EMBOSS_PATH=/home/emboss/needle   # Default path
+apricot annoscore --analysis_path APRICOT_analysis --needle_dir $NEEDLE_EMBOSS_PATH
+</pre></div>
+</div>
+<p>The files generated from this analysis are stored in the subfolder
+<code class="docutils literal"><span class="pre">3_annotation_scoring</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">analysis</span></code> folder as shown below.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>APRICOT_analysis
+    └───├output
+            └───├2_selected_domain_information
+</pre></div>
+</div>
+</div>
+<div class="section" id="generating-analysis-summary-using-the-subcommand-summary">
+<h3>Generating analysis summary using the subcommand: <code class="docutils literal"><span class="pre">summary</span></code><a class="headerlink" href="#generating-analysis-summary-using-the-subcommand-summary" title="Permalink to this headline">¶</a></h3>
+<p>Users can summarize the analysis result using this module. The summary
+file contains an overview of the entire analysis that includes, for
+example, the query proteins mapped to UniPro, total selected domains per
+keyword, summary of domain predictions and their selection.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">apricot</span> <span class="n">summary</span> <span class="o">--</span><span class="n">analysis_path</span> <span class="n">APRICOT_analysis</span>
+</pre></div>
+</div>
+<p>The summary file is stored in the subfolder <code class="docutils literal"><span class="pre">5_analysis_summary</span></code>
+analysis folder as shown below.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>APRICOT_analysis
+    └───├output
+            └───├5_analysis_summary
+                       APRICOT_analysis_summary.csv   # Summary file
+</pre></div>
+</div>
+<div class="section" id="format-output-files-using-the-subcommand-format">
+<h4>Format output files using the subcommand <code class="docutils literal"><span class="pre">format</span></code><a class="headerlink" href="#format-output-files-using-the-subcommand-format" title="Permalink to this headline">¶</a></h4>
+<p>APRICOT by default produces output files in comma-separated values
+(.csv). Users can convert these files to HTML format using <code class="docutils literal"><span class="pre">-HT</span></code> flag
+or excel format (.xlsx) using <code class="docutils literal"><span class="pre">-XL</span></code> flag, where the later one uses the
+<code class="docutils literal"><span class="pre">openpyxl</span></code> python module.</p>
+<p>In this tutorial we have used <code class="docutils literal"><span class="pre">-HT</span></code> option.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">apricot</span> <span class="nb">format</span> <span class="o">--</span><span class="n">analysis_path</span> <span class="n">APRICOT_analysis</span> <span class="o">-</span><span class="n">HT</span>
+</pre></div>
+</div>
+<p>All the files in the format of selection are stored in the subfolder
+<code class="docutils literal"><span class="pre">format_output_data</span></code> in the main analysis folder as shown below.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>APRICOT_analysis
+    └───├output
+            └───├format_output_data
+                └───├html_files                         # Output files for each folder in HTML format
+                |   └───├0_predicted_domains
+                |   └───├1_compiled_domain_information
+                |   └───├2_selected_domain_information
+                |   └───├3_annotation_scoring
+                |   └───├4_additional_annotations
+                |   └───├5_analysis_summary
+                |
+                └───├excel_files                        # Output files for each folder in Excel format
+                    └───├ ...
+</pre></div>
+</div>
+<p>All of the abovementioned modules can be run in an automated streamlined
+manner using the provided shell script as shown below.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ sh run_example.sh
+</pre></div>
+</div>
+<p>This concludes the tutorial for the analysis conducted by APRICOT.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Malvika Sharan.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'Version 1.2.2',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
