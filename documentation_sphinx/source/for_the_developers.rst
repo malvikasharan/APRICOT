@@ -1,9 +1,6 @@
 |Latest Version| |License| |DOI| |image3|
 
-.. figure:: https://github.com/malvikasharan/APRICOT/blob/master/APRICOT_logo.png
-   :alt: alt tag
-
-   alt tag
+|image4|
 
 For the developers
 ^^^^^^^^^^^^^^^^^^
@@ -24,7 +21,7 @@ By default, this script generates a main analysis folder
 ``APRICOT_analysis`` and several sub-directories. To understand each
 components of the software and generated results, We recomend you to
 check out the
-`tutorial <https://github.com/malvikasharan/APRICOT/blob/master/documentation/APRICOT_tutorial.md>`__.
+`tutorial <.././APRICOT_tutorial/index.html>`__.
 
 Contact
 ^^^^^^^
@@ -40,3 +37,5 @@ Malvika Sharan at malvika.sharan@uni-wuerzburg.de.
    :target: https://zenodo.org/badge/latestdoi/21283/malvikasharan/APRICOT
 .. |image3| image:: https://images.microbadger.com/badges/image/malvikasharan/apricot.svg
    :target: https://microbadger.com/images/malvikasharan/apricot
+.. |image4| image:: https://raw.githubusercontent.com/malvikasharan/APRICOT/master/APRICOT_logo.png
+   :target: http://malvikasharan.github.io/APRICOT/

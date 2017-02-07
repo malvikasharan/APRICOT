@@ -1,9 +1,6 @@
-|Latest Version| |License| |DOI|
+|Latest Version| |License| |DOI| |image3|
 
-.. figure:: https://github.com/malvikasharan/APRICOT/blob/master/APRICOT_logo.png
-   :alt: alt tag
-
-   alt tag
+|image4|
 
 Frequently asked questions
 --------------------------
@@ -42,7 +39,7 @@ using the script run\_example.sh. Why can't I run the subcommand
    for the usage of these subcommand.
 
 -  The complete list of software requirements can be seen
-   `here <https://github.com/malvikasharan/APRICOT/blob/master/software_dependencies.md>`__,
+   `here <.././software_dependencies/index.html>`__,
    alternatively see the Dockerfile.
 
 **3) What are the options to give query proteins for the analysis?**
@@ -74,3 +71,8 @@ Do you have any specific question? Please submit it here, we will address it as 
    :target: https://pypi.python.org/pypi/bio-apricot/
 .. |DOI| image:: https://zenodo.org/badge/21283/malvikasharan/APRICOT.svg
    :target: https://zenodo.org/badge/latestdoi/21283/malvikasharan/APRICOT
+.. |image3| image:: https://images.microbadger.com/badges/version/malvikasharan/apricot.svg
+   :target: https://microbadger.com/images/malvikasharan/apricot
+.. |image4| image:: https://raw.githubusercontent.com/malvikasharan/APRICOT/master/APRICOT_logo.png
+   :target: http://malvikasharan.github.io/APRICOT/
+

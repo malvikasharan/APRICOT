@@ -1,9 +1,6 @@
 |Latest Version| |License| |DOI| |image3|
 
-.. figure:: https://github.com/malvikasharan/APRICOT/blob/master/APRICOT_logo.png
-   :alt: alt tag
-
-   alt tag
+|image4|
 
 APRICOT’s subcommands
 ^^^^^^^^^^^^^^^^^^^^^
@@ -850,3 +847,5 @@ the corresponding sub-folders, as shown below:
    :target: https://zenodo.org/badge/latestdoi/21283/malvikasharan/APRICOT
 .. |image3| image:: https://images.microbadger.com/badges/image/malvikasharan/apricot.svg
    :target: https://microbadger.com/images/malvikasharan/apricot
+.. |image4| image:: https://raw.githubusercontent.com/malvikasharan/APRICOT/master/APRICOT_logo.png
+   :target: http://malvikasharan.github.io/APRICOT/

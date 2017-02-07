@@ -1,9 +1,6 @@
 |Latest Version| |License| |DOI| |image3|
 
-.. figure:: https://github.com/malvikasharan/APRICOT/blob/master/APRICOT_logo.png
-   :alt: alt tag
-
-   alt tag
+|image4|
 
 A tool for sequence-based identification and characterization of protein classes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -43,24 +40,24 @@ Detailed documentations
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 1.  `Overview of the
-    pipeline <https://github.com/malvikasharan/APRICOT/blob/master/documentation/pipeline_overview.md>`__
-2.  `Tutorial <https://github.com/malvikasharan/APRICOT/blob/master/documentation/APRICOT_tutorial.md>`__
+    pipeline <.././pipeline_overview/index.html>`__
+2.  `Tutorial <.././APRICOT_tutorial/index.html>`__
 3.  `Working with
-    Docker <https://github.com/malvikasharan/APRICOT/blob/master/documentation/docker.md>`__
+    Docker <.././docker/index.html>`__
 4.  `Instructions for local
-    installation <https://github.com/malvikasharan/APRICOT/blob/master/documentation/local_installation.md>`__
+    installation <.././local_installation/index.html>`__
 5.  `Tools and data
-    dependencies <https://github.com/malvikasharan/APRICOT/blob/master/documentation/software_dependencies.md>`__
+    dependencies <.././software_dependencies/index.html>`__
 6.  `Different
-    subcommands <https://github.com/malvikasharan/APRICOT/blob/master/documentation/subcommands.md>`__
+    subcommands <.././subcommands/index.html>`__
 7.  `For the
-    developers <https://github.com/malvikasharan/APRICOT/blob/master/documentation/for_the_developers.md>`__
-8.  `Troubleshoot <https://github.com/malvikasharan/APRICOT/blob/master/documentation/troubleshooting.md>`__
+    developers <.././for_the_developers/index.html>`__
+8.  `Troubleshoot <.././troubleshooting/index.html>`__
 9.  `Frequently asked
-    questions <https://github.com/malvikasharan/APRICOT/blob/master/documentation/FAQs.md>`__
-10. `License <https://github.com/malvikasharan/APRICOT/blob/master/LICENSE.md>`__
+    questions <.././FAQs/index.html>`__
+10. `License <.././LICENSE/index.html>`__
 11. `Changelogs <https://github.com/malvikasharan/APRICOT/blob/master/CHANGELOGS.txt>`__
-12. `Contact <https://github.com/malvikasharan/APRICOT/blob/master/documentation/contact.md>`__
+12. `Contact <.././contact/index.html>`__
 
 Get APRICOT software
 ~~~~~~~~~~~~~~~~~~~~
@@ -86,23 +83,39 @@ directions:
 
 The image can be acquired by simply using this command:
 
-``bash   $ docker pull malvikasharan/apricot``
+::
+
+    $ docker pull malvikasharan/apricot
 
 **2. Create the Docker container for testing the software**
 
-``bash   $ docker run -it malvikasharan/apricot bash``
+::
+
+    $ docker run -it malvikasharan/apricot bash
 
 Here is a quick way to test if different modules work in your system
 (without really installing the complete filesystem).
 
 **Run the analysis in the ``home`` folder**
 
-``bash   $ cd home   $ apricot -h`` NOTE: Follow this to ensure that the
+::
+
+    $ cd home
+	$ apricot -h
+	
+NOTE: Follow this to ensure that the
 most latest APRICOT repository exists in your docker container:
 
-``bash   $ cd APRICOT   $ git pull``
+::
 
-``bash   # go back to the home folder   $ cd ..``
+    $ cd APRICOT
+	$ git pull
+
+# go back to the home folder
+
+::
+
+    $ cd ..
 
 **Run test/example analysis**
 
@@ -111,10 +124,15 @@ using the default parameters:
 
 **Syntax:**
 
-``bash   $ apricot default -i {UniProt IDs} -kw {Domain keywords}``
+::
+
+    $ apricot default -i {UniProt IDs} -kw {Domain keywords}
+	
 Example analysis:
 
-``bash   $ apricot default -i P0A6X3,P00957 -kw 'RRM,RNP,KH'``
+::
+
+    $ apricot default -i P0A6X3,P00957 -kw 'RRM,RNP,KH'
 
 Optionally, a shell script
 `run\_example.sh <https://github.com/malvikasharan/APRICOT/blob/master/shell_scripts/run_example.sh>`__,
@@ -125,15 +143,21 @@ users.
 
 Copy the script from the existing repository in the ``home`` folder.
 
-``bash   $ cp APRICOT/shell_scripts/run_example.sh .``
+::
+
+    $ cp APRICOT/shell_scripts/run_example.sh .
 
 Or use ``wget`` to get the most updated version from the repository.
 
-``bash   $ wget https://raw.githubusercontent.com/malvikasharan/APRICOT/master/shell_scripts/run_example.sh``
+::
+
+    $ wget https://raw.githubusercontent.com/malvikasharan/APRICOT/master/shell_scripts/run_example.sh
 
 ...and run it.
 
-``bash   $ sh run_example.sh``
+::
+
+    $ sh run_example.sh
 
 By default, this script generates a main analysis folder
 ``APRICOT_analysis``. To understand the file structure, please see below
@@ -173,12 +197,18 @@ Docker container will need such setup individually).
 
 **Commands to acquire the supporting data**
 
-``bash   $ wget http://data.imib-zinf.net/APRICOT-supporting_dataset.zip   $ unzip APRICOT-supporting_dataset.zip``
+::
+
+    $ wget http://data.imib-zinf.net/APRICOT-supporting_dataset.zip
+	$ unzip APRICOT-supporting_dataset.zip
 
 Alternatively, these files can be acquired using the script
 docker\_support.sh provided in the git repository of APRICOT.
 
-``bash   $ cp APRICOT/shell_scripts/docker_support.sh .   $ sh docker_support.sh``
+::
+
+    $ cp APRICOT/shell_scripts/docker_support.sh .
+	$ sh docker_support.sh
 
 **4. Using the supporting data**
 
@@ -187,23 +217,44 @@ When the directory ``source_files`` is located in the local system
 into the Docker container (provide full path for
 $FULL\_PATH\_SOURCE\_FILES):
 
-``bash   $ docker run -it -v /{$FULL_PATH_SOURCE_FILES}/source_files/:/home/source_files malvikasharan/apricot bash   $ cd home``
+::
+
+    $ docker run -it -v /{$FULL_PATH_SOURCE_FILES}/source_files/:/home/source_files malvikasharan/apricot bash
+	$ cd home
 
 Skip this step when working in the Docker container already.
 
 **5. Carry out an analysis by APRICOT**
 
-``bash   $ apricot default -i P0A6X3,P00957 -kw 'RRM,RNP,KH'``
+::
+
+    $ apricot default -i P0A6X3,P00957 -kw 'RRM,RNP,KH'
 
 OR
 
-``bash   $ cp APRICOT/shell_scripts/run_example.sh .   $ sh run_example.sh``
+::
+
+    $ cp APRICOT/shell_scripts/run_example.sh .
+	$ sh run_example.sh
 
 If the the analysis was successful, a directory ``APRICOT_analysis``
 will be created, which contains following files with the outputs
 generated by different modules of the software.
 
-``bash   APRICOT_analysis       └───├input                                  # Location used by subcommand 'query' to store all the related files       └───├output               └───├0_predicted_domains            # Location for the output data obtained from the subcommand 'predict'               └───├1_compiled_domain_information  # Location for the output data obtained from the subcommand 'filter'                         └───├2_selected_domain_information                           └───├3_annotation_scoring           # Location for the output data obtained from the subcommand 'annoscore'               └───├4_additional_annotations       # Location for additional annotations for the selected                |                                   # queries using subcommand 'addanno'               └───├5_analysis_summary             # Location for the output data obtained from the subcommand 'summary'               └───├format_output_data             # Location for the output data obtained from the subcommand 'format'               └───├visualization_files            # Location for the output data obtained from the subcommand 'vis'``
+::
+
+    APRICOT_analysis
+		└───├input                                  # Location used by subcommand 'query' to store all the related files
+		└───├output
+			└───├0_predicted_domains            # Location for the output data obtained from the subcommand 'predict'
+			└───├1_compiled_domain_information  # Location for the output data obtained from the subcommand 'filter'          
+			└───├2_selected_domain_information            
+			└───├3_annotation_scoring           # Location for the output data obtained from the subcommand 'annoscore'
+			└───├4_additional_annotations       # Location for additional annotations for the selected 
+			|                                   # queries using subcommand 'addanno'
+			└───├5_analysis_summary             # Location for the output data obtained from the subcommand 'summary'
+			└───├format_output_data             # Location for the output data obtained from the subcommand 'format'
+			└───├visualization_files            # Location for the output data obtained from the subcommand 'vis'
 
 You can check ``APRICOT_analysis_summary.csv`` in the path
 ``APRICOT_analysis/output/5_analysis_summary`` file for the quick
@@ -231,12 +282,16 @@ instructions.
 
 1. Make sure that your system has pip and git installed
 
-``bash   $ apt-get install python3-pip git``
+::
+
+    $ apt-get install python3-pip git
 
 2. Then install APRICOT via pip (NOTE: this doesn't install the complete
    filesystem):
 
-``bash   $ pip3 install bio-apricot``
+::
+
+    $ pip3 install bio-apricot
 
 This will globally install APRICOT, which can be called via the command
 ``apricot``, and the libraries from apricotlib will be saved. Follow the
@@ -258,18 +313,23 @@ Follow these instructions to manually establish the software locally.
 
 1. Get the python dependencies
 
-``bash   $ apt-get install python3-matplotlib python3-numpy python3-scipy python3-biopython python3-requests --yes --fix-missing   $ pip3 install openpyxl``
+::
+
+    $ apt-get install python3-matplotlib python3-numpy python3-scipy python3-biopython python3-requests --yes --fix-missing
+	$ pip3 install openpyxl
 
 2. Get the repository for APRICOT from git either by clicking
    `here <https://github.com/malvikasharan/APRICOT/archive/master.zip>`__
    or locally cloned by using the following command:
 
-| ``bash   $ git clone https://github.com/malvikasharan/APRICOT.git``
-| Follow the above listed points 3 & 5 to execute the software as shown
-  above.
+::
 
-Hint:
-~~~~~
+    $ git clone https://github.com/malvikasharan/APRICOT.git
+  
+Follow the above listed points 3 & 5 to execute the software as shown above.
+
+Miscellaneous
+~~~~~~~~~~~~~
 
 When installed locally, the location of the executable will be:
 /home/username/.local/bin/ and the library location will be:
@@ -292,3 +352,5 @@ executable and the libraries.
    :target: https://zenodo.org/badge/latestdoi/21283/malvikasharan/APRICOT
 .. |image3| image:: https://images.microbadger.com/badges/version/malvikasharan/apricot.svg
    :target: https://microbadger.com/images/malvikasharan/apricot
+.. |image4| image:: https://raw.githubusercontent.com/malvikasharan/APRICOT/master/APRICOT_logo.png
+   :target: http://malvikasharan.github.io/APRICOT/

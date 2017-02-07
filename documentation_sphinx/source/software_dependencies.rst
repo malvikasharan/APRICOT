@@ -1,9 +1,6 @@
-|Latest Version| |License| |DOI|
+|Latest Version| |License| |DOI| |image3|
 
-.. figure:: https://github.com/malvikasharan/APRICOT/blob/master/APRICOT_logo.png
-   :alt: alt tag
-
-   alt tag
+|image4|
 
 Resources requirements of APRICOT
 ---------------------------------
@@ -46,17 +43,17 @@ Resources requirements of APRICOT
 -  `RaptorX <https://github.com/Indicator/RaptorX-SS8.git>`__ for
    secondary structure presiction (only for the subcomand addanno)
 
-Click `here <https://github.com/malvikasharan/APRICOT/blob/master/documentation/database_dependencies.md>`__, to see the explanation of the database requirement and their structure.
+Click `here <.././database_dependencies/index.html>`__, to see the explanation of the database requirement and their structure.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Please see the instructions for working with the `Docker
-image <https://github.com/malvikasharan/APRICOT/blob/master/documentation/docker.md>`__.
+image <.././docker/index.html>`__.
 
 In case, users do not wish to run Docker image, the complete file system
 with the tool and dataset can be installed using the shell script
 `APRICOT/shell\_scripts/apricot\_minimum\_required\_files.sh <https://raw.githubusercontent.com/malvikasharan/APRICOT/master/shell_scripts/apricot_minimum_required_files.sh>`__.
 Please see the instructions for `local
-installation <https://github.com/malvikasharan/APRICOT/blob/master/documentation/local_installation.md>`__.
+installation <.././local_installation/index.html>`__.
 
 .. |Latest Version| image:: https://img.shields.io/pypi/v/bio-apricot.svg
    :target: https://pypi.python.org/pypi/bio-apricot/
@@ -64,3 +61,7 @@ installation <https://github.com/malvikasharan/APRICOT/blob/master/documentation
    :target: https://pypi.python.org/pypi/bio-apricot/
 .. |DOI| image:: https://zenodo.org/badge/21283/malvikasharan/APRICOT.svg
    :target: https://zenodo.org/badge/latestdoi/21283/malvikasharan/APRICOT
+.. |image3| image:: https://images.microbadger.com/badges/image/malvikasharan/apricot.svg
+   :target: https://microbadger.com/images/malvikasharan/apricot
+.. |image4| image:: https://raw.githubusercontent.com/malvikasharan/APRICOT/master/APRICOT_logo.png
+   :target: http://malvikasharan.github.io/APRICOT/
