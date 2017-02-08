@@ -51,7 +51,7 @@ viewed by running ``-h`` for help option (e.g. ``apricot -h`` or
       --version, -v         show version
 
 subcommand ``default``
-^^^^^^^^^^^^^^^^^^^^^^
+----------------------
 
 Quick help: ``$ apricot default -h``
 
@@ -78,7 +78,7 @@ explained below, please check the usage for details:
     usage: apricot default [-h]
 
 subcommand ``create``
-^^^^^^^^^^^^^^^^^^^^^
+---------------------
 
 Quick help: ``$ apricot create -h``
 
@@ -123,7 +123,7 @@ folder in the analysis directory:
                 └───├visualization_files            # Location for the output data obtained from the subcommand 'vis'
 
 subcommand ``taxid``
-^^^^^^^^^^^^^^^^^^^^
+--------------------
 
 Quick help: ``$ apricot taxid -h``
 
@@ -160,7 +160,7 @@ directory reference\_db\_files.
                 |    taxonomy_ids.txt
 
 subcommand ``query``
-^^^^^^^^^^^^^^^^^^^^
+--------------------
 
 Quick help: ``$ apricot query -h``
 
@@ -238,7 +238,7 @@ files etc.) in the directories as described below.
                                                        # obtained by parsing xml files
 
 subcommand ``keywords``
-^^^^^^^^^^^^^^^^^^^^^^^
+-----------------------
 
 Quick help: ``$ apricot keywords -h``
 
@@ -306,7 +306,7 @@ subfolder ``domain_data`` shown below.
                 keywords_for_result_classification.txt    # All the terms for result classification
 
 subcommand ``select``
-^^^^^^^^^^^^^^^^^^^^^
+---------------------
 
 Quick help: ``apricot select -h``
 
@@ -368,7 +368,7 @@ all\_keyword\_selected\_domain\_data.tab in the domain\_data.
         | all_keyword_selected_domain_data.tab
 
 subcommand ``predict``
-^^^^^^^^^^^^^^^^^^^^^^
+----------------------
 
 Quick help: ``$ apricot predict -h``
 
@@ -445,7 +445,7 @@ functional classes.
                             | query_id-n.tsv
 
 subcommand ``filter``
-^^^^^^^^^^^^^^^^^^^^^
+---------------------
 
 Quick help: ``$ apricot filter -h``
 
@@ -555,7 +555,7 @@ Sub-commands for downstream analysis
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 subcommand ``classify``
-^^^^^^^^^^^^^^^^^^^^^^^
+-----------------------
 
 Quick help: ``$ apricot classify -h``
 
@@ -594,7 +594,7 @@ The classified data are stored in the folder as shown below:
                             | classification_key-2_selected_data.csv    # ... based on user provided classification keys.
 
 subcommand ``annoscore``
-^^^^^^^^^^^^^^^^^^^^^^^^
+------------------------
 
 This subcommand is executed for the annotation based scoring of the
 selcted domains in the query proteins.
@@ -642,7 +642,7 @@ The data with annotation scores are stored in the folder as shown below:
                     | annotation_extended_for_selected.csv
 
 subcommand ``addanno``
-^^^^^^^^^^^^^^^^^^^^^^
+----------------------
 
 Quick help: ``$ apricot addanno -h``
 
@@ -714,7 +714,7 @@ below:
                                                             # queries (flag --raptorx, -RAPTORX)
 
 subcommand ``summary``
-^^^^^^^^^^^^^^^^^^^^^^
+----------------------
 
 Quick help: ``$ apricot summary -h``
 
@@ -756,7 +756,7 @@ the corresponding sub-folders, as shown below:
                     | APRICOT_analysis_summary.csv
 
 subcommand ``format``
-^^^^^^^^^^^^^^^^^^^^^
+---------------------
 
 Quick help: ``$ apricot format -h``
 
@@ -791,7 +791,7 @@ the corresponding sub-folders, as shown below:
                         └───├html_files                # HTML files (flag -HT)
 
 subcommand ``vis``
-^^^^^^^^^^^^^^^^^^
+------------------
 
 Quick help: ``$ apricot vis -h``
 

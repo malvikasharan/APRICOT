@@ -11,17 +11,17 @@ A tool for sequence-based identification and characterization of protein classes
 .. toctree::
    :maxdepth: 1
   
-   contact
-   contents
+   pipeline_overview
+   subcommands
+   docker	      
+   APRICOT_tutorial
+   local_installation
+   software_dependencies	      
    database_dependencies
-   docker
    FAQs
    for_the_developers
-   local_installation
-   pipeline_overview
-   software_dependencies
-   subcommands
    troubleshooting
+   contact
 
 `APRICOT <http://malvikasharan.github.io/APRICOT/>`__ is a computational
 pipeline for the identification of specific functional classes of
@@ -52,29 +52,8 @@ https://pypi.python.org/pypi/bio-apricot.
 
 APRICOT is open source software and is available under the ISC license.
 
-Copyright (c) 2011-2016, Malvika Sharan, malvika.sharan@uni-wuerzburg.de
+Copyright (c) 2011-2017, Malvika Sharan, malvika.sharan@uni-wuerzburg.de
 
-Detailed documentations
-~~~~~~~~~~~~~~~~~~~~~~~
-
-1.  `Overview of the pipeline <pipeline_overview/index.html>`__
-2.  `Tutorial <APRICOT_tutorial/index.html>`__
-3.  `Working with
-    Docker <docker/index.html>`__
-4.  `Instructions for local
-    installation <local_installation/index.html>`__
-5.  `Tools and data
-    dependencies <software_dependencies/index.html>`__
-6.  `Different
-    subcommands <subcommands/index.html>`__
-7.  `For the
-    developers <for_the_developers/index.html>`__
-8.  `Troubleshoot <troubleshooting/index.html>`__
-9.  `Frequently asked
-    questions <FAQs/index.html>`__
-10. `License <LICENSE/index.html>`__
-11. `Changelogs <https://github.com/malvikasharan/APRICOT/blob/master/CHANGELOGS.txt>`__
-12. `Contact <contact/index.html>`__
 
 Get APRICOT software
 ~~~~~~~~~~~~~~~~~~~~
