@@ -1,6 +1,13 @@
 .. APRICOT documentation master file, created by
    Malvika Sharan <malvikasharan@gmail.com>
 
+|Latest Version| |License| |DOI| |image3|
+
+|image4|
+
+A tool for sequence-based identification and characterization of protein classes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 .. toctree::
    :maxdepth: 1
   
@@ -15,14 +22,6 @@
    software_dependencies
    subcommands
    troubleshooting
-
-
-|Latest Version| |License| |DOI| |image3|
-
-|image4|
-
-A tool for sequence-based identification and characterization of protein classes
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 `APRICOT <http://malvikasharan.github.io/APRICOT/>`__ is a computational
 pipeline for the identification of specific functional classes of
