@@ -18,6 +18,11 @@ html_doc:
 show_html_docs:
 	firefox documentation_sphinx/build/html/index.html &
 
+upload_doc:
+	cd docs/build/html/ && zip -r bio-apricot_docs.zip * && cd ../../.. && mv docs/build/html/bio-apricot_docs.zip .
+	@echo ""
+	@echo "Upload bio-apricot_docs.zip at https://pypi.python.org/pypi?%3Aaction=pkg_edit&name=bio-APRICOT"
+
 readme_txt:
 	pandoc --from=markdown --to=plain README.md -o README.txt
 
