@@ -2,7 +2,20 @@
    Malvika Sharan <malvikasharan@gmail.com>
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
+  
+   contact
+   contents
+   database_dependencies
+   docker
+   FAQs
+   for_the_developers
+   local_installation
+   pipeline_overview
+   software_dependencies
+   subcommands
+   troubleshooting
+
 
 |Latest Version| |License| |DOI| |image3|
 
