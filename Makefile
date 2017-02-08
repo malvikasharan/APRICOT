@@ -13,10 +13,10 @@ package_to_pypi:
 	@echo "Go to https://pypi.python.org/pypi/bio-apricot/"
 
 html_doc:
-	cd documentation && make html && cd ..
+	cd documentation_sphinx && make html && cd ..
 
 show_html_docs:
-	firefox documentation/build/html/index.html &
+	firefox documentation_sphinx/build/html/index.html &
 
 readme_txt:
 	pandoc --from=markdown --to=plain README.md -o README.txt
