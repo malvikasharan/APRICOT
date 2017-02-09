@@ -76,6 +76,34 @@ Please check the usage for details:
 ::
 
     usage: apricot default [-h]
+	
+Here are a few useful flags, which can be used with this subcommand:
+
+::
+
+	--uids, -i		Comma separated UniProt IDs
+	--kw_domain, -kw	Comma separated keywords for domain selection
+	--classify, -cl		Optional comma separated keyword for result classification
+	--cdd, -C		Uses only CDD
+	--ipr, -I		Uses only InterPro
+	--skip_select		Skips running the subcommand 'select'
+	--needle_dir, -nd	path for the locally configured EMBOSS suite
+	
+	--taxid, -tx		Select taxonomy id for query species
+	--geneids, -gi		Comma separated query genes
+	--proteome, -P		Analyze entire proteome
+	--fasta, -fa		Analyze fasta sequences
+	--force, -F		force flag, removes existing files generated in the previous analysis
+	
+	--db_root, -dr		Uses to get absolute path of domain annoation files
+	--similarity, -sim	Percent similarity of prediction with reference
+	--coverage, -cov	Percent coverage of reference domain in prediction
+	--identity, -iden	Percent identity of prediction with reference
+	--evalue, -eval		Evalue of the domain prediction
+	--gap, -gap		Percent gap in predicted domain
+	--bit, -bit		Bit score in predicted domain
+	
+	--xlsx, -XL		create output files in excel file-format
 
 subcommand ``create``
 ---------------------
