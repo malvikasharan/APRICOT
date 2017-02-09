@@ -1,3 +1,6 @@
+v1.2.5 (2016-02-10)
+- Added keyword input feature to the subcommand 'default'.
+
 v1.2.4 (2016-02-09)
 - Added a new subcommand 'default'. Documentation on the pythonhosted. minor fix.
 

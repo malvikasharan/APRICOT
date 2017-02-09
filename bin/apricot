@@ -26,10 +26,10 @@ from apricotlib.apricot_visualization import VizApricotAnalysis
 from apricotlib.convert_csv_format import *
 
 __author__ = "Malvika Sharan <malvikasharan@uni-wuerzburg.de>"
-__copyright__ = "2016 by Malvika Sharan <malvikasharan@uni-wuerzburg.de>"
+__copyright__ = "2017 by Malvika Sharan <malvikasharan@uni-wuerzburg.de>"
 __license__ = "ISC license"
 __email__ = "malvikasharan@uni-wuerzburg.de>"
-__version__ = "1.2.4"
+__version__ = "1.2.5"
 
 def main():
     parser = argparse.ArgumentParser()
@@ -684,8 +684,7 @@ def run_domain_analysis(args):
 
 def cdd_based_pred(fasta_path, outpath, cdd_db):
     print("\n----------------------------------------------------------------\n"
-          'Please update the BLAST package if you see the following error message:\n'
-          '!! [rpsblast] ERROR: Invalid argument !!'
+          'Please update the BLAST package if you see an "invalid argument" error.'
           "\n----------------------------------------------------------------\n")
     for fasta in os.listdir(fasta_path):
         filename = fasta.split('.')[0]
