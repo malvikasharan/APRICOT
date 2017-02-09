@@ -204,34 +204,33 @@ users.
 
 ::
 
-    usage: apricot query [-h] [--analysis_path ANALYSIS_PATH] [--uids UIDS]
-                         [--taxid TAXID] [--geneids GENEIDS] [--proteome]
-                         [--fasta] [--query_path QUERY_PATH]
-                         [--proteome_path PROTEOME_PATH] [--xml_path XML_PATH]
-                         [--fasta_path FASTA_PATH] [--feature_table FEATURE_TABLE]
-
-    optional arguments:
-      -h, --help            show this help message and exit
-      --analysis_path ANALYSIS_PATH, -ap ANALYSIS_PATH
-                            Main analysis path
-      --uids UIDS, -ui UIDS
-                            Comma separated UniProt IDs
-      --taxid TAXID, -tx TAXID
-                            Select taxonomy id for query species
-      --geneids GENEIDS, -gi GENEIDS
-                            Comma separated query genes
-      --proteome, -P        Analyze entire proteome
-      --fasta, -fa          Analyze fasta sequences
-      --query_path QUERY_PATH, -qp QUERY_PATH
-                            Get proteome table from UniProt
-      --proteome_path PROTEOME_PATH, -pp PROTEOME_PATH
-                            Get proteome table from UniProt
-      --xml_path XML_PATH, -o XML_PATH
-                            Get proteome table from UniProt
-      --fasta_path FASTA_PATH, -fp FASTA_PATH
-                            Get proteome table from UniProt
-      --feature_table FEATURE_TABLE, -ft FEATURE_TABLE
-                            Get proteome table from UniProt
+	usage: apricot query [-h] [--analysis_path ANALYSIS_PATH] [--uids UIDS]
+						 [--taxid TAXID] [--geneids GENEIDS] [--proteome]
+						 [--fasta] [--query_path QUERY_PATH]
+						 [--proteome_path PROTEOME_PATH] [--xml_path XML_PATH]
+						 [--fasta_path FASTA_PATH] [--feature_table FEATURE_TABLE]
+	
+	optional arguments:
+	  -h, --help            show this help message and exit
+	  --analysis_path ANALYSIS_PATH, -ap ANALYSIS_PATH
+							Main analysis path
+	  --uids UIDS, -i UIDS  Comma separated UniProt IDs
+	  --taxid TAXID, -tx TAXID
+							Select taxonomy id for query species
+	  --geneids GENEIDS, -gi GENEIDS
+							Comma separated query genes
+	  --proteome, -P        Analyze entire proteome
+	  --fasta, -fa          Analyze fasta sequences
+	  --query_path QUERY_PATH, -qp QUERY_PATH
+							Get proteome table from UniProt
+	  --proteome_path PROTEOME_PATH, -pp PROTEOME_PATH
+							Get proteome table from UniProt
+	  --xml_path XML_PATH, -xp XML_PATH
+							Get proteome table from UniProt
+	  --fasta_path FASTA_PATH, -fp FASTA_PATH
+							Get proteome table from UniProt
+	  --feature_table FEATURE_TABLE, -ft FEATURE_TABLE
+							Get proteome table from UniProt
 
 APRICOT saves the user provided queries and related information
 extracted from UniProt knowledgebase (fasta files, xml files, reference
@@ -309,7 +308,7 @@ this purpose as well.
 
 ::
 
-    usage: apricot keywords [-h] [--classify CLASSIFY] [--kw_path KW_PATH]
+    usage: apricot keywords [-h] [--classify CLASSIFY] [--db_root DB_ROOT]
                             kw_domain
 
     positional arguments:
@@ -320,8 +319,8 @@ this purpose as well.
       --classify CLASSIFY, -cl CLASSIFY
                             Optional comma separated keyword for result
                             classification
-      --kw_path KW_PATH, -kp KW_PATH
-                            Path for keyword files
+      --db_root DB_ROOT, -dr DB_ROOT
+                        Path for keyword files
 
 The keywords are saved in the directory ``source_files`` in the
 subfolder ``domain_data`` shown below.
@@ -358,28 +357,20 @@ consortiums.
 
 ::
 
-    usage: apricot select [-h] [--cdd_dom] [--ipr_dom] [--dom_kw DOM_KW]
-                          [--cdd_table CDD_TABLE] [--ipr_table IPR_TABLE]
-                          [--interpro_mapped_cdd INTERPRO_MAPPED_CDD]
-                          [--domain_path DOMAIN_PATH]
-                          [--pfam_domain_file PFAM_DOMAIN_FILE]
+    usage: apricot select [-h] [--cdd] [--ipr] [--skip_select] [--dom_kw DOM_KW]
+						  [--db_root DB_ROOT]
 
-    optional arguments:
-      -h, --help            show this help message and exit
-      --cdd_dom, -C         Selects functional domains of interest from CDD
-      --ipr_dom, -I         Selects functional domains of interest from CDD
-      --dom_kw DOM_KW, -dk DOM_KW
-                            Absolute path of keyword files
-      --cdd_table CDD_TABLE, -cdd CDD_TABLE
-                            Absolute path of CDD domain table
-      --ipr_table IPR_TABLE, -ipr IPR_TABLE
-                            Absolute path of InterPro domain table
-      --interpro_mapped_cdd INTERPRO_MAPPED_CDD, -map INTERPRO_MAPPED_CDD
-                            InterPro domains mapped to CDD domains.
-      --domain_path DOMAIN_PATH, -dp DOMAIN_PATH
-                            Absolute path for keyword selected domains
-      --pfam_domain_file PFAM_DOMAIN_FILE, -pf PFAM_DOMAIN_FILE
-                            The domain summary from PfamA
+	optional arguments:
+		-h, --help            show this help message and exit
+		--cdd, -C             Selects functional domains of interest from CDD
+		--ipr, -I             Selects functional domains of interest from CDD
+		--skip_select, -skip_select
+							  Skips running the subcommand 'select'
+		--dom_kw DOM_KW, -dk DOM_KW
+							  Absolute path of keyword files
+		--db_root DB_ROOT, -dr DB_ROOT
+							  Uses to get absolute path of domain annoation files,
+							  keyword selected domains
 
 The domains that are selected from CDD and InterPro are stored in the
 directory domains\_data in the bin folder. The selected domains are
@@ -423,28 +414,29 @@ before running the subcommand 'select'.
 
     usage: apricot predict [-h] [--analysis_path ANALYSIS_PATH] [--cdd] [--ipr]
                            [--force] [--cdd_db CDD_DB] [--ipr_db IPR_DB]
-                           [--outpath OUTPATH] [--fasta FASTA]
+                           [--predicted PREDICTED] [--fasta_path FASTA_PATH]
 
     optional arguments:
-      -h, --help            show this help message and exit
-      --analysis_path ANALYSIS_PATH, -ap ANALYSIS_PATH
-                            Provide output path for the analysis result of the
-                            chosen method
-      --cdd, -C             domain prediction based on CDD only
-      --ipr, -I             domain prediction based on InterProScan only
-      --force, -F           force flag for the current analysis, removes already
-                            existing predictions
-      --cdd_db CDD_DB, -cdb CDD_DB
-                            Provide absolute path of CDD databases based on the
-                            chosen method
-      --ipr_db IPR_DB, -idb IPR_DB
-                            Provide absolute path of InterPro databases based on
-                            the chosen method
-      --outpath OUTPATH, -o OUTPATH
-                            Provide output path for domain prediction files
-      --fasta FASTA, -f FASTA
-                            Provide absolute path of fasta files for query
-                            proteins
+		-h, --help            show this help message and exit
+		--analysis_path ANALYSIS_PATH, -ap ANALYSIS_PATH
+							  Provide output path for the analysis result of the
+							  chosen method
+		--cdd, -C             domain prediction based on CDD only
+		--ipr, -I             domain prediction based on InterProScan only
+		--force, -F           force flag for the current analysis, removes already
+							  existing predictions
+		--cdd_db CDD_DB, -cdb CDD_DB
+							  Provide absolute path of CDD databases based on the
+							  chosen method
+		--ipr_db IPR_DB, -idb IPR_DB
+							  Provide absolute path of InterPro databases based on
+							  the chosen method
+		--predicted PREDICTED, -pred PREDICTED
+							  Provide output path for domain prediction files
+		--fasta_path FASTA_PATH, -fp FASTA_PATH
+							  Provide absolute path of fasta files for query
+							  proteins
+								  proteins
 
 The resulting files of this analysis is stored in the first analysis
 directory '0\_predicted\_domains' in the output folder of the main
@@ -496,45 +488,45 @@ training sets collected from SwissProt database.
 
 ::
 
-    usage: apricot filter [-h] [--analysis_path ANALYSIS_PATH] [--cdd] [--ipr]
-                          [--domain_description_file DOMAIN_DESCRIPTION_FILE]
-                          [--similarity SIMILARITY] [--coverage COVERAGE]
-                          [--identity IDENTITY] [--evalue EVALUE] [--gap GAP]
-                          [--bit BIT] [--go_path GO_PATH] [--pred_path PRED_PATH]
-                          [--up_table UP_TABLE] [--xml_info XML_INFO]
-                          [--compile_out COMPILE_OUT] [--selected SELECTED]
-
-    optional arguments:
-      -h, --help            show this help message and exit
-      --analysis_path ANALYSIS_PATH, -ap ANALYSIS_PATH
-                            Provide analysis path
-      --cdd, -C             Filter of domain prediction based on CDD only
-      --ipr, -I             Filter of domain prediction based on InterProScan only
-      --domain_description_file DOMAIN_DESCRIPTION_FILE, -d DOMAIN_DESCRIPTION_FILE
-                            Description table of the selected domains
-      --similarity SIMILARITY, -sim SIMILARITY
-                            Percent similarity of prediction with reference
-      --coverage COVERAGE, -cov COVERAGE
-                            Percent coverage of reference domain in prediction
-      --identity IDENTITY, -iden IDENTITY
-                            Percent identity of prediction with reference
-      --evalue EVALUE, -eval EVALUE
-                            Evalue of the domain prediction
-      --gap GAP, -gap GAP   Percent gap in predicted domain
-      --bit BIT, -bit BIT   Bit score in predicted domain
-      --go_path GO_PATH, -gp GO_PATH
-                            Go mapping data from fixed database reference files
-      --pred_path PRED_PATH, -pp PRED_PATH
-                            Raw files of domain prediction
-      --up_table UP_TABLE, -ref UP_TABLE
-                            Uniprot proteome table from UniProt
-      --xml_info XML_INFO, -feat XML_INFO
-                            Uniprot proteome table from UniProt
-      --compile_out COMPILE_OUT, -co COMPILE_OUT
-                            Data with annotation after filtering
-      --selected SELECTED, -sel SELECTED
-                            output path for the selected data with annotations
-
+	usage: apricot filter [-h] [--analysis_path ANALYSIS_PATH] [--cdd] [--ipr]
+						  [--domain_description_file DOMAIN_DESCRIPTION_FILE]
+						  [--similarity SIMILARITY] [--coverage COVERAGE]
+						  [--identity IDENTITY] [--evalue EVALUE] [--gap GAP]
+						  [--bit BIT] [--go_path GO_PATH] [--pred_path PRED_PATH]
+						  [--up_table UP_TABLE] [--xml_info XML_INFO]
+						  [--compile_out COMPILE_OUT] [--selected SELECTED]
+	
+	optional arguments:
+	  -h, --help            show this help message and exit
+	  --analysis_path ANALYSIS_PATH, -ap ANALYSIS_PATH
+							Provide analysis path
+	  --cdd, -C             Filter of domain prediction based on CDD only
+	  --ipr, -I             Filter of domain prediction based on InterProScan only
+	  --domain_description_file DOMAIN_DESCRIPTION_FILE, -dd DOMAIN_DESCRIPTION_FILE
+							Description table of the selected domains
+	  --similarity SIMILARITY, -sim SIMILARITY
+							Percent similarity of prediction with reference
+	  --coverage COVERAGE, -cov COVERAGE
+							Percent coverage of reference domain in prediction
+	  --identity IDENTITY, -iden IDENTITY
+							Percent identity of prediction with reference
+	  --evalue EVALUE, -eval EVALUE
+							Evalue of the domain prediction
+	  --gap GAP, -gap GAP   Percent gap in predicted domain
+	  --bit BIT, -bit BIT   Bit score in predicted domain
+	  --go_path GO_PATH, -gp GO_PATH
+							Go mapping data from fixed database reference files
+	  --pred_path PRED_PATH, -predp PRED_PATH
+							Raw files of domain prediction
+	  --up_table UP_TABLE, -ref UP_TABLE
+							Uniprot proteome table from UniProt
+	  --xml_info XML_INFO, -feat XML_INFO
+							Uniprot proteome table from UniProt
+	  --compile_out COMPILE_OUT, -co COMPILE_OUT
+							Data with annotation after filtering
+	  --selected SELECTED, -sel SELECTED
+							output path for the selected data with annotations
+							
 APRICOT saves all the domain data in the directory
 '1\_compiled\_domain\_information' of the output folder. All the
 predicted domains (independent of reference domains and parameter
@@ -593,21 +585,27 @@ the subcommand 'keywords').
 
 ::
 
-    usage: apricot classify [-h] [--analysis_path ANALYSIS_PATH]
-                            [--selected SELECTED] [--class_kw CLASS_KW]
-                            [--outpath OUTPATH]
-
-    optional arguments:
-      -h, --help            show this help message and exit
-      --analysis_path ANALYSIS_PATH, -ap ANALYSIS_PATH
-                            Provide analysis path
-      --selected SELECTED, -sel SELECTED
-                            Selected data file (from select) with annotations
-      --class_kw CLASS_KW, -ck CLASS_KW
-                            Path for keyword files
-      --outpath OUTPATH, -o OUTPATH
-                            Classification of selected data based on provided
-                            keywords
+	usage: apricot classify [-h] [--analysis_path ANALYSIS_PATH]
+							[--selected SELECTED] [--class_kw CLASS_KW]
+							[--classify CLASSIFY] [--classified CLASSIFIED]
+							[--db_root DB_ROOT]
+	
+	optional arguments:
+	  -h, --help            show this help message and exit
+	  --analysis_path ANALYSIS_PATH, -ap ANALYSIS_PATH
+							Provide analysis path
+	  --selected SELECTED, -sel SELECTED
+							Selected data file (from select) with annotations
+	  --class_kw CLASS_KW, -ck CLASS_KW
+							Path for keyword files
+	  --classify CLASSIFY, -cl CLASSIFY
+							Optional comma separated keyword for result
+							classification
+	  --classified CLASSIFIED, -c CLASSIFIED
+							Classification of selected data based on provided
+							keywords
+	  --db_root DB_ROOT, -dr DB_ROOT
+							Path for keyword files
 
 The classified data are stored in the folder as shown below:
 
@@ -644,20 +642,22 @@ Quick help: ``$ apricot annoscore -h``
 
 ::
 
-    usage: apricot annoscore [-h] [--analysis_path ANALYSIS_PATH]
-                             [--selected SELECTED] [--cdd_pred CDD_PRED]
-                             [--outpath OUTPATH]
-
-    optional arguments:
-      -h, --help            show this help message and exit
-      --analysis_path ANALYSIS_PATH, -ap ANALYSIS_PATH
-                            Provide analysis path
-      --selected SELECTED, -sel SELECTED
-                            Provided selected protein table
-      --cdd_pred CDD_PRED, -cp CDD_PRED
-                            Raw files obtained from CDD based domain prediction
-      --outpath OUTPATH, -o OUTPATH
-                            Output path for annotation scoring files
+	usage: apricot annoscore [-h] [--analysis_path ANALYSIS_PATH]
+							 [--selected SELECTED] [--cdd_pred CDD_PRED]
+							 [--scored SCORED] [--needle_dir NEEDLE_DIR]
+	
+	optional arguments:
+	  -h, --help            show this help message and exit
+	  --analysis_path ANALYSIS_PATH, -ap ANALYSIS_PATH
+							Provide analysis path
+	  --selected SELECTED, -sel SELECTED
+							Provided selected protein table
+	  --cdd_pred CDD_PRED, -cp CDD_PRED
+							Raw files obtained from CDD based domain prediction
+	  --scored SCORED, -sco SCORED
+							Output path for annotation scoring files
+	  --needle_dir NEEDLE_DIR, -nd NEEDLE_DIR
+							path for the locally configured EMBOSS suite
 
 The data with annotation scores are stored in the folder as shown below:
 
@@ -688,41 +688,42 @@ annotations of the selected proteins:
 
 ::
 
-    usage: apricot addanno [-h] [--force] [--pdb] [--psortb] [--raptorx] [--refss]
-                           [--analysis_path ANALYSIS_PATH] [--fasta FASTA]
-                           [--selected SELECTED] [--outpath OUTPATH]
-                           [--pdb_path PDB_PATH] [--psortb_path PSORTB_PATH]
-                           [--raptorx_path RAPTORX_PATH]
-
-    optional arguments:
-      -h, --help            show this help message and exit
-      --force, -F           force flag for the current analysis, removes already
-                            existing predictions
-      --pdb, -PDB           Optional annotation of the selected protein by PDB
-                            structure homolog
-      --psortb, -PSORTB     Optional annotation of the selected protein by
-                            localization using PsortB
-      --raptorx, -RAPTORX   Optional annotation of the selected protein by
-                            secondary structure using RaptorX
-      --refss, -REFSS       Optional annotation of the selected protein by
-                            secondary structure using literature reference
-      --analysis_path ANALYSIS_PATH, -ap ANALYSIS_PATH
-                            Provide analysis path
-      --fasta FASTA, -fa FASTA
-                            Provide absolute path of fasta files for query
-                            proteins
-      --selected SELECTED, -sel SELECTED
-                            Provided selected protein table
-      --outpath OUTPATH, -o OUTPATH
-                            Output path for additional annotation data
-      --pdb_path PDB_PATH, -pdb_path PDB_PATH
-                            Provide absolute path of APRICOT formatted pdb
-                            database ~pdb/pdb_sequence/pdb_sequence.txt
-      --psortb_path PSORTB_PATH, -psortb_path PSORTB_PATH
-                            Provide absolute path of APRICOT installed psortb
-      --raptorx_path RAPTORX_PATH, -raptorx_path RAPTORX_PATH
-                            Provide absolute path of APRICOT installed raptorx
-                            till the perl script run_raptorx-ss8.pl
+	usage: apricot addanno [-h] [--force] [--pdb] [--psortb] [--raptorx] [--refss]
+						   [--analysis_path ANALYSIS_PATH]
+						   [--fasta_path FASTA_PATH] [--selected SELECTED]
+						   [--add_out ADD_OUT] [--pdb_path PDB_PATH]
+						   [--psortb_path PSORTB_PATH]
+						   [--raptorx_path RAPTORX_PATH]
+	
+	optional arguments:
+	  -h, --help            show this help message and exit
+	  --force, -F           force flag for the current analysis, removes already
+							existing predictions
+	  --pdb, -PDB           Optional annotation of the selected protein by PDB
+							structure homolog
+	  --psortb, -PSORTB     Optional annotation of the selected protein by
+							localization using PsortB
+	  --raptorx, -RAPTORX   Optional annotation of the selected protein by
+							secondary structure using RaptorX
+	  --refss, -REFSS       Optional annotation of the selected protein by
+							secondary structure using literature reference
+	  --analysis_path ANALYSIS_PATH, -ap ANALYSIS_PATH
+							Provide analysis path
+	  --fasta_path FASTA_PATH, -fp FASTA_PATH
+							Provide absolute path of fasta files for query
+							proteins
+	  --selected SELECTED, -sel SELECTED
+							Provided selected protein table
+	  --add_out ADD_OUT, -ao ADD_OUT
+							Output path for additional annotation data
+	  --pdb_path PDB_PATH, -pdb_path PDB_PATH
+							Provide absolute path of APRICOT formatted pdb
+							database ~pdb/pdb_sequence/pdb_sequence.txt
+	  --psortb_path PSORTB_PATH, -psortb_path PSORTB_PATH
+							Provide absolute path of APRICOT installed psortb
+	  --raptorx_path RAPTORX_PATH, -raptorx_path RAPTORX_PATH
+							Provide absolute path of APRICOT installed raptorx
+							till the perl script run_raptorx-ss8.pl
 
 The resulting files are stored in the directory
 4\_additional\_annotations in the corresponding sub-folders, as shown
@@ -753,25 +754,26 @@ the reference domains etc., to provide analysis overview.
 
 ::
 
-    usage: apricot summary [-h] [--analysis_path ANALYSIS_PATH]
-                           [--query_map QUERY_MAP] [--domains DOMAINS]
-                           [--unfilter_path UNFILTER_PATH] [--outpath OUTPATH]
-
-    optional arguments:
-      -h, --help            show this help message and exit
-      --analysis_path ANALYSIS_PATH, -ap ANALYSIS_PATH
-                            Provide analysis path
-      --query_map QUERY_MAP, -q QUERY_MAP
-                            query_to_uids.txt file created by APRICOT to save
-                            query mapping information
-      --domains DOMAINS, -d DOMAINS
-                            File containing all the keyword selected_domains of
-                            interest
-      --unfilter_path UNFILTER_PATH, -uf UNFILTER_PATH
-                            Directory with the unfiltered domain data from
-                            output-1 (unfiltered_data)
-      --outpath OUTPATH, -o OUTPATH
-                            Provide output path
+	usage: apricot summary [-h] [--analysis_path ANALYSIS_PATH]
+						   [--query_map QUERY_MAP] [--domains DOMAINS]
+						   [--unfilter_path UNFILTER_PATH]
+						   [--summarized SUMMARIZED]
+	
+	optional arguments:
+	  -h, --help            show this help message and exit
+	  --analysis_path ANALYSIS_PATH, -ap ANALYSIS_PATH
+							Provide analysis path
+	  --query_map QUERY_MAP, -q QUERY_MAP
+							query_to_uids.txt file created by APRICOT to save
+							query mapping information
+	  --domains DOMAINS, -d DOMAINS
+							File containing all the keyword selected_domains of
+							interest
+	  --unfilter_path UNFILTER_PATH, -uf UNFILTER_PATH
+							Directory with the unfiltered domain data from
+							output-1 (unfiltered_data)
+	  --summarized SUMMARIZED, -sum SUMMARIZED
+							Provide output path
 
 The resulting files are stored in the directory 5\_analysis\_summary in
 the corresponding sub-folders, as shown below:
@@ -804,7 +806,7 @@ files (--xlsx) or both.
                             Choose folder from analysis to be converted
       --html, -HT
       --xlsx, -XL
-      --outpath OUTPATH, -o OUTPATH
+      --formatted FORMATTED, -form FORMATTED
                             Output path for files with different file formats
 
 The resulting files are stored in the directory format\_output\_data in
@@ -828,30 +830,32 @@ tertiary structure of selected proteins etc.
 
 ::
 
-    usage: apricot vis [-h] [--analysis_path ANALYSIS_PATH]
-                       [--ann_score ANN_SCORE] [--add_anno ADD_ANNO] [--domain]
-                       [--annoscore] [--secstr] [--localiz] [--msa] [--complete]
-                       [--outpath OUTPATH]
-
-    optional arguments:
-      -h, --help            show this help message and exit
-      --analysis_path ANALYSIS_PATH, -ap ANALYSIS_PATH
-                            Provide analysis path
-      --ann_score ANN_SCORE, -an ANN_SCORE
-                            Provide annotation score file
-      --add_anno ADD_ANNO, -ad ADD_ANNO
-                            Provide path to additional annotation
-      --domain, -D          Visualizes predicted domains on the query by
-                            highlighting
-      --annoscore, -A       Visualizes overview of prediction statistics
-      --secstr, -S          Visualizes secondary structures predicted by RaptorX
-      --localiz, -L         Visualizes subcellular localization predcited by
-                            PsortB
-      --msa, -M             Visualizes Multiple Sequence Alignments of homologous
-                            sequences from PDB
-      --complete, -C        Visualizes all the possible features
-      --outpath OUTPATH, -o OUTPATH
-                            Output path for visualization files
+	usage: apricot vis [-h] [--analysis_path ANALYSIS_PATH]
+					   [--ann_score ANN_SCORE] [--add_anno ADD_ANNO]
+					   [--selected SELECTED] [--domain] [--annoscore] [--secstr]
+					   [--localiz] [--msa] [--complete] [--visualized VISUALIZED]
+	
+	optional arguments:
+	  -h, --help            show this help message and exit
+	  --analysis_path ANALYSIS_PATH, -ap ANALYSIS_PATH
+							Provide analysis path
+	  --ann_score ANN_SCORE, -an ANN_SCORE
+							Provide annotation score file
+	  --add_anno ADD_ANNO, -ad ADD_ANNO
+							Provide path to additional annotation
+	  --selected SELECTED, -sel SELECTED
+							Provided selected protein table
+	  --domain, -D          Visualizes predicted domains on the query by
+							highlighting
+	  --annoscore, -A       Visualizes overview of prediction statistics
+	  --secstr, -S          Visualizes secondary structures predicted by RaptorX
+	  --localiz, -L         Visualizes subcellular localization predcited by
+							PsortB
+	  --msa, -M             Visualizes Multiple Sequence Alignments of homologous
+							sequences from PDB
+	  --complete, -C        Visualizes all the possible features
+	  --visualized VISUALIZED, -vi VISUALIZED
+							Output path for visualization files
 
 The resulting files are stored in the directory visualization\_files in
 the corresponding sub-folders, as shown below:
