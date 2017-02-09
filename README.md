@@ -23,7 +23,9 @@ Copyright (c) 2011-2016, Malvika Sharan, <malvika.sharan@uni-wuerzburg.de>
 
 ###Working with APRICOT software
 
-Here we have provided a brief introduction to how one can use the software. **The complete documentation (manual,tutorials etc.) is hosted at http://pythonhosted.org/bio-apricot.**
+**The complete documentation (manual,tutorials etc.) is hosted at http://pythonhosted.org/bio-apricot.**
+
+Here we provide a brief information on obtaining and using the software. 
 
 APRICOT is implemented in Python as a standalone and is executable on Ubuntu (and other debian-based) systems. The complete software package can be obtained from the GitHub repository (`$ git clone https://github.com/malvikasharan/APRICOT.git`), or can be conveniantly executed using the Docker image.
 
