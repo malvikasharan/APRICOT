@@ -17,7 +17,7 @@ A tool for sequence-based identification and characterization of protein classes
    tutorial
    video_tutorial
    installation
-   software_dependencies	      
+   software_requirements	      
    database_dependencies
    FAQs
    for_the_developers
