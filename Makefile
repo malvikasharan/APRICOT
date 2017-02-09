@@ -1,5 +1,6 @@
 test:
-	sh run_template_min.sh
+	cp shell_scripts/run_example.sh
+	sh run_example.sh
 
 package:
 	python3 setup.py bdist_wheel
