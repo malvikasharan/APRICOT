@@ -11,11 +11,12 @@ A tool for sequence-based identification and characterization of protein classes
 .. toctree::
    :maxdepth: 1
   
-   pipeline_overview
+   overview
    subcommands
-   docker	      
-   APRICOT_tutorial
-   local_installation
+   docker
+   tutorial
+   video_tutorial
+   installation
    software_dependencies	      
    database_dependencies
    FAQs
@@ -23,7 +24,7 @@ A tool for sequence-based identification and characterization of protein classes
    troubleshooting
    contact
 
-`APRICOT <http://malvikasharan.github.io/APRICOT/>`__ is a computational
+APRICOT is a computational
 pipeline for the identification of specific functional classes of
 interest in large protein sets. The pipeline uses efficient
 sequence-based algorithms and predictive models like signature motifs of
@@ -158,7 +159,7 @@ Or use ``wget`` to get the most updated version from the repository.
 By default, this script generates a main analysis folder
 ``APRICOT_analysis``. To understand the file structure, please see below
 (point-5). We recomend you to check out the
-`tutorial <.././APRICOT_tutorial/index.html>`__
+`tutorial <./tutorial.html>`__
 to understand each components of the software and the result generated
 by their analysis.
 
@@ -166,7 +167,7 @@ by their analysis.
 
 Users are required to set a directory ``source_files`` containing all
 the `required supporting
-data <.././database_dependencies/index.html>`__,
+data <./database_dependencies.html>`__,
 which can be setup in the local filesystem (recommended) or inside the
 docker container (in the home folder). See below for the details.
 
@@ -263,9 +264,7 @@ query proteins
 line number 78).
 
 For further details, please check the
-`Tutorial <.././APRICOT_tutorial/index.html>`__
-and `Tools and data
-dependencies <.././software_dependencies/index.html>`__
+`tutorial <./tutorial.html>`__.
 
 Alternative ways to install APRICOT
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

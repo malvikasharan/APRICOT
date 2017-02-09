@@ -2,8 +2,8 @@
 
 |image4|
 
-Summary of the pipeline
-~~~~~~~~~~~~~~~~~~~~~~~
+Overview
+~~~~~~~~
 
 The functionality of APRICOT can be explained in 3 parts: program input,
 analysis modules and program output.
@@ -43,7 +43,7 @@ addition with an overview of the analysis and graphics associated with
 the resulting information.
 
 Trivia
-~~~~~~
+^^^^^^
 
 The initial focus of this project was to identify functional domains in
 bacterial proteins that have the potential to interact with RNA

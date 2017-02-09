@@ -1,9 +1,6 @@
 |Latest Version| |License| |DOI| |image3|
 
-.. figure:: https://github.com/malvikasharan/APRICOT/blob/master/APRICOT_logo.png
-   :alt: alt tag
-
-   alt tag
+|image4|
 
 Installing APRICOT via ``pip`` from PyPI
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -76,7 +73,7 @@ can be installed locally that could be used for multiple analysis.
 
 This script will install all the required tools and will create a
 directory ``source_files`` with all the required datasets as dicussed
-`here <https://github.com/malvikasharan/APRICOT/blob/master/documentation/software_dependencies.md>`__.
+`here <.././software_dependencies/index.html>`__.
 
 .. |Latest Version| image:: https://img.shields.io/pypi/v/bio-apricot.svg
    :target: https://pypi.python.org/pypi/bio-apricot/
@@ -86,3 +83,5 @@ directory ``source_files`` with all the required datasets as dicussed
    :target: https://zenodo.org/badge/latestdoi/21283/malvikasharan/APRICOT
 .. |image3| image:: https://images.microbadger.com/badges/image/malvikasharan/apricot.svg
    :target: https://microbadger.com/images/malvikasharan/apricot
+.. |image4| image:: https://raw.githubusercontent.com/malvikasharan/APRICOT/master/APRICOT_logo.png
+   :target: http://malvikasharan.github.io/APRICOT/

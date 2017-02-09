@@ -35,11 +35,11 @@ using the script run\_example.sh. Why can't I run the subcommand
    for manual installation.
 
 -  Please check the documentation or this `video
-   tutorial <https://www.youtube.com/watch?v=V7uT1kgEYjI&index=9&list=PLVJHJxaTACqPD0Y1Ty6Qvi5SfaeWDfrMo>`__
+   tutorial <./video_tutorial.html>`__
    for the usage of these subcommand.
 
 -  The complete list of software requirements can be seen
-   `here <.././software_dependencies/index.html>`__,
+   `here <./software_dependencies.html>`__,
    alternatively see the Dockerfile.
 
 **3) What are the options to give query proteins for the analysis?**

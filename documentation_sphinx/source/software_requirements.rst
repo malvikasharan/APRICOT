@@ -2,8 +2,8 @@
 
 |image4|
 
-Resources requirements of APRICOT
----------------------------------
+Software requirements
+---------------------
 
 -  Basic Linux programs
    (`pip <https://pip.pypa.io/en/stable/installing/>`__ or

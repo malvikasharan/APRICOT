@@ -2,8 +2,8 @@
 
 |image4|
 
-APRICOT Docker image
-^^^^^^^^^^^^^^^^^^^^
+Running software using Docker
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 We recommend users to `install Docker
 software <https://docs.docker.com/engine/installation/>`__ in their
@@ -40,7 +40,7 @@ Here is a quick way to test if different modules work in your system
 **Run test/example analysis**
 
 The git repository contains a shell script
-`APRICOT/shell\_scripts/run\_example.sh <https://github.com/malvikasharan/APRICOT/blob/master/shell_scripts/run_example.sh>`__
+`run\_example.sh <https://raw.githubusercontent.com/malvikasharan/APRICOT/master/shell_scripts/run_example.sh>`__
 with shell commands that can be used for the demonstration of APRICOT
 installation including analysis with an example.
 
@@ -61,7 +61,7 @@ Or use ``wget`` to get the most updated version from the repository.
 By default, this script generates a main analysis folder
 ``APRICOT_analysis``. To understand the file structure, please see below
 (point-5). We recomend you to check out the
-`tutorial <.././APRICOT_tutorial/index.html>`__
+`tutorial <./tutorial.html>`__
 to understand each components of the software and the result generated
 by their analysis.
 
@@ -69,7 +69,7 @@ by their analysis.
 
 Users are required to set a directory ``source_files`` containing all
 the `required supporting
-data <.././database_dependencies/index.html>`__,
+data <./database_dependencies.html>`__,
 which can be setup in the local filesystem (recommended) or inside the
 docker container (in the home folder). See below for the details.
 
@@ -160,9 +160,9 @@ query proteins
 line number 78).
 
 For further details, please check the
-`Tutorial <.././APRICOT_tutorial/index.html>`__
-and `Tools and data
-dependencies <.././software_dependencies/index.html>`__
+`tutorial <./tutorial.html>`__
+and `software
+requirements <./software_requirements.html>`__
 
 We recommend users to use APRICOT `Docker
 image <https://docs.docker.com/v1.8/userguide/dockerimages/>`__ which
@@ -204,14 +204,14 @@ Try a test run:
     $ sh run_example.sh
 
 Database requirements for the software
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+--------------------------------------
 
 An additional step for fetching the databases is required to carry out
 analysis by the software.
 
 The shell script:
-`APRICOT/shell\_scripts/docker\_support.sh <https://raw.githubusercontent.com/malvikasharan/APRICOT/master/shell_scripts/docker_support.sh>`__,
-can be run inside a new Docker container or can be installed locally
+`docker\_support.sh <https://raw.githubusercontent.com/malvikasharan/APRICOT/master/shell_scripts/docker_support.sh>`__,
+can be called inside a new Docker container or can be installed locally
 that could be used inside (multiple) Docker containers.
 
 ::
@@ -220,8 +220,8 @@ that could be used inside (multiple) Docker containers.
     $ sh docker_support.sh
 
 This script will create a directory ``source_files`` with all the
-required datasets as dicussed
-`here <.././data_requirements/index.html>`__.
+required
+`datasets <./database_dependencies.html>`__.
 
 When the script is used for fetching the datasets inside the Docker
 container (in the home folder), APRICOT can be simply run to carry out
@@ -243,7 +243,7 @@ This will ensure that users would not have to get the dataset every time a new D
 
 
 Docker image with all dependencies
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+----------------------------------
 
 To avoid the extra step for the installation of the databases locally
 (or inside the Docker container), an optional Docker image containing

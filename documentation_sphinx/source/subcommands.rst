@@ -2,8 +2,8 @@
 
 |image4|
 
-APRICOT’s subcommands
-^^^^^^^^^^^^^^^^^^^^^
+Subcommands
+^^^^^^^^^^^
 
 APRICOT comprises of distinct model designed to carry out specific task.
 
@@ -70,8 +70,8 @@ The basic syntax to call this subcommand is:
 
     $ apricot default -i {query proteins} -kw {functions of interest}
 
-There are several default and optional arguments few of which have been
-explained below, please check the usage for details:
+Several optional arguments associated with other subcommands have been included in ``default``.
+Please check the usage for details:
 
 ::
 

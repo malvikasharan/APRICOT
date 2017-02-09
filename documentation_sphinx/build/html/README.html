@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>A tool for sequence-based identification and characterization of protein classes &mdash; APRICOT 1.2.1 documentation</title>
+  <title>A tool for sequence-based identification and characterization of protein classes &mdash; APRICOT Version 1.2.2 documentation</title>
   
 
   
@@ -33,7 +33,7 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="APRICOT 1.2.1 documentation" href="index.html"/> 
+    <link rel="top" title="APRICOT Version 1.2.2 documentation" href="index.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -61,7 +61,7 @@
             
             
               <div class="version">
-                1.2
+                Version 1.2
               </div>
             
           
@@ -82,26 +82,37 @@
           
             
             
-                <!-- Local TOC -->
-                <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">A tool for sequence-based identification and characterization of protein classes</a><ul>
-<li><a class="reference internal" href="#authors-and-contributors">Authors and Contributors</a></li>
-<li><a class="reference internal" href="#source-code">Source code</a></li>
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="contact.html">Contact</a></li>
+<li class="toctree-l1"><a class="reference internal" href="database_dependencies.html">Databases for running the software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">APRICOT Docker image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html#database-requirements-for-the-software">Database requirements for the software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html#docker-image-with-all-dependencies">Docker image with all dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FAQs.html">Frequently asked questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="for_the_developers.html">For the developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="for_the_developers.html#contact">Contact</a></li>
+<li class="toctree-l1"><a class="reference internal" href="local_installation.html">Installing APRICOT via <code class="docutils literal"><span class="pre">pip</span></code> from PyPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pipeline_overview.html">Summary of the pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pipeline_overview.html#trivia">Trivia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="software_dependencies.html">Resources requirements of APRICOT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="subcommands.html">APRICOT’s subcommands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="subcommands.html#subcommand-default">subcommand <code class="docutils literal"><span class="pre">default</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="subcommands.html#subcommand-create">subcommand <code class="docutils literal"><span class="pre">create</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="subcommands.html#subcommand-taxid">subcommand <code class="docutils literal"><span class="pre">taxid</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="subcommands.html#subcommand-query">subcommand <code class="docutils literal"><span class="pre">query</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="subcommands.html#subcommand-keywords">subcommand <code class="docutils literal"><span class="pre">keywords</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="subcommands.html#subcommand-select">subcommand <code class="docutils literal"><span class="pre">select</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="subcommands.html#subcommand-predict">subcommand <code class="docutils literal"><span class="pre">predict</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="subcommands.html#subcommand-filter">subcommand <code class="docutils literal"><span class="pre">filter</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="subcommands.html#subcommand-classify">subcommand <code class="docutils literal"><span class="pre">classify</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="subcommands.html#subcommand-annoscore">subcommand <code class="docutils literal"><span class="pre">annoscore</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="subcommands.html#subcommand-addanno">subcommand <code class="docutils literal"><span class="pre">addanno</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="subcommands.html#subcommand-summary">subcommand <code class="docutils literal"><span class="pre">summary</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="subcommands.html#subcommand-format">subcommand <code class="docutils literal"><span class="pre">format</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="subcommands.html#subcommand-vis">subcommand <code class="docutils literal"><span class="pre">vis</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
 </ul>
-</li>
-<li><a class="reference internal" href="#detailed-documentations">Detailed documentations</a></li>
-<li><a class="reference internal" href="#get-apricot-software">Get APRICOT software</a><ul>
-<li><a class="reference internal" href="#apricot-docker-image">APRICOT Docker image</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#alternative-ways-to-install-apricot">Alternative ways to install APRICOT</a><ul>
-<li><a class="reference internal" href="#locally-install-the-software-using-pip">Locally install the software using pip</a></li>
-<li><a class="reference internal" href="#get-apricot-manually">Get APRICOT manually</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#hint">Hint:</a></li>
-</ul>
-</div>
+
             
           
         </div>
@@ -145,10 +156,7 @@
            <div itemprop="articleBody">
             
   <p><a class="reference external" href="https://pypi.python.org/pypi/bio-apricot/"><img alt="Latest Version" src="https://img.shields.io/pypi/v/bio-apricot.svg" /></a> <a class="reference external" href="https://pypi.python.org/pypi/bio-apricot/"><img alt="License" src="https://img.shields.io/pypi/l/bio-apricot.svg" /></a> <a class="reference external" href="https://zenodo.org/badge/latestdoi/21283/malvikasharan/APRICOT"><img alt="DOI" src="https://zenodo.org/badge/21283/malvikasharan/APRICOT.svg" /></a> <a class="reference external" href="https://microbadger.com/images/malvikasharan/apricot"><img alt="image3" src="https://images.microbadger.com/badges/version/malvikasharan/apricot.svg" /></a></p>
-<div class="figure" id="id1">
-<img alt="alt tag" src="https://github.com/malvikasharan/APRICOT/blob/master/APRICOT_logo.png" />
-<p class="caption"><span class="caption-text">alt tag</span></p>
-</div>
+<p><a class="reference external" href="http://malvikasharan.github.io/APRICOT/"><img alt="image4" src="https://raw.githubusercontent.com/malvikasharan/APRICOT/master/APRICOT_logo.png" /></a></p>
 <div class="section" id="a-tool-for-sequence-based-identification-and-characterization-of-protein-classes">
 <h1>A tool for sequence-based identification and characterization of protein classes<a class="headerlink" href="#a-tool-for-sequence-based-identification-and-characterization-of-protein-classes" title="Permalink to this headline">¶</a></h1>
 <p><a class="reference external" href="http://malvikasharan.github.io/APRICOT/">APRICOT</a> is a computational
@@ -181,25 +189,25 @@ discussions and feedback.</p>
 <div class="section" id="detailed-documentations">
 <h1>Detailed documentations<a class="headerlink" href="#detailed-documentations" title="Permalink to this headline">¶</a></h1>
 <ol class="arabic simple">
-<li><a class="reference external" href="https://github.com/malvikasharan/APRICOT/blob/master/documentation/pipeline_overview.md">Overview of the
+<li><a class="reference external" href=".././pipeline_overview/index.html">Overview of the
 pipeline</a></li>
-<li><a class="reference external" href="https://github.com/malvikasharan/APRICOT/blob/master/documentation/APRICOT_tutorial.md">Tutorial</a></li>
-<li><a class="reference external" href="https://github.com/malvikasharan/APRICOT/blob/master/documentation/docker.md">Working with
+<li><a class="reference external" href=".././APRICOT_tutorial/index.html">Tutorial</a></li>
+<li><a class="reference external" href=".././docker/index.html">Working with
 Docker</a></li>
-<li><a class="reference external" href="https://github.com/malvikasharan/APRICOT/blob/master/documentation/local_installation.md">Instructions for local
+<li><a class="reference external" href=".././local_installation/index.html">Instructions for local
 installation</a></li>
-<li><a class="reference external" href="https://github.com/malvikasharan/APRICOT/blob/master/documentation/software_dependencies.md">Tools and data
+<li><a class="reference external" href=".././software_dependencies/index.html">Tools and data
 dependencies</a></li>
-<li><a class="reference external" href="https://github.com/malvikasharan/APRICOT/blob/master/documentation/subcommands.md">Different
+<li><a class="reference external" href=".././subcommands/index.html">Different
 subcommands</a></li>
-<li><a class="reference external" href="https://github.com/malvikasharan/APRICOT/blob/master/documentation/for_the_developers.md">For the
+<li><a class="reference external" href=".././for_the_developers/index.html">For the
 developers</a></li>
-<li><a class="reference external" href="https://github.com/malvikasharan/APRICOT/blob/master/documentation/troubleshooting.md">Troubleshoot</a></li>
-<li><a class="reference external" href="https://github.com/malvikasharan/APRICOT/blob/master/documentation/FAQs.md">Frequently asked
+<li><a class="reference external" href=".././troubleshooting/index.html">Troubleshoot</a></li>
+<li><a class="reference external" href=".././FAQs/index.html">Frequently asked
 questions</a></li>
-<li><a class="reference external" href="https://github.com/malvikasharan/APRICOT/blob/master/LICENSE.md">License</a></li>
+<li><a class="reference external" href=".././LICENSE/index.html">License</a></li>
 <li><a class="reference external" href="https://github.com/malvikasharan/APRICOT/blob/master/CHANGELOGS.txt">Changelogs</a></li>
-<li><a class="reference external" href="https://github.com/malvikasharan/APRICOT/blob/master/documentation/contact.md">Contact</a></li>
+<li><a class="reference external" href=".././contact/index.html">Contact</a></li>
 </ol>
 </div>
 <div class="section" id="get-apricot-software">
@@ -219,23 +227,41 @@ images</a>.</p>
 directions:</p>
 <p><strong>1. Get Docker image</strong></p>
 <p>The image can be acquired by simply using this command:</p>
-<p><code class="docutils literal"><span class="pre">$</span> <span class="pre">docker</span> <span class="pre">pull</span> <span class="pre">malvikasharan/apricot</span></code></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ docker pull malvikasharan/apricot
+</pre></div>
+</div>
 <p><strong>2. Create the Docker container for testing the software</strong></p>
-<p><code class="docutils literal"><span class="pre">$</span> <span class="pre">docker</span> <span class="pre">run</span> <span class="pre">-it</span> <span class="pre">malvikasharan/apricot</span> <span class="pre">bash</span></code></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ docker run -it malvikasharan/apricot bash
+</pre></div>
+</div>
 <p>Here is a quick way to test if different modules work in your system
 (without really installing the complete filesystem).</p>
 <p><strong>Run the analysis in the ``home`` folder</strong></p>
-<p><code class="docutils literal"><span class="pre">$</span> <span class="pre">cd</span> <span class="pre">home</span>&#160;&#160; <span class="pre">$</span> <span class="pre">apricot</span> <span class="pre">-h</span></code> NOTE: Follow this to ensure that the most
-latest APRICOT repository exists in your docker container:</p>
-<p><code class="docutils literal"><span class="pre">$</span> <span class="pre">cd</span> <span class="pre">APRICOT</span>&#160;&#160; <span class="pre">$</span> <span class="pre">git</span> <span class="pre">pull</span></code></p>
-<p><code class="docutils literal"><span class="pre">#</span> <span class="pre">go</span> <span class="pre">back</span> <span class="pre">to</span> <span class="pre">the</span> <span class="pre">home</span> <span class="pre">folder</span>&#160;&#160; <span class="pre">$</span> <span class="pre">cd</span> <span class="pre">..</span></code></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ cd home
+    $ apricot -h
+</pre></div>
+</div>
+<p>NOTE: Follow this to ensure that the
+most latest APRICOT repository exists in your docker container:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ cd APRICOT
+    $ git pull
+</pre></div>
+</div>
+<p># go back to the home folder</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ cd ..
+</pre></div>
+</div>
 <p><strong>Run test/example analysis</strong></p>
 <p>A subcommand <code class="docutils literal"><span class="pre">default</span></code> can be used to run the the software pipeline
 using the default parameters:</p>
 <p><strong>Syntax:</strong></p>
-<p><code class="docutils literal"><span class="pre">$</span> <span class="pre">apricot</span> <span class="pre">default</span> <span class="pre">-i</span> <span class="pre">{UniProt</span> <span class="pre">IDs}</span> <span class="pre">-kw</span> <span class="pre">{Domain</span> <span class="pre">keywords}</span></code> Example
-analysis:</p>
-<p><code class="docutils literal"><span class="pre">$</span> <span class="pre">apricot</span> <span class="pre">default</span> <span class="pre">-i</span> <span class="pre">P0A6X3,P00957</span> <span class="pre">-kw</span> <span class="pre">'RRM,RNP,KH'</span></code></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ apricot default -i {UniProt IDs} -kw {Domain keywords}
+</pre></div>
+</div>
+<p>Example analysis:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ apricot default -i P0A6X3,P00957 -kw &#39;RRM,RNP,KH&#39;
+</pre></div>
+</div>
 <p>Optionally, a shell script
 <a class="reference external" href="https://github.com/malvikasharan/APRICOT/blob/master/shell_scripts/run_example.sh">run_example.sh</a>,
 available in the git repository (path: APRICOT/shell_scripts/), can be
@@ -243,11 +269,17 @@ used to call the commands to fetch demo files and run an example
 analysis. This script can be modified to run similar analyses by the
 users.</p>
 <p>Copy the script from the existing repository in the <code class="docutils literal"><span class="pre">home</span></code> folder.</p>
-<p><code class="docutils literal"><span class="pre">$</span> <span class="pre">cp</span> <span class="pre">APRICOT/shell_scripts/run_example.sh</span> <span class="pre">.</span></code></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ cp APRICOT/shell_scripts/run_example.sh .
+</pre></div>
+</div>
 <p>Or use <code class="docutils literal"><span class="pre">wget</span></code> to get the most updated version from the repository.</p>
-<p><code class="docutils literal"><span class="pre">$</span> <span class="pre">wget</span> <span class="pre">https://raw.githubusercontent.com/malvikasharan/APRICOT/master/shell_scripts/run_example.sh</span></code></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ wget https://raw.githubusercontent.com/malvikasharan/APRICOT/master/shell_scripts/run_example.sh
+</pre></div>
+</div>
 <p>...and run it.</p>
-<p><code class="docutils literal"><span class="pre">$</span> <span class="pre">sh</span> <span class="pre">run_example.sh</span></code></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ sh run_example.sh
+</pre></div>
+</div>
 <p>By default, this script generates a main analysis folder
 <code class="docutils literal"><span class="pre">APRICOT_analysis</span></code>. To understand the file structure, please see below
 (point-5). We recomend you to check out the
@@ -275,25 +307,52 @@ databases inside the container.</p>
 <p>The supporting data can be used only inside the Docker container (every
 Docker container will need such setup individually).</p>
 <p><strong>Commands to acquire the supporting data</strong></p>
-<p><code class="docutils literal"><span class="pre">$</span> <span class="pre">wget</span> <span class="pre">http://data.imib-zinf.net/APRICOT-supporting_dataset.zip</span>&#160;&#160; <span class="pre">$</span> <span class="pre">unzip</span> <span class="pre">APRICOT-supporting_dataset.zip</span></code></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ wget http://data.imib-zinf.net/APRICOT-supporting_dataset.zip
+    $ unzip APRICOT-supporting_dataset.zip
+</pre></div>
+</div>
 <p>Alternatively, these files can be acquired using the script
 docker_support.sh provided in the git repository of APRICOT.</p>
-<p><code class="docutils literal"><span class="pre">$</span> <span class="pre">cp</span> <span class="pre">APRICOT/shell_scripts/docker_support.sh</span> <span class="pre">.</span>&#160;&#160; <span class="pre">$</span> <span class="pre">sh</span> <span class="pre">docker_support.sh</span></code></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ cp APRICOT/shell_scripts/docker_support.sh .
+    $ sh docker_support.sh
+</pre></div>
+</div>
 <p><strong>4. Using the supporting data</strong></p>
 <p>When the directory <code class="docutils literal"><span class="pre">source_files</span></code> is located in the local system
 <strong>(Recommended)</strong>, use the following command to mount this directory
 into the Docker container (provide full path for
 $FULL_PATH_SOURCE_FILES):</p>
-<p><code class="docutils literal"><span class="pre">$</span> <span class="pre">docker</span> <span class="pre">run</span> <span class="pre">-it</span> <span class="pre">-v</span> <span class="pre">/{$FULL_PATH_SOURCE_FILES}/source_files/:/home/source_files</span> <span class="pre">malvikasharan/apricot</span> <span class="pre">bash</span>&#160;&#160; <span class="pre">$</span> <span class="pre">cd</span> <span class="pre">home</span></code></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ docker run -it -v /{$FULL_PATH_SOURCE_FILES}/source_files/:/home/source_files malvikasharan/apricot bash
+    $ cd home
+</pre></div>
+</div>
 <p>Skip this step when working in the Docker container already.</p>
 <p><strong>5. Carry out an analysis by APRICOT</strong></p>
-<p><code class="docutils literal"><span class="pre">$</span> <span class="pre">apricot</span> <span class="pre">default</span> <span class="pre">-i</span> <span class="pre">P0A6X3,P00957</span> <span class="pre">-kw</span> <span class="pre">'RRM,RNP,KH'</span></code></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ apricot default -i P0A6X3,P00957 -kw &#39;RRM,RNP,KH&#39;
+</pre></div>
+</div>
 <p>OR</p>
-<p><code class="docutils literal"><span class="pre">$</span> <span class="pre">cp</span> <span class="pre">APRICOT/shell_scripts/run_example.sh</span> <span class="pre">.</span>&#160;&#160; <span class="pre">$</span> <span class="pre">sh</span> <span class="pre">run_example.sh</span></code></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ cp APRICOT/shell_scripts/run_example.sh .
+    $ sh run_example.sh
+</pre></div>
+</div>
 <p>If the the analysis was successful, a directory <code class="docutils literal"><span class="pre">APRICOT_analysis</span></code>
 will be created, which contains following files with the outputs
 generated by different modules of the software.</p>
-<p><code class="docutils literal"><span class="pre">APRICOT_analysis</span>&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">└───├input</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">#</span> <span class="pre">Location</span> <span class="pre">used</span> <span class="pre">by</span> <span class="pre">subcommand</span> <span class="pre">'query'</span> <span class="pre">to</span> <span class="pre">store</span> <span class="pre">all</span> <span class="pre">the</span> <span class="pre">related</span> <span class="pre">files</span>&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">└───├output</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">└───├0_predicted_domains</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">#</span> <span class="pre">Location</span> <span class="pre">for</span> <span class="pre">the</span> <span class="pre">output</span> <span class="pre">data</span> <span class="pre">obtained</span> <span class="pre">from</span> <span class="pre">the</span> <span class="pre">subcommand</span> <span class="pre">'predict'</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">└───├1_compiled_domain_information</span>&#160; <span class="pre">#</span> <span class="pre">Location</span> <span class="pre">for</span> <span class="pre">the</span> <span class="pre">output</span> <span class="pre">data</span> <span class="pre">obtained</span> <span class="pre">from</span> <span class="pre">the</span> <span class="pre">subcommand</span> <span class="pre">'filter'</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">└───├2_selected_domain_information</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">└───├3_annotation_scoring</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">#</span> <span class="pre">Location</span> <span class="pre">for</span> <span class="pre">the</span> <span class="pre">output</span> <span class="pre">data</span> <span class="pre">obtained</span> <span class="pre">from</span> <span class="pre">the</span> <span class="pre">subcommand</span> <span class="pre">'annoscore'</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">└───├4_additional_annotations</span>&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">#</span> <span class="pre">Location</span> <span class="pre">for</span> <span class="pre">additional</span> <span class="pre">annotations</span> <span class="pre">for</span> <span class="pre">the</span> <span class="pre">selected</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">|</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">#</span> <span class="pre">queries</span> <span class="pre">using</span> <span class="pre">subcommand</span> <span class="pre">'addanno'</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">└───├5_analysis_summary</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">#</span> <span class="pre">Location</span> <span class="pre">for</span> <span class="pre">the</span> <span class="pre">output</span> <span class="pre">data</span> <span class="pre">obtained</span> <span class="pre">from</span> <span class="pre">the</span> <span class="pre">subcommand</span> <span class="pre">'summary'</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">└───├format_output_data</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">#</span> <span class="pre">Location</span> <span class="pre">for</span> <span class="pre">the</span> <span class="pre">output</span> <span class="pre">data</span> <span class="pre">obtained</span> <span class="pre">from</span> <span class="pre">the</span> <span class="pre">subcommand</span> <span class="pre">'format'</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">└───├visualization_files</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">#</span> <span class="pre">Location</span> <span class="pre">for</span> <span class="pre">the</span> <span class="pre">output</span> <span class="pre">data</span> <span class="pre">obtained</span> <span class="pre">from</span> <span class="pre">the</span> <span class="pre">subcommand</span> <span class="pre">'vis'</span></code></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>APRICOT_analysis
+            └───├input                                  # Location used by subcommand &#39;query&#39; to store all the related files
+            └───├output
+                    └───├0_predicted_domains            # Location for the output data obtained from the subcommand &#39;predict&#39;
+                    └───├1_compiled_domain_information  # Location for the output data obtained from the subcommand &#39;filter&#39;
+                    └───├2_selected_domain_information
+                    └───├3_annotation_scoring           # Location for the output data obtained from the subcommand &#39;annoscore&#39;
+                    └───├4_additional_annotations       # Location for additional annotations for the selected
+                    |                                   # queries using subcommand &#39;addanno&#39;
+                    └───├5_analysis_summary             # Location for the output data obtained from the subcommand &#39;summary&#39;
+                    └───├format_output_data             # Location for the output data obtained from the subcommand &#39;format&#39;
+                    └───├visualization_files            # Location for the output data obtained from the subcommand &#39;vis&#39;
+</pre></div>
+</div>
 <p>You can check <code class="docutils literal"><span class="pre">APRICOT_analysis_summary.csv</span></code> in the path
 <code class="docutils literal"><span class="pre">APRICOT_analysis/output/5_analysis_summary</span></code> file for the quick
 overview of the analysis.</p>
@@ -317,12 +376,16 @@ instructions.</p>
 <ol class="arabic simple">
 <li>Make sure that your system has pip and git installed</li>
 </ol>
-<p><code class="docutils literal"><span class="pre">$</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">python3-pip</span> <span class="pre">git</span></code></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ apt-get install python3-pip git
+</pre></div>
+</div>
 <ol class="arabic simple" start="2">
 <li>Then install APRICOT via pip (NOTE: this doesn&#8217;t install the complete
 filesystem):</li>
 </ol>
-<p><code class="docutils literal"><span class="pre">$</span> <span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">bio-apricot</span></code></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ pip3 install bio-apricot
+</pre></div>
+</div>
 <p>This will globally install APRICOT, which can be called via the command
 <code class="docutils literal"><span class="pre">apricot</span></code>, and the libraries from apricotlib will be saved. Follow the
 above listed points 3 &amp; 5 to execute the software as shown above. ###OR</p>
@@ -341,21 +404,23 @@ required tools.</p>
 <ol class="arabic simple">
 <li>Get the python dependencies</li>
 </ol>
-<p><code class="docutils literal"><span class="pre">$</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">python3-matplotlib</span> <span class="pre">python3-numpy</span> <span class="pre">python3-scipy</span> <span class="pre">python3-biopython</span> <span class="pre">python3-requests</span> <span class="pre">--yes</span> <span class="pre">--fix-missing</span>&#160;&#160; <span class="pre">$</span> <span class="pre">pip3</span> <span class="pre">install</span> <span class="pre">openpyxl</span></code></p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ apt-get install python3-matplotlib python3-numpy python3-scipy python3-biopython python3-requests --yes --fix-missing
+    $ pip3 install openpyxl
+</pre></div>
+</div>
 <ol class="arabic simple" start="2">
 <li>Get the repository for APRICOT from git either by clicking
 <a class="reference external" href="https://github.com/malvikasharan/APRICOT/archive/master.zip">here</a>
 or locally cloned by using the following command:</li>
 </ol>
-<div class="line-block">
-<div class="line"><code class="docutils literal"><span class="pre">$</span> <span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/malvikasharan/APRICOT.git</span></code></div>
-<div class="line">Follow the above listed points 3 &amp; 5 to execute the software as shown
-above.</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ git clone https://github.com/malvikasharan/APRICOT.git
+</pre></div>
+</div>
+<p>Follow the above listed points 3 &amp; 5 to execute the software as shown above.</p>
 </div>
 </div>
-</div>
-<div class="section" id="hint">
-<h1>Hint:<a class="headerlink" href="#hint" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="miscellaneous">
+<h1>Miscellaneous<a class="headerlink" href="#miscellaneous" title="Permalink to this headline">¶</a></h1>
 <p>When installed locally, the location of the executable will be:
 /home/username/.local/bin/ and the library location will be:
 /home/username/.local/lib/python3.5/site-packages/apricotlib/</p>
@@ -378,7 +443,7 @@ executable and the libraries.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2016, Malvika Sharan.
+        &copy; Copyright 2017, Malvika Sharan.
 
     </p>
   </div>
@@ -400,7 +465,7 @@ executable and the libraries.</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'1.2.1',
+            VERSION:'Version 1.2.2',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

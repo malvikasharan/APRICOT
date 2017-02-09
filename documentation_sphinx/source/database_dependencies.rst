@@ -2,8 +2,8 @@
 
 |image4|
 
-Databases for running the software
-----------------------------------
+Databases dependencies
+----------------------
 
 The docker image can be used to carry out the analysis by APRICOT which
 comprise of the the main software and the required tools.

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Contact &mdash; APRICOT 1.2.1 documentation</title>
+  <title>Contact &mdash; APRICOT Version 1.2.2 documentation</title>
   
 
   
@@ -33,7 +33,9 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="APRICOT 1.2.1 documentation" href="index.html"/> 
+    <link rel="top" title="APRICOT Version 1.2.2 documentation" href="index.html"/>
+        <link rel="next" title="&lt;no title&gt;" href="contents.html"/>
+        <link rel="prev" title="A tool for sequence-based identification and characterization of protein classes" href="index.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -61,7 +63,7 @@
             
             
               <div class="version">
-                1.2
+                Version 1.2
               </div>
             
           
@@ -82,11 +84,37 @@
           
             
             
-                <!-- Local TOC -->
-                <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">Contact</a></li>
+                <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Contact</a></li>
+<li class="toctree-l1"><a class="reference internal" href="database_dependencies.html">Databases for running the software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">APRICOT Docker image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html#database-requirements-for-the-software">Database requirements for the software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html#docker-image-with-all-dependencies">Docker image with all dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FAQs.html">Frequently asked questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="for_the_developers.html">For the developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="for_the_developers.html#contact">Contact</a></li>
+<li class="toctree-l1"><a class="reference internal" href="local_installation.html">Installing APRICOT via <code class="docutils literal"><span class="pre">pip</span></code> from PyPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pipeline_overview.html">Summary of the pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pipeline_overview.html#trivia">Trivia</a></li>
+<li class="toctree-l1"><a class="reference internal" href="software_dependencies.html">Resources requirements of APRICOT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="subcommands.html">APRICOT’s subcommands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="subcommands.html#subcommand-default">subcommand <code class="docutils literal"><span class="pre">default</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="subcommands.html#subcommand-create">subcommand <code class="docutils literal"><span class="pre">create</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="subcommands.html#subcommand-taxid">subcommand <code class="docutils literal"><span class="pre">taxid</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="subcommands.html#subcommand-query">subcommand <code class="docutils literal"><span class="pre">query</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="subcommands.html#subcommand-keywords">subcommand <code class="docutils literal"><span class="pre">keywords</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="subcommands.html#subcommand-select">subcommand <code class="docutils literal"><span class="pre">select</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="subcommands.html#subcommand-predict">subcommand <code class="docutils literal"><span class="pre">predict</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="subcommands.html#subcommand-filter">subcommand <code class="docutils literal"><span class="pre">filter</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="subcommands.html#subcommand-classify">subcommand <code class="docutils literal"><span class="pre">classify</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="subcommands.html#subcommand-annoscore">subcommand <code class="docutils literal"><span class="pre">annoscore</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="subcommands.html#subcommand-addanno">subcommand <code class="docutils literal"><span class="pre">addanno</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="subcommands.html#subcommand-summary">subcommand <code class="docutils literal"><span class="pre">summary</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="subcommands.html#subcommand-format">subcommand <code class="docutils literal"><span class="pre">format</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="subcommands.html#subcommand-vis">subcommand <code class="docutils literal"><span class="pre">vis</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
 </ul>
-</div>
+
             
           
         </div>
@@ -130,10 +158,7 @@
            <div itemprop="articleBody">
             
   <p><a class="reference external" href="https://pypi.python.org/pypi/bio-apricot/"><img alt="Latest Version" src="https://img.shields.io/pypi/v/bio-apricot.svg" /></a> <a class="reference external" href="https://pypi.python.org/pypi/bio-apricot/"><img alt="License" src="https://img.shields.io/pypi/l/bio-apricot.svg" /></a> <a class="reference external" href="https://zenodo.org/badge/latestdoi/21283/malvikasharan/APRICOT"><img alt="DOI" src="https://zenodo.org/badge/21283/malvikasharan/APRICOT.svg" /></a> <a class="reference external" href="https://microbadger.com/images/malvikasharan/apricot"><img alt="image3" src="https://images.microbadger.com/badges/image/malvikasharan/apricot.svg" /></a></p>
-<div class="figure" id="id1">
-<img alt="alt tag" src="https://github.com/malvikasharan/APRICOT/blob/master/APRICOT_logo.png" />
-<p class="caption"><span class="caption-text">alt tag</span></p>
-</div>
+<p><a class="reference external" href="http://malvikasharan.github.io/APRICOT/"><img alt="image4" src="https://raw.githubusercontent.com/malvikasharan/APRICOT/master/APRICOT_logo.png" /></a></p>
 <div class="section" id="contact">
 <h1>Contact<a class="headerlink" href="#contact" title="Permalink to this headline">¶</a></h1>
 <p>For question, troubleshooting and requests, please feel free to contact
@@ -145,12 +170,21 @@ Malvika Sharan at <a class="reference external" href="mailto:malvika&#46;sharan&
           </div>
           <footer>
   
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="contents.html" class="btn btn-neutral float-right" title="&lt;no title&gt;" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="A tool for sequence-based identification and characterization of protein classes" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2016, Malvika Sharan.
+        &copy; Copyright 2017, Malvika Sharan.
 
     </p>
   </div>
@@ -172,7 +206,7 @@ Malvika Sharan at <a class="reference external" href="mailto:malvika&#46;sharan&
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'1.2.1',
+            VERSION:'Version 1.2.2',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

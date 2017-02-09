@@ -2,8 +2,11 @@
 
 |image4|
 
-Installing APRICOT via ``pip`` from PyPI
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Local installation 
+~~~~~~~~~~~~~~~~~~
+
+Installtion via ``pip`` from PyPI
+---------------------------------
 
 APRICOT is implemented in Python as a standalone and is executable on
 Ubuntu (and other debian-based) systems.
@@ -24,8 +27,8 @@ tools and datasets):
 This will globally install APRICOT, which can be called via the command
 ``apricot``, and the libraries from apricotlib will be saved.
 
-Install APRICOT via GitHub
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+Getting the software directly from GitHub
+-----------------------------------------
 
 APRICOT is implemented in Python3 and can be executed in Linux/Unix
 systems. APRICOT requires few third party packages, namely
@@ -63,7 +66,7 @@ An additional step for the installation of the third party tools and the
 databases, which are required to carry out analysis by the software.
 
 The shell script:
-`APRICOT/shell\_scripts/apricot\_minimum\_required\_files.sh <https://raw.githubusercontent.com/malvikasharan/APRICOT/master/shell_scripts/apricot_minimum_required_files.sh>`__,
+`apricot\_minimum\_required\_files.sh <https://raw.githubusercontent.com/malvikasharan/APRICOT/master/shell_scripts/apricot_minimum_required_files.sh>`__,
 can be installed locally that could be used for multiple analysis.
 
 ::
@@ -73,7 +76,7 @@ can be installed locally that could be used for multiple analysis.
 
 This script will install all the required tools and will create a
 directory ``source_files`` with all the required datasets as dicussed
-`here <.././software_dependencies/index.html>`__.
+`here <./software_requirements.html>`__.
 
 .. |Latest Version| image:: https://img.shields.io/pypi/v/bio-apricot.svg
    :target: https://pypi.python.org/pypi/bio-apricot/

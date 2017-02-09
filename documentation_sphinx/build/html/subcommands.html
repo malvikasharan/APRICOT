@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>APRICOT’s subcommands &mdash; APRICOT 1.2.1 documentation</title>
+  <title>Subcommands &mdash; APRICOT Version 1.2.2 documentation</title>
   
 
   
@@ -33,7 +33,9 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="APRICOT 1.2.1 documentation" href="index.html"/> 
+    <link rel="top" title="APRICOT Version 1.2.2 documentation" href="index.html"/>
+        <link rel="next" title="Running software using Docker" href="docker.html"/>
+        <link rel="prev" title="Overview" href="overview.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -61,7 +63,7 @@
             
             
               <div class="version">
-                1.2
+                Version 1.2
               </div>
             
           
@@ -82,28 +84,38 @@
           
             
             
-                <!-- Local TOC -->
-                <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">APRICOT’s subcommands</a></li>
-<li><a class="reference internal" href="#subcommand-default">subcommand <code class="docutils literal"><span class="pre">default</span></code></a></li>
-<li><a class="reference internal" href="#subcommand-create">subcommand <code class="docutils literal"><span class="pre">create</span></code></a></li>
-<li><a class="reference internal" href="#subcommand-taxid">subcommand <code class="docutils literal"><span class="pre">taxid</span></code></a></li>
-<li><a class="reference internal" href="#subcommand-query">subcommand <code class="docutils literal"><span class="pre">query</span></code></a></li>
-<li><a class="reference internal" href="#subcommand-keywords">subcommand <code class="docutils literal"><span class="pre">keywords</span></code></a></li>
-<li><a class="reference internal" href="#subcommand-select">subcommand <code class="docutils literal"><span class="pre">select</span></code></a></li>
-<li><a class="reference internal" href="#subcommand-predict">subcommand <code class="docutils literal"><span class="pre">predict</span></code></a></li>
-<li><a class="reference internal" href="#subcommand-filter">subcommand <code class="docutils literal"><span class="pre">filter</span></code></a><ul>
-<li><a class="reference internal" href="#sub-commands-for-downstream-analysis">Sub-commands for downstream analysis</a></li>
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Subcommands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#subcommand-default">subcommand <code class="docutils literal"><span class="pre">default</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#subcommand-create">subcommand <code class="docutils literal"><span class="pre">create</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#subcommand-taxid">subcommand <code class="docutils literal"><span class="pre">taxid</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#subcommand-query">subcommand <code class="docutils literal"><span class="pre">query</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#subcommand-keywords">subcommand <code class="docutils literal"><span class="pre">keywords</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#subcommand-select">subcommand <code class="docutils literal"><span class="pre">select</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#subcommand-predict">subcommand <code class="docutils literal"><span class="pre">predict</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#subcommand-filter">subcommand <code class="docutils literal"><span class="pre">filter</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#sub-commands-for-downstream-analysis">Sub-commands for downstream analysis</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#subcommand-classify">subcommand <code class="docutils literal"><span class="pre">classify</span></code></a></li>
-<li><a class="reference internal" href="#subcommand-annoscore">subcommand <code class="docutils literal"><span class="pre">annoscore</span></code></a></li>
-<li><a class="reference internal" href="#subcommand-addanno">subcommand <code class="docutils literal"><span class="pre">addanno</span></code></a></li>
-<li><a class="reference internal" href="#subcommand-summary">subcommand <code class="docutils literal"><span class="pre">summary</span></code></a></li>
-<li><a class="reference internal" href="#subcommand-format">subcommand <code class="docutils literal"><span class="pre">format</span></code></a></li>
-<li><a class="reference internal" href="#subcommand-vis">subcommand <code class="docutils literal"><span class="pre">vis</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#subcommand-classify">subcommand <code class="docutils literal"><span class="pre">classify</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#subcommand-annoscore">subcommand <code class="docutils literal"><span class="pre">annoscore</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#subcommand-addanno">subcommand <code class="docutils literal"><span class="pre">addanno</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#subcommand-summary">subcommand <code class="docutils literal"><span class="pre">summary</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#subcommand-format">subcommand <code class="docutils literal"><span class="pre">format</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#subcommand-vis">subcommand <code class="docutils literal"><span class="pre">vis</span></code></a></li>
 </ul>
-</div>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Running software using Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Local installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="database_dependencies.html">Databases dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FAQs.html">Frequently asked questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="for_the_developers.html">For the developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contact.html">Contact</a></li>
+</ul>
+
             
           
         </div>
@@ -132,7 +144,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="index.html">Docs</a> &raquo;</li>
       
-    <li>APRICOT’s subcommands</li>
+    <li>Subcommands</li>
       <li class="wy-breadcrumbs-aside">
         
           
@@ -147,12 +159,9 @@
            <div itemprop="articleBody">
             
   <p><a class="reference external" href="https://pypi.python.org/pypi/bio-apricot/"><img alt="Latest Version" src="https://img.shields.io/pypi/v/bio-apricot.svg" /></a> <a class="reference external" href="https://pypi.python.org/pypi/bio-apricot/"><img alt="License" src="https://img.shields.io/pypi/l/bio-apricot.svg" /></a> <a class="reference external" href="https://zenodo.org/badge/latestdoi/21283/malvikasharan/APRICOT"><img alt="DOI" src="https://zenodo.org/badge/21283/malvikasharan/APRICOT.svg" /></a> <a class="reference external" href="https://microbadger.com/images/malvikasharan/apricot"><img alt="image3" src="https://images.microbadger.com/badges/image/malvikasharan/apricot.svg" /></a></p>
-<div class="figure" id="id1">
-<img alt="alt tag" src="https://github.com/malvikasharan/APRICOT/blob/master/APRICOT_logo.png" />
-<p class="caption"><span class="caption-text">alt tag</span></p>
-</div>
-<div class="section" id="apricots-subcommands">
-<h1>APRICOT’s subcommands<a class="headerlink" href="#apricots-subcommands" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="http://malvikasharan.github.io/APRICOT/"><img alt="image4" src="https://raw.githubusercontent.com/malvikasharan/APRICOT/master/APRICOT_logo.png" /></a></p>
+<div class="section" id="subcommands">
+<h1>Subcommands<a class="headerlink" href="#subcommands" title="Permalink to this headline">¶</a></h1>
 <p>APRICOT comprises of distinct model designed to carry out specific task.</p>
 <p>Each subcommand requires the path to the analysis folder
 (&#8216;APRICOT_analysis&#8217; by deafult). Different subcommands can be quickly
@@ -195,9 +204,8 @@ viewed by running <code class="docutils literal"><span class="pre">-h</span></co
   <span class="o">--</span><span class="n">version</span><span class="p">,</span> <span class="o">-</span><span class="n">v</span>         <span class="n">show</span> <span class="n">version</span>
 </pre></div>
 </div>
-</div>
 <div class="section" id="subcommand-default">
-<h1>subcommand <code class="docutils literal"><span class="pre">default</span></code><a class="headerlink" href="#subcommand-default" title="Permalink to this headline">¶</a></h1>
+<h2>subcommand <code class="docutils literal"><span class="pre">default</span></code><a class="headerlink" href="#subcommand-default" title="Permalink to this headline">¶</a></h2>
 <p>Quick help: <code class="docutils literal"><span class="pre">$</span> <span class="pre">apricot</span> <span class="pre">default</span> <span class="pre">-h</span></code></p>
 <p>This subcommand calls the analysis pipeline of the software using the
 default parameters. This subcommand by-default includes the subcommands
@@ -211,14 +219,14 @@ example, a list of RNA-binding domains &#8216;RRM,KH,RNP&#8217;) respectively.</
 <div class="highlight-default"><div class="highlight"><pre><span></span>$ apricot default -i {query proteins} -kw {functions of interest}
 </pre></div>
 </div>
-<p>There are several default and optional arguments few of which have been
-explained below, please check the usage for details:</p>
+<p>Several optional arguments associated with other subcommands have been included in <code class="docutils literal"><span class="pre">default</span></code>.
+Please check the usage for details:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">apricot</span> <span class="n">default</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="subcommand-create">
-<h1>subcommand <code class="docutils literal"><span class="pre">create</span></code><a class="headerlink" href="#subcommand-create" title="Permalink to this headline">¶</a></h1>
+<h2>subcommand <code class="docutils literal"><span class="pre">create</span></code><a class="headerlink" href="#subcommand-create" title="Permalink to this headline">¶</a></h2>
 <p>Quick help: <code class="docutils literal"><span class="pre">$</span> <span class="pre">apricot</span> <span class="pre">create</span> <span class="pre">-h</span></code></p>
 <p>This subcommand creates all the required directories to store input and
 output data acquired from APRICOT analysis. The main analysis folder can
@@ -256,7 +264,7 @@ folder in the analysis directory:</p>
 </div>
 </div>
 <div class="section" id="subcommand-taxid">
-<h1>subcommand <code class="docutils literal"><span class="pre">taxid</span></code><a class="headerlink" href="#subcommand-taxid" title="Permalink to this headline">¶</a></h1>
+<h2>subcommand <code class="docutils literal"><span class="pre">taxid</span></code><a class="headerlink" href="#subcommand-taxid" title="Permalink to this headline">¶</a></h2>
 <p>Quick help: <code class="docutils literal"><span class="pre">$</span> <span class="pre">apricot</span> <span class="pre">taxid</span> <span class="pre">-h</span></code></p>
 <p>The users can provide gene ids or protein names as queries to APRICOT,
 which is mapped against UniProt Knowledgebase in order to extract
@@ -287,7 +295,7 @@ directory reference_db_files.</p>
 </div>
 </div>
 <div class="section" id="subcommand-query">
-<h1>subcommand <code class="docutils literal"><span class="pre">query</span></code><a class="headerlink" href="#subcommand-query" title="Permalink to this headline">¶</a></h1>
+<h2>subcommand <code class="docutils literal"><span class="pre">query</span></code><a class="headerlink" href="#subcommand-query" title="Permalink to this headline">¶</a></h2>
 <p>Quick help: <code class="docutils literal"><span class="pre">$</span> <span class="pre">apricot</span> <span class="pre">query</span> <span class="pre">-h</span></code></p>
 <p>As mentioned already, APRICOT gives multiple options to the users to
 supply queries. For example, the queries can be provided as UniProt ids
@@ -359,7 +367,7 @@ files etc.) in the directories as described below.</p>
 </div>
 </div>
 <div class="section" id="subcommand-keywords">
-<h1>subcommand <code class="docutils literal"><span class="pre">keywords</span></code><a class="headerlink" href="#subcommand-keywords" title="Permalink to this headline">¶</a></h1>
+<h2>subcommand <code class="docutils literal"><span class="pre">keywords</span></code><a class="headerlink" href="#subcommand-keywords" title="Permalink to this headline">¶</a></h2>
 <p>Quick help: <code class="docutils literal"><span class="pre">$</span> <span class="pre">apricot</span> <span class="pre">keywords</span> <span class="pre">-h</span></code></p>
 <p>Since APRICOT allows identification of certain protein classes like
 RNA-binding proteins by means of domains, one of the most essential
@@ -419,7 +427,7 @@ subfolder <code class="docutils literal"><span class="pre">domain_data</span></c
 </div>
 </div>
 <div class="section" id="subcommand-select">
-<h1>subcommand <code class="docutils literal"><span class="pre">select</span></code><a class="headerlink" href="#subcommand-select" title="Permalink to this headline">¶</a></h1>
+<h2>subcommand <code class="docutils literal"><span class="pre">select</span></code><a class="headerlink" href="#subcommand-select" title="Permalink to this headline">¶</a></h2>
 <p>Quick help: <code class="docutils literal"><span class="pre">apricot</span> <span class="pre">select</span> <span class="pre">-h</span></code></p>
 <p>This subcommand allows the selection of reference domains based on the
 <em>domain selection terms</em> (in subcommand keywords). For this purpose,
@@ -474,7 +482,7 @@ all_keyword_selected_domain_data.tab in the domain_data.</p>
 </div>
 </div>
 <div class="section" id="subcommand-predict">
-<h1>subcommand <code class="docutils literal"><span class="pre">predict</span></code><a class="headerlink" href="#subcommand-predict" title="Permalink to this headline">¶</a></h1>
+<h2>subcommand <code class="docutils literal"><span class="pre">predict</span></code><a class="headerlink" href="#subcommand-predict" title="Permalink to this headline">¶</a></h2>
 <p>Quick help: <code class="docutils literal"><span class="pre">$</span> <span class="pre">apricot</span> <span class="pre">predict</span> <span class="pre">-h</span></code></p>
 <p>This subcommand is used to begin the process of domain predictions in
 the query proteins by all the possible functional domains using RPSBLAST
@@ -544,7 +552,7 @@ functional classes.</p>
 </div>
 </div>
 <div class="section" id="subcommand-filter">
-<h1>subcommand <code class="docutils literal"><span class="pre">filter</span></code><a class="headerlink" href="#subcommand-filter" title="Permalink to this headline">¶</a></h1>
+<h2>subcommand <code class="docutils literal"><span class="pre">filter</span></code><a class="headerlink" href="#subcommand-filter" title="Permalink to this headline">¶</a></h2>
 <p>Quick help: <code class="docutils literal"><span class="pre">$</span> <span class="pre">apricot</span> <span class="pre">filter</span> <span class="pre">-h</span></code></p>
 <p>The filtering of the predicted domains by this subcommand take place by
 using the <em>domain selection terms</em>, hence this subcommand should be
@@ -640,11 +648,11 @@ resources like UniProt and Gene Ontology .</p>
 </pre></div>
 </div>
 <div class="section" id="sub-commands-for-downstream-analysis">
-<h2>Sub-commands for downstream analysis<a class="headerlink" href="#sub-commands-for-downstream-analysis" title="Permalink to this headline">¶</a></h2>
+<h3>Sub-commands for downstream analysis<a class="headerlink" href="#sub-commands-for-downstream-analysis" title="Permalink to this headline">¶</a></h3>
 </div>
 </div>
 <div class="section" id="subcommand-classify">
-<h1>subcommand <code class="docutils literal"><span class="pre">classify</span></code><a class="headerlink" href="#subcommand-classify" title="Permalink to this headline">¶</a></h1>
+<h2>subcommand <code class="docutils literal"><span class="pre">classify</span></code><a class="headerlink" href="#subcommand-classify" title="Permalink to this headline">¶</a></h2>
 <p>Quick help: <code class="docutils literal"><span class="pre">$</span> <span class="pre">apricot</span> <span class="pre">classify</span> <span class="pre">-h</span></code></p>
 <p>This subcommand classifies the resulting domain information of the
 selected queries by using the <em>result classification terms</em> (provided in
@@ -678,7 +686,7 @@ the subcommand &#8216;keywords&#8217;).</p>
 </div>
 </div>
 <div class="section" id="subcommand-annoscore">
-<h1>subcommand <code class="docutils literal"><span class="pre">annoscore</span></code><a class="headerlink" href="#subcommand-annoscore" title="Permalink to this headline">¶</a></h1>
+<h2>subcommand <code class="docutils literal"><span class="pre">annoscore</span></code><a class="headerlink" href="#subcommand-annoscore" title="Permalink to this headline">¶</a></h2>
 <p>This subcommand is executed for the annotation based scoring of the
 selcted domains in the query proteins.</p>
 <p>In order to differentiate domain predictions of low confidence from that
@@ -719,7 +727,7 @@ Prediction parameters of the predicted sites</p>
 </div>
 </div>
 <div class="section" id="subcommand-addanno">
-<h1>subcommand <code class="docutils literal"><span class="pre">addanno</span></code><a class="headerlink" href="#subcommand-addanno" title="Permalink to this headline">¶</a></h1>
+<h2>subcommand <code class="docutils literal"><span class="pre">addanno</span></code><a class="headerlink" href="#subcommand-addanno" title="Permalink to this headline">¶</a></h2>
 <p>Quick help: <code class="docutils literal"><span class="pre">$</span> <span class="pre">apricot</span> <span class="pre">addanno</span> <span class="pre">-h</span></code></p>
 <p>This subcommand allows users to further annotate the query sequences
 that are selected based on the defined functional domains.</p>
@@ -786,7 +794,7 @@ below:</p>
 </div>
 </div>
 <div class="section" id="subcommand-summary">
-<h1>subcommand <code class="docutils literal"><span class="pre">summary</span></code><a class="headerlink" href="#subcommand-summary" title="Permalink to this headline">¶</a></h1>
+<h2>subcommand <code class="docutils literal"><span class="pre">summary</span></code><a class="headerlink" href="#subcommand-summary" title="Permalink to this headline">¶</a></h2>
 <p>Quick help: <code class="docutils literal"><span class="pre">$</span> <span class="pre">apricot</span> <span class="pre">summary</span> <span class="pre">-h</span></code></p>
 <p>To get an overview of the analysis carried out on a set of query
 proteins, this sub command can be used. It generate information like,
@@ -823,7 +831,7 @@ the corresponding sub-folders, as shown below:</p>
 </div>
 </div>
 <div class="section" id="subcommand-format">
-<h1>subcommand <code class="docutils literal"><span class="pre">format</span></code><a class="headerlink" href="#subcommand-format" title="Permalink to this headline">¶</a></h1>
+<h2>subcommand <code class="docutils literal"><span class="pre">format</span></code><a class="headerlink" href="#subcommand-format" title="Permalink to this headline">¶</a></h2>
 <p>Quick help: <code class="docutils literal"><span class="pre">$</span> <span class="pre">apricot</span> <span class="pre">format</span> <span class="pre">-h</span></code></p>
 <p>Formats and stores various tables in the HTML tabels (&#8211;html), excel
 files (&#8211;xlsx) or both.</p>
@@ -853,7 +861,7 @@ the corresponding sub-folders, as shown below:</p>
 </div>
 </div>
 <div class="section" id="subcommand-vis">
-<h1>subcommand <code class="docutils literal"><span class="pre">vis</span></code><a class="headerlink" href="#subcommand-vis" title="Permalink to this headline">¶</a></h1>
+<h2>subcommand <code class="docutils literal"><span class="pre">vis</span></code><a class="headerlink" href="#subcommand-vis" title="Permalink to this headline">¶</a></h2>
 <p>Quick help: <code class="docutils literal"><span class="pre">$</span> <span class="pre">apricot</span> <span class="pre">vis</span> <span class="pre">-h</span></code></p>
 <p>Visualize different resulting data like predicted domains sites,
 tertiary structure of selected proteins etc.</p>
@@ -896,18 +904,28 @@ the corresponding sub-folders, as shown below:</p>
 </pre></div>
 </div>
 </div>
+</div>
 
 
            </div>
           </div>
           <footer>
   
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="docker.html" class="btn btn-neutral float-right" title="Running software using Docker" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="overview.html" class="btn btn-neutral" title="Overview" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2016, Malvika Sharan.
+        &copy; Copyright 2017, Malvika Sharan.
 
     </p>
   </div>
@@ -929,7 +947,7 @@ the corresponding sub-folders, as shown below:</p>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'1.2.1',
+            VERSION:'Version 1.2.2',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

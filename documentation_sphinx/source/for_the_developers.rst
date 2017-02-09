@@ -21,13 +21,7 @@ By default, this script generates a main analysis folder
 ``APRICOT_analysis`` and several sub-directories. To understand each
 components of the software and generated results, We recomend you to
 check out the
-`tutorial <.././APRICOT_tutorial/index.html>`__.
-
-Contact
-^^^^^^^
-
-For question, troubleshooting and requests, please feel free to contact
-Malvika Sharan at malvika.sharan@uni-wuerzburg.de.
+`tutorial <./APRICOT_tutorial.html>`__.
 
 .. |Latest Version| image:: https://img.shields.io/pypi/v/bio-apricot.svg
    :target: https://pypi.python.org/pypi/bio-apricot/

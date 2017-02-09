@@ -2,8 +2,8 @@
 
 |image4|
 
-APRICOT TUTORIAL
-================
+Tutorial
+========
 
 This tutorial provides an easy way to test different modules of APRICOT
 and understand the basic usage of this pipeline.
@@ -14,14 +14,14 @@ Requirements:
 1) Get APRICOT software
 
 The software can be used via `Docker
-container <.././docker/index.html>`__,
+container <./docker.html>`__,
 or can be installed locally as explained
-`here <.././local_installation/index.html>`__.
+`here <./installation.html>`__.
 
 2) Get the Shell script for running the software
 
 Use wget or curl to download the script
-`run\_example.sh <https://github.com/malvikasharan/APRICOT/blob/master/shell_scripts/run_example.sh>`__
+`run\_example.sh <https://raw.githubusercontent.com/malvikasharan/APRICOT/master/shell_scripts/run_example.sh>`__
 inside the Docker container (when working with Docker) or locally (when
 using the locally installed software), which will assist you in
 following the tutorial.
@@ -40,12 +40,12 @@ Not required for this tutorial
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 APRICOT requires `supporting
-data <.././docker/index.html>`__
+data <./docker.html>`__
 in order to carry out analysis of the user provided queries. In
 addition, for carrying out additional annotation of the proteins with
 biological features, it uses locally installed Psort and RaptorX
 executable. These requirements have been discussed in detail in the
-`documentation <.././software_dependencies/index.html>`__.
+`documentation <./software_requirements.html>`__.
 We will **NOT** require those for this tutorial, instead we have
 provided pre-processed files that should allow you to test the
 functionality of the tool. The test files are avaialable at: `Zenodo
