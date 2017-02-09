@@ -119,9 +119,9 @@ $FULL\_PATH\_SOURCE\_FILES):
 ::
 
 	## if the docker is started in the same path where the supporting data exists set the following path
-	#$ FULL_PATH_SOURCE_FILES=$pwd
+	#$ FULL_PATH_SOURCE_FILES=`pwd`
 	
-	$ docker run -it -v /{$FULL_PATH_SOURCE_FILES}/source_files/:/home/source_files malvikasharan/apricot bash
+	$ docker run -it -v /$FULL_PATH_SOURCE_FILES/source_files/:/home/source_files malvikasharan/apricot bash
 	$ cd home
 
 Skip this step when working in the Docker container already.

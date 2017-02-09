@@ -57,11 +57,11 @@ Quick help: ``$ apricot default -h``
 
 This subcommand calls the analysis pipeline of the software using the
 default parameters. This subcommand by-default includes the subcommands
-``create``, ``select``, ``predict``, ``filter``, ``classify``,
+``create``, ``keywords``, ``select``, ``predict``, ``filter``, ``classify``,
 ``annoscore``, ``summary`` and ``format``, which have been discussed
-below in details. The two subcommands ``query (-i)`` and
-``keywords (-kw)``, should be used by the users to provide the query
-proteins (for example, UniProt ids) and functions of interest (for
+below in details. The two inputs: ``-i`` and
+``-kw``, should be given by the users to supply the query
+proteins (for example, UniProt ids) and keywords indicating the functions of interest (for
 example, a list of RNA-binding domains 'RRM,KH,RNP') respectively.
 
 The basic syntax to call this subcommand is:
@@ -86,8 +86,9 @@ Here are a few useful flags, which can be used with this subcommand:
 	--classify, -cl		Optional comma separated keyword for result classification
 	--cdd, -C		Uses only CDD
 	--ipr, -I		Uses only InterPro
-	--skip_select		Skips running the subcommand 'select'
 	--needle_dir, -nd	path for the locally configured EMBOSS suite
+	--skip_select		Skips running the subcommand 'select'
+	--skip_annoscore		Skips running the subcommand 'annoscore'
 	
 	--taxid, -tx		Select taxonomy id for query species
 	--geneids, -gi		Comma separated query genes

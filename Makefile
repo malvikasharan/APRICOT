@@ -20,7 +20,7 @@ show_html_docs:
 	firefox documentation/build/html/index.html &
 
 upload_doc:
-	rm bio-apricot_docs.zip
+	#rm bio-apricot_docs.zip
 	cd documentation/build/html/ && zip -r bio-apricot_docs.zip * && cd ../../.. && mv documentation/build/html/bio-apricot_docs.zip .
 	@echo ""
 	@echo "Upload bio-apricot_docs.zip at https://pypi.python.org/pypi?%3Aaction=pkg_edit&name=bio-apricot"

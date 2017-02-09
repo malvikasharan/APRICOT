@@ -241,7 +241,7 @@ def main():
         "keywords",
         help="Save user provided keywords for domain selection (required) and analysis classification (-cl)")
     keyword_input_parser.set_defaults(func=keyword_input)
-    keyword_input_parser.add_argument("kw_domain",
+    keyword_input_parser.add_argument("--kw_domain", '-kw',
         help="Comma separated keywords for domain selection")
     keyword_input_parser.add_argument("--classify", "-cl",
         help="Optional comma separated keyword for result classification")
@@ -986,6 +986,7 @@ def output_format(args):
 def minimum_subcommands(args):
     create_folders(args)
     query_set(args)
+    keyword_input(args)
     select_domain_data(args)
     run_domain_analysis(args)
     filter_domain(args)
