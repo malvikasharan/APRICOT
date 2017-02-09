@@ -23,7 +23,7 @@ Copyright (c) 2011-2016, Malvika Sharan, <malvika.sharan@uni-wuerzburg.de>
 
 ###Working with APRICOT software
 
-**The complete documentation (manual,tutorials etc.) is hosted at http://pythonhosted.org/bio-apricot.**
+**The complete documentation (manual, tutorials etc.) is hosted at http://pythonhosted.org/bio-apricot.**
 
 Here we provide a brief information on obtaining and using the software. 
 
