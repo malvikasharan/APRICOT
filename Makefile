@@ -13,13 +13,13 @@ package_to_pypi:
 	@echo "Go to https://pypi.python.org/pypi/bio-apricot/"
 
 html_doc:
-	cd documentation_sphinx && make html && cd ..
+	cd documentation && make html && cd ..
 
 show_html_docs:
-	firefox documentation_sphinx/build/html/index.html &
+	firefox documentation/build/html/index.html &
 
 upload_doc:
-	cd docs/build/html/ && zip -r bio-apricot_docs.zip * && cd ../../.. && mv docs/build/html/bio-apricot_docs.zip .
+	cd documentation/build/html/ && zip -r bio-apricot_docs.zip * && cd ../../.. && mv documentation/build/html/bio-apricot_docs.zip .
 	@echo ""
 	@echo "Upload bio-apricot_docs.zip at https://pypi.python.org/pypi?%3Aaction=pkg_edit&name=bio-APRICOT"
 
