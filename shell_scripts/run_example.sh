@@ -10,7 +10,7 @@ ANALYSIS_PATH=APRICOT_analysis
 APRICOT_PATH=APRICOT
 APRICOT_LIB_PATH=APRICOT/apricotlib
 ROOT_DB_PATH=source_files
-NEEDLE_EMBOSS_PATH=/home/emboss/needle/emboss/needle
+NEEDLE_EMBOSS_PATH=needle
 PFAM_RELEASE=Pfam30.0
 #########################################################################
 
@@ -108,7 +108,7 @@ main(){
     ## It is installed using the Dockerfile or provided shell scripts for installation
     ## or, if already installed, please change the path name $NEEDLE_EMBOSS_PATH
     
-    #calculate_annotation_score	  # subcommand annoscore
+    calculate_annotation_score	  # subcommand annoscore
 }
 
 set_up_analysis_folder(){

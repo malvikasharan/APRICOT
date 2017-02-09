@@ -85,7 +85,7 @@ def main():
     minimum_default_pipeline.add_argument("--bit", "-bit", default=None,
         help="Bit score in predicted domain")
     minimum_default_pipeline.add_argument("--needle_dir", "-nd",
-        default="source_files/reference_db_files/needle/emboss/needle",
+        default="needle",
         help="path for the locally configured EMBOSS suite")
     minimum_default_pipeline.add_argument("--html", "-HT",
         default=True, action="store_true")
@@ -378,7 +378,7 @@ def main():
         default="output/3_annotation_scoring",
         help="Output path for annotation scoring files")
     get_annotation_scoring.add_argument("--needle_dir", "-nd",
-        default="source_files/reference_db_files/needle/emboss/needle",
+        default="needle",
         help="path for the locally configured EMBOSS suite")
     
     get_analysis_summary = subparsers.add_parser(

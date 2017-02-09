@@ -163,7 +163,9 @@ class VizApricotAnalysis(object):
                 plt.ylabel('Filter/Bayesian score')
                 plt.savefig(os.path.join(self._overview, 'viz_annotation_scoring.png'))
         else:
-            print("The data for annotation scores do not exist!")
+            print('The data for annotation scores do not exist,'
+                  'please calculate the annotation score using the subcommand'
+                  '"annoscore", the flag "-nd" can be used to specify the absolute path for needle.')
                 
     def viz_secondary_structure(self):
         for uid in self._uid_key_dict.keys():
