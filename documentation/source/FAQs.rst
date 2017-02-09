@@ -61,6 +61,10 @@ using the script run\_example.sh. Why can't I run the subcommand
 -  Terms containing multiple keywords can be provided using a hyphen (-)
    and "#" can be used before or after the term as a wild-card. Please
    see the documentation for other specific detail.
+   
+**4) Why do I get an error message 'Error: Unknown argument: "i"' when running 'rpsblast' in the subcommand `predict`?**
+
+-  This error appears when the user is using 'rpsblast' command from an older version of NCBI-BLAST package. The options -query (query protein file), -db (database) and -out (output path) are used instead of -i, -d and -o, which were the corresponding flags in the older version.
 
 Do you have any specific question? Please submit it here, we will address it as soon as possible.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

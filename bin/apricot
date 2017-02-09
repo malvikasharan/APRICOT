@@ -29,7 +29,7 @@ __author__ = "Malvika Sharan <malvikasharan@uni-wuerzburg.de>"
 __copyright__ = "2016 by Malvika Sharan <malvikasharan@uni-wuerzburg.de>"
 __license__ = "ISC license"
 __email__ = "malvikasharan@uni-wuerzburg.de>"
-__version__ = "1.2.3"
+__version__ = "1.2.4"
 
 def main():
     parser = argparse.ArgumentParser()
@@ -67,6 +67,9 @@ def main():
     minimum_default_pipeline.add_argument("--skip_select", '-skip_select',
         default=False, action="store_true",
         help="Skips running the subcommand 'select'")
+    minimum_default_pipeline.add_argument("--skip_annoscore", '-skip_annoscore',
+        default=False, action="store_true",
+        help="Skips running the subcommand 'annoscore'")
     minimum_default_pipeline.add_argument("--classify", "-cl",
         help="Optional comma separated keyword for result classification")
     minimum_default_pipeline.add_argument("--db_root", "-dr",
@@ -380,6 +383,9 @@ def main():
     get_annotation_scoring.add_argument("--needle_dir", "-nd",
         default="needle",
         help="path for the locally configured EMBOSS suite")
+    get_annotation_scoring.add_argument("--skip_annoscore", '-skip_annoscore',
+        default=False, action="store_true",
+        help="Skips running the subcommand 'annoscore'")
     
     get_analysis_summary = subparsers.add_parser(
         "summary", help="Summary analysis output")
@@ -606,6 +612,8 @@ def keyword_input(args):
 
 def select_domain_data(args):
     if not args.skip_select:
+        print('\n----------------------------------------------------------------\n'
+               'If using the same set of keywords for the other analysis, use "--skip_select" to skip this subcommand.\n\n')
         domain_path = os.path.join(args.db_root, 'domain_data')
         cdd_domain_path = os.path.join(domain_path, 'cdd')
         ipr_domain_path = os.path.join(domain_path, 'interpro')
@@ -618,24 +626,21 @@ def select_domain_data(args):
                                            'mapped_interpro_to_cdd_length.csv')
         
         if args.cdd:
-            print("\n----------------------------------------------------------------\n"
-                "Selecting domains from CDD only"
+            print("Selecting domains from CDD only"
                 "\n----------------------------------------------------------------\n")
             keyword_selected_cdd_selection = KeywordBasedDomainSelection(
                 args.dom_kw, pfam_domain_file, cdd_table, ipr_table, 
                 interpro_mapped_cdd, cdd_domain_path, ipr_domain_path)
             keyword_selected_cdd_selection.select_cdd_domains()
         elif args.ipr:
-            print("\n----------------------------------------------------------------\n"
-                "Selecting domains from InterPro only"
+            print("Selecting domains from InterPro only"
                 "\n----------------------------------------------------------------\n")
             keyword_selected_ipr_selection = KeywordBasedDomainSelection(
                 args.dom_kw, pfam_domain_file, cdd_table, ipr_table,
                 interpro_mapped_cdd, cdd_domain_path, ipr_domain_path)
             keyword_selected_ipr_selection.select_ipr_domains()
         else:
-            print("\n----------------------------------------------------------------\n"
-                  "Selecting domains from both the databases"
+            print("Selecting domains from both the databases"
                 "\n----------------------------------------------------------------\n")
             keyword_selected_cdd_selection = KeywordBasedDomainSelection(
                 args.dom_kw, pfam_domain_file, cdd_table, ipr_table,
@@ -647,7 +652,7 @@ def select_domain_data(args):
         selected_domain_path)
     else:
         print("\n----------------------------------------------------------------\n"
-              "Skip running the subcommand 'select' due to the given flag '--skip_select'"
+              'Skip running the subcommand "select" by the given flag "-skip_select"\n'
               "\n----------------------------------------------------------------\n")
 
 def run_domain_analysis(args):
@@ -678,6 +683,10 @@ def run_domain_analysis(args):
             force_ipr_based_pred(args.fasta_path, analysis_path_ipr, args.ipr_db)
 
 def cdd_based_pred(fasta_path, outpath, cdd_db):
+    print("\n----------------------------------------------------------------\n"
+          'Please update the BLAST package if you see the following error message:\n'
+          '!! [rpsblast] ERROR: Invalid argument !!'
+          "\n----------------------------------------------------------------\n")
     for fasta in os.listdir(fasta_path):
         filename = fasta.split('.')[0]
         if os.path.exists(outpath + '/' + filename + '.txt'):
@@ -685,10 +694,14 @@ def cdd_based_pred(fasta_path, outpath, cdd_db):
         else:
             print("CDD based domain prediction for file %s..." % filename)
             cdd_process = subprocess.Popen(
-                ["rpsblast -i %s/%s -d %s/Cdd -o %s/%s.txt" % (
+                ["rpsblast -query %s/%s -db %s/Cdd -out %s/%s.txt" % (
                 fasta_path, fasta, cdd_db, outpath, filename)], shell=True).wait()
             
 def force_cdd_based_pred(fasta_path, outpath, cdd_db):
+    print("\n----------------------------------------------------------------\n"
+          'Please update the BLAST package if you see the following error message:\n'
+          '!! [rpsblast] ERROR: Invalid argument !!'
+          "\n----------------------------------------------------------------\n")
     for fasta in os.listdir(fasta_path):
         filename = fasta.split('.')[0]
         if os.path.exists(outpath + '/' + filename + '.txt'):
@@ -696,8 +709,8 @@ def force_cdd_based_pred(fasta_path, outpath, cdd_db):
             os.remove(outpath + '/' + filename + '.txt')
         print("CDD based domain prediction for file %s..." % filename)
         cdd_process = subprocess.Popen(
-            ["rpsblast -i %s/%s -d %s/Cdd -o %s/%s.txt" % (
-            fasta_path, fasta, cdd_db, outpath, filename)], shell=True).wait()
+                ["rpsblast -query %s/%s -db %s/Cdd -out %s/%s.txt" % (
+                fasta_path, fasta, cdd_db, outpath, filename)], shell=True).wait()
             
 def ipr_based_pred(fasta_path, outpath, ipr_db):
     for fasta in os.listdir(fasta_path):
@@ -812,17 +825,23 @@ def classify_output(args):
     protein_classification.streamline_protein_classification()
 
 def annotation_scoring(args):
-    print("\n----------------------------------------------------------------\n"
-      "Calculating annotation scores for the selected domain data\n"
-      "This might take some time, please be patient ..."
-    "\n----------------------------------------------------------------\n")
-    outpath = args.analysis_path + '/' + args.scored
-    needle_path = args.needle_dir
-    select_data = args.analysis_path + '/' + args.selected
-    cdd_pred = args.analysis_path + '/' + args.cdd_pred
-    compute_composition_distance = ComputeCompositionDistance(
-    select_data, cdd_pred, outpath, needle_path)
-    compute_composition_distance.streamline_annotation_scoring()
+    if not args.skip_annoscore:
+        print("\n----------------------------------------------------------------\n"
+          "This might take some time, please be patient ..."
+          "Calculating annotation scores for the selected domain data\n"
+          'This subcommand can be skipped by using option "-skip_annoscore"'
+        "\n----------------------------------------------------------------\n")
+        outpath = args.analysis_path + '/' + args.scored
+        needle_path = args.needle_dir
+        select_data = args.analysis_path + '/' + args.selected
+        cdd_pred = args.analysis_path + '/' + args.cdd_pred
+        compute_composition_distance = ComputeCompositionDistance(
+        select_data, cdd_pred, outpath, needle_path)
+        compute_composition_distance.streamline_annotation_scoring()
+    else:
+        print("\n----------------------------------------------------------------\n"
+              'Skip running the subcommand "annoscore" by the given flag "-skip_annoscore"\n'
+              "\n----------------------------------------------------------------\n")
 
 def analysis_summary(args):
     summary_out = args.analysis_path + '/' + args.summarized #output/5_analysis_summary

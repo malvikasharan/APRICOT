@@ -305,9 +305,9 @@ class ComputeCompositionDistance(object):
                                                     stdout, stderr = needle_cline_seq()
                                                 except:
                                                     print('Please install needle commanline tool from EMBOSS  package'
-                                                          'if not working inside the APRICOT Docker container,\n'
-                                                          'the path can be provided using the flag "-nd".'
-                                                          'Please check the documentation for details.'
+                                                          ' if not working inside the APRICOT Docker container,\n'
+                                                          ' the path can be provided using the flag "-nd".'
+                                                          ' Please check the documentation for details.'
                                                           '\n!!!!  Exiting the subcommand "annoscore" !!!!\n')
                                                     return()
                                                 for entry_seq in stdout.split('\n'):
