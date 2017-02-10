@@ -106,24 +106,23 @@ class FilterPredictedDomains(object):
                     self._analysis_result_path+'/'+individual_rps_result_file
             ) as individual_rps_result_fh:
                 for individual_rps_result_section in \
-                individual_rps_result_fh.read().split('>gnl'):
-                    if individual_rps_result_section.startswith('|CDD|'):
+                individual_rps_result_fh.read().split('>'):
+                    if individual_rps_result_section.startswith(
+                        '|CDD|') or individual_rps_result_section.startswith('CDD:'):
                         stat_data = individual_rps_result_section.split(
                             "Score = ")
                         for individual_rps_result in stat_data[0].split('\n'):
-                            if individual_rps_result.startswith('|CDD|'):
+                            if individual_rps_result.startswith(
+                                '|CDD|') or individual_rps_result.startswith('CDD:'):
                                 cdd_main = self._compile_cdd_main(
                                     individual_rps_result)
-                            try:
-                                if "Length =" in individual_rps_result or "Length=" in individual_rps_result:
-                                    if " = " in individual_rps_result:
-                                        individual_rps_result = individual_rps_result.replace(" = ", "=")
-                                    length = individual_rps_result.split(
-                                        'Length=')[1].strip()
-                            except:
-                                length = self._domain_length[
-                                    cdd_main.split('\t')[1]]
+                            if "Length =" in individual_rps_result or "Length=" in individual_rps_result:
+                                individual_rps_result = individual_rps_result.replace(" = ", "=")
+                                if not cdd_main.split('\t')[1] in self._domain_length.keys():
+                                    self._domain_length[cdd_main.split(
+                                        '\t')[1]] = individual_rps_result.split('Length=')[1].strip()
                         for each_stat_group in stat_data[1:]:
+                            length = self._domain_length[cdd_main.split('\t')[1]]
                             check_list = set()
                             parameter_dict = self._compile_cdd_stat(
                                 each_stat_group)
@@ -199,9 +198,10 @@ class FilterPredictedDomains(object):
         from CDD derived predictions'''
         cdd_main = ''
         for entry in individual_rps_result.split('\n'):
-            if '|CDD|' in entry:
+            entry = entry.replace("|CDD|", "CDD:")
+            if "CDD:" in entry:
                 pssm_id = entry\
-                          .split('|CDD|')[1].split(' ')[0]
+                          .split('CDD:')[1].split(' ')[0]
                 parent_id = entry\
                                .split(',')[0].split(' ')[1]
                 if 'smart' in parent_id:
@@ -402,11 +402,12 @@ class FilterPredictedDomains(object):
             summary_file.write('%s\tSelected\n' % each_candidate)
         print("Filtered uniprot IDs by %s:" % self._prediction_method)
         for candidate_entry in self._candidate_set:
+            short_name = candidate_entry.split('\t')[4]
             uid = candidate_entry.split('\t')[1]
-            db_id = candidate_entry.split('\t')[2]
-            self._id_set.add('%s\t%s' % (uid, db_id))
+            db_id = candidate_entry.split('\t')[3]
+            self._id_set.add('%s\t%s\t%s' % (uid, db_id, short_name))
         id_list = sorted(self._id_set)
-        print('UID\tDomainID\n'+'\n'.join(id_list))
+        print('UID\tDomain Info\n'+'\n'.join(id_list))
         id_file.write('\n'.join(id_list))
         for remaining_id in set(self._result_detail_dict.keys()):
             for each_entry in self._result_detail_dict[remaining_id]:
