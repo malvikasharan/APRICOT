@@ -246,15 +246,18 @@ class ComputeCompositionDistance(object):
                 individual_rps_result_fh = open(
                     self._cdd_pred_files+'/'+rps_result_file)
                 for individual_rps_result_section in individual_rps_result_fh.read(
-                    ).split('>gnl'):
-                    if individual_rps_result_section.startswith('|CDD|'):
+                    ).split('>'):
+                    if individual_rps_result_section.startswith('|CDD|'
+                            ) or individual_rps_result_section.startswith('CDD:'):
+                        individual_rps_result_section = individual_rps_result_section.replace(
+                            '|CDD|', 'CDD:')
                         location = self._get_location(individual_rps_result_section)
                         stat_data = individual_rps_result_section.split("Score = ")
                         for individual_rps_result in stat_data[0].split('\n'):
-                            if individual_rps_result.startswith('|CDD|'):
+                            if individual_rps_result.startswith('CDD:'):
                                 for entry in individual_rps_result.split('\n'):
-                                    if '|CDD|' in entry:
-                                        pssm_id = entry.split('|CDD|')[1].split(' ')[0]
+                                    if 'CDD:' in entry:
+                                        pssm_id = entry.split('CDD:')[1].split(' ')[0]
                                         parent_id = entry.split(',')[0].split(' ')[1]
                                         if 'smart' in parent_id:
                                             domain_id = parent_id.replace(
@@ -306,8 +309,10 @@ class ComputeCompositionDistance(object):
                                                 except:
                                                     print('Please install needle commanline tool from EMBOSS  package'
                                                           ' if not working inside the APRICOT Docker container,\n'
-                                                          ' the path can be provided using the flag "-nd".'
-                                                          ' Please check the documentation for details.'
+                                                          'The absolute path of the "needle" executable can '
+                                                          'be provided using the flag "-nd".\n'
+                                                          'Please check the documentation for details: '
+                                                          'http://pythonhosted.org/bio-apricot'
                                                           '\n!!!!  Exiting the subcommand "annoscore" !!!!\n')
                                                     return()
                                                 for entry_seq in stdout.split('\n'):

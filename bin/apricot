@@ -29,7 +29,7 @@ __author__ = "Malvika Sharan <malvikasharan@uni-wuerzburg.de>"
 __copyright__ = "2017 by Malvika Sharan <malvikasharan@uni-wuerzburg.de>"
 __license__ = "ISC license"
 __email__ = "malvikasharan@uni-wuerzburg.de>"
-__version__ = "1.2.6"
+__version__ = "1.2.7"
 
 def main():
     parser = argparse.ArgumentParser()
@@ -826,7 +826,7 @@ def classify_output(args):
 def annotation_scoring(args):
     if not args.skip_annoscore:
         print("\n----------------------------------------------------------------\n"
-          "This might take some time, please be patient ..."
+          "This might take some time, please be patient ...\n"
           "Calculating annotation scores for the selected domain data\n"
           'This subcommand can be skipped by using option "-skip_annoscore"'
         "\n----------------------------------------------------------------\n")

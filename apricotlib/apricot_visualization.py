@@ -150,18 +150,22 @@ class VizApricotAnalysis(object):
                             float(entry.strip().split('\t')[-2]))
                         self._filter_viz_dict.setdefault('bayscore_list', []).append(
                             float(entry.strip().split('\t')[-1]))
-                label_list = range(0, len(self._filter_viz_dict['bayscore_list']))
-                plt.plot(sorted(self._filter_viz_dict['filter1_list']), 'ro', label='Filter-1 Score')
-                plt.plot(sorted(self._filter_viz_dict['filter2_list']), 'ys', label='Filter-2 Score')
-                plt.plot(sorted(self._filter_viz_dict['filter3_list']), 'g8', label='Filter-3 Score')
-                plt.plot(sorted(self._filter_viz_dict['filter4_list']), 'mp', label='Filter-4 Score')
-                plt.plot(sorted(self._filter_viz_dict['bayscore_list']), 'b^', label='Bayesian Score')
-                plt.legend(bbox_to_anchor=(0., 1.02, 1., .102), loc=3,
-                   ncol=3, mode="expand", borderaxespad=0.)
-                plt.xticks(label_list)
-                plt.xlabel('Annotation scores of selected proteins')
-                plt.ylabel('Filter/Bayesian score')
-                plt.savefig(os.path.join(self._overview, 'viz_annotation_scoring.png'))
+                try:
+                    label_list = range(0, len(self._filter_viz_dict['bayscore_list']))
+                    plt.plot(sorted(self._filter_viz_dict['filter1_list']), 'ro', label='Filter-1 Score')
+                    plt.plot(sorted(self._filter_viz_dict['filter2_list']), 'ys', label='Filter-2 Score')
+                    plt.plot(sorted(self._filter_viz_dict['filter3_list']), 'g8', label='Filter-3 Score')
+                    plt.plot(sorted(self._filter_viz_dict['filter4_list']), 'mp', label='Filter-4 Score')
+                    plt.plot(sorted(self._filter_viz_dict['bayscore_list']), 'b^', label='Bayesian Score')
+                    plt.legend(bbox_to_anchor=(0., 1.02, 1., .102), loc=3,
+                       ncol=3, mode="expand", borderaxespad=0.)
+                    plt.xticks(label_list)
+                    plt.xlabel('Annotation scores of selected proteins')
+                    plt.ylabel('Filter/Bayesian score')
+                    plt.savefig(os.path.join(self._overview, 'viz_annotation_scoring.png'))
+                except KeyError:
+                    print("!!! The annotation scoring file seems to be empty."
+                          " Please reanalyse annotation score using the subcommand 'annoscore' !!!")
         else:
             print('The data for annotation scores do not exist,'
                   'please calculate the annotation score using the subcommand'
