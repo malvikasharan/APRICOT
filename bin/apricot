@@ -54,6 +54,7 @@ def main():
         default=False, action="store_true",
         help="Analyze entire proteome")
     minimum_default_pipeline.add_argument("--kw_domain", "-kw",
+        default=False, action="store_true",
         help="Comma separated keywords for domain selection")
     minimum_default_pipeline.add_argument("--cdd", '-C',
         default=False, action="store_true",
