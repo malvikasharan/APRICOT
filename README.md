@@ -5,15 +5,15 @@
 
 ![alt tag](https://github.com/malvikasharan/APRICOT/blob/master/APRICOT_logo.png)
 
-###A tool for sequence-based identification and characterization of protein classes
+### A tool for sequence-based identification and characterization of protein classes
 
 [APRICOT](http://malvikasharan.github.io/APRICOT/) is a computational pipeline for the identification of specific functional classes of interest in large protein sets. The pipeline uses efficient sequence-based algorithms and predictive models like signature motifs of protein families for the characterization of user-provided query proteins with specific functional features. The dynamic framework of APRICOT allows the identification of unexplored functional classes of interest in the large protein sets or the entire proteome.
 
-####Authors and Contributors
+#### Authors and Contributors
 
 The tool is designed and developed by Malvika Sharan in the lab of Prof. Dr. Jörg Vogel and Dr. Ana Eulalio in the Institute for Molecular Infection Biology at the University of Würzburg. Dr. Konrad Förstner contributed to the project by providing important technical supervision and discussions. The authors are grateful to Prof. Thomas dandekar, Dr. Charlotte Michaux, Caroline Taouk and Dr. Lars Barquist for critical discussions and feedback.
 
-####Source code
+#### Source code
 
 The source codes of APRICOT are available via git https://github.com/malvikasharan/APRICOT and pypi https://pypi.python.org/pypi/bio-apricot.
 
@@ -21,7 +21,7 @@ APRICOT is open source software and is available under the ISC license.
 
 Copyright (c) 2011-2017, Malvika Sharan, <malvika.sharan@uni-wuerzburg.de>
 
-###Working with APRICOT software
+### Working with APRICOT software
 
 **The complete documentation (manual, tutorials etc.) is hosted at http://pythonhosted.org/bio-apricot.**
 
@@ -29,7 +29,7 @@ Here we provide a brief information on obtaining and using the software.
 
 APRICOT is implemented in Python as a standalone and is executable on Ubuntu (and other debian-based) systems. The complete software package can be obtained from the GitHub repository (`$ git clone https://github.com/malvikasharan/APRICOT.git`), or can be conveniantly executed using the Docker image.
 
-####APRICOT Docker image
+#### APRICOT Docker image
 
 We recommend users to [install Docker software](https://docs.docker.com/engine/installation/) in their system to use the [docker images](https://hub.docker.com/r/malvikasharan/). 
 
@@ -188,9 +188,9 @@ In order to work with the Docker image for APRICOT, please follow these directio
   
   For further details, please check the tutorial and data dependencies described in the [documentatation](http://pythonhosted.org/bio-apricot).
 
-###Alternative ways to install APRICOT
+### Alternative ways to install APRICOT
 
-####Locally install the software using pip
+#### Locally install the software using pip
 
 In order to work with locally installed software, follow these instructions.
 
@@ -230,7 +230,7 @@ Follow these instructions to manually establish the software locally.
   ```  
   Follow the above listed points 3 & 5 to execute the software as shown above.
 
-###Hint:
+### Hint:
 
 When installed locally, the location of the executable will be: /home/username/.local/bin/
 and the library location will be: /home/username/.local/lib/python3.5/site-packages/apricotlib/
