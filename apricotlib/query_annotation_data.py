@@ -44,17 +44,16 @@ class CollectUniprotInformation(object):
                         self._get_uniprot_xml(uid_list, self._uniprot_xml_path)
                         self._get_uniprot_fasta(uid_list, self._uniprot_fasta_path)
         
-    def download_xml(self, xml_url, taxid):
+    def download_xml(self, xml_path, xml_url, taxid):
         '''Downloads xml files from UniProt for query Uids'''
-        xml_file = open(self._uniprot_xml_path+'/'+taxid+'.xml', 'wb')
+        xml_file = open(xml_path+'/'+taxid+'.xml', 'wb')
         response = urlopen(xml_url)
         xml_file.write(response.read())
         xml_file.close()
         
-    def download_fasta(self, fasta_url, taxid):
+    def download_fasta(self, fasta_path, fasta_url, taxid):
         '''Downloads fasta files from UniProt for query Uids'''
-        fasta_file_name = self._uniprot_fasta_path+'/'+taxid+'.fasta'
-        fasta_file = open(fasta_file_name, 'wb')
+        fasta_file = open(fasta_path+'/'+taxid+'.fasta', 'wb')
         response = urlopen(fasta_url)
         fasta_file.write(response.read())
         fasta_file.close()
