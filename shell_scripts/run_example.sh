@@ -49,7 +49,7 @@ SPECIES=''
 #   like domain
 # * P00957 (negative test) is alaS protein is a tRNA-ligase, hence
 #   will not be selected by RRM, KH or DEAD domains
-QUERY_UIDS='P0A9P6, A0A1J0HFM5' #RRM in E.coli K-12
+QUERY_UIDS='P0A6X3,P00957' #examples
 #######################################################################
 
 
