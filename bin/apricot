@@ -108,7 +108,7 @@ def main():
         default='input/mapped_query_annotation/xml_path_mapped_query',
         help="Get proteome table from UniProt")
     minimum_default_pipeline.add_argument("--fasta_path", "-fp",
-        default='APRICOT_analysis/input/mapped_query_annotation/fasta_path_mapped_query',
+        default='input/mapped_query_annotation/fasta_path_mapped_query',
         help="Provide absolute path of fasta files for query proteins")
     minimum_default_pipeline.add_argument("--feature_table", "-ft",
         default='input/mapped_query_annotation/mapped_protein_xml_info_tables/query_feature_table.csv',
@@ -297,7 +297,7 @@ def main():
         default='output/0_predicted_domains',
         help="Provide output path for domain prediction files")
     domain_analysis_parser.add_argument("--fasta_path", "-fp",
-        default='APRICOT_analysis/input/mapped_query_annotation/fasta_path_mapped_query',
+        default='input/mapped_query_annotation/fasta_path_mapped_query',
         help="Provide absolute path of fasta files for query proteins")
     
     filter_domain_table = subparsers.add_parser(
@@ -661,27 +661,28 @@ def run_domain_analysis(args):
         os.path.realpath(__file__).split('/')[0:-1]) + '/apricotlib'
     analysis_path_cdd = os.path.join(args.analysis_path, args.predicted, 'cdd_analysis')
     analysis_path_ipr = os.path.join(args.analysis_path, args.predicted, 'ipr_analysis')
+    full_fasta_path = os.path.join(args.analysis_path, args.fasta_path)
     if not os.path.exists(analysis_path_cdd):
         os.mkdir(analysis_path_cdd)
     if not os.path.exists(analysis_path_ipr):
         os.mkdir(analysis_path_ipr)
     if args.cdd:
         if not args.force:
-            cdd_based_pred(args.fasta_path, analysis_path_cdd, args.cdd_db)
+            cdd_based_pred(full_fasta_path, analysis_path_cdd, args.cdd_db)
         else:
-            force_cdd_based_pred(args.fasta_path, analysis_path_cdd, args.cdd_db)
+            force_cdd_based_pred(full_fasta_path, analysis_path_cdd, args.cdd_db)
     elif args.ipr:
         if not args.force:
-            ipr_based_pred(args.fasta_path, analysis_path_ipr, args.ipr_db)
+            ipr_based_pred(full_fasta_path, analysis_path_ipr, args.ipr_db)
         else:
-            force_ipr_based_pred(args.fasta_path, analysis_path_cdd, args.cdd_db)
+            force_ipr_based_pred(full_fasta_path, analysis_path_cdd, args.cdd_db)
     else:
         if not args.force:
-            cdd_based_pred(args.fasta_path, analysis_path_cdd, args.cdd_db)
-            ipr_based_pred(args.fasta_path, analysis_path_ipr, args.ipr_db)
+            cdd_based_pred(full_fasta_path, analysis_path_cdd, args.cdd_db)
+            ipr_based_pred(full_fasta_path, analysis_path_ipr, args.ipr_db)
         else:
-            force_cdd_based_pred(args.fasta_path, analysis_path_cdd, args.cdd_db)
-            force_ipr_based_pred(args.fasta_path, analysis_path_ipr, args.ipr_db)
+            force_cdd_based_pred(full_fasta_path, analysis_path_cdd, args.cdd_db)
+            force_ipr_based_pred(full_fasta_path, analysis_path_ipr, args.ipr_db)
 
 def cdd_based_pred(fasta_path, outpath, cdd_db):
     print("\n----------------------------------------------------------------\n"
