@@ -1,19 +1,22 @@
-v1.2.7 (2016-02-10)
+v1.2.7 (2017-05-08)
+- Updated bin/apricot for entire proteome analysis. run_example.sh is also updated for this.
+
+v1.2.7 (2017-02-10)
 - Linked proteins to UniProt in html output. new subcommand 'default'.
 
-v1.2.6 (2016-02-10)
+v1.2.6 (2017-02-10)
 - Linked proteins to UniProt in html output. new subcommand 'default'.
 
-v1.2.5 (2016-02-10)
+v1.2.5 (2017-02-10)
 - Added keyword input feature to the subcommand 'default'.
 
-v1.2.4 (2016-02-09)
+v1.2.4 (2017-02-09)
 - Added a new subcommand 'default'. Documentation on the pythonhosted. minor fix.
 
-v1.2.3 (2016-02-09)
+v1.2.3 (2017-02-09)
 - Added a new subcommand 'default'. Documentation on the pythonhosted.
 
-v1.2.2 (2016-02-04)
+v1.2.2 (2017-02-04)
 - update for monthly release, added subcommand 'default'
 
 v1.2.1 (2016-10-04)
