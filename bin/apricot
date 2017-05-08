@@ -29,7 +29,7 @@ __author__ = "Malvika Sharan <malvikasharan@uni-wuerzburg.de>"
 __copyright__ = "2017 by Malvika Sharan <malvikasharan@uni-wuerzburg.de>"
 __license__ = "ISC license"
 __email__ = "malvikasharan@uni-wuerzburg.de>"
-__version__ = "1.2.8"
+__version__ = "1.2.9"
 
 def main():
     parser = argparse.ArgumentParser()

@@ -1,4 +1,4 @@
-v1.2.7 (2017-05-08)
+v1.2.9 (2017-05-08)
 - Updated bin/apricot for entire proteome analysis. run_example.sh is also updated for this.
 
 v1.2.7 (2017-02-10)
