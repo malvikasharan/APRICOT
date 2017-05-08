@@ -686,7 +686,11 @@ def run_domain_analysis(args):
 
 def cdd_based_pred(fasta_path, outpath, cdd_db):
     print("\n----------------------------------------------------------------\n"
-          'Please update the BLAST package if you see an "invalid argument" error.'
+          'Please update the BLAST package if you see an "invalid argument: -query" error,'
+          '''In case you want to work with the old rpsblast, please update the main exe file in your local folder.
+          The code can be updated in the function 'cdd_based_pred' as shown below:
+          cdd_process = subprocess.Popen(
+                ["rpsblast -i %s/%s -d %s/Cdd -o %s/%s.txt -p" ...'''
           "\n----------------------------------------------------------------\n")
     for fasta in os.listdir(fasta_path):
         filename = fasta.split('.')[0]
@@ -695,13 +699,16 @@ def cdd_based_pred(fasta_path, outpath, cdd_db):
         else:
             print("CDD based domain prediction for file %s..." % filename)
             cdd_process = subprocess.Popen(
-                ["rpsblast -query %s/%s -db %s/Cdd -out %s/%s.txt" % (
+                ["rpsblast -i %s/%s -d %s/Cdd -o %s/%s.txt -p" % (
                 fasta_path, fasta, cdd_db, outpath, filename)], shell=True).wait()
             
 def force_cdd_based_pred(fasta_path, outpath, cdd_db):
     print("\n----------------------------------------------------------------\n"
-          'Please update the BLAST package if you see the following error message:\n'
-          '!! [rpsblast] ERROR: Invalid argument !!'
+          'Please update the BLAST package if you see an "invalid argument: -query" error,'
+          '''In case you want to work with the old rpsblast, please update the main exe file in your local folder.
+          The code can be updated in the function 'force_cdd_based_pred' as shown below:
+          cdd_process = subprocess.Popen(
+                ["rpsblast -i %s/%s -d %s/Cdd -o %s/%s.txt -p" ...'''
           "\n----------------------------------------------------------------\n")
     for fasta in os.listdir(fasta_path):
         filename = fasta.split('.')[0]
