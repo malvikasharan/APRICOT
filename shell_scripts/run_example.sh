@@ -77,7 +77,7 @@ FASTA_PATH=''
 # *OPTIONAL* for classification
 # This can be altered by the users in the demonstration file as well
 ##
-DOMAIN_KEYWORDS='RRM,RNP,KH'
+DOMAIN_KEYWORDS='RRM,RNP,KH,LSM'
 
 # All the keywords as originally used in the manuscript:
 #DOMAIN_KEYWORDS='RRM,RGG,DEAD,zf-CCCH,KH,GTP_EFTU,GTP_EFTU_D2,GTP_EFTU_D3,dsrm,zf-CCHC,LSM,OB_NTP_bind,HA2,G-patch,IBN_N,SAP,TUDOR,RnaseA,zf-C2H2_jaz,MMR_HSR1,KOW,RNase_T,MIF4G,zf-RanBP,NTF2,PAZ,RBM1CTR,PAM2,Xpo1,S1,HGTP_anticodon,tRNA-synt_2b,Piwi,CSD,Ribosomal_L7Ae,RNase_Zc3h12a,Anticodon_1,R3H,La,PUF,PUA,ZnFC2HC,SWAP,RAP,pumilio,Ribosomal,MMR_HSR1,Brix,WD40,Nop,YTH,zf-CCHC,LSM,PurA,RNase_PH,RNase_PH_C,S4,GTP_EFTU_D2,GTP_EFTU,Nol1_Nop2_Fmu,R3H,RNase_T,MIF4G,Btz,Helicase_RecD,RNase_P_p30,SURF6,UPF1_Zn_bind,SAP,eRF1_3,Fibrillarin,Gar1,HABP4_PAI-RBP1,S10_plectin,TruD,XRN_N,THUMP,RNB,RrnaAD,Tap-RNA_bind,tRNA-synt_1b,APOBEC_N,Surp,PAP_assoc,PAZ,Piwi,zf-C2H2,zf-C3HC4,Alba,FtsJ,Pept_tRNA_hydro,PseudoU_synth_1,PseudoU_synth_2,RNA_bind,RNase_P_pop3,RTC,RTC_insert,SAM,SpoU_sub_bind,SpoU_sub_bind,SRP14,SRP72,TRM,tRNA_anti,tRNA_m1G_MT,tRNA_U5-meth_tr,tRNA-synt_2,TROVE,TrpBP,TruB_N,zf-RNPHF,Helicase_C'
