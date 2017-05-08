@@ -487,7 +487,7 @@ def main():
     create_output_files.add_argument("--analysis_path", '-ap',
         default='APRICOT_analysis', help="Provide analysis path")
     create_output_files.add_argument("--inpath", '-ip',
-        default='APRICOT_analysis/output',
+        default='output',
         help="Choose folder from analysis to be converted")
     create_output_files.add_argument("--html", "-HT",
         default=False, action="store_true")
