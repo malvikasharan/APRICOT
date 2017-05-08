@@ -53,11 +53,12 @@ class CollectUniprotInformation(object):
         
     def download_fasta(self, fasta_path, fasta_url, taxid):
         '''Downloads fasta files from UniProt for query Uids'''
-        fasta_file = open(fasta_path+'/'+taxid+'.fasta', 'wb')
+        fasta_file_name = fasta_path+'/'+taxid+'.fasta'
+        fasta_file = open(fasta_file_name, 'wb')
         response = urlopen(fasta_url)
         fasta_file.write(response.read())
         fasta_file.close()
-        self._split_fasta(fasta_file_name, self._uniprot_fasta_path)
+        self._split_fasta(fasta_file_name, fasta_path)
         os.remove(fasta_file_name)
         
     def _split_fasta(self, fasta_file, fasta_path):

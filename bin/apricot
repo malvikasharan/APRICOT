@@ -232,7 +232,7 @@ def main():
         default='input/mapped_query_annotation/xml_path_mapped_query',
         help="Get proteome table from UniProt")
     query_parser.add_argument("--fasta_path", "-fp",
-        default='APRICOT_analysis/input/mapped_query_annotation/fasta_path_mapped_query',
+        default='input/mapped_query_annotation/fasta_path_mapped_query',
         help="Get proteome table from UniProt")
     query_parser.add_argument("--feature_table", "-ft",
         default='input/mapped_query_annotation/mapped_protein_xml_info_tables/query_feature_table.csv',
@@ -527,7 +527,7 @@ def select_uniprot_taxid(args):
 
 def query_set(args):
     xml_path = os.path.join(args.analysis_path, args.xml_path)
-    fasta_path = args.fasta_path
+    fasta_path = os.path.join(args.analysis_path, args.fasta_path)
     feature_file = os.path.join(args.analysis_path, args.feature_table)
     reference_file = os.path.join(args.analysis_path, args.proteome_path)
     query_file = os.path.join(args.analysis_path, args.query_path)
