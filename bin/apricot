@@ -584,8 +584,8 @@ def query_set(args):
             create_proteome_query_file('proteome', query_file, reference_file)
             collect_uniprot_information = CollectUniprotInformation(
                 query_file, xml_path, fasta_path, feature_file)
-            collect_uniprot_information.download_xml(xml_url, args.taxid)
-            collect_uniprot_information.download_fasta(fasta_url, args.taxid)
+            collect_uniprot_information.download_xml(xml_path, xml_url, args.taxid)
+            collect_uniprot_information.download_fasta(fasta_path, fasta_url, args.taxid)
             collect_uniprot_information.create_feature_table()
     if args.fasta:
         with open(args.fasta, 'r') as in_fh:
