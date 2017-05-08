@@ -171,7 +171,7 @@ def main():
         default='output/5_analysis_summary/APRICOT_analysis_summary.txt',
         help="Provide output path")
     minimum_default_pipeline.add_argument("--inpath", '-ip',
-        default='APRICOT_analysis/output',
+        default='output',
         help="Choose folder from analysis to be converted")
     minimum_default_pipeline.add_argument("--formatted", "-form",
         default="output/format_output_data",
@@ -957,7 +957,7 @@ def visualize_result(args):
         
 def output_format(args):
     analysis_path = args.analysis_path
-    inpath = args.inpath
+    inpath = os.path.join(analysis_path, args.inpath)
     outpath = os.path.join(analysis_path, args.formatted)
     html_out = os.path.join(outpath, 'html_files')
     excel_out = os.path.join(outpath, 'excel_files')
