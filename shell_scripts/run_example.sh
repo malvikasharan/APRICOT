@@ -2,7 +2,8 @@
 # AUTHOR: Malvika Sharan <malvika.sharan@uni-wuerzburg.de>
 
 #########################################################################
-APRICOT_CALL='apricot' 	# It will work for the globally installed software.
+APRICOT_CALL='python3.5 APRICOT/bin/apricot'
+			# 'apricot' 	# It will work for the globally installed software.
 			# If locally installed change the path, 
 			# for e.g. /home/username/local/bin/
 			# Or, use 'python APRICOT/bin/apricot' 
@@ -48,7 +49,7 @@ SPECIES=''
 #   like domain
 # * P00957 (negative test) is alaS protein is a tRNA-ligase, hence
 #   will not be selected by RRM, KH or DEAD domains
-QUERY_UIDS='P0A6X3,P00957'
+QUERY_UIDS='P0A9P6, A0A1J0HFM5' #RRM in E.coli K-12
 #######################################################################
 
 
@@ -61,7 +62,7 @@ query_geneids=''
 # Input-1, option 3: users can pick a taxonomy id from option 1a
 # (source_files/selected_taxonomy_ids.txt), or directly provide it
 # when the taxonomy id is known
-tax_id=''
+tax_id='83333' # E.coli K-12
 
 # Input-1, option 4: provide absolute path of for query fasta sequence
 # default fasta path is $ANALYSIS_PATH/input/mapped_query_annotation/fasta_path_mapped_query
@@ -75,14 +76,18 @@ FASTA_PATH=''
 # *REQUIRED* for domain selection
 # *OPTIONAL* for classification
 # This can be altered by the users in the demonstration file as well
-DOMAIN_KEYWORDS='RRM,KH'
+##
+DOMAIN_KEYWORDS='RRM,RNP'
+
+# All the keywords as originally used in the manuscript:
+#DOMAIN_KEYWORDS='RRM,RGG,DEAD,zf-CCCH,KH,GTP_EFTU,GTP_EFTU_D2,GTP_EFTU_D3,dsrm,zf-CCHC,LSM,OB_NTP_bind,HA2,G-patch,IBN_N,SAP,TUDOR,RnaseA,zf-C2H2_jaz,MMR_HSR1,KOW,RNase_T,MIF4G,zf-RanBP,NTF2,PAZ,RBM1CTR,PAM2,Xpo1,S1,HGTP_anticodon,tRNA-synt_2b,Piwi,CSD,Ribosomal_L7Ae,RNase_Zc3h12a,Anticodon_1,R3H,La,PUF,PUA,ZnFC2HC,SWAP,RAP,pumilio,Ribosomal,MMR_HSR1,Brix,WD40,Nop,YTH,zf-CCHC,LSM,PurA,RNase_PH,RNase_PH_C,S4,GTP_EFTU_D2,GTP_EFTU,Nol1_Nop2_Fmu,R3H,RNase_T,MIF4G,Btz,Helicase_RecD,RNase_P_p30,SURF6,UPF1_Zn_bind,SAP,eRF1_3,Fibrillarin,Gar1,HABP4_PAI-RBP1,S10_plectin,TruD,XRN_N,THUMP,RNB,RrnaAD,Tap-RNA_bind,tRNA-synt_1b,APOBEC_N,Surp,PAP_assoc,PAZ,Piwi,zf-C2H2,zf-C3HC4,Alba,FtsJ,Pept_tRNA_hydro,PseudoU_synth_1,PseudoU_synth_2,RNA_bind,RNase_P_pop3,RTC,RTC_insert,SAM,SpoU_sub_bind,SpoU_sub_bind,SRP14,SRP72,TRM,tRNA_anti,tRNA_m1G_MT,tRNA_U5-meth_tr,tRNA-synt_2,TROVE,TrpBP,TruB_N,zf-RNPHF,Helicase_C'
 ######################################################################
 
 
 #######################################################################
 # Input-2, comma separated list of keywords for domain selection
 # *REQUIRED* 
-CLASS_KEYWORDS='ribosom,helicase,nuclease,RRM,RNP'
+CLASS_KEYWORDS=$DOMAIN_KEYWORDS   #'ribosom,helicase,nuclease,RRM,RNP'
 #######################################################################
 
 
@@ -102,13 +107,12 @@ main(){
     filter_domain_analysis		  # subcommand filter
     classify_filtered_result		  # subcommand classify
     create_analysis_summary		  # subcommand summary
-    format_output			  # subcommand format
-    
+    format_output			  # subcommand format				
     ## The subcommand 'annoscore' requires locally configured needle from EMBOSS suite
     ## It is installed using the Dockerfile or provided shell scripts for installation
     ## or, if already installed, please change the path name $NEEDLE_EMBOSS_PATH
     
-    calculate_annotation_score	  # subcommand annoscore
+	#calculate_annotation_score	  # subcommand annoscore
 }
 
 set_up_analysis_folder(){
@@ -211,17 +215,21 @@ downloads_files(){
 }
 
 provide_input_queries(){
-    # Option-1: UniProt identifiers
+    ## Option-1: UniProt identifiers
     $APRICOT_CALL query \
 	    --analysis_path $ANALYSIS_PATH \
 	    --uids $QUERY_UIDS
+	
+	## Option-2: entire proteome
+	##replace --uid option by the following:
+	# -tx $tax_id -P
 }
 
 provide_domain_and_class_keywords(){
     $APRICOT_CALL keywords \
 	    --db_root $ROOT_DB_PATH \
-	    -cl $CLASS_KEYWORDS \
-	    -kw $DOMAIN_KEYWORDS 
+	    -cl $DOMAIN_KEYWORDS \
+	    --kw_domain $DOMAIN_KEYWORDS
 }
 
 select_domains_by_keywords(){
@@ -230,7 +238,7 @@ select_domains_by_keywords(){
 
 run_domain_prediction(){
     $APRICOT_CALL predict \
-	    --analysis_path $ANALYSIS_PATH
+	    -ap $ANALYSIS_PATH
 }
 
 filter_domain_analysis(){
