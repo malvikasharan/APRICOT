@@ -221,7 +221,7 @@ provide_domain_and_class_keywords(){
     $APRICOT_CALL keywords \
 	    --db_root $ROOT_DB_PATH \
 	    -cl $CLASS_KEYWORDS \
-	    $DOMAIN_KEYWORDS 
+	    -kw $DOMAIN_KEYWORDS 
 }
 
 select_domains_by_keywords(){
