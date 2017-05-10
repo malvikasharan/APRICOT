@@ -202,8 +202,8 @@ class CreateAnalysisSummary(object):
                         selected_id, selected_id))
                 out_fh.write(
                     "\nTotal proteins with 'domains of interest' that pass "
-                    "the parameter filter:\n%s\n" %
-                    ', '.join(selected_id_with_link))
+                    "the parameter filter:%s\n%s\n" %
+                    (len(selected_id_with_link), ', '.join(selected_id_with_link)))
                 out_fh.write("Proteins\tDomains of interest\tDomain count\n")
                 for each_key in domain_selected_data.keys():
                     out_fh.write("%s\t%s\t%s\n" % (
