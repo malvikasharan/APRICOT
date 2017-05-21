@@ -42,7 +42,7 @@ class SelectedProteinTableWithoutUniprot(object):
             filter_header = FilteredData(
                 self._filter_data_header.split('\t'))
             self._entries_into_the_file(out_fh, filter_header)
-            for uid in self._filter_data_dict.keys():
+            for uid in list(self._filter_data_dict.keys()):
                 if len(self._filter_data_dict[uid]) > 1:
                     for entry in self._filter_data_dict[uid]:
                         filter_data = FilteredData(entry.split('\t'))

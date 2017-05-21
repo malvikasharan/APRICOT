@@ -48,7 +48,7 @@ class RnaRelatedDomainSelection(object):
                         cdd_entry.split('\t')[1], 'PF'+cdd_entry.split(
                             '\t')[1].split('pfam')[-1])
                 cdd_domain = cdd_entry.split('\t')[1]
-                if cdd_domain in self._mapped_cdd_members.keys():
+                if cdd_domain in list(self._mapped_cdd_members.keys()):
                     members = self._mapped_cdd_members[cdd_domain]
                 else:
                     members = 'NA'

@@ -58,7 +58,7 @@ class RnaRelatedCDDSelection(object):
                         cdd_entry.split('\t')[1], 'PF'+cdd_entry.split(
                             '\t')[1].split('pfam')[-1])
                 cdd_domain = cdd_entry.split('\t')[1]
-                if cdd_domain in self._mapped_cdd_members.keys():
+                if cdd_domain in list(self._mapped_cdd_members.keys()):
                     members = self._mapped_cdd_members[cdd_domain]
                 else:
                     members = 'NA'
@@ -129,7 +129,7 @@ class RnaRelatedCDDSelection(object):
                             each_entry.split('\t')[-1], fkeyword))
         with open(self._domain_data_path+'/all_keyword_selected_cdd_data.tab',
                   'w') as keyword_selected_domain_file:
-            for domain_entry in self._keyword_selected_domain.keys():
+            for domain_entry in list(self._keyword_selected_domain.keys()):
                 keywords = ', '.join(list(
                     self._keyword_selected_domain[domain_entry]))
                 keyword_selected_domain_file.write(

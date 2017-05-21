@@ -84,11 +84,11 @@ class PsortbSubcellularLocalization(object):
         outfile = self._outpath+'/psortb_data_summary.csv'
         with open(outfile, 'w') as out_fh:
             out_fh.write("localization prediction by PSORTB:\nProteins\tLocalization\tScore\n")
-            for entry in self._localization_dict.items():
+            for entry in list(self._localization_dict.items()):
                 localization = entry[0]
                 out_fh.write("Localization: %s\tscore\n" % localization)
                 print(localization, len(self._localization_dict[localization]))
-                for protein in entry[1].keys():
+                for protein in list(entry[1].keys()):
                     score = self._localization_dict[localization][protein]
                     out_fh.write('%s\t%s\t%s\n' % (protein, localization, score))
         print("Data save is %s.\nPlease check %s for the summary." % (

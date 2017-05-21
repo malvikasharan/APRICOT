@@ -63,7 +63,7 @@ class LiteratureSecstrAnalysis(object):
                             elif aa == 'X':
                                 str_val = 'x'
                             else:
-                                for sec_str in self._literature_acid_str.keys():
+                                for sec_str in list(self._literature_acid_str.keys()):
                                     if aa in self._literature_acid_str[sec_str]:
                                         str_val = sec_str
                             str_list.append(str_val)

@@ -178,7 +178,7 @@ class KeywordBasedDomainSelection(object):
                     each_entry = each_entry.replace(
                         domain_id, 'PF'+domain_id.split('pfam')[-1])
                     domain_id = 'PF'+domain_id.split('pfam')[-1]
-                if domain_id in self._mapped_cdd_members.keys():
+                if domain_id in list(self._mapped_cdd_members.keys()):
                     cdd_entry = "%s\t%s\t%s" % (
                         '\t'.join(each_entry.split('\t')[0:-1]),
                             self._mapped_cdd_members[domain_id], 
@@ -215,7 +215,7 @@ class KeywordBasedDomainSelection(object):
             for ipr_entry in in_fh:
                 domain_id = ipr_entry.split('\t')[1]
                 try:
-                    if domain_id in self._mapped_ipr_legnth.keys():
+                    if domain_id in list(self._mapped_ipr_legnth.keys()):
                         mapped_length = self._mapped_ipr_legnth[domain_id]
                     else:
                         mapped_length = 'NA'
@@ -250,7 +250,7 @@ class KeywordBasedDomainSelection(object):
         for keyword in self._keyword_list:
             with open(domain_data_path+'/'+keyword+'_related_'+domain_db+'_domains.tab',
                       'w') as selected_domain_file:
-                if keyword in selected_domain_entry_dict.keys():
+                if keyword in list(selected_domain_entry_dict.keys()):
                     for each_entry in selected_domain_entry_dict[keyword]:
                         keyword_selected_domain_dict.setdefault(
                             each_entry, set()).add(keyword)
@@ -260,7 +260,7 @@ class KeywordBasedDomainSelection(object):
                             each_entry.strip(), keyword))
         with open(domain_data_path+'/all_keyword_selected_'+domain_db+'_data.tab',
                   'w') as keyword_selected_domain_file:
-            for domain_entry in keyword_selected_domain_dict.keys():
+            for domain_entry in list(keyword_selected_domain_dict.keys()):
                 all_keywords = ', '.join(list(keyword_selected_domain_dict[
                     domain_entry]))
                 keyword_selected_domain_file.write('%s\t%s\n' % (

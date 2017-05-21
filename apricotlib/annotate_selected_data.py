@@ -83,7 +83,7 @@ class SelectedProteinTable(object):
                 self._feature_data_header.split('\t'))
             self._entries_into_the_file(
                 out_fh, reference_header, feature_header, filter_header)
-            for uid in self._filter_data_dict.keys():
+            for uid in list(self._filter_data_dict.keys()):
                 reference_data = UniProtReference(
                     self._up_ref_dict[uid].split('\t'))
                 feature_data = ProteinFeature(

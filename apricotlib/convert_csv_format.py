@@ -28,7 +28,7 @@ def csv_to_xlsx(inpath, outpath):
                             xlsxsheet.cell(row=i, column=j).value = col
                     workbook.save(open(outpath+'/'+sheet_name+'.xlsx', 'wb'))
                 else:
-                    print('%s: This text file will not be converted into the excel format!' % csv_file)
+                    print(('%s: This text file will not be converted into the excel format!' % csv_file))
                     shutil.copyfile(inpath+'/'+csv_file, outpath+'/'+csv_file)
             elif os.path.isdir(inpath+'/'+csv_file):
                 if not os.path.exists(outpath+'/'+csv_file):
@@ -102,7 +102,7 @@ def csv_to_html(inpath, outpath):
                         outfile.write(
                             '\n'.join(['</tbody>', '</table>', '</div>', '</html>']))
                 else:
-                    print('This file can not be converted into the html format: %s' % csv_file)
+                    print(('This file can not be converted into the html format: %s' % csv_file))
                     shutil.copyfile(inpath+'/'+csv_file, outpath+'/'+csv_file)
                     
             elif os.path.isdir(inpath+'/'+csv_file):

@@ -88,12 +88,12 @@ class CreateAnalysisSummary(object):
                                     data_detail.parameter, data_detail.domain_tag)
             if not 'cdd_unfiltered_all_prediction.csv' in os.listdir(
                     self._unfilter_path):
-                print("The folder %s does not contain cdd_unfiltered_all_prediction.csv." %
-                      self._inpath+'/output/1_all_domain_predictions')
+                print(("The folder %s does not contain cdd_unfiltered_all_prediction.csv." %
+                      self._inpath+'/output/1_all_domain_predictions'))
             if not 'ipr_unfiltered_all_prediction.csv' in os.listdir(
                     self._unfilter_path):
-                print("The folder %s does not contain ipr_unfiltered_all_prediction.csv." %
-                      self._inpath+'/output/1_all_domain_predictions')
+                print(("The folder %s does not contain ipr_unfiltered_all_prediction.csv." %
+                      self._inpath+'/output/1_all_domain_predictions'))
         return self._prot_domain_dict, self._info_tag_dict
     
     def record_selected_stat(self):
@@ -132,11 +132,11 @@ class CreateAnalysisSummary(object):
                 self._qury_info_list))
             out_fh.write(
                 "Keywords used for retrieving the domains of interest: %s\n"
-                % len(self._domain_keyword_info.keys()))
-            for kw in self._domain_keyword_info.keys():
+                % len(list(self._domain_keyword_info.keys())))
+            for kw in list(self._domain_keyword_info.keys()):
                 out_fh.write("%s: %s\n" % (
                     kw, len(self._domain_keyword_info[kw])))
-            for database in self._prot_domain_dict.keys():
+            for database in list(self._prot_domain_dict.keys()):
                 out_fh.write("\n--------------------------------------------------------"
                 "--------------------------------------------------------\n\n")
                 out_fh.write("Domain prediction summary for %s:\n" % database)
@@ -148,13 +148,13 @@ class CreateAnalysisSummary(object):
                 parameter_selected_data = {}
                 domain_selected_data = {}
                 proteins_location = {}
-                for proteins in self._prot_domain_dict[database].keys():
+                for proteins in list(self._prot_domain_dict[database].keys()):
                     total_locations = 0
                     protein_pred_dict[proteins] = len(list(set(
                         self._prot_domain_dict[
                             database][proteins].keys())))
-                    for domain_id in self._prot_domain_dict[
-                            database][proteins].keys():
+                    for domain_id in list(self._prot_domain_dict[
+                            database][proteins].keys()):
                         total_locations += len(self._prot_domain_dict[
                             database][proteins][domain_id])
                         for location in self._prot_domain_dict[
@@ -177,7 +177,7 @@ class CreateAnalysisSummary(object):
                 preds = 0
                 uniq = 0
                 param_uniq = 0
-                for uid in parameter_selected_data.keys():
+                for uid in list(parameter_selected_data.keys()):
                     out_fh.write("%s\t%s\t%s\t%s\n" % (
                         "<a href=http://www.uniprot.org/uniprot/%s>%s</a>" % (
                         uid, uid), proteins_location[uid],
@@ -196,7 +196,7 @@ class CreateAnalysisSummary(object):
                     "Unique domain that pass the parameter filter: %s\n" %
                     str(param_uniq))
                 selected_id_with_link = []
-                for selected_id in domain_selected_data.keys():
+                for selected_id in list(domain_selected_data.keys()):
                     selected_id_with_link.append(
                         "<a href=http://www.uniprot.org/uniprot/%s>%s</a>" % (
                         selected_id, selected_id))
@@ -205,12 +205,12 @@ class CreateAnalysisSummary(object):
                     "the parameter filter:%s\n%s\n" %
                     (len(selected_id_with_link), ', '.join(selected_id_with_link)))
                 out_fh.write("Proteins\tDomains of interest\tDomain count\n")
-                for each_key in domain_selected_data.keys():
+                for each_key in list(domain_selected_data.keys()):
                     out_fh.write("%s\t%s\t%s\n" % (
                         "<a href=http://www.uniprot.org/uniprot/%s>%s</a>" % (
                             each_key, each_key), ', '.join(domain_selected_data[each_key]),
                         len(domain_selected_data[each_key])))
-                if len(domain_selected_data.keys()) == 0:
+                if len(list(domain_selected_data.keys())) == 0:
                     out_fh.write("0\t0\t0\n")
 
 class NonFilteredData(object):

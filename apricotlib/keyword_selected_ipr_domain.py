@@ -108,7 +108,7 @@ class RnaRelatedIPRSelection(object):
                             each_entry, length, fkeyword))
         with open(self._domain_data_path+'/all_keyword_selected_ipr_data.tab',
                   'w') as keyword_selected_domain_file:
-            for domain_entry in self._keyword_selected_domain.keys():
+            for domain_entry in list(self._keyword_selected_domain.keys()):
                 keywords = ', '.join(list(
                     self._keyword_selected_domain[domain_entry]))
                 keyword_selected_domain_file.write('%s\t%s\n' % (

@@ -169,7 +169,7 @@ class FilterPredictedDomains(object):
                             parameter_dict["similarity"] = similarity_percent
                             parameter_dict["gaps"] = gap_percent
                             if self._filter_parameters_dict:
-                                for param in self._filter_parameters_dict.keys():
+                                for param in list(self._filter_parameters_dict.keys()):
                                     if not param == 'evalue':
                                         if not self._filter_parameters_dict[param] == 'NA':
                                             if not float(parameter_dict[param]) >= float(
@@ -215,7 +215,7 @@ class FilterPredictedDomains(object):
                     go_id = self._cdd_go_dict[pssm_id]
                 except:
                     go_id = "Not-known"
-                if pssm_id in self._id_description_dict.keys():
+                if pssm_id in list(self._id_description_dict.keys()):
                     short_name = self._id_description_dict[
                         pssm_id].split('\t')[2]
                     pssm_detail = self._id_description_dict[
@@ -224,7 +224,7 @@ class FilterPredictedDomains(object):
                         pssm_id].split('\t')[-3]
                     keyword = self._id_description_dict[
                         pssm_id].strip().split('\t')[-1]
-                elif parent_id in self._id_description_dict.keys():
+                elif parent_id in list(self._id_description_dict.keys()):
                     short_name = self._id_description_dict[
                         parent_id].split('\t')[2]
                     pssm_detail = self._id_description_dict[
@@ -322,7 +322,7 @@ class FilterPredictedDomains(object):
                             if expect == '-':
                                 expect = 0
                             if self._filter_parameters_dict:
-                                if 'evalue' in self._filter_parameters_dict.keys() and not self._filter_parameters_dict['evalue'] == 'NA':
+                                if 'evalue' in list(self._filter_parameters_dict.keys()) and not self._filter_parameters_dict['evalue'] == 'NA':
                                     if float(expect) <= float(
                                         self._filter_parameters_dict['evalue']):
                                         parameter_tag = 'ParameterSelected'

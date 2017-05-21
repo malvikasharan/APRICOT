@@ -115,7 +115,7 @@ class VizApricotAnalysis(object):
             return self._uid_key_dict, self._location_dict, self._dom_annotation, self._dom_highlight, self._highlight_dict
 
     def domain_highlight(self):
-        for uid in self._uid_key_dict.keys():
+        for uid in list(self._uid_key_dict.keys()):
             header = '\n'.join(['<meta charset="UTF-8">'
             '<link type="text/css" rel="stylesheet" href="http://parce.li/bundle/biojs-vis-protein-viewer@0.1.4">',
             '<script src="https://wzrd.in/bundle/biojs-vis-protein-viewer@0.1.4"></script>',
@@ -151,7 +151,7 @@ class VizApricotAnalysis(object):
                         self._filter_viz_dict.setdefault('bayscore_list', []).append(
                             float(entry.strip().split('\t')[-1]))
                 try:
-                    label_list = range(0, len(self._filter_viz_dict['bayscore_list']))
+                    label_list = list(range(0, len(self._filter_viz_dict['bayscore_list'])))
                     plt.plot(sorted(self._filter_viz_dict['filter1_list']), 'ro', label='Filter-1 Score')
                     plt.plot(sorted(self._filter_viz_dict['filter2_list']), 'ys', label='Filter-2 Score')
                     plt.plot(sorted(self._filter_viz_dict['filter3_list']), 'g8', label='Filter-3 Score')
@@ -172,7 +172,7 @@ class VizApricotAnalysis(object):
                   '"annoscore", the flag "-nd" can be used to specify the absolute path for needle.')
                 
     def viz_secondary_structure(self):
-        for uid in self._uid_key_dict.keys():
+        for uid in list(self._uid_key_dict.keys()):
             if uid+'.horiz' in os.listdir(
             self._additional_annotation+'/protein_secondary_structure/'):
                 files = uid+'.horiz'
@@ -220,7 +220,7 @@ class VizApricotAnalysis(object):
         self.sec_str_script()
                 
     def sec_str_script(self):
-        for uid in self._fasta_dict.keys():
+        for uid in list(self._fasta_dict.keys()):
             header = '\n'.join(['<meta charset="UTF-8">',
             '<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>',
             '<script src="https://wzrd.in/bundle/biojs-vis-sequence@0.1.7"></script>',
@@ -272,7 +272,7 @@ class VizApricotAnalysis(object):
                             total_loc.add(localization)
             with open(self._localize+'/localization_table.csv', 'w') as out_fh:
                 out_fh.write('Proteins\t%s\n' % '\t'.join(sorted(list(total_loc))))
-                for each_prot in self._localization_dict.keys():
+                for each_prot in list(self._localization_dict.keys()):
                     for localization in self._localization_dict[each_prot]:
                         entry_list = list('0'*len(total_loc))
                         loc_idx = sorted(list(total_loc)).index(localization)

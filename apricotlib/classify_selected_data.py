@@ -76,7 +76,7 @@ class ProteinClassifier(object):
     
     def create_classified_files(self):
         '''Creates individual doamin file foreach keyword selection'''
-        for keyword in self._keyword_candidate_data.keys():
+        for keyword in list(self._keyword_candidate_data.keys()):
             with open(self._classified_result_path+'/%s_selected_data.csv' %
                       keyword, 'w') as out_fh:
                 out_fh.write(self._file_header)

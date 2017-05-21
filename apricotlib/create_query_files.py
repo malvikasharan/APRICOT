@@ -46,7 +46,7 @@ def map_gene_to_uid(geneids, entry_dict):
             if ' ' in each_gene:
                 each_gene = each_gene.replace(' ', '')
             gene = each_gene.lower()
-            for entry in entry_dict.keys():
+            for entry in list(entry_dict.keys()):
                 if gene in entry.split('\t')[0].lower():
                     mapped_data.setdefault(
                         each_gene, set()).add(entry_dict[entry])
@@ -61,7 +61,7 @@ def map_gene_to_uid(geneids, entry_dict):
                 ) or ' '+gene in entry.split('\t')[4].lower():
                     mapped_data.setdefault(
                         each_gene, set()).add(entry_dict[entry])
-            if gene not in mapped_data.keys():
+            if gene not in list(mapped_data.keys()):
                 mapped_data.setdefault(each_gene, set()).add('unmapped')
     return mapped_data
 

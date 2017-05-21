@@ -52,7 +52,7 @@ class CollectUniprotInformation(object):
             print('Retrieving protein for: %s' % each_query)
             self._gene_to_protein_dict.setdefault(
                 each_query, []).append(each_query)
-            for protein, description in self._protein_data_dict.items():
+            for protein, description in list(self._protein_data_dict.items()):
                 exact_protein_match = re.findall('\\b%s\\b' % each_query.lower(
                     ), str(','.join(description).lower()))
                 if len(exact_protein_match) > 0:

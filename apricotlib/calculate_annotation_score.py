@@ -242,7 +242,7 @@ class ComputeCompositionDistance(object):
         summary_file.write(summary_header)
         for rps_result_file in os.listdir(self._cdd_pred_files):
             protein_id = rps_result_file.split('.')[0]
-            if protein_id in self._cdd_main_entry_dict.keys():
+            if protein_id in list(self._cdd_main_entry_dict.keys()):
                 individual_rps_result_fh = open(
                     self._cdd_pred_files+'/'+rps_result_file)
                 for individual_rps_result_section in individual_rps_result_fh.read(
@@ -269,7 +269,7 @@ class ComputeCompositionDistance(object):
                                             domain_id = parent_id
                                         cdd_main = ('%s\t%s\t%s' % (
                                             pssm_id, domain_id, location))
-                                        if cdd_main in self._cdd_main_entry_dict[protein_id].keys():
+                                        if cdd_main in list(self._cdd_main_entry_dict[protein_id].keys()):
                                             cdd_main_entry = self._cdd_main_entry_dict[protein_id][cdd_main]
                                             cdd_main_entry1 = '\t'.join(
                                                 cdd_main_entry.split('\t')[0:5])
@@ -647,7 +647,7 @@ class ComputeCompositionDistance(object):
             elif aa == 'X':
                 str_val = 'x'
             else:
-                for sec_str in self._amino_acid_str.keys():
+                for sec_str in list(self._amino_acid_str.keys()):
                     if aa in self._amino_acid_str[sec_str]:
                         str_val = sec_str
             str_list.append(str_val)
@@ -709,34 +709,34 @@ class ComputeCompositionDistance(object):
         length = len(aa_seq)
         for aa in aa_seq:
             if aa == 'B':
-                for aa_type in amino_acid_count.keys():
+                for aa_type in list(amino_acid_count.keys()):
                     if 'D' in self._amino_acid_ref[aa_type]:
                         aac_list.append(aa_type.split('_')[0])
                         amino_acid_count[aa_type] = int(
                             amino_acid_count[aa_type]) + 0.5
-                for aa_type in amino_acid_count.keys():
+                for aa_type in list(amino_acid_count.keys()):
                     if 'N' in self._amino_acid_ref[aa_type]:
                         aac_list.append(aa_type.split('_')[0])
                         amino_acid_count[aa_type] = int(
                             amino_acid_count[aa_type]) + 0.5
             elif aa == 'Z':
-                for aa_type in amino_acid_count.keys():
+                for aa_type in list(amino_acid_count.keys()):
                     if 'E' in self._amino_acid_ref[aa_type]:
                         aac_list.append(aa_type.split('_')[0])
                         amino_acid_count[aa_type] = int(
                             amino_acid_count[aa_type]) + 0.5
-                for aa_type in amino_acid_count.keys():
+                for aa_type in list(amino_acid_count.keys()):
                     if 'Q' in self._amino_acid_ref[aa_type]:
                         aac_list.append(aa_type.split('_')[0])
                         amino_acid_count[aa_type] = int(
                             amino_acid_count[aa_type]) + 0.5
             elif aa == 'J':
-                for aa_type in amino_acid_count.keys():
+                for aa_type in list(amino_acid_count.keys()):
                     if 'I' in self._amino_acid_ref[aa_type]:
                         aac_list.append(aa_type.split('_')[0])
                         amino_acid_count[aa_type] = int(
                             amino_acid_count[aa_type]) + 0.5
-                for aa_type in amino_acid_count.keys():
+                for aa_type in list(amino_acid_count.keys()):
                     if 'L' in self._amino_acid_ref[aa_type]:
                         aac_list.append(aa_type.split('_')[0])
                         amino_acid_count[aa_type] = int(
@@ -744,7 +744,7 @@ class ComputeCompositionDistance(object):
             elif aa == 'X':
                 aac_list.append('X')
             else:
-                for aa_type in amino_acid_count.keys():
+                for aa_type in list(amino_acid_count.keys()):
                     if aa in self._amino_acid_ref[aa_type]:
                         aac_list.append(aa_type.split('_')[0])
                         amino_acid_count[aa_type] = int(
@@ -777,7 +777,7 @@ class ComputeCompositionDistance(object):
             try:
                 if aa_count[aa]:
                     aa_final_list.append(float(len(aa_count[aa])
-                    *100/(len(aa_count.keys()))))
+                    *100/(len(list(aa_count.keys())))))
             except KeyError:
                 aa_final_list.append(0)
         return aa_final_list
@@ -801,7 +801,7 @@ class ComputeCompositionDistance(object):
             try:
                 if aa_count[aa]:
                     aa_final_list.append(float(len(aa_count[aa])
-                    *100/(len(aa_count.keys()))))
+                    *100/(len(list(aa_count.keys())))))
             except KeyError:
                 aa_final_list.append(0)
         return aa_final_list
