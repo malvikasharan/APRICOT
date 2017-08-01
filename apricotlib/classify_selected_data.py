@@ -33,6 +33,7 @@ class ProteinClassifier(object):
                 if entry.startswith('Entry') or entry.startswith('UniprotID'):
                     self._file_header = entry
                 else:
+                    entry = entry.replace(entry.split('\t')[0], entry.split('\t')[0].split('.1')[0])
                     self._protein_data_set.add(entry)
         return self._protein_data_set, self._file_header
     

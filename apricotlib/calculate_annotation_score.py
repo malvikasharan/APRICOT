@@ -168,17 +168,29 @@ class ComputeCompositionDistance(object):
             for entry in in_fh:
                 if entry.startswith('Entry'):
                     self._header_filter_data = entry.strip()
+                elif entry.startswith('UniProtID'):
+                    self._header_filter_data = entry.strip()
                 else:
                     filter_data_annotation = FilteredData(
                         entry.strip().split('\t'))
-                    if filter_data_annotation.resource == 'CDD':
-                        cdd_main = "%s\t%s\t%s\t%s" % (
-                        filter_data_annotation.resource_id,
-                        filter_data_annotation.domain_id,
-                        filter_data_annotation.start,
-                        filter_data_annotation.stop)
-                        self._cdd_main_entry_dict[
-                            filter_data_annotation.uid][cdd_main] = entry.strip()
+                    try:
+                        if filter_data_annotation.resource  == 'CDD':
+                            cdd_main = "%s\t%s\t%s\t%s" % (
+                            filter_data_annotation.resource_id,
+                            filter_data_annotation.domain_id,
+                            filter_data_annotation.start,
+                            filter_data_annotation.stop)
+                            self._cdd_main_entry_dict[
+                                filter_data_annotation.uid][cdd_main] = entry.strip()
+                    except:
+                        if not filter_data_annotation.bit_score == '-':
+                            cdd_main = "%s\t%s\t%s\t%s" % (
+                            filter_data_annotation.resource_id,
+                            filter_data_annotation.domain_id,
+                            filter_data_annotation.start,
+                            filter_data_annotation.stop)
+                            self._cdd_main_entry_dict[
+                                filter_data_annotation.uid][cdd_main] = entry.strip()
         return self._cdd_main_entry_dict, self._header_filter_data
     
     def summarize_rps_analysis_result_files(self):
@@ -809,41 +821,66 @@ class ComputeCompositionDistance(object):
 class FilteredData(object):
     '''all the xml data detail'''
     def __init__(self, row):
-        self.uid = row[0]
-        self.entry_name = row[1]
-        self.protein_name = row[2]
-        self.species = row[3]
-        self.length = row[4]
-        self.gene_names = row[5]
-        self.locus_tag = row[6]
-        self.Type = row[7]
-        self.go = row[8]
-        self.embl = row[9]
-        self.pdb = row[10]
-        self.kegg = row[11]
-        self.interpro = row[12]
-        self.pfam = row[13]
-        self.pubmed = row[14]
-        self.resource = row[15]
-        self.resource_id = row[16]
-        self.domain_id = row[17]
-        self.short_name = row[18]
-        self.full_name = row[19]
-        self.domain_kw = row[20]
-        self.domain_go = row[21]
-        self.members = row[22]
-        self.dom_length = row[23]
-        self.start = row[24]
-        self.stop = row[25]
-        self.evalue = row[26]
-        self.bit_score = row[27]
-        self.bits = row[28]
-        self.cover_length = row[29]
-        self.coverage_percent = row[30]
-        self.identity = row[31]
-        self.identity_percent = row[32]
-        self.similarity = row[33]
-        self.similarity_percent = row[34]
-        self.gaps = row[35]
-        self.gap_percent = row[36]
-        self.parameter_tag = row[-1]
+        if len(row) > 23:
+            self.uid = row[0]
+            self.entry_name = row[1]
+            self.protein_name = row[2]
+            self.species = row[3]
+            self.length = row[4]
+            self.gene_names = row[5]
+            self.locus_tag = row[6]
+            self.Type = row[7]
+            self.go = row[8]
+            self.embl = row[9]
+            self.pdb = row[10]
+            self.kegg = row[11]
+            self.interpro = row[12]
+            self.pfam = row[13]
+            self.pubmed = row[14]
+            self.resource = row[15]
+            self.resource_id = row[16]
+            self.domain_id = row[17]
+            self.short_name = row[18]
+            self.full_name = row[19]
+            self.domain_kw = row[20]
+            self.domain_go = row[21]
+            self.members = row[22]
+            self.dom_length = row[23]
+            self.start = row[24]
+            self.stop = row[25]
+            self.evalue = row[26]
+            self.bit_score = row[27]
+            self.bits = row[28]
+            self.cover_length = row[29]
+            self.coverage_percent = row[30]
+            self.identity = row[31]
+            self.identity_percent = row[32]
+            self.similarity = row[33]
+            self.similarity_percent = row[34]
+            self.gaps = row[35]
+            self.gap_percent = row[36]
+            self.parameter_tag = row[-1]
+        else:
+            self.uid = row[0]
+            self.resource_id = row[1]
+            self.domain_id = row[2]
+            self.short_name = row[3]
+            self.full_name = row[4]
+            self.domain_kw = row[5]
+            self.domain_go = row[6]
+            self.members = row[7]
+            self.dom_length = row[8]
+            self.start = row[9]
+            self.stop = row[10]
+            self.evalue = row[11]
+            self.bit_score = row[12]
+            self.bits = row[13]
+            self.cover_length = row[14]
+            self.coverage_percent = row[15]
+            self.identity = row[16]
+            self.identity_percent = row[17]
+            self.similarity = row[18]
+            self.similarity_percent = row[19]
+            self.gaps = row[20]
+            self.gap_percent = row[21]
+            self.parameter_tag = row[22]
