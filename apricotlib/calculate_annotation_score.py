@@ -259,6 +259,13 @@ class ComputeCompositionDistance(object):
                     self._cdd_pred_files+'/'+rps_result_file)
                 for individual_rps_result_section in individual_rps_result_fh.read(
                     ).split('>'):
+                    if not individual_rps_result_section.startswith('|CDD|'
+                            ) or individual_rps_result_section.startswith('CDD:'):
+                        for entry in individual_rps_result_section.split('\n'):
+                            if 'letters)' in entry:
+                                cdd_query_length = int(entry.split('(')[1].split(' ')[0])
+                    if individual_rps_result_section.startswith('gnl'):
+                        individual_rps_result_section = individual_rps_result_section.replace('gnl', '')
                     if individual_rps_result_section.startswith('|CDD|'
                             ) or individual_rps_result_section.startswith('CDD:'):
                         individual_rps_result_section = individual_rps_result_section.replace(
@@ -288,12 +295,15 @@ class ComputeCompositionDistance(object):
                                             cdd_main_entry2 = '\t'.join(
                                                 cdd_main_entry.split('\t')[15:20])
                                             cdd_main_entry3 = '\t'.join(
-                                                cdd_main_entry.split('\t')[23:26])
-                                            
+                                                cdd_main_entry.split('\t')[23:26])                                            
                                             cdd_main_entry_items = FilteredData(cdd_main_entry.split('\t'))
+                                            try:
+                                                protein_length = cdd_main_entry_items.length
+                                            except AttributeError:
+                                                protein_length = cdd_query_length
                                             coverage = float(cdd_main_entry_items.cover_length)
                                             coverage_percent = (float(cdd_main_entry_items.cover_length)/
-                                                                float(cdd_main_entry_items.length))
+                                                                float(protein_length))
                                             if coverage_percent > 1:
                                                 coverage_percent = 1
                                             identity = cdd_main_entry_items.identity

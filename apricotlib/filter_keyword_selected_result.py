@@ -116,16 +116,15 @@ class FilterPredictedDomains(object):
                                 'gnl|CDD|') or individual_rps_result.startswith('CDD:'):
                                 cdd_main = self._compile_cdd_main(
                                     individual_rps_result)
-                            if "Length =" in individual_rps_result or "Length=" in individual_rps_result:
-                                individual_rps_result = individual_rps_result.replace(" = ", "=")
+                            if "Length =" in individual_rps_result:
+                                individual_rps_result = individual_rps_result.replace(' ', '')
+                            if "Length=" in individual_rps_result:
                                 self._domain_length[cdd_main.split(
                                         '\t')[1]] = individual_rps_result.split('Length=')[1].strip()
                                 if individual_rps_result.split('Length=')[1].strip() == 'NA':
                                     print(individual_rps_result.split('Length=')[1].strip())
                         for each_stat_group in stat_data[1:]:
                             length = self._domain_length[cdd_main.split('\t')[1]]
-                            # if length == 'NA':
-                            #     length = 
                             check_list = set()
                             parameter_dict = self._compile_cdd_stat(
                                 each_stat_group)
