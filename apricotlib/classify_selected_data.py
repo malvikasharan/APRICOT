@@ -30,7 +30,7 @@ class ProteinClassifier(object):
         '''Parses Uniprot reference table'''
         with open(self._selected_protein_table, 'r') as in_fh:
             for entry in in_fh:
-                if entry.startswith('Entry') or entry.startswith('UniprotID'):
+                if entry.lower().startswith('entry') or entry.lower().startswith('uniprotid'):
                     self._file_header = entry
                 else:
                     entry = entry.replace(entry.split('\t')[0], entry.split('\t')[0].split('.1')[0])
@@ -38,7 +38,7 @@ class ProteinClassifier(object):
         return self._protein_data_set, self._file_header
     
     def parse_keyword_file(self):
-        '''Parse user derived keyoerds for clssififction'''
+        '''Parse user derived keyoerds for clssifification'''
         with open(self._keyword_file, 'r') as in_fh:
             for entry in in_fh:
                 self._keyword_set.add(entry.strip())

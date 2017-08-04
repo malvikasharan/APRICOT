@@ -1,3 +1,6 @@
+v1.3.0(2017-08-01)
+- Updated bin/apricot for running the fasta file or entire proteome. minute fixes for -kw for domain keyword.
+
 v1.2.9 (2017-05-08)
 - Updated bin/apricot for entire proteome analysis. run_example.sh is also updated for this.
 
