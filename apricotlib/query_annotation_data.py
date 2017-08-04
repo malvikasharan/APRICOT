@@ -64,7 +64,7 @@ class CollectUniprotInformation(object):
     def _split_fasta(self, fasta_file, fasta_path):
         '''Splits multi fasta file by header'''
         with open(fasta_file, 'r') as in_fh:
-            for entry in in_fh.read().split('>'):
+            for entry in in_fh.read().split('\n>'):
                 if not entry == '':
                     uid = entry.split('\n')[0].split('|')[1]
                     with open(fasta_path+'/'+uid+'.fasta', 'w') as out_fh:

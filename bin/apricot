@@ -174,15 +174,6 @@ def main():
         default="output/format_output_data",
         help="Output path for files with different file formats")
     
-    select_taxonomy_id_parser = subparsers.add_parser(
-        "taxid",
-        help="Download taxonomy ids from UniProt for the user provided query species")
-    select_taxonomy_id_parser.set_defaults(
-        func=select_uniprot_taxid)
-    select_taxonomy_id_parser.add_argument("db_path")
-    select_taxonomy_id_parser.add_argument("--species", "-s",
-        help="Species name (comma separated if more than one) for taxonomy id retreival")
-    
     create_folders_parser = subparsers.add_parser(  
         "create",
         help="Create analysis folders")
@@ -214,7 +205,6 @@ def main():
     query_parser.add_argument("--geneids", "-gi",
         help="Comma separated query genes")
     query_parser.add_argument("--proteome", "-P",
-        default=False, action="store_true",
         help="Analyze entire proteome")
     query_parser.add_argument("--fasta", "-fa",
         help="Provide the full path of the query fasta file (.fasta extension)")
@@ -531,8 +521,8 @@ def query_set(args):
         in_fh = open(files, 'w')
         in_fh.close()
     url_part1 = \
-    "http://www.uniprot.org/uniprot/?sort=score&desc=&compress=no&query=Taxonomy:"
-    url_part2 = "&force=no&preview=true&format="
+    "http://www.uniprot.org/uniprot/?sort=score&desc=no&compress=no&query=Taxonomy:"
+    url_part2 = "&fil=&force=no&preview=true&format="
     uniprot_url_query="http://www.uniprot.org/uniprot/?format=tab&query="
     uniprot_url_annotation=\
     "&columns=database(RefSeq),entry+name,reviewed,protein+names,genes,organism,length,go"
@@ -557,41 +547,13 @@ def query_set(args):
             query_file, xml_path, fasta_path, feature_file)
         collect_uniprot_information.get_uniprot_xml_and_fasta()
         collect_uniprot_information.create_feature_table()
-    if args.taxid:
+    if args.proteome:
+        proteome_id = args.proteome
         uniprot_url=''.join([uniprot_url_query,
-        "Taxonomy:", args.taxid, uniprot_url_annotation])
+        "Taxonomy:", proteome_id, uniprot_url_annotation])
         with open(reference_file, 'a') as proteome_table:
             proteome_table.write(header)
             format_uniprot_table(proteome_table, uniprot_url)
-        if args.geneids:
-            print("Query genes: %s" % args.geneids)
-            create_gene_query_file(args.geneids, query_file, reference_file)
-            collect_uniprot_information = CollectUniprotInformation(
-            query_file, xml_path, fasta_path, feature_file)
-            collect_uniprot_information.get_uniprot_xml_and_fasta()
-            collect_uniprot_information.create_feature_table()
-        elif args.proteome:
-            if args.taxid:
-                proteome_id = args.taxid
-            else:
-                proteome_id = args.proteome
-            print("\n----------------------------------------------------------------\n"
-                  "Starting the full proteome analysis for the taxonomy id: %s" %
-                  proteome_id)
-            print("\n----------------------------------------------------------------\n")
-            xml_url = url_part1 + proteome_id + url_part2 + 'xml'
-            fasta_url = url_part1 + proteome_id + url_part2 + 'fasta'
-            create_proteome_query_file('proteome', query_file, reference_file)
-            collect_uniprot_information = CollectUniprotInformation(
-                query_file, xml_path, fasta_path, feature_file)
-            collect_uniprot_information.download_xml(xml_path, xml_url, proteome_id)
-            collect_uniprot_information.download_fasta(fasta_path, fasta_url, proteome_id)
-            collect_uniprot_information.create_feature_table()
-    elif args.proteome:
-        if args.taxid:
-            proteome_id = args.taxid
-        else:
-            proteome_id = args.proteome
         print("\n----------------------------------------------------------------\n"
               "Starting the full proteome analysis for the taxonomy id: %s" %
               proteome_id)
@@ -604,6 +566,20 @@ def query_set(args):
         collect_uniprot_information.download_xml(xml_path, xml_url, proteome_id)
         collect_uniprot_information.download_fasta(fasta_path, fasta_url, proteome_id)
         collect_uniprot_information.create_feature_table()
+    if args.taxid:
+        proteome_id = args.taxid
+        uniprot_url=''.join([uniprot_url_query,
+        "Taxonomy:", proteome_id, uniprot_url_annotation])
+        with open(reference_file, 'a') as proteome_table:
+            proteome_table.write(header)
+            format_uniprot_table(proteome_table, uniprot_url)
+        if args.geneids:
+            print("Query genes: %s" % args.geneids)
+            create_gene_query_file(args.geneids, query_file, reference_file)
+            collect_uniprot_information = CollectUniprotInformation(
+            query_file, xml_path, fasta_path, feature_file)
+            collect_uniprot_information.get_uniprot_xml_and_fasta()
+            collect_uniprot_information.create_feature_table()
     if args.fasta:
         default_fasta = args.fasta
         if default_fasta.endswith('.fasta'):
