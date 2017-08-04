@@ -1,3 +1,6 @@
+v1.3.2(2017-08-04)
+- fasta file splitting fixed
+
 v1.3.1(2017-08-04)
 - annoscore subcommand updated 
 

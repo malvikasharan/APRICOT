@@ -29,7 +29,7 @@ __author__ = "Malvika Sharan <malvikasharan@uni-wuerzburg.de>"
 __copyright__ = "2017 by Malvika Sharan <malvikasharan@uni-wuerzburg.de>"
 __license__ = "ISC license"
 __email__ = "malvikasharan@uni-wuerzburg.de>"
-__version__ = "1.3.1"
+__version__ = "1.3.2"
 
 def main():
     parser = argparse.ArgumentParser()
@@ -198,7 +198,7 @@ def main():
     query_parser.add_argument("--analysis_path", "-ap",
         default='APRICOT_analysis',
         help='Main analysis path')
-    query_parser.add_argument("--uids", "-i",
+    query_parser.add_argument("--uids", "-i", "-uid", "-ui",
         help="Comma separated UniProt IDs")
     query_parser.add_argument("--taxid", "-tx",
         help="Select taxonomy id for query species")
@@ -525,7 +525,7 @@ def query_set(args):
     url_part2 = "&fil=&force=no&preview=true&format="
     uniprot_url_query="http://www.uniprot.org/uniprot/?format=tab&query="
     uniprot_url_annotation=\
-    "&columns=database(RefSeq),entry+name,reviewed,protein+names,genes,organism,length,go"
+    "&columns=id,entry+name,reviewed,protein+names,genes,organism,length,go"
     header = '\t'.join(['Entry', 'Entry name', 'Status',
                 'Protein names', 'Gene names',
                 'Organism', 'Length', 'Gene ontology (GO)'])+'\n'
@@ -606,8 +606,7 @@ def keyword_input(args):
     kw_path = os.path.join(args.db_root, 'domain_data')
     print("\n----------------------------------------------------------------\n"
         "Keyword file path: %s" % kw_path)
-    if not args.skip_select:
-        if args.kw_domain:
+    if args.kw_domain:
             print("Keywords for domain selection: %s" % args.kw_domain)
             keyword_domains_files(kw_path, args.kw_domain)
             if args.classify:
@@ -619,7 +618,11 @@ def keyword_input(args):
                       % args.kw_domain)
                 keyword_class_files(kw_path, args.kw_domain)
             print("----------------------------------------------------------------\n")
-        else:
+    else:
+        try:
+            if args.skip_select:
+                print("No Keywords for the domain selection can be given using flag -kw")
+        except AttributeError:
             print("Please provide the keywords for domain selection using the flag -kw")
             sys.exit()
 

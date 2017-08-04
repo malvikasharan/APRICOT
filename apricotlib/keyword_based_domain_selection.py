@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # Description = Select domain reference set based on user provided keywords
 
+import csv
 import re
-
 
 class KeywordBasedDomainSelection(object):
     def __init__(self, keywords_file,
@@ -123,28 +123,28 @@ class KeywordBasedDomainSelection(object):
     
     def read_pfam_domain_file(self):
         ''''''
-        with open(self._pfam_domain_file, 'r') as in_fh:
-            try:
-                for entry in in_fh:
-                    pfam_id = entry.split('\t')[0]
-                    family_id = entry.split('\t')[1]
-                    short_name = entry.split('\t')[3]
-                    full_name = entry.split('\t')[8]
-                    for check_keyword in self._keyword_list:
-                        new_keyword = check_keyword.replace(
-                            '-', ' ').replace('_', ' ')
-                        if ' like' in new_keyword:
-                            new_keyword = new_keyword.replace(
-                                ' like', ' ').strip().replace('  ', ' ')
-                        for search_annotation in list(
-                            [family_id, short_name, full_name]):
-                            if self._string_search(new_keyword, 
-                            search_annotation):
-                                self._pfam_domain_dict.setdefault(
-                                    check_keyword, set()).add(pfam_id)
-            except UnicodeDecodeError:
-                pass
-        return self._pfam_domain_dict
+        in_fh = csv.reader(open(self._pfam_domain_file, encoding='UTF-8'), delimiter='\t')
+        try:
+            for entry in in_fh:
+                pfam_id = entry[0]
+                family_id = entry[1]
+                short_name = entry[3]
+                full_name = entry[8]
+                for check_keyword in self._keyword_list:
+                    new_keyword = check_keyword.replace(
+                        '-', ' ').replace('_', ' ')
+                    if ' like' in new_keyword:
+                        new_keyword = new_keyword.replace(
+                            ' like', ' ').strip().replace('  ', ' ')
+                    for search_annotation in list(
+                        [pfam_id, family_id, short_name, full_name]):
+                        if self._string_search(new_keyword, 
+                        search_annotation):
+                            self._pfam_domain_dict.setdefault(
+                                check_keyword, set()).add(pfam_id)
+        except UnicodeDecodeError:
+            pass
+        # return self._pfam_domain_dict
    
     def read_interpro_mapped_cdd_file(self):
         '''Parses cdd interpro mapped file for
