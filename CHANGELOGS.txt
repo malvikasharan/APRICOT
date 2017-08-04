@@ -1,3 +1,6 @@
+v1.3.1(2017-08-04)
+- annoscore subcommand updated 
+
 v1.3.0(2017-08-01)
 - Updated bin/apricot for running the fasta file or entire proteome. minute fixes for -kw for domain keyword.
 
