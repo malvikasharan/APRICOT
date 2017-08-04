@@ -17,7 +17,14 @@ def create_main_folders(analysis_path):
     if not os.path.exists(analysis_path):
         os.mkdir(analysis_path)
     if not os.path.exists('source_files'):
-        os.mkdir('source_files')
+        try:
+            os.mkdir('source_files')
+        except:
+            print('''Can't create source_files directory,
+                  please make sure that the file exists. Hint:
+                  $ wget http://data.imib-zinf.net/APRICOT-supporting_dataset.zip
+                  $ unzip APRICOT-supporting_dataset.zip
+                  ''')
     if not os.path.exists(analysis_path+'/input'):
         os.mkdir(analysis_path+'/input')
     if not os.path.exists(analysis_path+'/output'):

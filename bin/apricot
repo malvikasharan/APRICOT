@@ -51,10 +51,10 @@ def main():
     minimum_default_pipeline.add_argument("--geneids", "-gi",
         help="Comma separated query genes")
     minimum_default_pipeline.add_argument("--proteome", "-P",
-        default=False, action="store_true",
         help="Analyze entire proteome")
+    minimum_default_pipeline.add_argument("--fasta", "-fa",
+        help="Provide the full path of the query fasta file (.fasta extension)")
     minimum_default_pipeline.add_argument("--kw_domain", "-kw",
-        default=False, action="store_true",
         help="Comma separated keywords for domain selection")
     minimum_default_pipeline.add_argument("--cdd", '-C',
         default=False, action="store_true",
@@ -95,9 +95,6 @@ def main():
         default=True, action="store_true")
     minimum_default_pipeline.add_argument("--xlsx", "-XL",
         default=False, action="store_true")
-    minimum_default_pipeline.add_argument("--fasta", "-fa",
-        default=False, action="store_true",
-        help="Analyze fasta sequences")
     minimum_default_pipeline.add_argument("--query_path", "-qp",
         default='input/query_proteins/query_to_uids.txt',
         help="Get proteome table from UniProt")
@@ -109,7 +106,7 @@ def main():
         help="Get proteome table from UniProt")
     minimum_default_pipeline.add_argument("--fasta_path", "-fp",
         default='input/mapped_query_annotation/fasta_path_mapped_query',
-        help="Provide absolute path of fasta files for query proteins")
+        help="Absolute path of the fasta files for each protein (separate files)")
     minimum_default_pipeline.add_argument("--feature_table", "-ft",
         default='input/mapped_query_annotation/mapped_protein_xml_info_tables/query_feature_table.csv',
         help="Get proteome table from UniProt")
@@ -220,8 +217,7 @@ def main():
         default=False, action="store_true",
         help="Analyze entire proteome")
     query_parser.add_argument("--fasta", "-fa",
-        default=False, action="store_true",
-        help="Analyze fasta sequences")
+        help="Provide the full path of the query fasta file (.fasta extension)")
     query_parser.add_argument("--query_path", "-qp",
         default='input/query_proteins/query_to_uids.txt',
         help="Get proteome table from UniProt")
@@ -539,7 +535,7 @@ def query_set(args):
     url_part2 = "&force=no&preview=true&format="
     uniprot_url_query="http://www.uniprot.org/uniprot/?format=tab&query="
     uniprot_url_annotation=\
-    "&columns=id,entry+name,reviewed,protein+names,genes,organism,length,go"
+    "&columns=database(RefSeq),entry+name,reviewed,protein+names,genes,organism,length,go"
     header = '\t'.join(['Entry', 'Entry name', 'Status',
                 'Protein names', 'Gene names',
                 'Organism', 'Length', 'Gene ontology (GO)'])+'\n'
@@ -575,41 +571,81 @@ def query_set(args):
             collect_uniprot_information.get_uniprot_xml_and_fasta()
             collect_uniprot_information.create_feature_table()
         elif args.proteome:
+            if args.taxid:
+                proteome_id = args.taxid
+            else:
+                proteome_id = args.proteome
             print("\n----------------------------------------------------------------\n"
                   "Starting the full proteome analysis for the taxonomy id: %s" %
-                  args.taxid)
+                  proteome_id)
             print("\n----------------------------------------------------------------\n")
-            xml_url = url_part1 + args.taxid + url_part2 + 'xml'
-            fasta_url = url_part1 + args.taxid + url_part2 + 'fasta'
+            xml_url = url_part1 + proteome_id + url_part2 + 'xml'
+            fasta_url = url_part1 + proteome_id + url_part2 + 'fasta'
             create_proteome_query_file('proteome', query_file, reference_file)
             collect_uniprot_information = CollectUniprotInformation(
                 query_file, xml_path, fasta_path, feature_file)
-            collect_uniprot_information.download_xml(xml_path, xml_url, args.taxid)
-            collect_uniprot_information.download_fasta(fasta_path, fasta_url, args.taxid)
+            collect_uniprot_information.download_xml(xml_path, xml_url, proteome_id)
+            collect_uniprot_information.download_fasta(fasta_path, fasta_url, proteome_id)
             collect_uniprot_information.create_feature_table()
+    elif args.proteome:
+        if args.taxid:
+            proteome_id = args.taxid
+        else:
+            proteome_id = args.proteome
+        print("\n----------------------------------------------------------------\n"
+              "Starting the full proteome analysis for the taxonomy id: %s" %
+              proteome_id)
+        print("\n----------------------------------------------------------------\n")
+        xml_url = url_part1 + proteome_id + url_part2 + 'xml'
+        fasta_url = url_part1 + proteome_id + url_part2 + 'fasta'
+        create_proteome_query_file('proteome', query_file, reference_file)
+        collect_uniprot_information = CollectUniprotInformation(
+            query_file, xml_path, fasta_path, feature_file)
+        collect_uniprot_information.download_xml(xml_path, xml_url, proteome_id)
+        collect_uniprot_information.download_fasta(fasta_path, fasta_url, proteome_id)
+        collect_uniprot_information.create_feature_table()
     if args.fasta:
-        with open(args.fasta, 'r') as in_fh:
-            for entry in in_fh.read().split('>'):
-                if not entry == '':
-                    uid = entry.split('\n')[0].split('|')[1]
-                    with open(args.fasta_path + '/' + uid + '.fasta', 'w') as out_fh:
-                        out_fh.write(">%s" % entry)
+        default_fasta = args.fasta
+        if default_fasta.endswith('.fasta'):
+            with open(default_fasta, 'r') as in_fh:
+                for entry in in_fh.read().split('>'):
+                    if not entry == '':
+                        try:
+                            if '|' in entry:
+                                uid = entry.split('\n')[0].split('|')[1]
+                            else:
+                                uid = entry.split('\n')[0].split(' ')[0]
+                            with open(os.path.join(args.analysis_path, args.fasta_path, uid + '.fasta'), 'w') as out_fh:
+                                out_fh.write(">%s" % entry)
+                        except:
+                            print('''Please provide the fasta sequence in the format as available in UniProt.
+                                  Alternatively, please edit the APRICOT/bin/apricot file,
+                                  line 597 to extract protein ID from the input fasta file''')
+        else:
+            print("Please provide query fasta sequences in the file %s/%s" %
+                  (args.analysis_path, default_fasta))
+            sys.exit()
 
 def keyword_input(args):
     kw_path = os.path.join(args.db_root, 'domain_data')
     print("\n----------------------------------------------------------------\n"
-          "Keyword file path: %s" % kw_path)
-    print("Keywords for domain selection: %s" % args.kw_domain)
-    keyword_domains_files(kw_path, args.kw_domain)
-    if args.classify:
-        print("Keywords for classification of domain prediction: %s"
-              % args.classify)
-        keyword_class_files(kw_path, args.classify)
-    else:
-        print("Keywords for classification of domain prediction: %s"
-              % args.kw_domain)
-        keyword_class_files(kw_path, args.kw_domain)
-    print("----------------------------------------------------------------\n")
+        "Keyword file path: %s" % kw_path)
+    if not args.skip_select:
+        if args.kw_domain:
+            print("Keywords for domain selection: %s" % args.kw_domain)
+            keyword_domains_files(kw_path, args.kw_domain)
+            if args.classify:
+                print("Keywords for classification of domain prediction: %s"
+                      % args.classify)
+                keyword_class_files(kw_path, args.classify)
+            else:
+                print("Keywords for classification of domain prediction: %s"
+                      % args.kw_domain)
+                keyword_class_files(kw_path, args.kw_domain)
+            print("----------------------------------------------------------------\n")
+        else:
+            print("Please provide the keywords for domain selection using the flag -kw")
+            sys.exit()
 
 def select_domain_data(args):
     if not args.skip_select:
@@ -699,14 +735,15 @@ def cdd_based_pred(fasta_path, outpath, cdd_db):
         else:
             print("CDD based domain prediction for file %s..." % filename)
             cdd_process = subprocess.Popen(
-                ["rpsblast -query %s/%s -db %s/Cdd -out %s/%s.txt" % (
+                ["rpsblast -i %s/%s -d %s/Cdd -o %s/%s.txt -p" % (
                 fasta_path, fasta, cdd_db, outpath, filename)], shell=True).wait()
             
 def force_cdd_based_pred(fasta_path, outpath, cdd_db):
     print("\n----------------------------------------------------------------\n"
           'Please update the BLAST package if you see an "invalid argument: -query" error,'
           '''In case you want to work with the old rpsblast, please update the main exe file in your local folder.
-          The code can be updated in the function 'force_cdd_based_pred' as shown below:
+          The code "(rpsblast -query %s/%s -db %s/Cdd -out %s/%s.txt)" should be chenged in the
+          function 'force_cdd_based_pred' as shown below:
           cdd_process = subprocess.Popen(
                 ["rpsblast -i %s/%s -d %s/Cdd -o %s/%s.txt -p" ...'''
           "\n----------------------------------------------------------------\n")
@@ -774,45 +811,64 @@ def filter_domain(args):
         parameter_list.append("bit:%s" % args.bit)
     else:
         parameter_list.append("bit:%s" % 'NA')
-    if args.cdd:
-        analysis_result_path = '%s/%s/cdd_analysis' % (
-            args.analysis_path, args.pred_path)
-        if not os.path.exists(analysis_result_path):
-            os.mkdir(analysis_result_path)
-        filter_predicted_domains = FilterPredictedDomains('cdd',
-        analysis_result_path, domain_description_file, go_path,
-        filtered_result_path, all_prediction_output, parameter_list)
-        filter_predicted_domains.streamline_filter_predicted_domains()
-        selected_protein_table_without_uniprot = SelectedProteinTableWithoutUniprot(
-        filtered_result_path, outpath2)
-        selected_protein_table_without_uniprot.streamline_selected_protein_table_without_uniprot()
-    elif args.ipr:
-        analysis_result_path = '%s/%s/ipr_analysis' % (
-            args.analysis_path, args.pred_path)
-        if not os.path.exists(analysis_result_path):
-            os.mkdir(analysis_result_path)
-        filter_predicted_domains = FilterPredictedDomains('ipr',
-        analysis_result_path, domain_description_file, go_path,
-        filtered_result_path, all_prediction_output, parameter_list)
-        filter_predicted_domains.streamline_filter_predicted_domains()
-        selected_protein_table_without_uniprot = SelectedProteinTableWithoutUniprot(
-        filtered_result_path, outpath2)
-        selected_protein_table_without_uniprot.streamline_selected_protein_table_without_uniprot()
-    else:
-        print(
-            "\n----------------------------------------------------------------\n"
-            "Filtering of the predicted data using both CDD and InterPro databases\n"
-            "----------------------------------------------------------------\n")
-        for method in ('cdd', 'ipr'):
-            analysis_result_path = '%s/%s/%s_analysis' % (
-            args.analysis_path, args.pred_path, method)
+    try:
+        if args.cdd:
+            analysis_result_path = '%s/%s/cdd_analysis' % (
+                args.analysis_path, args.pred_path)
+            if not os.path.exists(analysis_result_path):
+                os.mkdir(analysis_result_path)
+            method = 'cdd'
             filter_predicted_domains = FilterPredictedDomains(method,
             analysis_result_path, domain_description_file, go_path,
             filtered_result_path, all_prediction_output, parameter_list)
             filter_predicted_domains.streamline_filter_predicted_domains()
-        selected_protein_table = SelectedProteinTable(
-        filtered_result_path, uniprot_table, xml_info, outpath2)
-        selected_protein_table.streamline_selected_protein_table()
+            selected_protein_table = SelectedProteinTable(
+            filtered_result_path, uniprot_table, xml_info, outpath2)
+            selected_protein_table.streamline_selected_protein_table()
+        elif args.ipr:
+            analysis_result_path = '%s/%s/ipr_analysis' % (
+                args.analysis_path, args.pred_path)
+            if not os.path.exists(analysis_result_path):
+                os.mkdir(analysis_result_path)
+            method = 'ipr'
+            filter_predicted_domains = FilterPredictedDomains(method,
+            analysis_result_path, domain_description_file, go_path,
+            filtered_result_path, all_prediction_output, parameter_list)
+            filter_predicted_domains.streamline_filter_predicted_domains()
+            selected_protein_table = SelectedProteinTable(
+            filtered_result_path, uniprot_table, xml_info, outpath2)
+            selected_protein_table.streamline_selected_protein_table()
+        else:
+            print(
+                "\n----------------------------------------------------------------\n"
+                "Filtering of the predicted data using both CDD and InterPro databases\n"
+                "----------------------------------------------------------------\n")
+            for method in ('cdd', 'ipr'):
+                analysis_result_path = '%s/%s/%s_analysis' % (
+                args.analysis_path, args.pred_path, method)
+                filter_predicted_domains = FilterPredictedDomains(method,
+                analysis_result_path, domain_description_file, go_path,
+                filtered_result_path, all_prediction_output, parameter_list)
+                filter_predicted_domains.streamline_filter_predicted_domains()
+            selected_protein_table = SelectedProteinTable(
+            filtered_result_path, uniprot_table, xml_info, outpath2)
+            selected_protein_table.streamline_selected_protein_table()
+    except IndexError:
+        if args.cdd:
+            method = 'cdd'
+        elif args.ipr:
+            method = 'ipr'
+        analysis_result_path = '%s/%s/%s_analysis' % (
+            args.analysis_path, args.pred_path, method)
+        if not os.path.exists(analysis_result_path):
+            os.mkdir(analysis_result_path)
+        filter_predicted_domains = FilterPredictedDomains(method,
+        analysis_result_path, domain_description_file, go_path,
+        filtered_result_path, all_prediction_output, parameter_list)
+        filter_predicted_domains.streamline_filter_predicted_domains()
+        selected_protein_table_without_uniprot = SelectedProteinTableWithoutUniprot(
+        filtered_result_path, outpath2)
+        selected_protein_table_without_uniprot.streamline_selected_protein_table_without_uniprot()
 
 def classify_output(args):
     kw_path = args.db_root + '/domain_data'

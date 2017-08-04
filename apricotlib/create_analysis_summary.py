@@ -88,12 +88,12 @@ class CreateAnalysisSummary(object):
                                     data_detail.parameter, data_detail.domain_tag)
             if not 'cdd_unfiltered_all_prediction.csv' in os.listdir(
                     self._unfilter_path):
-                print("The folder %s does not contain cdd_unfiltered_all_prediction.csv." %
-                      self._inpath+'/output/1_all_domain_predictions')
+                print('''The folder /output/1_all_domain_predictions in your analysis path
+                      does not contain cdd_unfiltered_all_prediction.csv.''')
             if not 'ipr_unfiltered_all_prediction.csv' in os.listdir(
                     self._unfilter_path):
-                print("The folder %s does not contain ipr_unfiltered_all_prediction.csv." %
-                      self._inpath+'/output/1_all_domain_predictions')
+                print('''The folder /output/1_all_domain_predictions in your analysis path
+                      does not contain ipr_unfiltered_all_prediction.csv.''')
         return self._prot_domain_dict, self._info_tag_dict
     
     def record_selected_stat(self):
@@ -127,23 +127,23 @@ class CreateAnalysisSummary(object):
                         '\n5. All the domains predicted the query proteins (unfiltered data): <a href=../1_compiled_domain_information/unfiltered_data>path/link</a>\n'
                         )
             out_fh.write("\n--------------------------------------------------------"
-                "--------------------------------------------------------\n\n")
-            out_fh.write("ID mapping details:\n%s\n\n" % '\n'.join(
-                self._qury_info_list))
-            out_fh.write(
-                "Keywords used for retrieving the domains of interest: %s\n"
-                % len(self._domain_keyword_info.keys()))
-            for kw in self._domain_keyword_info.keys():
-                out_fh.write("%s: %s\n" % (
-                    kw, len(self._domain_keyword_info[kw])))
+                 "--------------------------------------------------------\n\n")
+            # out_fh.write("ID mapping details:\n%s\n\n" % '\n'.join(
+            #     self._qury_info_list))
+            # out_fh.write(
+            #     "Keywords used for retrieving the domains of interest: %s\n"
+            #     % len(self._domain_keyword_info.keys()))
+            # for kw in self._domain_keyword_info.keys():
+            #     out_fh.write("%s: %s\n" % (
+            #         kw, len(self._domain_keyword_info[kw])))
             for database in self._prot_domain_dict.keys():
                 out_fh.write("\n--------------------------------------------------------"
                 "--------------------------------------------------------\n\n")
                 out_fh.write("Domain prediction summary for %s:\n" % database)
                 total_proteins = len(
-                    list(set(self._prot_domain_dict[database].keys())))
-                out_fh.write(
-                    "Total proteins with domains: %s\n" % total_proteins)
+                     list(set(self._prot_domain_dict[database].keys())))
+                # out_fh.write(
+                #     "Total proteins with domains: %s\n" % total_proteins)
                 protein_pred_dict = {}
                 parameter_selected_data = {}
                 domain_selected_data = {}
@@ -170,31 +170,31 @@ class CreateAnalysisSummary(object):
                                     domain_selected_data.setdefault(
                                         proteins, set()).add(domain_id)
                     proteins_location[proteins] = total_locations
-                out_fh.write(
-                    "Query\tTotal predictions (locations identified)\tUnique "
-                    "domains (ids)\tUnique domains that pass the parameter "
-                    "filter\n")
+                # out_fh.write(
+                #     "Query\tTotal predictions (locations identified)\tUnique "
+                #     "domains (ids)\tUnique domains that pass the parameter "
+                #     "filter\n")
                 preds = 0
                 uniq = 0
                 param_uniq = 0
                 for uid in parameter_selected_data.keys():
-                    out_fh.write("%s\t%s\t%s\t%s\n" % (
-                        "<a href=http://www.uniprot.org/uniprot/%s>%s</a>" % (
-                        uid, uid), proteins_location[uid],
-                        protein_pred_dict[uid],
-                        len(parameter_selected_data[uid])))
+                    # out_fh.write("%s\t%s\t%s\t%s\n" % (
+                    #     "<a href=http://www.uniprot.org/uniprot/%s>%s</a>" % (
+                    #     uid, uid), proteins_location[uid],
+                    #     protein_pred_dict[uid],
+                    #     len(parameter_selected_data[uid])))
                     preds += proteins_location[uid]
                     uniq += protein_pred_dict[uid]
                     param_uniq += len(parameter_selected_data[uid])
-                out_fh.write(
-                    "Total domain predictions (locations in the queries): %s\n"
-                    % str(preds))
-                out_fh.write(
-                    "Unique domains predicted in the queries: %s\n" % str(
-                        uniq))
-                out_fh.write(
-                    "Unique domain that pass the parameter filter: %s\n" %
-                    str(param_uniq))
+                # out_fh.write(
+                #     "Total domain predictions (locations in the queries): %s\n"
+                #     % str(preds))
+                # out_fh.write(
+                #     "Unique domains predicted in the queries: %s\n" % str(
+                #         uniq))
+                # out_fh.write(
+                #     "Unique domain that pass the parameter filter: %s\n" %
+                #     str(param_uniq))
                 selected_id_with_link = []
                 for selected_id in domain_selected_data.keys():
                     selected_id_with_link.append(
