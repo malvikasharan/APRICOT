@@ -9,6 +9,20 @@
 
 [APRICOT](http://malvikasharan.github.io/APRICOT/) is a computational pipeline for the identification of specific functional classes of interest in large protein sets. The pipeline uses efficient sequence-based algorithms and predictive models like signature motifs of protein families for the characterization of user-provided query proteins with specific functional features. The dynamic framework of APRICOT allows the identification of unexplored functional classes of interest in the large protein sets or the entire proteome.
 
+#### Publications
+
+**Primary (peer reviewed) article**
+
+> Malvika Sharan, Konrad U. Förstner, Ana Eulalio, Jörg Vogel, APRICOT: an integrated computational pipeline for the sequence-based identification and characterization of RNA-binding proteins, Nucleic Acids Research, Volume 45, Issue 11, 20 June 2017, [https://doi.org/10.1093/nar/gkx137](https://doi.org/10.1093/nar/gkx137)
+
+**Secondary articles where the tool was used in different datasets (adpated parameters)**
+
+> Yuxiang Jiang et. al, An expanded evaluation of protein function prediction methods shows an improvement in accuracy, Genome Biology, 17:184, 7 September 2016 [https://doi.org/10.1186/s13059-016-1037-6](https://doi.org/10.1186/s13059-016-1037-6)
+
+
+> Caroline Tawk, Malvika Sharan, Ana Eulalio & Jörg Vogel , A systematic analysis of the RNA-targeting potential of secreted bacterial effector proteins, Scientific Reports, volume 7, Article number: 9328, 24 August 2017, [https://www.nature.com/articles/s41598-017-09527-0](https://www.nature.com/articles/s41598-017-09527-0)
+
+
 #### Authors and Contributors
 
 The tool is designed and developed by Malvika Sharan in the lab of Prof. Dr. Jörg Vogel and Dr. Ana Eulalio in the Institute for Molecular Infection Biology at the University of Würzburg. Dr. Konrad Förstner contributed to the project by providing important technical supervision and discussions. The authors are grateful to Prof. Thomas dandekar, Dr. Charlotte Michaux, Caroline Taouk and Dr. Lars Barquist for critical discussions and feedback.
@@ -19,7 +33,7 @@ The source codes of APRICOT are available via git https://github.com/malvikashar
 
 APRICOT is open source software and is available under the ISC license.
 
-Copyright (c) 2011-2017, Malvika Sharan, <malvika.sharan@uni-wuerzburg.de>
+Copyright (c) 2019, Malvika Sharan, <malvikasharan@gmail.com>
 
 ### Working with APRICOT software
 
