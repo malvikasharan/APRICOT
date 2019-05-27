@@ -15,7 +15,7 @@
 
 > Malvika Sharan, Konrad U. Förstner, Ana Eulalio, Jörg Vogel, APRICOT: an integrated computational pipeline for the sequence-based identification and characterization of RNA-binding proteins, Nucleic Acids Research, Volume 45, Issue 11, 20 June 2017, [https://doi.org/10.1093/nar/gkx137](https://doi.org/10.1093/nar/gkx137)
 
-**Secondary articles where the tool was used in different datasets (adpated parameters)**
+**Secondary articles where the tool was used in different datasets (adapted parameters)**
 
 > Yuxiang Jiang et. al, An expanded evaluation of protein function prediction methods shows an improvement in accuracy, Genome Biology, 17:184, 7 September 2016 [https://doi.org/10.1186/s13059-016-1037-6](https://doi.org/10.1186/s13059-016-1037-6)
 
