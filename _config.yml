@@ -1,0 +1,8 @@
+title: APRICOT
+description: A computational pipeline to identify specific functional classes of proteins.
+google_analytics: UA-68940079-1
+show_downloads: true
+theme: jekyll-theme-cayman
+
+gems:
+  - jekyll-mentions
